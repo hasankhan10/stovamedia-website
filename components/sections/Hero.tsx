@@ -29,14 +29,17 @@ export default function Hero() {
 
     const ctx = gsap.context(() => {
       // Fade up animations for sub and CTA
-      gsap.from(".hero-fade-up", {
-        y: 30,
-        opacity: 0,
-        duration: 1.2,
-        stagger: 0.2,
-        ease: "power3.out",
-        delay: 1.2,
-      });
+      gsap.fromTo(".hero-fade-up", 
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1.2,
+          stagger: 0.15,
+          ease: "power3.out",
+          delay: 0.6,
+        }
+      );
 
       // Stats counter animation
       if (statsRef.current) {
@@ -101,13 +104,13 @@ export default function Hero() {
             className="text-[clamp(60px,8vw,112px)] leading-[0.95] tracking-tight"
             delay={0.5}
           >
-            We build software serious businesses
+            We build software For
           </SplitHeadline>
           
           {/* Custom injection for the italicized and stroked words via SplitHeadline's word-inner pattern */}
           <div className="mt-4 flex flex-wrap gap-x-[0.3em] font-display text-[clamp(60px,8vw,112px)] leading-[0.95] tracking-tight">
-             <span className="text-gold italic">serious</span>
-             <span className="transparent-text transition-all duration-700 hover:text-outline-gold">businesses</span>
+             <span className="text-gold italic">Serious</span>
+             <span className="transparent-text transition-all duration-700 hover:text-outline-gold">Businesses</span>
           </div>
         </div>
 
@@ -164,7 +167,12 @@ export default function Hero() {
         }
         .transparent-text {
           color: transparent;
-          -webkit-text-stroke: 1px rgba(240, 237, 230, 0.35);
+          -webkit-text-stroke: 1px color-mix(in srgb, var(--cream), transparent 65%);
+          cursor: default;
+        }
+        .transparent-text:hover {
+          color: var(--gold);
+          -webkit-text-stroke: 1px transparent;
         }
         .hero-fade-up {
           animation: fadeUp 1.2s forwards;

@@ -137,8 +137,8 @@ export default function ContactPage() {
               <ContactInfo 
                  icon={MessageCircle} 
                  label="Direct Chat" 
-                 value="WhatsApp: +91 91234 56789" // Placeholder number
-                 href="https://wa.me/919123456789"
+                 value="WhatsApp: +91 9432053261" // Placeholder number
+                 href="https://wa.me/919432053261"
                  active
               />
             </div>

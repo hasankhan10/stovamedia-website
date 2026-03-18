@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useLayoutEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { cn } from "@/lib/utils";
@@ -22,31 +22,37 @@ export const SplitHeadline = ({
 }: SplitHeadlineProps) => {
   const containerRef = useRef<HTMLHeadingElement>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!containerRef.current) return;
 
-    const words = containerRef.current.querySelectorAll(".word-inner");
-    
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top 85%",
-        once: true,
-      },
-    });
+    const ctx = gsap.context(() => {
+      const words = containerRef.current?.querySelectorAll(".word-inner");
+      if (!words) return;
 
-    tl.from(words, {
-      yPercent: 110,
-      opacity: 0,
-      rotateX: -20,
-      duration: 1.2,
-      stagger: 0.1,
-      ease: "power4.out",
-      delay,
-    });
+      gsap.from(words, {
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 90%",
+          toggleActions: "play none none none",
+        },
+        yPercent: 110,
+        opacity: 0,
+        rotateX: -20,
+        duration: 1.2,
+        stagger: 0.1,
+        ease: "power4.out",
+        delay,
+      });
+    }, containerRef);
+
+    // Refresh ScrollTrigger after a short delay to account for Next.js layout shifts
+    const timer = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 100);
 
     return () => {
-      tl.kill();
+      ctx.revert();
+      clearTimeout(timer);
     };
   }, [delay]);
 
