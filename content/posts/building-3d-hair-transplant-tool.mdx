@@ -1,0 +1,14 @@
+---
+title: "Building a 3D Hair Sim with React Three Fiber."
+date: "2024-03-10"
+tag: "Engineering"
+excerpt: "How we mapped face textures onto 3D models for real-time surgical consultations."
+---
+
+Building for hair transplant clinics required more than just static photos. Surgeons needed a way to design hairlines in 3D.
+
+### Texture Mapping
+Using Three.js r160, we implemented a custom shader to map 2D facial photos onto a generic 3D head model. This allowed patients to see their potential results in a realistic, 360-degree environment.
+
+### Performance
+By offloading vertex calculations to the GPU through custom GLSL, we kept the frame rate locked at 60fps, even on mid-range smartphones.
