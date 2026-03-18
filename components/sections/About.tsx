@@ -46,7 +46,7 @@ export default function About() {
   }, []);
 
   return (
-    <section id="about" ref={containerRef} className="py-24 md:py-36 px-6 md:px-10 lg:px-20 bg-ink-2 overflow-hidden">
+    <section id="about" ref={containerRef} className="py-24 md:py-36 px-6 md:px-10 lg:px-20 bg-transparent overflow-hidden">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-20 lg:gap-32 items-center">
         
         {/* Left: Branding & Message */}

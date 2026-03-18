@@ -44,7 +44,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="py-24 md:py-36 px-6 md:px-10 lg:px-20 bg-ink">
+    <section id="services" className="py-24 md:py-36 px-6 md:px-10 lg:px-20 bg-transparent">
       {/* HEADER */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-end mb-24">
         <div>
@@ -67,7 +67,7 @@ export default function Services() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[1px] bg-border border border-border">
         {services.map((service, i) => (
           <RevealOnScroll key={i} delay={i * 0.1}>
-            <div className="group relative bg-ink p-10 md:p-12 h-full flex flex-col transition-all duration-700 hover:bg-card">
+            <div className="group relative bg-transparent p-10 md:p-12 h-full flex flex-col transition-all duration-700 hover:bg-card">
               {/* Gold Glow hover effect */}
               <div className="absolute inset-x-0 top-0 h-[100px] bg-gradient-to-b from-gold/10 to-transparent opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
               

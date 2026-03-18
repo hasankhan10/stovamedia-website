@@ -38,7 +38,7 @@ export default function Process() {
   }, []);
 
   return (
-    <section id="process" ref={containerRef} className="py-24 md:py-36 px-6 md:px-10 lg:px-20 bg-ink">
+    <section id="process" ref={containerRef} className="py-24 md:py-36 px-6 md:px-10 lg:px-20 bg-transparent">
       <div className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr] gap-12 lg:gap-24 relative">
         
         {/* Left: Sticky Header */}

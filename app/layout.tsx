@@ -48,6 +48,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  icons: {
+    icon: "/stova-media-logo.jpg",
+  },
 };
 
 export default function RootLayout({

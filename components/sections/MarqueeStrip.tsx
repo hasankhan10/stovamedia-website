@@ -15,7 +15,7 @@ const marqueeItems = [
 
 export default function MarqueeStrip() {
   return (
-    <div className="border-y border-border bg-ink-2 py-6 overflow-hidden">
+    <div className="border-y border-border bg-transparent py-6 overflow-hidden">
       {/* Row 1: Left to Right */}
       <MarqueeTrack speed={30}>
         {marqueeItems.map((item, i) => (

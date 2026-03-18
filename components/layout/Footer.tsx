@@ -1,15 +1,17 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, ExternalLink } from "lucide-react";
 
 const navLinks = [
   { name: "Home", href: "/" },
-  { name: "Work", href: "#work" },
-  { name: "Services", href: "#services" },
-  { name: "About", href: "#about" },
-  { name: "Contact", href: "#contact" },
+  { name: "Work", href: "/work" },
+  { name: "Services", href: "/services" },
+  { name: "About", href: "/about" },
+  { name: "Blog", href: "/blog" },
+  { name: "Contact", href: "/contact" },
 ];
 
 const socialLinks = [
@@ -22,13 +24,19 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="footer bg-ink border-t border-border pt-16 px-10 pb-10">
+    <footer className="footer bg-transparent border-t border-border pt-16 px-10 pb-10">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 mb-20">
         
         {/* Col 1: Logo & Status */}
         <div className="flex flex-col gap-6">
-          <Link href="/" className="font-display text-2xl">
-            Stova<span className="text-gold">.</span>Media
+          <Link href="/" className="group block w-fit">
+            <Image 
+              src="/stova-media-logo.jpg" 
+              alt="Stova Media" 
+              width={140} 
+              height={35} 
+              className="h-8 w-auto object-contain transition-transform duration-500 group-hover:scale-105 opacity-80 group-hover:opacity-100" 
+            />
           </Link>
           <p className="text-muted text-sm max-w-xs leading-relaxed">
             Building premium software solutions that drive real-world business results. 

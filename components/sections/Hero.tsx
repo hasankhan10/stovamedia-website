@@ -80,7 +80,7 @@ export default function Hero() {
           }}
         />
         {/* Radial mask for grid */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_70%_at_50%_50%,transparent_0%,var(--ink)_80%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_70%_at_50%_50%,transparent_0,var(--ink)_100%)] opacity-40" />
         
         {/* Floating Orbs */}
         <div className="hero-orb absolute top-[5%] -right-[10%] w-[700px] h-[700px] bg-gold/10 rounded-full blur-[120px] animate-float opacity-60" />

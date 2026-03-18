@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
@@ -32,17 +33,20 @@ export default function Navbar() {
       className={cn(
         "fixed top-0 left-0 w-full z-[100] transition-all duration-500 py-6 px-10 flex items-center justify-between",
         scrolled
-          ? "bg-ink/80 backdrop-blur-2xl border-b border-border py-4"
+          ? "bg-ink/65 backdrop-blur-2xl border-b border-border py-4"
           : "bg-transparent"
       )}
     >
       {/* Left: Logo */}
       <Link href="/" className="group flex items-center gap-1">
-        <span className="font-display text-xl transition-colors group-hover:text-gold">
-          Stova
-          <span className="text-gold">.</span>
-          <span className="font-light text-cream/70 group-hover:text-cream">Media</span>
-        </span>
+        <Image 
+          src="/stova-media-logo.jpg" 
+          alt="Stova Media" 
+          width={160} 
+          height={40} 
+          className="h-8 md:h-10 w-auto object-contain transition-transform duration-500 group-hover:scale-105" 
+          priority
+        />
       </Link>
 
       {/* Center: Desktop Nav */}
@@ -90,9 +94,13 @@ export default function Navbar() {
             className="fixed inset-0 bg-ink z-[200] flex flex-col p-10"
           >
             <div className="flex justify-between items-center mb-20">
-              <span className="font-display text-xl">
-                Stova<span className="text-gold">.</span>Media
-              </span>
+              <Image 
+                src="/stova-media-logo.jpg" 
+                alt="Stova Media" 
+                width={160} 
+                height={40} 
+                className="h-10 w-auto object-contain" 
+              />
               <button
                 onClick={() => setMobileMenuOpen(false)}
                 className="text-cream p-2 hover:text-gold transition-colors"

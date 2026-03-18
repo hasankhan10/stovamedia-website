@@ -63,7 +63,7 @@ export default function WorkHorizontal({ projects }: WorkHorizontalProps) {
     <section 
       ref={containerRef} 
       id="work" 
-      className="relative overflow-hidden bg-ink py-24 md:py-0 md:h-[100vh] flex flex-col justify-center"
+      className="relative overflow-hidden bg-transparent py-24 md:py-0 md:h-[100vh] flex flex-col justify-center"
     >
       <div className="md:absolute md:top-20 md:left-20 px-6 md:px-0 mb-12 flex flex-col items-start z-10">
         <SectionLabel>Selected Works</SectionLabel>

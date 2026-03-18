@@ -18,9 +18,8 @@
 }
 
 :root {
-  --ink: #080808;
-  /* Dark mode background gradient mapping */
-  --ink-gradient: linear-gradient(135deg, #050505 0%, #0A0A0A 100%);
+  --ink: #0A0A0B; /* Solid Premium Dark Charcoal (80% Black / 20% Gray blend) */
+  --ink-gradient: var(--ink);
   --ink-2: #0C0C0C;
   --card: #0F0F0F;
   --card-2: #141414;
@@ -35,20 +34,19 @@
 }
 
 :root.light {
-  --ink: #F9F8F6;
-  /* Light mode background gradient mapping */
-  --ink-gradient: linear-gradient(135deg, #F9F8F6 0%, #EFECE5 100%);
+  --ink: #E5E5E5; /* 80% White / 20% Gray solid blend */
+  --ink-gradient: var(--ink);
   --ink-2: #F0EDE6;
   --card: #FFFFFF;
   --card-2: #F5F3EC;
-  --border: #E8E4DB;
-  --border-2: #D4CDBC;
-  --gold: #A8862F; /* Subtly darker gold for light mode text contrast */
-  --gold-light: #C9A84C;
-  --gold-glow: rgba(168, 134, 47, 0.12);
+  --border: #D1D1D1; /* Slightly darker to accommodate the new background */
+  --border-2: #BABABA;
+  --gold: #8C6F2A; /* Increased contrast for readability on light gray */
+  --gold-light: #A8862F;
+  --gold-glow: rgba(140, 111, 42, 0.08);
   --cream: #1A1816; /* Near black text for the light mode */
-  --muted: #756F68;
-  --dim: #999388;
+  --muted: #615E5B;
+  --dim: #827E7A;
 }
 
 html {
@@ -56,7 +54,7 @@ html {
 }
 
 body {
-  background: var(--ink-gradient);
+  background: var(--ink);
   color: var(--cream);
   font-family: var(--font-ui);
   font-weight: 300;
@@ -68,14 +66,14 @@ body {
 body::before {
   content: "";
   position: fixed;
-  inset: -200%;
-  width: 400%;
-  height: 400%;
-  opacity: 0.025;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0; /* Grain removed as per clean solid background request */
   pointer-events: none;
   z-index: 9000;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  animation: grain 8s steps(2) infinite;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  animation: grain 0.8s steps(4) infinite;
 }
 
 @keyframes grain {

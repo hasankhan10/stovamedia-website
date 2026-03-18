@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 export default function CTASection() {
   return (
-    <section id="contact" className="py-24 md:py-36 px-6 md:px-10 lg:px-20 bg-ink overflow-hidden">
+    <section id="contact" className="py-24 md:py-36 px-6 md:px-10 lg:px-20 bg-transparent overflow-hidden">
       <div className="relative p-12 md:p-24 lg:p-32 bg-card border border-border text-center overflow-hidden flex flex-col items-center">
         
         {/* Background Decorative Grid */}
