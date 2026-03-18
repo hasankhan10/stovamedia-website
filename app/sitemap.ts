@@ -5,6 +5,9 @@ import { getAllPosts } from "@/lib/blog";
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://stovamedia.in";
 
+  const allWork = getAllWork();
+  const allPosts = getAllPosts();
+
   // Static Routes
   const staticRoutes = ["", "/work", "/services", "/about", "/contact", "/blog"].map((route) => ({
     url: `${baseUrl}${route}`,
@@ -14,7 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   // Dynamic Case Studies
-  const workRoutes = getAllWork().map((p) => ({
+  const workRoutes = allWork.map((p) => ({
     url: `${baseUrl}/work/${p.slug}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
@@ -22,7 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   // Dynamic Blog Posts
-  const blogRoutes = getAllPosts().map((p) => ({
+  const blogRoutes = allPosts.map((p) => ({
     url: `${baseUrl}/blog/${p.slug}`,
     lastModified: new Date(),
     changeFrequency: "weekly" as const,

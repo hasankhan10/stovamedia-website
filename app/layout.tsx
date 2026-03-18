@@ -10,6 +10,7 @@ import Preloader from "@/components/layout/Preloader";
 import PageTransition from "@/components/layout/PageTransition";
 import ScrollProgress from "@/components/layout/ScrollProgress";
 import BackToTop from "@/components/layout/BackToTop";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 const displayFont = DM_Serif_Display({
   subsets: ["latin"],
@@ -55,18 +56,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${displayFont.variable} ${uiFont.variable}`}>
-      <body className="antialiased bg-ink text-cream selection:bg-gold selection:text-ink">
-        <Preloader />
-        <SmoothScroll>
-          <PageTransition>
-            <ScrollProgress />
-            <Navbar />
-            {children}
-            <Footer />
-            <BackToTop />
-          </PageTransition>
-        </SmoothScroll>
+    <html lang="en" className={`${displayFont.variable} ${uiFont.variable}`} suppressHydrationWarning>
+      <body className="antialiased text-cream selection:bg-gold selection:text-ink">
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+          <Preloader />
+          <SmoothScroll>
+            <PageTransition>
+              <ScrollProgress />
+              <Navbar />
+              {children}
+              <Footer />
+              <BackToTop />
+            </PageTransition>
+          </SmoothScroll>
+        </ThemeProvider>
       </body>
     </html>
   );

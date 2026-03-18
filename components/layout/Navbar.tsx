@@ -5,12 +5,14 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 const navLinks = [
-  { name: "Work", href: "#work" },
-  { name: "Services", href: "#services" },
-  { name: "About", href: "#about" },
-  { name: "Contact", href: "#contact" },
+  { name: "Work", href: "/work" },
+  { name: "Services", href: "/services" },
+  { name: "About", href: "/about" },
+  { name: "Blog", href: "/blog" },
+  { name: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -57,10 +59,12 @@ export default function Navbar() {
         ))}
       </nav>
 
-      {/* Right: CTA */}
+      {/* Right: CTA & ThemeToggle */}
       <div className="flex items-center gap-6">
+        <ThemeToggle />
+
         <Link
-          href="#contact"
+          href="/contact"
           className="hidden md:inline-flex items-center px-6 py-2.5 rounded-full border border-border text-[11px] uppercase tracking-wider font-semibold hover:bg-gold hover:text-ink hover:border-gold transition-all duration-300"
         >
           Start a Project
@@ -123,7 +127,7 @@ export default function Navbar() {
               className="mt-auto"
             >
               <Link
-                href="#contact"
+                href="/contact"
                 onClick={() => setMobileMenuOpen(false)}
                 className="inline-block w-full text-center py-5 bg-gold text-ink font-semibold rounded-lg text-lg"
               >

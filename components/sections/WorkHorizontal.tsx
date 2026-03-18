@@ -8,40 +8,27 @@ import { SectionLabel, SplitHeadline, ProjectCard } from "@/components/ui";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const projects = [
-  {
-    index: "01",
-    title: "Mr Compounder",
-    tagline: "A Silent OPD system replacing paper queues in Indian clinics.",
-    tag: "Healthcare SaaS",
-    slug: "mr-compounder",
-    featured: true,
-  },
-  {
-    index: "02",
-    title: "HairViz",
-    tagline: "B2B 3D hair transplant consultation tool for Indian clinics.",
-    tag: "3D Platform",
-    slug: "hairviz",
-  },
-  {
-    index: "03",
-    title: "Recharge Management",
-    tagline: "End-to-end recharge distribution platform for a national operator.",
-    tag: "Distribution SaaS",
-    slug: "rms",
-  },
-];
+interface Project {
+  slug: string;
+  index: string;
+  title: string;
+  tagline: string;
+  tag: string;
+  featured?: boolean;
+}
 
-export default function WorkHorizontal() {
+interface WorkHorizontalProps {
+  projects: Project[];
+}
+
+export default function WorkHorizontal({ projects }: WorkHorizontalProps) {
   const containerRef = useRef<HTMLElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!containerRef.current || !trackRef.current) return;
+    if (!containerRef.current || !trackRef.current || projects.length === 0) return;
 
-    // Mobile check: skip horizontal scroll for < 768
     const isMobile = window.innerWidth <= 768;
 
     const ctx = gsap.context(() => {
@@ -70,23 +57,22 @@ export default function WorkHorizontal() {
     }, containerRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [projects]);
 
   return (
-    <section
-      ref={containerRef}
-      id="work"
+    <section 
+      ref={containerRef} 
+      id="work" 
       className="relative overflow-hidden bg-ink py-24 md:py-0 md:h-[100vh] flex flex-col justify-center"
     >
-      {/* Header Area */}
       <div className="md:absolute md:top-20 md:left-20 px-6 md:px-0 mb-12 flex flex-col items-start z-10">
         <SectionLabel>Selected Works</SectionLabel>
         <div className="flex flex-col md:flex-row md:items-end gap-6 md:gap-12">
           <SplitHeadline tag="h2" className="text-4xl md:text-5xl lg:text-7xl">
             Recent projects
           </SplitHeadline>
-          <Link
-            href="/work"
+          <Link 
+            href="/work" 
             className="group flex items-center gap-3 text-[10px] uppercase font-bold tracking-[0.2em] text-muted hover:text-gold transition-colors duration-500 pb-1"
           >
             Explore Portfolio
@@ -95,9 +81,8 @@ export default function WorkHorizontal() {
         </div>
       </div>
 
-      {/* Horizontal Track */}
-      <div
-        ref={trackRef}
+      <div 
+        ref={trackRef} 
         className="flex flex-col md:flex-row gap-0 md:gap-px bg-border border-y border-border px-6 md:px-0 md:pl-[20vw] h-auto md:h-fit md:w-max mt-10"
       >
         {projects.map((project, i) => (
@@ -105,18 +90,15 @@ export default function WorkHorizontal() {
             <ProjectCard {...project} />
           </div>
         ))}
-        {/* Placeholder for spacer at the end */}
         <div className="hidden md:block w-[10vw] flex-shrink-0" />
       </div>
 
-      {/* Progress Bar (Desktop only) */}
       <div className="hidden md:block absolute bottom-0 left-0 w-full h-[6px] bg-border/30 z-20">
-        <div
+        <div 
           ref={progressRef}
           className="h-full bg-gold origin-left scale-x-0 will-change-transform"
         />
       </div>
-
     </section>
   );
 }

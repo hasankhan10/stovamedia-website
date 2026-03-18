@@ -7,8 +7,13 @@ import About from "@/components/sections/About";
 import Testimonial from "@/components/sections/Testimonial";
 import CTASection from "@/components/sections/CTASection";
 import { RevealOnScroll } from "@/components/ui";
+import { getAllWork } from "@/lib/work";
 
 export default function Home() {
+  const allProjects = getAllWork();
+  // Filter featured for the horizontal showcase
+  const featuredProjects = allProjects.filter(p => !p.locked).slice(0, 3);
+
   return (
     <main>
       <Hero />
@@ -18,7 +23,7 @@ export default function Home() {
         <Services />
       </RevealOnScroll>
       
-      <WorkHorizontal />
+      <WorkHorizontal projects={featuredProjects} />
       
       <RevealOnScroll>
         <Process />
