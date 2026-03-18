@@ -4,6 +4,7 @@ import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitHeadline, SectionLabel, RevealOnScroll } from "@/components/ui";
+import Image from "next/image";
 import CTASection from "@/components/sections/CTASection";
 import { cn } from "@/lib/utils";
 
@@ -60,8 +61,13 @@ export default function AboutPage() {
       {/* Founder Bio */}
       <section className="px-6 md:px-10 lg:px-20 py-24 border-y border-border grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-20">
         <div className="flex flex-col items-center md:items-start text-center md:text-left">
-          <div className="w-44 h-44 rounded-full bg-border border-2 border-gold flex items-center justify-center font-display text-7xl text-gold mb-8">
-            M
+          <div className="relative w-44 h-44 rounded-full overflow-hidden border-2 border-gold mb-8 shadow-2xl shadow-gold/10">
+            <Image 
+              src="/founder.jpeg" 
+              alt="Mehedi Hasan" 
+              fill 
+              className="object-cover" 
+            />
           </div>
           <div>
             <h3 className="font-display text-2xl mb-1">Mehedi Hasan</h3>

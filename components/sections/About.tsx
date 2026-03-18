@@ -4,6 +4,7 @@ import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SectionLabel, SplitHeadline } from "@/components/ui";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -66,8 +67,13 @@ export default function About() {
               ensuring zero loss in translation between your vision and the product.
             </p>
             <div className="flex items-center gap-4 pt-6 group">
-              <div className="w-14 h-14 rounded-full bg-border flex items-center justify-center font-display text-2xl text-gold border border-border group-hover:border-gold transition-all duration-500">
-                M
+              <div className="relative w-14 h-14 rounded-full overflow-hidden border border-border group-hover:border-gold transition-all duration-500">
+                <Image 
+                  src="/founder.jpeg" 
+                  alt="Mehedi Hasan" 
+                  fill 
+                  className="object-cover" 
+                />
               </div>
               <div className="flex flex-col">
                 <span className="font-display text-lg text-cream">Mehedi Hasan</span>

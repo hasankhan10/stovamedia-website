@@ -63,13 +63,13 @@ export default function RootLayout({
       <body className="antialiased text-cream selection:bg-gold selection:text-ink">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <Preloader />
+          <ScrollProgress />
+          <Navbar />
+          <BackToTop />
           <SmoothScroll>
             <PageTransition>
-              <ScrollProgress />
-              <Navbar />
               {children}
               <Footer />
-              <BackToTop />
             </PageTransition>
           </SmoothScroll>
         </ThemeProvider>

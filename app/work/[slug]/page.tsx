@@ -44,7 +44,7 @@ export default async function CaseStudyPage({ params }: Props) {
       {/* Fixed Back Navigation */}
       <Link 
         href="/work" 
-        className="fixed top-24 left-10 z-50 group flex items-center gap-3 text-[10px] uppercase tracking-widest font-bold text-muted hover:text-gold transition-colors duration-500 bg-ink/50 backdrop-blur-md px-4 py-2 rounded-full border border-border/50"
+        className="fixed top-20 md:top-24 left-6 md:left-10 z-50 group flex items-center gap-3 text-[10px] uppercase tracking-widest font-bold text-muted hover:text-gold transition-colors duration-500 bg-ink/50 backdrop-blur-md px-4 py-2 rounded-full border border-border/50"
       >
         <ArrowLeft size={14} className="transition-transform group-hover:-translate-x-1" />
         All Work
