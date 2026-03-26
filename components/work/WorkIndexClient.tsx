@@ -19,7 +19,7 @@ export default function WorkIndexClient({ projects }: { projects: Project[] }) {
     <main className="pt-32 pb-24 px-6 md:px-10 lg:px-20 min-h-screen">
       <div className="mb-20 flex flex-col items-center text-center">
         <SectionLabel className="justify-center">Our Portfolio</SectionLabel>
-        <SplitHeadline tag="h1" className="text-5xl md:text-7xl lg:text-8xl leading-none font-display text-center">
+        <SplitHeadline tag="h1" className="text-5xl md:text-7xl lg:text-8xl leading-none font-display text-center justify-center">
           Products built with intention.
         </SplitHeadline>
       </div>

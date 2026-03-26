@@ -109,7 +109,7 @@ export default function PricingPage() {
       {/* HERO */}
       <div className="px-6 md:px-10 lg:px-20 mb-32 flex flex-col items-center text-center">
         <SectionLabel className="justify-center">Investment Architecture</SectionLabel>
-        <SplitHeadline tag="h1" className="text-5xl md:text-7xl lg:text-8xl leading-none text-center">
+        <SplitHeadline tag="h1" className="text-5xl md:text-7xl lg:text-8xl leading-none text-center justify-center">
           Value. Not just a cost.
         </SplitHeadline>
         <p className="mt-10 text-muted font-ui text-lg md:text-xl max-w-2xl leading-relaxed mx-auto">

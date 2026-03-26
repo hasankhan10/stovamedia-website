@@ -80,10 +80,10 @@ export default function Hero() {
         </div>
 
         {/* Headline */}
-        <div className="mt-8 mb-10 w-full">
+        <div className="mt-8 mb-10 w-full flex flex-col items-center">
           <SplitHeadline 
             tag="h1" 
-            className="text-[clamp(48px,8vw,112px)] leading-[0.95] tracking-tight text-center"
+            className="text-[clamp(48px,8vw,112px)] leading-[0.95] tracking-tight text-center justify-center w-full"
             delay={0.5}
           >
             We build software For

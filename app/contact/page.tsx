@@ -46,7 +46,7 @@ export default function ContactPage() {
     <main className="pt-32 min-h-screen bg-ink">
       <div className="px-6 md:px-10 lg:px-20 mb-32 flex flex-col items-center text-center">
         <SectionLabel className="justify-center">Get In Touch</SectionLabel>
-        <SplitHeadline tag="h1" className="text-5xl md:text-7xl lg:text-8xl leading-none text-center">
+        <SplitHeadline tag="h1" className="text-5xl md:text-7xl lg:text-8xl leading-none text-center justify-center">
           Let&apos;s build something serious.
         </SplitHeadline>
       </div>
@@ -162,18 +162,31 @@ export default function ContactPage() {
 }
 
 function InputGroup({ label, type = "text", register, error }: any) {
+  const isTextArea = label.toLowerCase().includes("details");
+  const InputTag = isTextArea ? "textarea" : "input";
+
   return (
-    <div className="relative group/field pb-4 border-b border-border/50 focus-within:border-gold transition-all duration-500">
-      <div className="absolute left-0 bottom-0 h-[2px] w-full bg-gold scale-x-0 transition-transform duration-700 group-focus-within/field:scale-x-100" />
-      <label className={cn("text-[9px] uppercase tracking-widest font-bold block mb-2 transition-all group-focus-within/field:text-gold", error ? "text-red-500" : "text-cream/60")}>
+    <div className="flex flex-col gap-2 group/field">
+      <label className={cn(
+        "text-[10px] uppercase tracking-[0.2em] font-bold transition-colors duration-500", 
+        error ? "text-red-500" : "text-dim/80 group-focus-within/field:text-gold"
+      )}>
         {label}
       </label>
-      <input 
-        type={type} 
-        {...register}
-        autoComplete="off"
-        className="w-full bg-transparent border-none outline-none font-display py-2 text-xl text-cream" 
-      />
+      <div className={cn(
+        "relative bg-ink/[0.03] dark:bg-card/40 border-b-2 transition-all duration-500 rounded-t-sm",
+        error ? "border-red-500/50" : "border-ink/10 dark:border-border focus-within:border-gold"
+      )}>
+        <InputTag 
+          type={isTextArea ? undefined : type} 
+          {...register}
+          autoComplete="off"
+          rows={isTextArea ? 4 : 1}
+          className="w-full bg-transparent border-none outline-none font-display py-4 px-5 text-lg text-cream placeholder:text-dim/30 resize-none" 
+        />
+        <div className="absolute left-0 bottom-0 h-[2.5px] w-full bg-gold scale-x-0 transition-transform duration-700 group-focus-within/field:scale-x-100 shadow-[0_0_15px_rgba(201,168,76,0.3)]" />
+      </div>
+      {error && <span className="text-[9px] text-red-500 uppercase tracking-widest font-bold mt-1">This field is required</span>}
     </div>
   );
 }

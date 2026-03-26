@@ -61,10 +61,10 @@ export const SplitHeadline = ({
   return (
     <Tag
       ref={containerRef}
-      className={cn("font-display flex flex-wrap gap-x-[0.3em] overflow-hidden", className)}
+      className={cn("font-display flex flex-wrap justify-center w-full overflow-hidden", className)}
     >
       {words.map((word, i) => (
-        <span key={i} className="word-outer overflow-hidden py-1 leading-[1.1]">
+        <span key={i} className="word-outer inline-block overflow-hidden py-1 leading-[1.1] mr-[0.3em]">
           <span className="word-inner inline-block will-change-transform">{word}</span>
         </span>
       ))}

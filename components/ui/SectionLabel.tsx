@@ -17,6 +17,9 @@ export const SectionLabel = ({
       <span className="text-[9px] uppercase tracking-[0.22em] font-medium text-gold whitespace-nowrap">
         {children}
       </span>
+      {className?.includes("justify-center") && (
+        <span className="w-7 h-[1.2px] bg-gold rounded-full transition-all duration-500 origin-right" />
+      )}
     </div>
   );
 };
