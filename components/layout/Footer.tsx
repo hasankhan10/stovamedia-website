@@ -3,21 +3,21 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, ExternalLink } from "lucide-react";
+import { Github, Linkedin, Mail, ExternalLink, Instagram, Facebook } from "lucide-react";
 
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "Work", href: "/work" },
   { name: "Services", href: "/services" },
   { name: "About", href: "/about" },
-  { name: "Blog", href: "/blog" },
   { name: "Contact", href: "/contact" },
 ];
 
 const socialLinks = [
   { name: "LinkedIn", href: "#", icon: <Linkedin size={16} /> },
   { name: "GitHub", href: "#", icon: <Github size={16} /> },
-  { name: "Twitter", href: "#", icon: <ExternalLink size={16} /> },
+  { name: "Instagram", href: "#", icon: <Instagram size={16} /> },
+  { name: "Facebook", href: "#", icon: <Facebook size={16} /> },
 ];
 
 export default function Footer() {

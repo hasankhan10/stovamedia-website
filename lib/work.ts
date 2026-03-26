@@ -3,7 +3,7 @@ export interface Project {
   index: string;
   title: string;
   tag: string;
-  category: "Healthcare" | "Web Apps" | "Mobile" | "White-label";
+  category: "Healthcare" | "Web Apps" | "Mobile" | "White-label" | "AI";
   tagline: string;
   overview: string;
   challenge: string;
@@ -17,6 +17,7 @@ export interface Project {
   featured?: boolean;
   locked?: boolean;
   nextSlug?: string;
+  externalUrl?: string;
 }
 
 const projects: Project[] = [
@@ -41,52 +42,32 @@ const projects: Project[] = [
     status: "Live",
     heroColor: "linear-gradient(135deg, #080808, #0A1A0A)",
     featured: true,
-    nextSlug: "hairviz"
+    externalUrl: "https://mrcompounder.com",
+    nextSlug: "hair-transplant-simulation"
   },
   {
-    slug: "hairviz",
+    slug: "hair-transplant-simulation",
     index: "02",
-    title: "HairViz",
-    tag: "3D Platform",
-    category: "Web Apps",
-    tagline: "B2B 3D hair transplant consultation tool for Indian clinics.",
-    overview: "Surgeons upload photos, generate 3D head models, design hairlines, map scalp zones, calculate grafts, show Month 1-18 growth timelines.",
-    challenge: "Clinics lose patients at consultation because outcomes are hard to visualise. Surgeons needed a tool that builds real-time trust.",
-    solution: "Next.js + React Three Fiber. 3D head model, face texture mapping, interactive hairline drawing, graft calculator.",
-    results: ["3D head model + face texture", "Live hairline design tool", "Automated graft calculator", "Month 1-18 animated timeline", "White-labelled per clinic"],
+    title: "Hair Transplant Simulation",
+    tag: "AI · 3D Platform",
+    category: "AI",
+    tagline: "AI-powered hair transplant visualization for clinics worldwide.",
+    overview: "Surgeons upload patient photos, our AI generates a photorealistic 3D head model, designs hairlines, maps donor/recipient zones, calculates grafts, and shows month-by-month growth simulation from Month 1 to Month 18.",
+    challenge: "Hair transplant clinics lose patients at consultation because outcomes are impossible to visualize. Surgeons needed a tool that builds instant trust and closes consultations faster.",
+    solution: "AI-driven photo-to-3D pipeline using computer vision. React Three Fiber renders the interactive 3D model. Surgeons draw hairlines, adjust density, and generate a personalized growth timeline — all in the browser.",
+    results: ["AI-powered 3D head generation from photos", "Interactive hairline design tool", "Automated graft calculator", "Month 1-18 animated growth timeline", "White-labelled per clinic"],
     metrics: [
-      { value: "3D", label: "Visualization" },
-      { value: "18m", label: "Timeline" },
-      { value: "100%", label: "Accuracy" }
+      { value: "AI", label: "Powered" },
+      { value: "2D", label: "Visualization" },
+      { value: "18mo", label: "Growth Sim" }
     ],
-    tech: ["Next.js 15", "React Three Fiber", "Three.js r160", "TypeScript", "Zustand", "Tailwind v4", "Supabase"],
+    tech: ["Next.js 15", "React Three Fiber", "Three.js", "Python", "OpenAI Vision", "TypeScript", "Zustand", "Supabase"],
     timeline: "In active development",
     status: "In Development",
     heroColor: "linear-gradient(135deg, #080808, #100A18)",
-    nextSlug: "rms"
-  },
-  {
-    slug: "rms",
-    index: "03",
-    title: "Recharge Management System",
-    tag: "Distribution SaaS",
-    category: "Web Apps",
-    tagline: "End-to-end recharge distribution platform for a national operator.",
-    overview: "LAPU SIM lifecycle, M-Robotics API, real-time retailer wallet, multi-tier commission chain management.",
-    challenge: "Client managed a national recharge network on spreadsheets. Real-time balance, commissions, and onboarding needed full automation.",
-    solution: "Custom SaaS: LAPU SIM pools, wallet top-up, automated commissions, full admin panel for the distributor.",
-    results: ["Full LAPU SIM lifecycle", "Real-time retailer wallet", "Automated commission chains", "M-Robotics API integrated", "Bangla + English dual-language UI"],
-    metrics: [
-      { value: "LAPU", label: "SIM Lifecycle" },
-      { value: "Real-time", label: "Wallet" },
-      { value: "Dual", label: "Language" }
-    ],
-    tech: ["Next.js", "Node.js", "PostgreSQL", "Prisma", "M-Robotics API", "Tailwind"],
-    timeline: "3 months — delivered",
-    status: "Delivered",
-    heroColor: "linear-gradient(135deg, #080808, #080C08)",
+    externalUrl: "#",
     nextSlug: "mr-compounder"
-  }
+  },
 ];
 
 export function getAllWork() {

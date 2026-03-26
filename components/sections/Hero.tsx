@@ -116,7 +116,7 @@ export default function Hero() {
 
         {/* Subtext */}
         <p className="hero-fade-up opacity-0 text-muted font-ui text-base md:text-lg max-w-[540px] leading-relaxed mb-12">
-          From healthcare SaaS to white-label platforms — we design, 
+          From Custom software to AI agents — we design, 
           architect, and ship products that last. No shortcuts. No bloat.
         </p>
 

@@ -18,12 +18,10 @@ const values = [
 ];
 
 const timeline = [
-  { year: "2020", event: "Founded during the peak shifts of Indian clinical ops." },
-  { year: "2021", event: "Our first high-fidelity dashboard delivered for enterprise." },
-  { year: "2022", event: "Mr Compounder launched. Reaching 50+ clinics." },
-  { year: "2023", event: "Stova Media brand established in Kolkata." },
-  { year: "2024", event: "HairViz 3D visualizer began active development." },
-  { year: "2026", event: "Scaling studio throughput & regional influence." },
+  { year: "2023", event: "Founded during the peak shifts of Indian clinical ops." },
+  { year: "2024", event: "Our first high-fidelity dashboard delivered for enterprise." },
+  { year: "2025", event: "Mr Compounder launched. Reaching 50+ clinics." },
+  { year: "2026", event: "Stova Media brand established in Kolkata." }
 ];
 
 export default function AboutPage() {

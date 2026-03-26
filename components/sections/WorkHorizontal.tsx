@@ -15,6 +15,7 @@ interface Project {
   tagline: string;
   tag: string;
   featured?: boolean;
+  externalUrl?: string;
 }
 
 interface WorkHorizontalProps {

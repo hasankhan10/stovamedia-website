@@ -6,7 +6,7 @@ import { SplitHeadline, ProjectCard, SectionLabel } from "@/components/ui";
 import { cn } from "@/lib/utils";
 import { Project } from "@/lib/work";
 
-const categories = ["All", "Healthcare", "Web Apps", "Mobile", "White-label"] as const;
+const categories = ["All", "Healthcare", "AI", "Web Apps"] as const;
 
 export default function WorkIndexClient({ projects }: { projects: Project[] }) {
   const [activeCategory, setActiveCategory] = useState<typeof categories[number]>("All");
@@ -41,18 +41,16 @@ export default function WorkIndexClient({ projects }: { projects: Project[] }) {
         ))}
       </div>
 
-      <motion.div 
-        layout
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[2px] bg-border border border-border"
+      <div 
+        className="grid grid-cols-1 md:grid-cols-2 gap-6"
       >
         <AnimatePresence mode="popLayout" initial={false}>
           {filteredProjects.map((project) => (
             <motion.div
-              layout
               key={project.slug}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
               transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             >
               <ProjectCard 
@@ -62,7 +60,7 @@ export default function WorkIndexClient({ projects }: { projects: Project[] }) {
             </motion.div>
           ))}
         </AnimatePresence>
-      </motion.div>
+      </div>
 
       {filteredProjects.length === 0 && (
         <div className="py-32 text-center border border-dashed border-border">

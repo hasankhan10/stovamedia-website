@@ -3,142 +3,174 @@
 import React from "react";
 import { SplitHeadline, SectionLabel, Tag, RevealOnScroll } from "@/components/ui";
 import CTASection from "@/components/sections/CTASection";
+import { Code2, Bot, ArrowRight, CheckCircle2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const serviceCategories = [
-  { id: "saas", name: "Healthcare SaaS" },
-  { id: "web", name: "Web Applications" },
-  { id: "mobile", name: "Mobile & Apps" },
-  { id: "white", name: "White-label" },
+  { id: "custom-software", name: "Custom Software" },
+  { id: "ai-agent", name: "AI Agent" },
 ];
 
 const serviceDetails = [
   {
-    id: "saas",
+    id: "custom-software",
     number: "01",
-    title: "Healthcare SaaS",
-    desc: "We specialize in building silent, high-performance OPD and queue management systems optimized for Indian clinical environments.",
-    deliverables: ["Queue management", "WhatsApp integration", "Patient analytics", "2G performance optimization"],
-    tech: ["Next.js", "Prisma", "PostgreSQL", "Twilio"],
-    featured: "Mr Compounder",
+    icon: Code2,
+    title: "Custom Software",
+    tagline: "Built from scratch. Tailored to your business.",
+    desc: "We architect and engineer full-stack software products from the ground up — no templates, no shortcuts. Whether it's a healthcare SaaS, an enterprise dashboard, a mobile app, or a white-label platform, every line of code is written with your business logic at its core.",
+    deliverables: [
+      "Full-stack Web Applications",
+      "Healthcare & Clinic Management Systems",
+      "Enterprise Dashboards & Analytics",
+      "Mobile Apps (Flutter)",
+      "White-label SaaS Platforms",
+      "API Design & Integration",
+      "Database Architecture",
+      "Performance Optimization",
+    ],
+    tech: ["Next.js", "Flutter", "Node.js", "PostgreSQL", "Prisma", "Supabase", "Tailwind CSS", "Three.js"],
+    highlights: [
+      { label: "Zero Templates", desc: "100% custom-built for your requirements" },
+      { label: "Production Ready", desc: "Deployed, monitored, and battle-tested" },
+      { label: "Scalable Architecture", desc: "Built to grow with your business" },
+    ],
   },
   {
-    id: "web",
+    id: "ai-agent",
     number: "02",
-    title: "Web Applications",
-    desc: "From complex enterprise dashboards to high-fidelity 3D visualization platforms, we build web apps that are as beautiful as they are functional.",
-    deliverables: ["Enterprise Dashboards", "3D Visualization (Three.js)", "Real-time sync", "Multi-tier access"],
-    tech: ["React Three Fiber", "Zustand", "Tailwind v4", "Node.js"],
-    featured: "HairViz",
-  },
-  {
-    id: "mobile",
-    number: "03",
-    title: "Mobile & Cross-Platform",
-    desc: "Built for Bharat. We develop lightweight, high-performance mobile applications using React Native that perform reliably even on slower networks.",
-    deliverables: ["React Native development", "Offline-first sync", "Secure logging", "Corporate compliance"],
-    tech: ["React Native", "Firebase", "Android SDK", "Kotlin"],
-    featured: "Call Recorder",
-  },
-  {
-    id: "white",
-    number: "04",
-    title: "White-label Products",
-    desc: "Scaling your clinic or agency? We build fully brandable, ready-to-deploy platforms that give you a custom product in half the time.",
-    deliverables: ["Multi-tenant architecture", "Dynamic branding", "SaaS infrastructure", "License management"],
-    tech: ["Supabase", "Vercel", "Stripe", "Next.js"],
-    featured: "AI Hair Sim",
+    icon: Bot,
+    title: "AI Agent",
+    tagline: "Intelligent automation for modern businesses.",
+    desc: "We design and deploy AI-powered agents that automate workflows, handle customer interactions, and make intelligent decisions on behalf of your business. From conversational bots to data-driven automation pipelines, we build AI that actually works in production.",
+    deliverables: [
+      "Conversational AI Chatbots",
+      "Customer Support Automation",
+      "Lead Qualification Agents",
+      "AI-Powered Analytics",
+      "Workflow Automation"
+    ],
+    tech: ["OpenAI", "Python", "FastAPI"],
+    highlights: [
+      { label: "Human-Like Interactions", desc: "Natural conversations that convert" },
+      { label: "24/7 Operations", desc: "Never sleeps, never misses a lead" },
+      { label: "Continuous Learning", desc: "Gets smarter with every interaction" },
+    ],
   },
 ];
 
 export default function ServicesPage() {
   return (
     <main className="pt-32 min-h-screen bg-ink">
+      {/* HERO */}
       <div className="px-6 md:px-10 lg:px-20 mb-32">
-        <SectionLabel>Our Specialization</SectionLabel>
+        <SectionLabel>What We Build</SectionLabel>
         <SplitHeadline tag="h1" className="text-5xl md:text-7xl lg:text-8xl leading-none">
-          Software that matters, built with craft.
+          Two things. Done exceptionally.
         </SplitHeadline>
+        <p className="mt-10 text-muted font-ui text-lg md:text-xl max-w-2xl leading-relaxed">
+          We don&apos;t spread thin. We focus on two core capabilities and deliver them 
+          at a level most agencies can&apos;t match.
+        </p>
       </div>
 
-      <div className="px-6 md:px-10 lg:px-20 grid grid-cols-1 lg:grid-cols-[1fr_2.5fr] gap-20">
-        
-        {/* Left: Sticky Nav */}
-        <aside className="hidden lg:block">
-          <div className="sticky top-32 flex flex-col gap-6">
-            <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-dim mb-4">Capabilities</span>
-            {serviceCategories.map((cat) => (
-              <a 
-                key={cat.id} 
-                href={`#${cat.id}`}
-                className="group flex items-center gap-4 text-sm font-ui text-muted hover:text-gold transition-all duration-500"
-              >
-                <span className="w-0 h-[1.5px] bg-gold group-hover:w-8 transition-all duration-500" />
-                {cat.name}
-              </a>
-            ))}
-          </div>
-        </aside>
-
-        {/* Right: Detailed Content */}
-        <div className="flex flex-col gap-40 pb-40">
-          {serviceDetails.map((service) => (
+      {/* SERVICE CARDS */}
+      <div className="px-6 md:px-10 lg:px-20">
+        <div className="flex flex-col gap-0">
+          {serviceDetails.map((service, idx) => (
             <RevealOnScroll key={service.id}>
-              <div id={service.id} className="relative group">
-                {/* Background Large Number */}
-                <span className="absolute -top-24 -left-10 font-display text-[160px] md:text-[220px] text-gold opacity-[0.06] select-none pointer-events-none group-hover:opacity-[0.08] transition-opacity duration-700">
+              <section
+                id={service.id}
+                className={cn(
+                  "relative py-24 md:py-32 border-t border-border group",
+                  idx === serviceDetails.length - 1 && "border-b"
+                )}
+              >
+                {/* Background Number */}
+                <span className="absolute top-8 right-6 md:right-20 font-display text-[120px] md:text-[200px] lg:text-[280px] text-gold opacity-[0.04] select-none pointer-events-none group-hover:opacity-[0.07] transition-opacity duration-1000 leading-none">
                   {service.number}
                 </span>
 
-                <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16">
-                  {/* Service Core */}
-                  <div>
-                    <h2 className="font-display text-4xl md:text-5xl mb-8 text-cream transition-colors duration-500 group-hover:text-gold">
-                      {service.title}
-                    </h2>
-                    <p className="font-ui text-lg text-muted leading-relaxed mb-10">
-                      {service.desc}
-                    </p>
-                    <div className="flex flex-col gap-4">
-                      <span className="text-[10px] uppercase tracking-widest font-bold text-dim">Key Deliverables</span>
-                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        {service.deliverables.map((d) => (
-                          <li key={d} className="text-sm text-cream/80 flex items-center gap-2">
-                            <span className="w-1 h-1 rounded-full bg-gold" />
-                            {d}
-                          </li>
-                        ))}
-                      </ul>
+                <div className="relative z-10">
+                  {/* Service Header */}
+                  <div className="flex items-center gap-6 mb-8">
+                    <div className="w-16 h-16 rounded-xl border border-border bg-card/50 flex items-center justify-center group-hover:border-gold/40 group-hover:bg-gold-glow transition-all duration-700">
+                      <service.icon size={28} strokeWidth={1.5} className="text-gold" />
+                    </div>
+                    <div>
+                      <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-gold block mb-1">
+                        Service {service.number}
+                      </span>
+                      <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-cream group-hover:text-gold transition-colors duration-500">
+                        {service.title}
+                      </h2>
                     </div>
                   </div>
 
-                  {/* Tech Card */}
-                  <div className="flex flex-col gap-6">
-                    <div className="p-8 border border-border bg-card/40 rounded-sm">
-                      <span className="text-[10px] uppercase tracking-widest font-bold text-dim block mb-6">Tech Stack</span>
-                      <div className="flex flex-wrap gap-2">
-                        {service.tech.map((t) => (
-                          <Tag key={t} className="bg-gold-glow border-gold/20 text-gold">{t}</Tag>
-                        ))}
+                  {/* Tagline */}
+                  <p className="font-display italic text-xl md:text-2xl text-cream/60 mb-12 max-w-2xl">
+                    {service.tagline}
+                  </p>
+
+                  {/* Content Grid */}
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                    {/* Left: Description + Deliverables */}
+                    <div>
+                      <p className="font-ui text-base md:text-lg text-muted leading-relaxed mb-12">
+                        {service.desc}
+                      </p>
+
+                      <div className="mb-10">
+                        <span className="text-[10px] uppercase tracking-[0.25em] font-bold text-dim block mb-6">
+                          What We Deliver
+                        </span>
+                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                          {service.deliverables.map((d) => (
+                            <li key={d} className="text-sm text-cream/80 flex items-center gap-3 font-ui">
+                              <CheckCircle2 size={14} className="text-gold shrink-0" />
+                              {d}
+                            </li>
+                          ))}
+                        </ul>
                       </div>
                     </div>
-                    
-                    <div className="p-8 border border-border bg-card/40 rounded-sm flex justify-between items-center group/proj hover:border-gold/30 transition-all duration-500">
-                      <div>
-                        <span className="text-[9px] uppercase tracking-widest font-bold text-dim block mb-2">Featured Project</span>
-                        <span className="font-display text-xl text-cream group-hover/proj:text-gold transition-colors">{service.featured}</span>
+
+                    {/* Right: Tech + Highlights */}
+                    <div className="flex flex-col gap-6">
+                      {/* Tech Stack Card */}
+                      <div className="p-8 border border-border bg-card/30 rounded-sm">
+                        <span className="text-[10px] uppercase tracking-[0.25em] font-bold text-dim block mb-6">
+                          Tech Stack
+                        </span>
+                        <div className="flex flex-wrap gap-2">
+                          {service.tech.map((t) => (
+                            <Tag key={t} className="bg-gold-glow border-gold/20 text-gold">{t}</Tag>
+                          ))}
+                        </div>
                       </div>
-                      <div className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted group-hover/proj:border-gold group-hover/proj:text-gold transition-all duration-500">
-                        ↗
+
+                      {/* Highlights */}
+                      <div className="grid grid-cols-1 gap-4">
+                        {service.highlights.map((h) => (
+                          <div
+                            key={h.label}
+                            className="p-6 border border-border bg-card/30 rounded-sm flex items-start gap-4 hover:border-gold/30 transition-all duration-500"
+                          >
+                            <div className="w-2 h-2 rounded-full bg-gold mt-2 shrink-0" />
+                            <div>
+                              <span className="font-display text-lg text-cream block mb-1">{h.label}</span>
+                              <span className="text-sm text-muted font-ui">{h.desc}</span>
+                            </div>
+                          </div>
+                        ))}
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </section>
             </RevealOnScroll>
           ))}
         </div>
-
       </div>
 
       {/* Pricing Philosophy */}

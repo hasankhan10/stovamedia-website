@@ -1,15 +1,13 @@
 import { MetadataRoute } from "next";
 import { getAllWork } from "@/lib/work";
-import { getAllPosts } from "@/lib/blog";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://stovamedia.in";
 
   const allWork = getAllWork();
-  const allPosts = getAllPosts();
 
   // Static Routes
-  const staticRoutes = ["", "/work", "/services", "/about", "/contact", "/blog"].map((route) => ({
+  const staticRoutes = ["", "/work", "/services", "/about", "/contact"].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: "weekly" as const,
@@ -24,13 +22,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  // Dynamic Blog Posts
-  const blogRoutes = allPosts.map((p) => ({
-    url: `${baseUrl}/blog/${p.slug}`,
-    lastModified: new Date(),
-    changeFrequency: "weekly" as const,
-    priority: 0.6,
-  }));
-
-  return [...staticRoutes, ...workRoutes, ...blogRoutes];
+  return [...staticRoutes, ...workRoutes];
 }

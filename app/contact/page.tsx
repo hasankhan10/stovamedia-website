@@ -114,7 +114,7 @@ export default function ContactPage() {
                         exit={{ height: 0, opacity: 0 }}
                         className="overflow-hidden"
                       >
-                        <p className="pb-8 text-sm text-dim max-w-2xl leading-relaxed">
+                        <p className="pb-8 text-sm text-cream/70 max-w-2xl leading-relaxed">
                           {faq.a}
                         </p>
                       </motion.div>
@@ -165,7 +165,7 @@ function InputGroup({ label, type = "text", register, error }: any) {
   return (
     <div className="relative group/field pb-4 border-b border-border/50 focus-within:border-gold transition-all duration-500">
       <div className="absolute left-0 bottom-0 h-[2px] w-full bg-gold scale-x-0 transition-transform duration-700 group-focus-within/field:scale-x-100" />
-      <label className={cn("text-[9px] uppercase tracking-widest font-bold block mb-2 transition-all group-focus-within/field:text-gold", error ? "text-red-500" : "text-dim")}>
+      <label className={cn("text-[9px] uppercase tracking-widest font-bold block mb-2 transition-all group-focus-within/field:text-gold", error ? "text-red-500" : "text-cream/60")}>
         {label}
       </label>
       <input 

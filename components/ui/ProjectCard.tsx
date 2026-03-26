@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Tag } from "./Tag";
@@ -16,6 +15,7 @@ interface ProjectCardProps {
   featured?: boolean;
   className?: string;
   locked?: boolean;
+  externalUrl?: string;
 }
 
 export const ProjectCard = ({
@@ -28,6 +28,7 @@ export const ProjectCard = ({
   featured = false,
   className,
   locked = false,
+  externalUrl,
 }: ProjectCardProps) => {
   const commonClasses = cn(
     "group relative flex flex-col justify-between p-10 bg-card/40 border border-border overflow-hidden transition-all duration-700 hover:border-gold/30 hover:bg-card hover:shadow-2xl hover:shadow-gold/5",
@@ -71,7 +72,7 @@ export const ProjectCard = ({
         {/* Explore Button */}
         {!locked ? (
           <div className="mt-8 flex items-center gap-3 text-[10px] uppercase tracking-[0.2em] font-bold text-dim transition-all duration-500 group-hover:text-gold translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-            Explore Case Study
+            {externalUrl ? "Visit Website" : "Explore Case Study"}
             <ArrowUpRight size={14} className="transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1" />
           </div>
         ) : (
@@ -92,9 +93,19 @@ export const ProjectCard = ({
     return <div className={commonClasses}>{innerContent}</div>;
   }
 
+  // Always open external URL in a new tab
+  if (externalUrl) {
+    return (
+      <a href={externalUrl} target="_blank" rel="noopener noreferrer" className={commonClasses}>
+        {innerContent}
+      </a>
+    );
+  }
+
+  // Fallback: external link using slug (should not normally be reached)
   return (
-    <Link href={`/work/${slug}`} className={commonClasses}>
+    <a href={`/work/${slug}`} target="_blank" rel="noopener noreferrer" className={commonClasses}>
       {innerContent}
-    </Link>
+    </a>
   );
 };
