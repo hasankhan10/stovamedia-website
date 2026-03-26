@@ -42,7 +42,7 @@ const projects: Project[] = [
     status: "Live",
     heroColor: "linear-gradient(135deg, #080808, #0A1A0A)",
     featured: true,
-    externalUrl: "https://mrcompounder.com",
+    externalUrl: "https://www.mrcompounder.com",
     nextSlug: "hair-transplant-simulation"
   },
   {
@@ -65,7 +65,7 @@ const projects: Project[] = [
     timeline: "In active development",
     status: "In Development",
     heroColor: "linear-gradient(135deg, #080808, #100A18)",
-    externalUrl: "#",
+    externalUrl: "https://www.semulation.drpaulsonlin.com",
     nextSlug: "mr-compounder"
   },
 ];

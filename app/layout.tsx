@@ -28,26 +28,56 @@ const uiFont = Outfit({
 
 export const metadata: Metadata = {
   title: {
-    default: "Stova Media | Custom Software Studio",
+    default: "Stova Media | Custom Software & AI Agent Studio",
     template: "%s | Stova Media",
   },
-  description: "Building premium software for serious businesses. Healthcare SaaS, 3D Platforms, and White-label solutions architected with intention and craft.",
+  description: "Building premium custom software, healthcare SaaS, and AI Agents for forward-thinking businesses. 100% in-house engineering and high-fidelity architecture from Kolkata.",
+  keywords: [
+    "Custom Software Development", 
+    "AI Agent Studio", 
+    "Kolkata Software Agency", 
+    "Healthcare SaaS Development", 
+    "3D Visualization Software", 
+    "Indian Software Studio",
+    "Bespoke Enterprise Platforms",
+    "Product Engineering"
+  ],
+  authors: [{ name: "Mehedi Hasan", url: "https://www.linkedin.com/in/mehedi-hasan110/" }],
+  creator: "Stova Media",
+  metadataBase: new URL("https://stovamedia.in"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "Stova Media | Custom Software Studio",
-    description: "Architecting software that drives growth. Specialized in Healthcare & 3D Visualization.",
+    title: "Stova Media | Custom Software & AI Agent Studio",
+    description: "Architecting software that drives growth. Specialized in Healthcare & AI Automation.",
     url: "https://stovamedia.in",
     siteName: "Stova Media",
     locale: "en_IN",
     type: "website",
+    images: [{
+      url: "/og-image.jpg",
+      width: 1200,
+      height: 630,
+      alt: "Stova Media | High-Fidelity Software Studio"
+    }]
   },
   twitter: {
     card: "summary_large_image",
-    title: "Stova Media | Custom Software Studio",
+    title: "Stova Media | Custom Software & AI Agent Studio",
     description: "Building premium software for serious businesses.",
+    images: ["/og-image.jpg"],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
   icons: {
     icon: "/favicon.png",
@@ -59,8 +89,52 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Stova Media",
+    "image": "https://stovamedia.in/stova-media-logo.jpg",
+    "url": "https://stovamedia.in",
+    "telephone": "+919432053261",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Kolkata, WB",
+      "addressLocality": "Kolkata",
+      "addressRegion": "West Bengal",
+      "addressCountry": "India"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 22.5726,
+      "longitude": 88.3639
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "09:00",
+      "closes": "18:00"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/stova-media/",
+      "https://www.instagram.com/stovamedia"
+    ],
+    "priceRange": "$$$"
+  };
+
   return (
     <html lang="en" className={`${displayFont.variable} ${uiFont.variable}`} suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="antialiased text-cream selection:bg-gold selection:text-ink">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <Preloader />

@@ -105,10 +105,10 @@ export default function Hero() {
         {/* CTAs */}
         <div className="hero-fade-up opacity-0 flex flex-wrap justify-center gap-6 items-center mb-24">
           <MagneticElement>
-            <Button variant="primary" href="#work" className="px-10">See Our Work</Button>
+            <Button variant="primary" href="/work" className="px-10">See Our Work</Button>
           </MagneticElement>
           <MagneticElement>
-            <Button variant="ghost" href="#contact">Let&apos;s Talk →</Button>
+            <Button variant="ghost" href="/contact">Let&apos;s Talk →</Button>
           </MagneticElement>
         </div>
 

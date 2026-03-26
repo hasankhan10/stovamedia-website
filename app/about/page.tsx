@@ -4,6 +4,7 @@ import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitHeadline, SectionLabel, RevealOnScroll } from "@/components/ui";
+import { Linkedin } from "lucide-react";
 import Image from "next/image";
 import CTASection from "@/components/sections/CTASection";
 import { cn } from "@/lib/utils";
@@ -65,11 +66,23 @@ export default function AboutPage() {
               alt="Mehedi Hasan" 
               fill 
               className="object-cover" 
+              priority
             />
           </div>
-          <div>
+          <div className="flex flex-col items-center md:items-start">
             <h3 className="font-display text-2xl mb-1">Mehedi Hasan</h3>
-            <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-gold">Founder & Lead Architect</span>
+            <div className="flex items-center gap-4">
+              <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-gold">Founder & Lead Architect</span>
+              <a 
+                href="https://www.linkedin.com/in/mehedi-hasan110/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-muted hover:text-gold transition-colors"
+                aria-label="Founder LinkedIn"
+              >
+                <Linkedin size={14} />
+              </a>
+            </div>
           </div>
         </div>
         <div className="relative pl-12 border-l-2 border-gold/40">

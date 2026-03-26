@@ -13,6 +13,7 @@ const navLinks = [
   { name: "Home", href: "/" },
   { name: "Work", href: "/work" },
   { name: "Services", href: "/services" },
+  { name: "Pricing", href: "/pricing" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
 ];
@@ -59,7 +60,7 @@ export default function Navbar() {
           alt="Stova Media" 
           width={160} 
           height={40} 
-          className="h-8 md:h-10 w-auto object-contain transition-transform duration-500 group-hover:scale-105" 
+          className="h-8 md:h-10 w-auto object-contain transition-transform duration-500 group-hover:scale-105 rounded-full" 
           priority
         />
       </Link>
@@ -120,7 +121,7 @@ export default function Navbar() {
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: "100%" }}
           transition={{ type: "spring", damping: 25, stiffness: 200 }}
-          className="fixed inset-0 bg-[#0A0A0B] dark:bg-[#0A0A0B] light:bg-[#E5E5E5] z-[1000] flex flex-col p-8 md:p-10 overflow-y-auto"
+          className="fixed inset-0 bg-ink z-[1000] flex flex-col p-8 md:p-10 overflow-y-auto"
           data-lenis-prevent
         >
           <div className="flex justify-between items-center mb-20">

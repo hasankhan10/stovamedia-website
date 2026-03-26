@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const stats = [
   { value: 3, suffix: "+", label: "Products" },
-  { value: 50, suffix: "+", label: "Active Users" },
+  { value: 50, suffix: "+", label: "Clinic Users" },
   { value: 4, suffix: "yr", label: "of Experience" },
   { value: 0, suffix: "%", label: "Outsourced" },
 ];

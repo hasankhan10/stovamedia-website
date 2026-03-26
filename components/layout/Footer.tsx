@@ -3,21 +3,20 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, ExternalLink, Instagram, Facebook } from "lucide-react";
+import { Linkedin, Mail, Instagram } from "lucide-react";
 
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "Work", href: "/work" },
   { name: "Services", href: "/services" },
+  { name: "Pricing", href: "/pricing" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
 ];
 
 const socialLinks = [
-  { name: "LinkedIn", href: "#", icon: <Linkedin size={16} /> },
-  { name: "GitHub", href: "#", icon: <Github size={16} /> },
-  { name: "Instagram", href: "#", icon: <Instagram size={16} /> },
-  { name: "Facebook", href: "#", icon: <Facebook size={16} /> },
+  { name: "Agency LinkedIn", href: "https://www.linkedin.com/company/stova-media/", icon: <Linkedin size={16} /> },
+  { name: "Instagram", href: "https://www.instagram.com/stovamedia", icon: <Instagram size={16} /> },
 ];
 
 export default function Footer() {
@@ -86,6 +85,8 @@ export default function Footer() {
                 <a
                   key={social.name}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-muted hover:border-gold hover:text-gold transition-all duration-300"
                   aria-label={social.name}
                 >

@@ -6,10 +6,9 @@ import { MarqueeTrack } from "@/components/ui";
 const marqueeItems = [
   "Healthcare SaaS",
   "Web Apps",
-  "React Native",
+  "Flutter",
   "API Systems",
   "White-label",
-  "3D Visualization",
   "Clinic Software",
 ];
 
