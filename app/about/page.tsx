@@ -49,9 +49,9 @@ export default function AboutPage() {
 
   return (
     <main className="pt-32 min-h-screen bg-ink">
-      <div className="px-6 md:px-10 lg:px-20 mb-32">
-        <SectionLabel>Our Story</SectionLabel>
-        <SplitHeadline tag="h1" className="text-5xl md:text-7xl lg:text-8xl leading-none">
+      <div className="px-6 md:px-10 lg:px-20 mb-32 flex flex-col items-center text-center">
+        <SectionLabel className="justify-center">Our Story</SectionLabel>
+        <SplitHeadline tag="h1" className="text-5xl md:text-7xl lg:text-8xl leading-none text-center">
           Founder-led. Product-minded. Kolkata-based.
         </SplitHeadline>
       </div>

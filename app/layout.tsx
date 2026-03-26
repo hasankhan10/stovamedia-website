@@ -7,6 +7,7 @@ import SmoothScroll from "@/components/animations/SmoothScroll";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Preloader from "@/components/layout/Preloader";
+import GlobalBackground from "@/components/layout/GlobalBackground";
 import PageTransition from "@/components/layout/PageTransition";
 import ScrollProgress from "@/components/layout/ScrollProgress";
 import BackToTop from "@/components/layout/BackToTop";
@@ -49,7 +50,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   icons: {
-    icon: "/stova-media-logo.jpg",
+    icon: "/favicon.png",
   },
 };
 
@@ -63,6 +64,7 @@ export default function RootLayout({
       <body className="antialiased text-cream selection:bg-gold selection:text-ink">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <Preloader />
+          <GlobalBackground />
           <ScrollProgress />
           <Navbar />
           <BackToTop />

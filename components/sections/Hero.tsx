@@ -72,56 +72,38 @@ export default function Hero() {
       ref={containerRef}
       className="relative min-h-[100svh] flex flex-col justify-center px-6 md:px-10 lg:px-20 pt-[120px] overflow-hidden"
     >
-      {/* BACKGROUND LAYERS */}
-      <div className="absolute inset-0 pointer-events-none z-0">
-        {/* Grid lines */}
-        <div 
-          className="absolute inset-0 opacity-[0.018]"
-          style={{
-            backgroundImage: `linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)`,
-            backgroundSize: '64px 64px'
-          }}
-        />
-        {/* Radial mask for grid */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_70%_at_50%_50%,transparent_0,var(--ink)_100%)] opacity-40" />
-        
-        {/* Floating Orbs */}
-        <div className="hero-orb absolute top-[5%] -right-[10%] w-[700px] h-[700px] bg-gold/10 rounded-full blur-[120px] animate-float opacity-60" />
-        <div className="hero-orb absolute -bottom-[5%] -left-[5%] w-[400px] h-[400px] bg-gold/5 rounded-full blur-[100px] animate-float-reverse opacity-40" />
-      </div>
-
       {/* CONTENT */}
-      <div className="relative z-10 max-w-[1400px]">
+      <div className="relative z-10 max-w-[1400px] mx-auto flex flex-col items-center">
         {/* Label */}
-        <div className="hero-fade-up opacity-0" style={{ animationDelay: '0.3s' }}>
-          <SectionLabel>Custom Software Agency · Kolkata, India</SectionLabel>
+        <div className="hero-fade-up opacity-0 flex justify-center">
+          <SectionLabel className="justify-center">Custom Software Agency · Kolkata, India</SectionLabel>
         </div>
 
         {/* Headline */}
-        <div className="mt-8 mb-10">
+        <div className="mt-8 mb-10 w-full">
           <SplitHeadline 
             tag="h1" 
-            className="text-[clamp(60px,8vw,112px)] leading-[0.95] tracking-tight"
+            className="text-[clamp(48px,8vw,112px)] leading-[0.95] tracking-tight text-center"
             delay={0.5}
           >
             We build software For
           </SplitHeadline>
           
-          {/* Custom injection for the italicized and stroked words via SplitHeadline's word-inner pattern */}
-          <div className="mt-4 flex flex-wrap gap-x-[0.3em] font-display text-[clamp(60px,8vw,112px)] leading-[0.95] tracking-tight">
+          {/* Custom injection for the italicized and stroked words */}
+          <div className="mt-4 flex flex-wrap justify-center gap-x-[0.3em] font-display text-[clamp(48px,8vw,112px)] leading-[0.95] tracking-tight">
              <span className="text-gold italic">Serious</span>
              <span className="transparent-text transition-all duration-700 hover:text-outline-gold">Businesses</span>
           </div>
         </div>
 
         {/* Subtext */}
-        <p className="hero-fade-up opacity-0 text-muted font-ui text-base md:text-lg max-w-[540px] leading-relaxed mb-12">
+        <p className="hero-fade-up opacity-0 text-muted font-ui text-base md:text-lg max-w-[580px] leading-relaxed mb-12 mx-auto">
           From Custom software to AI agents — we design, 
           architect, and ship products that last. No shortcuts. No bloat.
         </p>
 
         {/* CTAs */}
-        <div className="hero-fade-up opacity-0 flex flex-wrap gap-6 items-center mb-24">
+        <div className="hero-fade-up opacity-0 flex flex-wrap justify-center gap-6 items-center mb-24">
           <MagneticElement>
             <Button variant="primary" href="#work" className="px-10">See Our Work</Button>
           </MagneticElement>
@@ -133,10 +115,10 @@ export default function Hero() {
         {/* STATS BAR */}
         <div 
           ref={statsRef}
-          className="hero-fade-up opacity-0 flex flex-wrap gap-x-16 gap-y-10 pt-12 border-t border-border"
+          className="hero-fade-up opacity-0 flex flex-wrap justify-center gap-x-16 gap-y-10 pt-12 border-t border-border w-full"
         >
           {stats.map((stat, i) => (
-            <div key={i} className="flex flex-col">
+            <div key={i} className="flex flex-col items-center">
               <div className="flex items-baseline">
                 <span 
                   className="stat-number font-display text-5xl md:text-6xl" 
@@ -154,34 +136,6 @@ export default function Hero() {
         </div>
       </div>
 
-      <style jsx>{`
-        .animate-float {
-          animation: float 6s infinite ease-in-out;
-        }
-        .animate-float-reverse {
-          animation: float 8s infinite ease-in-out reverse;
-        }
-        @keyframes float {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-20px); }
-        }
-        .transparent-text {
-          color: transparent;
-          -webkit-text-stroke: 1px color-mix(in srgb, var(--cream), transparent 65%);
-          cursor: default;
-        }
-        .transparent-text:hover {
-          color: var(--gold);
-          -webkit-text-stroke: 1px transparent;
-        }
-        .hero-fade-up {
-          animation: fadeUp 1.2s forwards;
-        }
-        @keyframes fadeUp {
-          from { opacity: 0; transform: translateY(30px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-      `}</style>
     </section>
   );
 }

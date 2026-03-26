@@ -100,3 +100,36 @@ body::before {
   background: var(--gold);
   color: var(--ink);
 }
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.4; scale: 1; }
+  50% { opacity: 0.8; scale: 1.1; }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 10s infinite ease-in-out;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.animate-float {
+  animation: float 6s infinite ease-in-out;
+}
+
+.transparent-text {
+  color: transparent;
+  -webkit-text-stroke: 1px color-mix(in srgb, var(--cream), transparent 65%);
+  cursor: default;
+}
+
+.transparent-text:hover {
+  color: var(--gold);
+  -webkit-text-stroke: 1px transparent;
+}
+
+.hero-fade-up {
+  opacity: 0;
+}
+

@@ -44,9 +44,9 @@ export default function ContactPage() {
 
   return (
     <main className="pt-32 min-h-screen bg-ink">
-      <div className="px-6 md:px-10 lg:px-20 mb-32">
-        <SectionLabel>Get In Touch</SectionLabel>
-        <SplitHeadline tag="h1" className="text-5xl md:text-7xl lg:text-8xl leading-none">
+      <div className="px-6 md:px-10 lg:px-20 mb-32 flex flex-col items-center text-center">
+        <SectionLabel className="justify-center">Get In Touch</SectionLabel>
+        <SplitHeadline tag="h1" className="text-5xl md:text-7xl lg:text-8xl leading-none text-center">
           Let&apos;s build something serious.
         </SplitHeadline>
       </div>
