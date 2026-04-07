@@ -31,16 +31,15 @@ export const metadata: Metadata = {
     default: "Stova Media | Custom Software & AI Agent Studio",
     template: "%s | Stova Media",
   },
-  description: "Building premium custom software, healthcare SaaS, and AI Agents for forward-thinking businesses. 100% in-house engineering and high-fidelity architecture from Kolkata.",
+  description: "Building premium custom software, SaaS, and AI Agents for forward-thinking businesses. 100% in-house engineering and high-fidelity architecture from Kolkata.",
   keywords: [
     "Custom Software Development", 
     "AI Agent Studio", 
     "Kolkata Software Agency", 
-    "Healthcare SaaS Development", 
-    "3D Visualization Software", 
     "Indian Software Studio",
-    "Bespoke Enterprise Platforms",
-    "Product Engineering"
+    "Best software company in Dholahat",
+    "Best website development company in Dholahat",
+    "Best website development in Dholahat"
   ],
   authors: [{ name: "Mehedi Hasan", url: "https://www.linkedin.com/in/mehedi-hasan110/" }],
   creator: "Stova Media",
