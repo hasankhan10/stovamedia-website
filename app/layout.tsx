@@ -10,7 +10,7 @@ import Preloader from "@/components/layout/Preloader";
 import GlobalBackground from "@/components/layout/GlobalBackground";
 import PageTransition from "@/components/layout/PageTransition";
 import ScrollProgress from "@/components/layout/ScrollProgress";
-import BackToTop from "@/components/layout/BackToTop";
+
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { ChatBot } from "@/components/ui";
 
@@ -141,7 +141,7 @@ export default function RootLayout({
           <GlobalBackground />
           <ScrollProgress />
           <Navbar />
-          <BackToTop />
+
           <ChatBot />
           <SmoothScroll>
             <PageTransition>

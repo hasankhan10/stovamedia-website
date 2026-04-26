@@ -3,7 +3,7 @@
 import React from "react";
 import { SplitHeadline, SectionLabel, Tag, RevealOnScroll } from "@/components/ui";
 import CTASection from "@/components/sections/CTASection";
-import { Code2, Bot, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Code2, Bot, ArrowRight, CheckCircle2, Store, ShoppingCart } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const serviceCategories = [
@@ -57,6 +57,65 @@ const serviceDetails = [
       { label: "Continuous Learning", desc: "Gets smarter with every interaction" },
     ],
   },
+  {
+    id: "local-business",
+    number: "03",
+    icon: Store,
+    title: "Google Business Profile & Premium Website",
+    tagline: "Dominate your local market with a high-fidelity digital presence.",
+    desc: "We help local businesses establish a commanding online presence. This package includes full Google Business Profile setup and optimization alongside a premium, high-converting landing page. While the market price is ₹20,000, we exclusively offer this complete package for local business support at just ₹13,999.",
+    deliverables: [
+      "Premium Landing Page Website",
+      "Google Business Profile Setup",
+      "Local SEO Optimization",
+      "Mobile-First Design",
+      "Contact Form Integration"
+    ],
+    tech: ["Next.js", "Tailwind CSS", "Local SEO", "Google My Business"],
+    highlights: [
+      { 
+        label: "Unbeatable Value", 
+        desc: (
+          <span className="flex items-end gap-3 mt-1">
+            <span className="text-base text-muted/60 line-through font-ui">₹20,000</span>
+            <span className="text-3xl font-display text-gold leading-none">₹13,999</span>
+          </span>
+        ) 
+      },
+      { label: "Local Focus", desc: "Exclusively tailored for local business support" },
+      { label: "High Conversion", desc: "Designed specifically to turn local searchers into customers" },
+    ],
+  },
+  {
+    id: "ecommerce",
+    number: "04",
+    icon: ShoppingCart,
+    title: "Fully Ecommerce Setup",
+    tagline: "Making your premium brand visible to everyone.",
+    desc: "Launch your digital storefront with a fully custom-coded e-commerce setup. We build high-performance, scalable platforms tailored entirely to your brand's unique identity. With a market value of ₹55,000, we deliver this premium e-commerce architecture to you for just upto ₹39,999.",
+    deliverables: [
+      "Custom E-commerce Platform",
+      "Secure Payment Gateway Integration",
+      "Brand-aligned Design System",
+      "Full Admin Panel Management",
+      "Mobile-Optimized Checkout",
+      "SEO & Speed Optimization"
+    ],
+    tech: ["Next.js", "Stripe", "Tailwind CSS", "Supabase", "PostgreSQL"],
+    highlights: [
+      { 
+        label: "Premium Offer", 
+        desc: (
+          <span className="flex items-end gap-3 mt-1">
+            <span className="text-base text-muted/60 line-through font-ui">₹55,000</span>
+            <span className="text-3xl font-display text-gold leading-none"> Upto ₹39,999</span>
+          </span>
+        ) 
+      },
+      { label: "Global Reach", desc: "Make your premium brand visible to everyone" },
+      { label: "Custom Coded", desc: "No generic templates. Built specifically for your products." },
+    ],
+  },
 ];
 
 export default function ServicesPage() {
@@ -66,10 +125,10 @@ export default function ServicesPage() {
       <div className="px-6 md:px-10 lg:px-20 mb-32 flex flex-col items-center text-center">
         <SectionLabel className="justify-center">What We Build</SectionLabel>
         <SplitHeadline tag="h1" className="text-5xl md:text-7xl lg:text-8xl leading-none text-center justify-center">
-          Two things. Done exceptionally.
+          Four things. Done exceptionally.
         </SplitHeadline>
         <p className="mt-10 text-muted font-ui text-lg md:text-xl max-w-2xl leading-relaxed mx-auto">
-          We don&apos;t spread thin. We focus on two core capabilities and deliver them 
+          We don&apos;t spread thin. We focus on four core capabilities and deliver them 
           at a level most agencies can&apos;t match.
         </p>
       </div>
@@ -159,7 +218,7 @@ export default function ServicesPage() {
                             <div className="w-2 h-2 rounded-full bg-gold mt-2 shrink-0" />
                             <div>
                               <span className="font-display text-lg text-cream block mb-1">{h.label}</span>
-                              <span className="text-sm text-muted font-ui">{h.desc}</span>
+                              <div className="text-sm text-muted font-ui">{h.desc}</div>
                             </div>
                           </div>
                         ))}

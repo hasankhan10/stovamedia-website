@@ -10,7 +10,9 @@ import {
 import { 
   Code2, 
   Bot, 
-  ArrowRight 
+  ArrowRight,
+  Store,
+  ShoppingCart
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -27,6 +29,18 @@ const services = [
     icon: Bot,
     desc: "Intelligent automation, conversational AI, and data pipelines that work 24/7 — built for production, not demos.",
   },
+  {
+    number: "03",
+    name: "Local Business Growth",
+    icon: Store,
+    desc: "Google Business Profile optimization paired with a high-converting premium landing page — designed to dominate your local market.",
+  },
+  {
+    number: "04",
+    name: "Premium Ecommerce",
+    icon: ShoppingCart,
+    desc: "Fully custom-coded digital storefronts with secure payments and brand-aligned design systems — making you visible to everyone.",
+  },
 ];
 
 export default function Services() {
@@ -37,12 +51,12 @@ export default function Services() {
         <div>
           <SectionLabel>Our Expertise</SectionLabel>
           <SplitHeadline tag="h2" className="text-4xl md:text-5xl lg:text-6xl leading-[1.1]">
-            Two things. Done right.
+            Four things. Done right.
           </SplitHeadline>
         </div>
         
         <p className="font-ui text-base md:text-lg text-muted max-w-[500px] leading-relaxed">
-          We don&apos;t spread thin across dozens of services. We master two core 
+          We don&apos;t spread thin across dozens of services. We master four core 
           capabilities and deliver them at an exceptional level.
         </p>
       </div>

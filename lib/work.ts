@@ -18,6 +18,7 @@ export interface Project {
   locked?: boolean;
   nextSlug?: string;
   externalUrl?: string;
+  image?: string;
 }
 
 const projects: Project[] = [
@@ -43,13 +44,14 @@ const projects: Project[] = [
     heroColor: "linear-gradient(135deg, #080808, #0A1A0A)",
     featured: true,
     externalUrl: "https://www.mrcompounder.com",
+    image: "/mrcompounder.png",
     nextSlug: "hair-transplant-simulation"
   },
   {
     slug: "hair-transplant-simulation",
     index: "02",
     title: "Hair Transplant Simulation",
-    tag: "AI · 3D Platform",
+    tag: "AI · 2D Platform",
     category: "AI",
     tagline: "AI-powered hair transplant visualization for clinics worldwide.",
     overview: "Surgeons upload patient photos, our AI generates a photorealistic 3D head model, designs hairlines, maps donor/recipient zones, calculates grafts, and shows month-by-month growth simulation from Month 1 to Month 18.",
@@ -65,7 +67,33 @@ const projects: Project[] = [
     timeline: "In active development",
     status: "In Development",
     heroColor: "linear-gradient(135deg, #080808, #100A18)",
-    externalUrl: "https://www.semulation.drpaulsonlin.com",
+    externalUrl: "https://www.semulation.drpaulsonline.com",
+    image: "/hair simulation.png",
+    nextSlug: "bondhu-motor"
+  },
+  {
+    slug: "bondhu-motor",
+    index: "03",
+    title: "Bondhu Motor & Electronic",
+    tag: "Local Business · Web Platform",
+    category: "Web Apps",
+    tagline: "Premium digital presence for a leading electric scooty showroom.",
+    overview: "A comprehensive digital solution for an electric vehicle dealership. We delivered a high-fidelity web platform paired with complete Google Business Profile optimization to dominate the local market.",
+    challenge: "The showroom needed a way to showcase their premium electric scooty lineup while ensuring they were the first result when local customers searched for electric vehicles.",
+    solution: "We built a lightning-fast, mobile-first website with high-quality visuals and integrated it with a fully optimized Google Business Profile, specifically tailored for local lead conversion.",
+    results: ["Full Google Business Profile setup", "Premium high-converting landing page", "Local SEO dominance", "Zero friction customer contact flow"],
+    metrics: [
+      { value: "Live", label: "Status" },
+      { value: "SEO", label: "Optimized" },
+      { value: "Mobile", label: "First" }
+    ],
+    tech: ["Next.js", "Tailwind CSS", "Framer Motion", "Google Business Profile", "Local SEO"],
+    timeline: "2 weeks delivery",
+    status: "Live",
+    heroColor: "linear-gradient(135deg, #080808, #1A1A0A)",
+    featured: true,
+    externalUrl: "https://bondhumotorandelectronic.netlify.app/",
+    image: "/bondhu motor.png",
     nextSlug: "mr-compounder"
   },
 ];
