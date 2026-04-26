@@ -12,6 +12,7 @@ import PageTransition from "@/components/layout/PageTransition";
 import ScrollProgress from "@/components/layout/ScrollProgress";
 import BackToTop from "@/components/layout/BackToTop";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { ChatBot } from "@/components/ui";
 
 const displayFont = DM_Serif_Display({
   subsets: ["latin"],
@@ -141,6 +142,7 @@ export default function RootLayout({
           <ScrollProgress />
           <Navbar />
           <BackToTop />
+          <ChatBot />
           <SmoothScroll>
             <PageTransition>
               {children}

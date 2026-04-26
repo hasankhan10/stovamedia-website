@@ -6,3 +6,4 @@ export * from "./MagneticElement";
 export * from "./ProjectCard";
 export * from "./Tag";
 export * from "./MarqueeTrack";
+export * from "./ChatBot";
