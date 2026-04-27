@@ -98,8 +98,9 @@ export default function Hero() {
 
         {/* Subtext */}
         <p className="hero-fade-up opacity-0 text-muted font-ui text-base md:text-lg max-w-[580px] leading-relaxed mb-12 mx-auto">
-          From Custom software to AI agents — we design, 
-          architect, and ship products that last. No shortcuts. No bloat.
+          Stova Media is a premium software agency based in Kolkata, specializing in high-fidelity 
+          custom software and AI Agent automation. We architect, design, and ship 
+          scalable products for serious businesses.
         </p>
 
         {/* CTAs */}
