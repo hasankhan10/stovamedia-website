@@ -4,12 +4,12 @@ import React from "react";
 import { MarqueeTrack } from "@/components/ui";
 
 const marqueeItems = [
-  "Healthcare SaaS",
-  "Web Apps",
-  "Flutter",
-  "API Systems",
+  "AI powered Websites",
+  "E-commerce",
+  "Mobile Apps",
+  "AI Automation",
   "White-label",
-  "Clinic Software",
+  "Personal Projects",
 ];
 
 export default function MarqueeStrip() {

@@ -69,7 +69,8 @@ const serviceDetails = [
       "Google Business Profile Setup",
       "Local SEO Optimization",
       "Mobile-First Design",
-      "Contact Form Integration"
+      "Contact Form Integration",
+      "AI assistant chat bot integration"
     ],
     tech: ["Next.js", "Tailwind CSS", "Local SEO", "Google My Business"],
     highlights: [
@@ -77,8 +78,8 @@ const serviceDetails = [
         label: "Unbeatable Value", 
         desc: (
           <span className="flex items-end gap-3 mt-1">
-            <span className="text-base text-muted/60 line-through font-ui">₹20,000</span>
-            <span className="text-3xl font-display text-gold leading-none">₹13,999</span>
+            <span className="text-base text-muted/60 line-through font-ui">₹25,000</span>
+            <span className="text-3xl font-display text-gold leading-none">₹15,999</span>
           </span>
         ) 
       },
