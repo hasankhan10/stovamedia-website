@@ -56,7 +56,7 @@ export default function Navbar() {
       {/* Left: Logo */}
       <Link href="/" className="group flex items-center gap-1">
         <Image 
-          src="/stova-media-logo.jpg" 
+          src="/logo.jpeg" 
           alt="Stova Media" 
           width={160} 
           height={40} 
@@ -126,7 +126,7 @@ export default function Navbar() {
         >
           <div className="flex justify-between items-center mb-20">
             <Image 
-              src="/stova-media-logo.jpg" 
+              src="/logo.jpeg" 
               alt="Stova Media" 
               width={160} 
               height={40} 

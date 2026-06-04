@@ -30,7 +30,7 @@ export default function Footer() {
         <div className="flex flex-col gap-6">
           <Link href="/" className="group block w-fit">
             <Image 
-              src="/stova-media-logo.jpg" 
+              src="/logo.jpeg" 
               alt="Stova Media" 
               width={140} 
               height={35} 

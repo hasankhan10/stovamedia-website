@@ -81,7 +81,7 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/favicon.png",
+    icon: "/logo.jpeg",
   },
 };
 
@@ -99,9 +99,9 @@ export default function RootLayout({
         "name": "Stova Media",
         "alternateName": "Stova",
         "description": "Premium Custom Software and AI Agent Studio based in Kolkata, India. Specialized in high-fidelity healthcare SaaS, AI automation, and enterprise web solutions.",
-        "image": "https://stovamedia.in/stova-media-logo.jpg",
+        "image": "https://stovamedia.in/logo.jpeg",
         "url": "https://stovamedia.in",
-        "logo": "https://stovamedia.in/stova-media-logo.jpg",
+        "logo": "https://stovamedia.in/logo.jpeg",
         "telephone": "+919432053261",
         "email": "contact@stovamedia.in",
         "address": {
