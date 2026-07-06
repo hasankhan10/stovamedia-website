@@ -63,7 +63,7 @@ const serviceDetails = [
     icon: Store,
     title: "Google Business Profile & Premium Website",
     tagline: "Dominate your local market with a high-fidelity digital presence.",
-    desc: "We help local businesses establish a commanding online presence. This package includes full Google Business Profile setup and optimization alongside a premium, high-converting landing page. While the market price is ₹20,000, we exclusively offer this complete package for local business support at just ₹13,999.",
+    desc: "We help local businesses establish a commanding online presence. This package includes full Google Business Profile setup and optimization alongside a premium, high-converting landing page. While the market price is ₹25,000, we exclusively offer this complete package for local business support at just ₹15,999.",
     deliverables: [
       "Premium Landing Page Website",
       "Google Business Profile Setup",
@@ -126,11 +126,10 @@ export default function ServicesPage() {
       <div className="px-6 md:px-10 lg:px-20 mb-32 flex flex-col items-center text-center">
         <SectionLabel className="justify-center">What We Build</SectionLabel>
         <SplitHeadline tag="h1" className="text-5xl md:text-7xl lg:text-8xl leading-none text-center justify-center">
-          Four things. Done exceptionally.
+          Your vision. Engineered to perfection.
         </SplitHeadline>
         <p className="mt-10 text-muted font-ui text-lg md:text-xl max-w-2xl leading-relaxed mx-auto">
-          We don&apos;t spread thin. We focus on four core capabilities and deliver them 
-          at a level most agencies can&apos;t match.
+          We engineer high-fidelity digital products custom-tailored to your exact business requirements, adhering to premium architectural standards and absolute performance.
         </p>
       </div>
 

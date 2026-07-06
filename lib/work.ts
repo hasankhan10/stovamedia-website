@@ -94,6 +94,36 @@ const projects: Project[] = [
     featured: true,
     externalUrl: "https://bondhumotorandelectronic.netlify.app/",
     image: "/bondhu motor.png",
+    nextSlug: "dr-pauls-care"
+  },
+  {
+    slug: "dr-pauls-care",
+    index: "04",
+    title: "Dr. Paul's Online Care",
+    tag: "E-commerce Platform",
+    category: "Web Apps",
+    tagline: "Doctor-recommended hair & skin care e-commerce platform for 17+ clinics.",
+    overview: "A high-performance e-commerce platform for Dr. Paul's, one of India's leading hair & skin clinic chains. Built with an optimized doctor-recommended kit selection, custom diagnostics checkout, and secure online ordering to bridge the gap between clinical consultations and at-home recovery.",
+    challenge: "Providing a seamless shop experience that mirrors professional clinic consultations while handling complex product kits, shipping across multiple countries (India & Bangladesh), and maintaining high page speed performance.",
+    solution: "Custom-coded React & Next.js storefront integrated with secure payment systems, dynamic search, structured category filtering, and lightweight page assets to load under 1.5 seconds.",
+    results: [
+      "1.5s page load speeds",
+      "Integrated multi-clinic fulfillment",
+      "Doctor-curated recovery kit bundles",
+      "Secure payment integrations"
+    ],
+    metrics: [
+      { value: "1.5s", label: "Load Time" },
+      { value: "17+", label: "Clinics Connected" },
+      { value: "2", label: "Countries Served" }
+    ],
+    tech: ["Next.js", "Tailwind CSS", "Framer Motion", "Zustand", "Supabase", "Stripe", "PostgreSQL"],
+    timeline: "6 weeks MVP to launch",
+    status: "Live",
+    heroColor: "linear-gradient(135deg, #080808, #1F0D0D)",
+    featured: true,
+    externalUrl: "https://care.drpaulsonline.com",
+    image: "/drpauls-care.png",
     nextSlug: "mr-compounder"
   },
 ];

@@ -45,10 +45,10 @@ export const ProjectCard = ({
           <img
             src={image}
             alt={title}
-            className="w-full h-full object-cover scale-[1.1] opacity-0 blur-sm transition-all duration-1000 ease-out group-hover:scale-100 group-hover:opacity-[0.4] group-hover:blur-0"
+            className="w-full h-full object-cover scale-[1.1] opacity-[0.15] blur-md transition-all duration-1000 ease-out group-hover:scale-100 group-hover:opacity-[0.45] group-hover:blur-0"
           />
         ) : (
-          <div className="w-full h-full bg-gradient-to-br from-gold/5 to-transparent opacity-0 transition-opacity duration-1000 group-hover:opacity-100" />
+          <div className="w-full h-full bg-gradient-to-br from-gold/5 to-transparent opacity-[0.15] transition-opacity duration-1000 group-hover:opacity-100" />
         )}
       </div>
 

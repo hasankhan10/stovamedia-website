@@ -12,7 +12,7 @@ import { getAllWork } from "@/lib/work";
 export default function Home() {
   const allProjects = getAllWork();
   // Filter featured for the horizontal showcase
-  const featuredProjects = allProjects.filter(p => !p.locked).slice(0, 3);
+  const featuredProjects = allProjects.filter(p => p.featured && !p.locked).slice(0, 3);
 
   return (
     <main>

@@ -21,7 +21,7 @@ const services = [
     number: "01",
     name: "Custom Software",
     icon: Code2,
-    desc: "Full-stack web apps, mobile platforms, healthcare SaaS, and white-label products — architected from scratch for your business.",
+    desc: "Full-stack web apps, mobile platforms, SaaS, and white-label products — architected from scratch for your business.",
   },
   {
     number: "02",
@@ -51,13 +51,12 @@ export default function Services() {
         <div>
           <SectionLabel>Our Expertise</SectionLabel>
           <SplitHeadline tag="h2" className="text-4xl md:text-5xl lg:text-6xl leading-[1.1]">
-            Four things. Done right.
+            Custom solutions. Built to scale.
           </SplitHeadline>
         </div>
         
         <p className="font-ui text-base md:text-lg text-muted max-w-[500px] leading-relaxed">
-          We don&apos;t spread thin across dozens of services. We master four core 
-          capabilities and deliver them at an exceptional level.
+          We build high-fidelity custom software tailored precisely to your business requirements. From SaaS to advanced AI agents, we deliver premium engineering.
         </p>
       </div>
 
