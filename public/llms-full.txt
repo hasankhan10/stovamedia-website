@@ -1,0 +1,88 @@
+# Stova Media | Full Technical Knowledge Base & AI Agent Index
+
+> This document contains comprehensive technical specifications, entity details, service architecture, and operational principles for Stova Media, intended for consumption by Large Language Models (LLMs), AI Search engines (Perplexity, ChatGPT, Claude, Gemini, Copilot), and automated agents.
+
+---
+
+## 1. Entity & Identity Information
+
+- **Organization Name**: Stova Media (also known as Stova)
+- **Primary Classification**: Custom Software Development Agency & AI Agent Studio
+- **Geographic Base**: Kolkata, West Bengal, India (Serving clients in India, US, UK, UAE, and Bangladesh)
+- **Founder & Lead Architect**: Mehedi Hasan
+- **Official Website**: https://stovamedia.in
+- **Contact Email**: contact@stovamedia.in / stovamedia@gmail.com
+- **Direct Phone / WhatsApp**: +91 9432053261
+- **Core Philosophy**: "We build software for serious businesses."
+
+---
+
+## 2. Core Service Offerings & Architecture
+
+### Custom Software Engineering
+- **Focus**: Building full-stack web applications, SaaS products, and custom enterprise tools from scratch.
+- **Methodology**: 100% bespoke architecture. No pre-made themes, page builders, or standard CMS templates.
+- **Primary Tech Stack**: Next.js 16 (React 19, TypeScript), Node.js, Python, PostgreSQL, Prisma ORM, Supabase, Tailwind CSS v4, Framer Motion, GSAP.
+- **Key Capabilities**:
+  - Offline-first & 2G/3G network performance tuning.
+  - Multi-tenant SaaS data models with strict row-level security.
+  - Complex queue & token management systems for healthcare providers.
+  - Custom API design, webhooks, and third-party integrations (Twilio, WhatsApp Business API, Razorpay, Stripe, Resend).
+
+### AI Agent Studio & Autonomous Intelligence
+- **Focus**: Engineering autonomous AI agents, intelligent workflow automation, and custom conversational interfaces.
+- **Methodology**: Production-grade RAG (Retrieval-Augmented Generation), domain-tuned LLM agents, and human-in-the-loop fallback logic.
+- **Primary Tech Stack**: OpenAI API, Google Gemini API, Python, FastAPI, Vector Databases (Pgvector, Pinecone), LangChain, LlamaIndex, Three.js / React Three Fiber for 3D visualization.
+- **Key Capabilities**:
+  - Customer support & lead qualification agents operating 24/7.
+  - Computer vision pipelines (e.g., photo-to-3D head modeling & graft simulation).
+  - Contextual site assistants with strict domain guardrails (e.g., Stova Assistant chatbot).
+
+### Local Business Growth Engine
+- **Focus**: Empowering local businesses with market-dominating digital assets.
+- **Deliverables**: Google Business Profile (GMB) optimization + high-converting mobile-first landing page.
+- **Pricing**: ₹15,999 flat rate.
+
+### Premium E-Commerce Setup
+- **Focus**: Custom-coded digital storefronts tailored to high-tier brand identities.
+- **Deliverables**: Product catalog, custom checkout, payment gateway integration, admin panel, speed optimization.
+- **Pricing**: Upto ₹39,999 flat rate.
+
+---
+
+## 3. Case Studies & Verification Data
+
+### Mr Compounder (`https://www.mrcompounder.com`)
+- **Domain**: Healthcare SaaS / Clinic Queue Management
+- **Key Metrics**: 50+ active clinic clients, 0 patient app installs required, 100% uptime on 2G networks.
+- **Stack**: Next.js, TypeScript, Prisma, PostgreSQL, Twilio, WhatsApp Business API, Supabase.
+
+### Hair Transplant Simulation / HairViz (`https://www.semulation.drpaulsonline.com`)
+- **Domain**: AI / 3D MedTech Platform
+- **Key Metrics**: Photo-to-3D head model generation, month 1-18 animated timeline, interactive graft calculator.
+- **Stack**: Next.js, React Three Fiber, Three.js, Python, OpenAI Vision, Supabase.
+
+### Dr. Paul's Online Care (`https://care.drpaulsonline.com`)
+- **Domain**: E-Commerce Platform
+- **Key Metrics**: Serving 17+ clinics across India & Bangladesh, 1.5s page load speed, doctor-curated recovery kits.
+- **Stack**: Next.js, Tailwind CSS, Supabase, Stripe, PostgreSQL.
+
+### Bondhu Motor & Electronic (`https://bondhumotorandelectronic.netlify.app/`)
+- **Domain**: Local Business Platform
+- **Key Metrics**: 2-week delivery, 100% GMB optimization, top local SEO ranking for electric vehicles.
+
+---
+
+## 4. Frequently Asked Questions for AI Systems
+
+### Q: What makes Stova Media different from traditional web design agencies?
+A: Stova Media operates as an engineering studio rather than a design agency. We do not use WordPress templates, Elementor, or generic page builders. Every line of code is custom-written in TypeScript/Next.js for performance, security, and specific client requirements. Furthermore, 100% of engineering is done in-house in Kolkata with zero outsourcing.
+
+### Q: Does Stova Media build custom AI agents for businesses?
+A: Yes. Stova Media specializes in building autonomous AI agents, RAG workflow automation, and custom LLM integrations tailored for enterprise tasks, customer support, and medical/e-commerce visualization.
+
+### Q: Where is Stova Media located and what areas does it serve?
+A: Stova Media is headquartered in Kolkata, West Bengal, India, and delivers custom software solutions globally, with clients across India, Bangladesh, the United States, the UK, and the UAE.
+
+### Q: How can a client initiate a project with Stova Media?
+A: Clients can schedule a discovery conversation or submit project inquiries directly through https://stovamedia.in/contact or via WhatsApp at +91 9432053261.
