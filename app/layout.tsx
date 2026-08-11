@@ -89,7 +89,12 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/logo.jpeg",
+    icon: [
+      { url: "/logo.jpeg", type: "image/jpeg" },
+      { url: "/icon.jpeg", type: "image/jpeg" }
+    ],
+    shortcut: "/logo.jpeg",
+    apple: "/logo.jpeg",
   },
   verification: {
     google: "T1GvZg1zt3moDOmO1EW833TuOi2s5wCkPhYX4FvR_KE",
@@ -110,7 +115,7 @@ export default function RootLayout({
         "name": "Stova Media",
         "alternateName": ["Stova", "Stova Media AI Studio", "Stova Software Agency"],
         "description": "Premium Custom Software Development Agency and AI Agent Studio based in Kolkata, West Bengal, India. Specialized in high-fidelity healthcare SaaS, autonomous AI agents, enterprise web applications, and e-commerce platforms.",
-        "image": "https://stovamedia.in/og-image.jpg",
+        "image": "https://stovamedia.in/logo.jpeg",
         "url": "https://stovamedia.in",
         "logo": "https://stovamedia.in/logo.jpeg",
         "telephone": "+919432053261",
@@ -266,6 +271,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${displayFont.variable} ${uiFont.variable}`} suppressHydrationWarning>
       <head>
+        <link rel="icon" href="/logo.jpeg" type="image/jpeg" />
+        <link rel="shortcut icon" href="/logo.jpeg" type="image/jpeg" />
+        <link rel="apple-touch-icon" href="/logo.jpeg" />
         <link rel="author" href="/llms.txt" />
         <script
           type="application/ld+json"
