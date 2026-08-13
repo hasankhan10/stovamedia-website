@@ -2,18 +2,11 @@ import type { Metadata } from "next";
 import { DM_Serif_Display, Outfit } from "next/font/google";
 import "./globals.css";
 
-// Layout Components
-import SmoothScroll from "@/components/animations/SmoothScroll";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
 import Preloader from "@/components/layout/Preloader";
 import GlobalBackground from "@/components/layout/GlobalBackground";
-import PageTransition from "@/components/layout/PageTransition";
 import ScrollProgress from "@/components/layout/ScrollProgress";
-
 import { ThemeProvider } from "@/components/ThemeProvider";
-import { ChatBot } from "@/components/ui";
-import { AISummary } from "@/components/layout/AISummary";
+import AppLayoutWrapper from "@/components/layout/AppLayoutWrapper";
 
 const displayFont = DM_Serif_Display({
   subsets: ["latin"],
@@ -285,16 +278,7 @@ export default function RootLayout({
           <Preloader />
           <GlobalBackground />
           <ScrollProgress />
-          <Navbar />
-
-          <ChatBot />
-          <SmoothScroll>
-            <PageTransition>
-              {children}
-              <AISummary />
-              <Footer />
-            </PageTransition>
-          </SmoothScroll>
+          <AppLayoutWrapper>{children}</AppLayoutWrapper>
         </ThemeProvider>
       </body>
     </html>

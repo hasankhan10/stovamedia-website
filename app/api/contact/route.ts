@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { insertInquiryToSupabase } from "@/lib/db-inquiries";
 
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 
@@ -11,9 +12,19 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
     }
 
-    // Email Integration (Resend)
+    // 1. Log Inquiry into Supabase DB
+    await insertInquiryToSupabase({
+      name,
+      email,
+      company: company || "",
+      project_type: projectType,
+      budget: budget || "",
+      details,
+    });
+
+    // 2. Email Notification (Resend)
     if (resend) {
-      const { data, error } = await resend.emails.send({
+      await resend.emails.send({
         from: "Stova Media <onboarding@resend.dev>",
         to: "stovamedia@gmail.com",
         subject: `New Project Inquiry: ${projectType} - ${name}`,
@@ -23,7 +34,7 @@ export async function POST(req: Request) {
             <p><strong>Email:</strong> ${email}</p>
             <p><strong>Company:</strong> ${company || "N/A"}</p>
             <p><strong>Project Type:</strong> ${projectType}</p>
-            <p><strong>Budget Range:</strong> ${budget}</p>
+            <p><strong>Budget Range:</strong> ${budget || "N/A"}</p>
             <p><strong>Project Details:</strong></p>
             <div style="background: #0C0C0C; padding: 15px; border-left: 4px solid #C9A84C;">
               ${details}
@@ -31,13 +42,11 @@ export async function POST(req: Request) {
           </div>
         `,
       });
-      if (error) return NextResponse.json({ error }, { status: 500 });
-    } else {
-      return NextResponse.json({ error: "Email service not configured" }, { status: 500 });
     }
 
-    return NextResponse.json({ message: "Inquiry sent successfully" });
+    return NextResponse.json({ message: "Inquiry sent successfully and saved to database" });
   } catch (err) {
+    console.error("Contact API error:", err);
     return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
   }
 }

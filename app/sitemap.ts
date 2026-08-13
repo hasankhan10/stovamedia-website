@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
-import { getAllWork } from "@/lib/work";
+import { fetchProjectsFromSupabase } from "@/lib/db-projects";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://stovamedia.in";
 
   const staticRoutes = [
@@ -43,7 +43,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  const allWork = getAllWork();
+  const { data: allWork } = await fetchProjectsFromSupabase();
   const workRoutes = allWork.map((p) => ({
     url: `${baseUrl}/work/${p.slug}`,
     lastModified: new Date(),

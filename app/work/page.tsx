@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getAllWork } from "@/lib/work";
+import { fetchProjectsFromSupabase } from "@/lib/db-projects";
 import WorkIndexClient from "@/components/work/WorkIndexClient";
 
 export const metadata: Metadata = {
@@ -24,8 +24,8 @@ export const metadata: Metadata = {
   },
 };
 
-export default function WorkPage() {
-  const allProjects = getAllWork();
+export default async function WorkPage() {
+  const { data: allProjects } = await fetchProjectsFromSupabase();
 
   return <WorkIndexClient projects={allProjects} />;
 }

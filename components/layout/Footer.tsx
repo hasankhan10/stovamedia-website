@@ -100,9 +100,11 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="pt-8 border-t border-border/50 flex flex-col md:flex-row justify-between items-center gap-6">
-        <p className="text-[10px] text-muted tracking-wide uppercase">
-          © {currentYear} Stova Media. All rights reserved.
-        </p>
+        <div className="flex items-center gap-4 text-[10px] text-muted tracking-wide uppercase">
+          <span>© {currentYear} Stova Media. All rights reserved.</span>
+          <span>·</span>
+          <Link href="/admin" className="hover:text-gold transition-colors">Admin</Link>
+        </div>
         <div className="flex items-center gap-3">
           <span className="text-[10px] text-muted tracking-wide uppercase">Kolkata, India</span>
           <motion.div

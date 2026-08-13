@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { fetchServicesFromSupabase } from "@/lib/db-services";
 import ServicesClient from "@/components/services/ServicesClient";
 
 export const metadata: Metadata = {
@@ -23,6 +24,8 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ServicesPage() {
-  return <ServicesClient />;
+export default async function ServicesPage() {
+  const { data: services } = await fetchServicesFromSupabase();
+
+  return <ServicesClient initialServices={services} />;
 }
