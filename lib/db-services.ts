@@ -140,7 +140,12 @@ export async function fetchServicesFromSupabase(): Promise<{ data: ServiceItem[]
       displayOrder: item.display_order || 1,
     }));
 
-    return { data: formatted, fromDb: true };
+    // Merge default services with dynamic Supabase services by ID
+    const serviceMap = new Map<string, ServiceItem>();
+    defaultServices.forEach((s) => serviceMap.set(s.id, s));
+    formatted.forEach((s) => serviceMap.set(s.id, s));
+
+    return { data: Array.from(serviceMap.values()), fromDb: true };
   } catch {
     return { data: defaultServices, fromDb: false };
   }
@@ -165,7 +170,7 @@ export async function saveServiceToSupabase(service: ServiceItem): Promise<{ suc
       .from("services")
       .select("id")
       .eq("service_id", service.id)
-      .single();
+      .maybeSingle();
 
     if (existing) {
       const { data, error } = await supabase

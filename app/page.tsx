@@ -10,6 +10,9 @@ import { RevealOnScroll } from "@/components/ui";
 import { fetchProjectsFromSupabase } from "@/lib/db-projects";
 import { fetchServicesFromSupabase } from "@/lib/db-services";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export default async function Home() {
   const { data: allProjects } = await fetchProjectsFromSupabase();
   const { data: services } = await fetchServicesFromSupabase();

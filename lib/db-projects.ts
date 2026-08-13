@@ -30,7 +30,7 @@ export function formatDbProjectToProject(record: DbProjectRecord): Project {
     slug: record.slug,
     index: record.index_number || "01",
     title: record.title,
-    tag: record.tag,
+    tag: record.tag || "Custom Software",
     category: record.category || "Web Apps",
     tagline: record.tagline || "",
     overview: record.overview || "",
@@ -66,8 +66,8 @@ export function formatProjectToDbRecord(project: Partial<Project>): Partial<DbPr
     timeline: project.timeline,
     status: project.status,
     hero_color: project.heroColor,
-    featured: project.featured,
-    locked: project.locked,
+    featured: project.featured ?? true,
+    locked: project.locked ?? false,
     external_url: project.externalUrl,
     image: project.image,
   };
@@ -80,12 +80,23 @@ export async function fetchProjectsFromSupabase(): Promise<{ data: Project[]; fr
       .select("*")
       .order("created_at", { ascending: true });
 
-    if (error || !data || data.length === 0) {
+    if (error) {
+      console.warn("Supabase projects fetch notice:", error.message);
       return { data: getAllWork(), fromDb: false };
     }
 
-    const formatted = data.map(formatDbProjectToProject);
-    return { data: formatted, fromDb: true };
+    if (!data || data.length === 0) {
+      return { data: getAllWork(), fromDb: false };
+    }
+
+    const dbProjects = data.map(formatDbProjectToProject);
+
+    // Merge default static projects with dynamic Supabase projects by slug
+    const projectMap = new Map<string, Project>();
+    getAllWork().forEach((p) => projectMap.set(p.slug, p));
+    dbProjects.forEach((p) => projectMap.set(p.slug, p));
+
+    return { data: Array.from(projectMap.values()), fromDb: true };
   } catch {
     return { data: getAllWork(), fromDb: false };
   }
@@ -94,13 +105,13 @@ export async function fetchProjectsFromSupabase(): Promise<{ data: Project[]; fr
 export async function saveProjectToSupabase(project: Partial<Project>): Promise<{ success: boolean; data?: Project; error?: string }> {
   try {
     const dbRecord = formatProjectToDbRecord(project);
-    
+
     // Check if project exists by slug
     const { data: existing } = await supabase
       .from("projects")
       .select("id")
       .eq("slug", project.slug)
-      .single();
+      .maybeSingle();
 
     if (existing) {
       const { data, error } = await supabase
