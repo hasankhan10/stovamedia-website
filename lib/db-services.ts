@@ -17,6 +17,8 @@ export interface ServiceItem {
   deliverables: string[];
   tech: string[];
   highlights: ServiceHighlight[];
+  marketPrice?: string; // e.g. '₹25,000'
+  ourPrice?: string;    // e.g. '₹15,999'
   displayOrder?: number;
 }
 
@@ -84,6 +86,8 @@ export const defaultServices: ServiceItem[] = [
       "AI assistant chat bot integration",
     ],
     tech: ["Next.js", "Tailwind CSS", "Local SEO", "Google My Business"],
+    marketPrice: "₹25,000",
+    ourPrice: "₹15,999",
     highlights: [
       { label: "Unbeatable Value", desc: "Market ₹25,000 → Offer ₹15,999", originalPrice: "₹25,000", offerPrice: "₹15,999" },
       { label: "Local Focus", desc: "Exclusively tailored for local business support" },
@@ -107,6 +111,8 @@ export const defaultServices: ServiceItem[] = [
       "SEO & Speed Optimization",
     ],
     tech: ["Next.js", "Stripe", "Tailwind CSS", "Supabase", "PostgreSQL"],
+    marketPrice: "₹55,000",
+    ourPrice: "Upto ₹39,999",
     highlights: [
       { label: "Premium Offer", desc: "Market ₹55,000 → Upto ₹39,999", originalPrice: "₹55,000", offerPrice: "Upto ₹39,999" },
       { label: "Global Reach", desc: "Make your premium brand visible to everyone" },
@@ -137,10 +143,11 @@ export async function fetchServicesFromSupabase(): Promise<{ data: ServiceItem[]
       deliverables: Array.isArray(item.deliverables) ? item.deliverables : [],
       tech: Array.isArray(item.tech) ? item.tech : [],
       highlights: Array.isArray(item.highlights) ? item.highlights : [],
+      marketPrice: item.market_price || item.marketPrice || "",
+      ourPrice: item.our_price || item.ourPrice || "",
       displayOrder: item.display_order || 1,
     }));
 
-    // Merge default services with dynamic Supabase services by ID
     const serviceMap = new Map<string, ServiceItem>();
     defaultServices.forEach((s) => serviceMap.set(s.id, s));
     formatted.forEach((s) => serviceMap.set(s.id, s));
@@ -163,6 +170,8 @@ export async function saveServiceToSupabase(service: ServiceItem): Promise<{ suc
       deliverables: service.deliverables || [],
       tech: service.tech || [],
       highlights: service.highlights || [],
+      market_price: service.marketPrice || "",
+      our_price: service.ourPrice || "",
       display_order: service.displayOrder || 1,
     };
 
@@ -193,6 +202,8 @@ export async function saveServiceToSupabase(service: ServiceItem): Promise<{ suc
           deliverables: data.deliverables,
           tech: data.tech,
           highlights: data.highlights,
+          marketPrice: data.market_price,
+          ourPrice: data.our_price,
           displayOrder: data.display_order,
         },
       };
@@ -216,6 +227,8 @@ export async function saveServiceToSupabase(service: ServiceItem): Promise<{ suc
           deliverables: data.deliverables,
           tech: data.tech,
           highlights: data.highlights,
+          marketPrice: data.market_price,
+          ourPrice: data.our_price,
           displayOrder: data.display_order,
         },
       };

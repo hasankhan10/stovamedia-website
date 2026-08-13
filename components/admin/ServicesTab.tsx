@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { ServiceItem } from "@/lib/db-services";
-import { Search, Plus, Edit3, Trash2, Code2, Bot, Store, ShoppingCart, Zap, ShieldCheck, Globe, Smartphone, Sparkles, Layers } from "lucide-react";
+import { Search, Plus, Edit3, Trash2, Code2, Bot, Store, ShoppingCart, Zap, ShieldCheck, Globe, Smartphone, Sparkles, Layers, Tag as TagIcon } from "lucide-react";
 
 interface ServicesTabProps {
   services: ServiceItem[];
@@ -91,6 +91,19 @@ export default function ServicesTab({
                     id: {s.id}
                   </span>
                 </div>
+
+                {/* PRICING BADGES IF PRESENT */}
+                {(s.marketPrice || s.ourPrice) && (
+                  <div className="mb-4 inline-flex items-center gap-3 bg-gold-glow/50 border border-gold/30 px-3 py-1.5 rounded-sm font-mono text-xs">
+                    <TagIcon size={12} className="text-gold" />
+                    {s.marketPrice && (
+                      <span className="text-muted/70 line-through">{s.marketPrice}</span>
+                    )}
+                    {s.ourPrice && (
+                      <span className="text-gold font-bold">{s.ourPrice}</span>
+                    )}
+                  </div>
+                )}
 
                 <p className="font-display italic text-sm text-cream/70 mb-4">{s.tagline}</p>
                 <p className="text-xs text-muted mb-6 leading-relaxed line-clamp-3">{s.desc}</p>

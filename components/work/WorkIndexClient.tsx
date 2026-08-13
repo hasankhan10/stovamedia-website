@@ -41,11 +41,9 @@ export default function WorkIndexClient({ projects }: { projects: Project[] }) {
         ))}
       </div>
 
-      <div 
-        className="grid grid-cols-1 md:grid-cols-2 gap-6"
-      >
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <AnimatePresence mode="popLayout" initial={false}>
-          {filteredProjects.map((project) => (
+          {filteredProjects.map((project, idx) => (
             <motion.div
               key={project.slug}
               initial={{ opacity: 0, y: 20 }}
@@ -55,6 +53,7 @@ export default function WorkIndexClient({ projects }: { projects: Project[] }) {
             >
               <ProjectCard 
                 {...project} 
+                index={String(idx + 1).padStart(2, "0")}
                 className="w-full h-[540px]" 
               />
             </motion.div>

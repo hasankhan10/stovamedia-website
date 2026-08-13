@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { ServiceItem, ServiceHighlight } from "@/lib/db-services";
-import { X, Plus, Trash2, Code2, Bot, Store, ShoppingCart, Zap, ShieldCheck, Globe, Smartphone, Sparkles, Layers } from "lucide-react";
+import { X, Plus, Trash2, Code2, Bot, Store, ShoppingCart, Zap, ShieldCheck, Globe, Smartphone, Sparkles, Layers, Tag as TagIcon } from "lucide-react";
 
 interface ServiceModalProps {
   editingService: Partial<ServiceItem>;
@@ -125,6 +125,46 @@ export default function ServiceModal({
             </div>
           </div>
 
+          {/* PRICING SECTION: MARKET PRICE & OUR PRICE */}
+          <div className="p-6 border border-border bg-card/30 rounded-sm space-y-4">
+            <div className="flex items-center gap-2">
+              <TagIcon size={16} className="text-gold" />
+              <label className="text-[10px] uppercase font-bold tracking-widest text-gold block">
+                Service Pricing (Market Price vs Our Offer Price)
+              </label>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label className="text-[10px] uppercase font-bold tracking-widest text-dim block mb-2">
+                  Market Price (Original)
+                </label>
+                <input
+                  type="text"
+                  placeholder="e.g. ₹25,000 or ₹55,000"
+                  value={editingService.marketPrice || ""}
+                  onChange={(e) => onChangeEditingService({ ...editingService, marketPrice: e.target.value })}
+                  className="w-full bg-ink border border-border p-3 text-sm text-cream outline-none focus:border-gold font-mono"
+                />
+                <span className="text-[10px] text-muted block mt-1">Displayed with a line-through on frontend</span>
+              </div>
+
+              <div>
+                <label className="text-[10px] uppercase font-bold tracking-widest text-gold block mb-2">
+                  Our Price (Exclusive Offer)
+                </label>
+                <input
+                  type="text"
+                  placeholder="e.g. ₹15,999 or Upto ₹39,999"
+                  value={editingService.ourPrice || ""}
+                  onChange={(e) => onChangeEditingService({ ...editingService, ourPrice: e.target.value })}
+                  className="w-full bg-ink border border-gold/40 p-3 text-sm text-gold outline-none focus:border-gold font-mono font-bold"
+                />
+                <span className="text-[10px] text-gold/80 block mt-1">Displayed as the main offer price in gold</span>
+              </div>
+            </div>
+          </div>
+
           {/* ICON PICKER */}
           <div>
             <label className="text-[10px] uppercase font-bold tracking-widest text-dim block mb-2">Service Icon</label>
@@ -239,7 +279,7 @@ export default function ServiceModal({
 
           {/* HIGHLIGHTS MANAGER */}
           <div className="p-6 border border-border bg-card/30 rounded-sm space-y-4">
-            <label className="text-[10px] uppercase font-bold tracking-widest text-dim block">Key Highlights & Pricing Features</label>
+            <label className="text-[10px] uppercase font-bold tracking-widest text-dim block">Key Highlights & Feature Bullets</label>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <input

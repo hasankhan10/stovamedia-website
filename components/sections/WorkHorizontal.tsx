@@ -16,6 +16,7 @@ interface Project {
   tag: string;
   featured?: boolean;
   externalUrl?: string;
+  image?: string;
 }
 
 interface WorkHorizontalProps {
@@ -88,7 +89,7 @@ export default function WorkHorizontal({ projects }: WorkHorizontalProps) {
       >
         {projects.map((project, i) => (
           <div key={i} className="mb-px md:mb-0">
-            <ProjectCard {...project} />
+            <ProjectCard {...project} index={String(i + 1).padStart(2, "0")} />
           </div>
         ))}
         <div className="hidden md:block w-[10vw] flex-shrink-0" />

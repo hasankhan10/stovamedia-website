@@ -14,7 +14,8 @@ import {
   Smartphone, 
   Sparkles, 
   Layers, 
-  CheckCircle2 
+  CheckCircle2,
+  Tag as TagIcon
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ServiceItem, defaultServices } from "@/lib/db-services";
@@ -118,8 +119,32 @@ export default function ServicesClient({ initialServices }: ServicesClientProps)
                         )}
                       </div>
 
-                      {/* Right: Tech + Highlights */}
+                      {/* Right: Pricing + Tech + Highlights */}
                       <div className="flex flex-col gap-6">
+                        {/* PRICING CARD IF MARKET PRICE / OUR PRICE SPECIFIED */}
+                        {(service.marketPrice || service.ourPrice) && (
+                          <div className="p-6 border border-gold/40 bg-gold-glow/30 rounded-sm flex items-center justify-between">
+                            <div className="flex items-center gap-3">
+                              <TagIcon size={20} className="text-gold" />
+                              <span className="text-xs uppercase font-bold tracking-widest text-cream font-mono">
+                                Pricing Offer
+                              </span>
+                            </div>
+                            <div className="flex items-baseline gap-4 font-mono">
+                              {service.marketPrice && (
+                                <span className="text-sm text-muted/60 line-through">
+                                  {service.marketPrice}
+                                </span>
+                              )}
+                              {service.ourPrice && (
+                                <span className="text-2xl md:text-3xl font-display text-gold font-bold">
+                                  {service.ourPrice}
+                                </span>
+                              )}
+                            </div>
+                          </div>
+                        )}
+
                         {/* Tech Stack Card */}
                         {service.tech && service.tech.length > 0 && (
                           <div className="p-8 border border-border bg-card/30 rounded-sm">

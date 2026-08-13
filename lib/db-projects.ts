@@ -1,5 +1,5 @@
 import { supabase } from "@/lib/supabase";
-import { Project, getAllWork } from "@/lib/work";
+import { Project } from "@/lib/work";
 
 export interface DbProjectRecord {
   id?: string;
@@ -25,10 +25,13 @@ export interface DbProjectRecord {
   created_at?: string;
 }
 
-export function formatDbProjectToProject(record: DbProjectRecord): Project {
+export function formatDbProjectToProject(record: DbProjectRecord, arrayIndex?: number): Project {
+  const defaultSeq = typeof arrayIndex === "number" ? String(arrayIndex + 1).padStart(2, "0") : "01";
+  const seq = record.index_number || defaultSeq;
+
   return {
     slug: record.slug,
-    index: record.index_number || "01",
+    index: seq,
     title: record.title,
     tag: record.tag || "Custom Software",
     category: record.category || "Web Apps",
@@ -80,25 +83,15 @@ export async function fetchProjectsFromSupabase(): Promise<{ data: Project[]; fr
       .select("*")
       .order("created_at", { ascending: true });
 
-    if (error) {
-      console.warn("Supabase projects fetch notice:", error.message);
-      return { data: getAllWork(), fromDb: false };
+    if (error || !data) {
+      console.warn("Supabase projects fetch notice:", error?.message);
+      return { data: [], fromDb: false };
     }
 
-    if (!data || data.length === 0) {
-      return { data: getAllWork(), fromDb: false };
-    }
-
-    const dbProjects = data.map(formatDbProjectToProject);
-
-    // Merge default static projects with dynamic Supabase projects by slug
-    const projectMap = new Map<string, Project>();
-    getAllWork().forEach((p) => projectMap.set(p.slug, p));
-    dbProjects.forEach((p) => projectMap.set(p.slug, p));
-
-    return { data: Array.from(projectMap.values()), fromDb: true };
+    const dbProjects = data.map((rec, i) => formatDbProjectToProject(rec, i));
+    return { data: dbProjects, fromDb: true };
   } catch {
-    return { data: getAllWork(), fromDb: false };
+    return { data: [], fromDb: false };
   }
 }
 
