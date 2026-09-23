@@ -12,6 +12,7 @@ import { AISummary } from "@/components/layout/AISummary";
 export default function AppLayoutWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const isAdminRoute = pathname?.startsWith("/admin");
+  const isAIEcomRoute = pathname?.startsWith("/aiecommerce");
 
   if (isAdminRoute) {
     return <div className="min-h-screen bg-ink">{children}</div>;
@@ -19,13 +20,13 @@ export default function AppLayoutWrapper({ children }: { children: React.ReactNo
 
   return (
     <>
-      <Navbar />
-      <ChatBot />
+      {!isAIEcomRoute && <Navbar />}
+      {!isAIEcomRoute && <ChatBot />}
       <SmoothScroll>
         <PageTransition>
           {children}
-          <AISummary />
-          <Footer />
+          {!isAIEcomRoute && <AISummary />}
+          {!isAIEcomRoute && <Footer />}
         </PageTransition>
       </SmoothScroll>
     </>

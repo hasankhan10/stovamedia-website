@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
 import { 
   fetchInquiriesFromSupabase, 
-  updateInquiryStatusInSupabase 
+  updateInquiryStatusInSupabase,
+  deleteInquiryFromSupabase
 } from "@/lib/db-inquiries";
 
 export async function GET() {
@@ -27,5 +28,25 @@ export async function PUT(req: Request) {
     return NextResponse.json({ message: "Status updated successfully" });
   } catch (err: any) {
     return NextResponse.json({ error: err.message || "Failed to update inquiry status" }, { status: 500 });
+  }
+}
+
+export async function DELETE(req: Request) {
+  try {
+    const { searchParams } = new URL(req.url);
+    const id = searchParams.get("id");
+
+    if (!id) {
+      return NextResponse.json({ error: "Missing inquiry id" }, { status: 400 });
+    }
+
+    const result = await deleteInquiryFromSupabase(id);
+    if (!result.success) {
+      return NextResponse.json({ error: result.error }, { status: 500 });
+    }
+
+    return NextResponse.json({ message: "Inquiry deleted successfully" });
+  } catch (err: any) {
+    return NextResponse.json({ error: err.message || "Failed to delete inquiry" }, { status: 500 });
   }
 }

@@ -1,15 +1,25 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import { gsap } from "gsap";
 import { cn } from "@/lib/utils";
 
 export default function Preloader() {
+  const pathname = usePathname();
   const [complete, setComplete] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const underlineRef = useRef<HTMLDivElement>(null);
 
+  // Disable preloader on specific standalone landing pages like /aiecommerce
+  const isExcludedPage = pathname === "/aiecommerce" || pathname?.startsWith("/aiecommerce");
+
   useEffect(() => {
+    if (isExcludedPage) {
+      setComplete(true);
+      return;
+    }
+
     // Session check to show only once
     const hasLoaded = sessionStorage.getItem("stova-preloader-v1");
     if (hasLoaded) {
@@ -60,9 +70,9 @@ export default function Preloader() {
     }, containerRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [isExcludedPage]);
 
-  if (complete) return null;
+  if (isExcludedPage || complete) return null;
 
   const stova = "Stova".split("");
   const media = "Media".split("");

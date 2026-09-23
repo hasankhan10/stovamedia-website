@@ -237,6 +237,25 @@ export default function AdminDashboard() {
     }
   };
 
+  const handleDeleteInquiry = async (id: string) => {
+    if (!confirm("Are you sure you want to delete this lead? This action cannot be undone.")) return;
+
+    try {
+      const res = await fetch(`/api/admin/inquiries?id=${id}`, {
+        method: "DELETE",
+      });
+
+      if (res.ok) {
+        setInquiries((prev) => prev.filter((inq) => inq.id !== id));
+      } else {
+        const err = await res.json();
+        alert(`Error deleting lead: ${err.error || "Failed"}`);
+      }
+    } catch (err) {
+      alert("Failed to delete lead");
+    }
+  };
+
   if (loading) {
     return (
       <div className="min-h-screen bg-ink flex items-center justify-center text-cream">
@@ -315,7 +334,11 @@ export default function AdminDashboard() {
         )}
 
         {activeTab === "inquiries" && (
-          <LeadsTab inquiries={inquiries} onUpdateStatus={handleUpdateInquiryStatus} />
+          <LeadsTab 
+            inquiries={inquiries} 
+            onUpdateStatus={handleUpdateInquiryStatus} 
+            onDeleteInquiry={handleDeleteInquiry} 
+          />
         )}
       </div>
 
