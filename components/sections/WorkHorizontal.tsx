@@ -64,7 +64,6 @@ export default function WorkHorizontal({ projects }: WorkHorizontalProps) {
           },
         });
 
-        // Parallax image shift inside project cards
         gsap.utils.toArray<HTMLElement>(".project-card-image").forEach((img) => {
           gsap.to(img, {
             xPercent: -15,
@@ -87,39 +86,39 @@ export default function WorkHorizontal({ projects }: WorkHorizontalProps) {
     <section 
       ref={containerRef} 
       id="work" 
-      className="relative overflow-hidden bg-ink py-24 md:py-0 md:h-[100vh] flex flex-col justify-center border-t border-border/70"
+      className="relative overflow-hidden bg-[#070A12] py-20 sm:py-24 md:py-0 md:h-[100vh] flex flex-col justify-center border-t border-slate-800/80"
     >
       {/* Background ambient lighting */}
       <div 
         className="pointer-events-none absolute bottom-10 left-1/4 w-[600px] h-[600px] rounded-full blur-[160px] opacity-15 z-0"
         style={{
-          background: "radial-gradient(circle, rgba(201, 168, 76, 0.3) 0%, transparent 70%)"
+          background: "radial-gradient(circle, rgba(6, 182, 212, 0.3) 0%, transparent 70%)"
         }}
       />
 
       {/* Header Bar */}
-      <div className="md:absolute md:top-14 md:left-12 lg:md:left-20 md:right-12 lg:md:right-20 px-6 md:px-0 mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6 z-20">
+      <div className="md:absolute md:top-14 md:left-12 lg:left-20 md:right-12 lg:right-20 px-5 sm:px-8 md:px-0 mb-8 sm:mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6 z-20">
         <div>
           <SectionLabel>Selected Works</SectionLabel>
-          <SplitHeadline tag="h2" className="text-3xl md:text-5xl lg:text-6xl font-display leading-[1.05] tracking-tight">
+          <SplitHeadline tag="h2" className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display leading-[1.05] tracking-tight text-[#F8FAFC]">
             Proof Of Execution.
           </SplitHeadline>
         </div>
 
         <div className="flex items-center gap-6">
-          {/* Real-time Project Index Counter */}
-          <div className="hidden md:flex items-baseline font-display text-sm text-dim tracking-widest">
-            <span className="text-gold text-base font-semibold">{String(currentIdx).padStart(2, "0")}</span>
+          {/* Index Counter */}
+          <div className="hidden md:flex items-baseline font-display text-sm text-slate-500 tracking-widest">
+            <span className="text-cyan-400 text-base font-bold">{String(currentIdx).padStart(2, "0")}</span>
             <span className="mx-1">/</span>
             <span>{String(projects.length || 4).padStart(2, "0")}</span>
           </div>
 
           <Link 
             href="/work" 
-            className="group inline-flex items-center gap-2.5 text-xs uppercase font-ui font-semibold tracking-[0.2em] text-cream/90 hover:text-gold transition-colors duration-300 px-4 py-2 border border-border/80 bg-card/60 backdrop-blur-sm"
+            className="group inline-flex items-center gap-2.5 text-xs uppercase font-ui font-semibold tracking-[0.2em] text-[#F8FAFC] hover:text-cyan-300 transition-colors duration-300 px-4 py-2 border border-slate-700 bg-[#0B0F19]/80 backdrop-blur-sm"
           >
             <span>All Projects</span>
-            <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1 text-gold" />
+            <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1 text-cyan-400" />
           </Link>
         </div>
       </div>
@@ -127,25 +126,25 @@ export default function WorkHorizontal({ projects }: WorkHorizontalProps) {
       {/* Horizontal Track */}
       <div 
         ref={trackRef} 
-        className="flex flex-col md:flex-row gap-6 md:gap-8 px-6 md:px-0 md:pl-[15vw] h-auto md:h-fit md:w-max mt-6 md:mt-16 relative z-10"
+        className="flex flex-col md:flex-row gap-6 md:gap-8 px-5 sm:px-8 md:px-0 md:pl-[15vw] h-auto md:h-fit md:w-max mt-6 md:mt-16 relative z-10"
       >
         {projects.map((project, i) => (
           <div key={i} className="flex-shrink-0">
             <ProjectCard 
               {...project} 
               index={String(i + 1).padStart(2, "0")} 
-              className="border-border/90 bg-card/70 backdrop-blur-md hover:border-gold/60 transition-all duration-700"
+              className="border-slate-800 bg-[#0B0F19]/90 backdrop-blur-md hover:border-indigo-500/60 transition-all duration-500 shadow-2xl"
             />
           </div>
         ))}
         <div className="hidden md:block w-[12vw] flex-shrink-0" />
       </div>
 
-      {/* Bottom Pinned Progress Track */}
-      <div className="hidden md:block absolute bottom-0 left-0 w-full h-[3px] bg-border/40 z-20">
+      {/* Pinned Progress Track */}
+      <div className="hidden md:block absolute bottom-0 left-0 w-full h-[3px] bg-slate-800/60 z-20">
         <div 
           ref={progressRef}
-          className="h-full w-full bg-gradient-to-r from-gold/50 via-gold to-gold-light origin-left scale-x-0 transition-transform duration-75" 
+          className="h-full w-full bg-gradient-to-r from-indigo-500 via-cyan-400 to-emerald-400 origin-left scale-x-0 transition-transform duration-75 shadow-[0_0_10px_rgba(6,182,212,0.6)]" 
         />
       </div>
     </section>

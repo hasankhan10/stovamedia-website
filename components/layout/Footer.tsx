@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Linkedin, Mail, Instagram } from "lucide-react";
+import { Linkedin, Mail, Instagram, ArrowUpRight, ShieldCheck, Zap } from "lucide-react";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -12,6 +12,7 @@ const navLinks = [
   { name: "Pricing", href: "/pricing" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
+  { name: "AI E-Commerce", href: "/aiecommerce" },
 ];
 
 const socialLinks = [
@@ -23,71 +24,86 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="footer bg-transparent border-t border-border pt-16 px-10 pb-10">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 mb-20">
+    <footer className="footer bg-[#05070D] border-t border-slate-800/80 pt-16 sm:pt-20 px-6 md:px-12 lg:px-20 pb-12 relative z-20 overflow-hidden">
+      {/* Subtle top glow */}
+      <div 
+        className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[200px] rounded-full blur-[140px] opacity-15"
+        style={{
+          background: "radial-gradient(circle, rgba(99, 102, 241, 0.4) 0%, transparent 70%)"
+        }}
+      />
+
+      <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16 mb-16 relative z-10">
         
-        {/* Col 1: Logo & Status */}
-        <div className="flex flex-col gap-6">
+        {/* Col 1: Logo & Agency Bio (5 cols) */}
+        <div className="lg:col-span-5 flex flex-col gap-6">
           <Link href="/" className="group block w-fit">
             <Image 
               src="/logo.jpeg" 
               alt="Stova Media" 
-              width={140} 
-              height={35} 
-              className="h-8 w-auto object-contain transition-transform duration-500 group-hover:scale-105 opacity-80 group-hover:opacity-100" 
+              width={160} 
+              height={40} 
+              className="h-9 w-auto object-contain transition-transform duration-500 group-hover:scale-105 rounded-full" 
             />
           </Link>
-          <p className="text-muted text-sm max-w-xs leading-relaxed">
-            Building premium software solutions that drive real-world business results. 
-            No shortcuts. No bloat.
+          <p className="text-slate-300 text-sm sm:text-base max-w-sm leading-relaxed font-light">
+            Stova Media is an elite software engineering studio &amp; AI lab. We architect high-performance custom web applications, autonomous AI agents, and enterprise platforms.
           </p>
-          <div className="flex items-center gap-2.5">
+          <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-emerald-500/40 bg-emerald-950/30 text-emerald-400 w-fit text-xs font-semibold uppercase tracking-wider font-ui shadow-sm">
             <motion.span
               animate={{ opacity: [0.4, 1, 0.4] }}
               transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-              className="w-2.5 h-2.5 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]"
+              className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)]"
             />
-            <span className="text-[10px] uppercase tracking-widest font-semibold text-green-500">
-              Available for new projects
-            </span>
+            <span>Available for Q2/Q3 Projects</span>
           </div>
         </div>
 
-        {/* Col 2: Navigation */}
-        <div className="flex flex-col gap-6">
-          <span className="text-[10px] uppercase tracking-widest font-bold text-dim">Navigation</span>
+        {/* Col 2: Navigation Links (3 cols) */}
+        <div className="lg:col-span-3 flex flex-col gap-5">
+          <span className="text-xs uppercase tracking-widest font-bold text-cyan-400 font-ui">
+            Navigation
+          </span>
           <nav className="flex flex-col gap-3">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-sm text-cream/70 hover:text-gold transition-colors duration-300 w-fit"
+                className="text-sm text-slate-300 hover:text-cyan-300 transition-colors duration-300 w-fit flex items-center gap-1 group font-medium"
               >
-                {link.name}
+                <span>{link.name}</span>
+                <ArrowUpRight size={13} className="opacity-0 -translate-x-1 translate-y-1 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 text-cyan-400 transition-all" />
               </Link>
             ))}
           </nav>
         </div>
 
-        {/* Col 3: Socials & Contact */}
-        <div className="flex flex-col gap-6">
-          <span className="text-[10px] uppercase tracking-widest font-bold text-dim">Get in touch</span>
+        {/* Col 3: Direct Connect & Socials (4 cols) */}
+        <div className="lg:col-span-4 flex flex-col gap-5">
+          <span className="text-xs uppercase tracking-widest font-bold text-indigo-400 font-ui">
+            Get In Touch
+          </span>
           <div className="flex flex-col gap-4">
             <a
               href="mailto:stovamedia@gmail.com"
-              className="text-sm text-cream/70 hover:text-gold transition-colors flex items-center gap-3 w-fit"
+              className="text-sm text-slate-200 hover:text-cyan-300 transition-colors flex items-center gap-2.5 w-fit font-mono font-medium"
             >
-              <Mail size={16} className="text-gold" />
+              <Mail size={16} className="text-cyan-400" />
               stovamedia@gmail.com
             </a>
-            <div className="flex items-center gap-4 mt-2">
+            
+            <p className="text-xs text-slate-400 font-ui leading-relaxed">
+              Direct technical feasibility reviews within 4 hours. No agency bureaucracy.
+            </p>
+
+            <div className="flex items-center gap-3 mt-1">
               {socialLinks.map((social) => (
                 <a
                   key={social.name}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-muted hover:border-gold hover:text-gold transition-all duration-300"
+                  className="w-10 h-10 rounded-full border border-slate-800 bg-[#0B0F19] flex items-center justify-center text-slate-300 hover:border-cyan-400 hover:text-cyan-300 hover:shadow-[0_0_15px_rgba(6,182,212,0.3)] transition-all duration-300"
                   aria-label={social.name}
                 >
                   {social.icon}
@@ -96,21 +112,25 @@ export default function Footer() {
             </div>
           </div>
         </div>
+
       </div>
 
-      {/* Bottom Bar */}
-      <div className="pt-8 border-t border-border/50 flex flex-col md:flex-row justify-between items-center gap-6">
-        <div className="flex items-center gap-4 text-[10px] text-muted tracking-wide uppercase">
+      {/* Bottom Legal & Location Strip */}
+      <div className="max-w-[1400px] mx-auto pt-8 border-t border-slate-800/80 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-400 font-ui">
+        <div className="flex items-center gap-3">
           <span>© {currentYear} Stova Media. All rights reserved.</span>
           <span>·</span>
-          <Link href="/admin" className="hover:text-gold transition-colors">Admin</Link>
+          <Link href="/admin" className="text-slate-400 hover:text-cyan-400 transition-colors font-mono">
+            Admin Portal
+          </Link>
         </div>
-        <div className="flex items-center gap-3">
-          <span className="text-[10px] text-muted tracking-wide uppercase">Kolkata, India</span>
+
+        <div className="flex items-center gap-2">
+          <span className="text-slate-400 uppercase tracking-wider text-[11px]">Kolkata, India</span>
           <motion.div
             animate={{ scale: [1, 1.4, 1] }}
             transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-            className="w-1.5 h-1.5 bg-gold rounded-full"
+            className="w-2 h-2 bg-cyan-400 rounded-full shadow-[0_0_8px_rgba(6,182,212,0.8)]"
           />
         </div>
       </div>
