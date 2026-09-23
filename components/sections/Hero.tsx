@@ -176,7 +176,7 @@ export default function Hero() {
             <span className="bg-gradient-to-r from-indigo-400 via-cyan-300 to-indigo-300 bg-clip-text text-transparent underline decoration-cyan-400/40 decoration-wavy decoration-1 underline-offset-8">
               High-Growth
             </span>{" "}
-            Enterprises.
+            Businesses.
           </h1>
 
           {/* Subtext */}
