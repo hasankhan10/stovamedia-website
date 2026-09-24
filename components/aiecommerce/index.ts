@@ -8,5 +8,7 @@ export { default as AIEcomFAQ } from "./AIEcomFAQ";
 export { default as AIEcomBooking } from "./AIEcomBooking";
 export { default as AIEcomTimer } from "./AIEcomTimer";
 export { default as AIEcomStickyMobileBar } from "./AIEcomStickyMobileBar";
+export { default as AIEcomChatbotDemo } from "./AIEcomChatbotDemo";
+export { default as AIEcomFloatingChatbot } from "./AIEcomFloatingChatbot";
 export * from "./types";
 

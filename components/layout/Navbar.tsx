@@ -111,7 +111,7 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             {/* WhatsApp Quick Link */}
             <a
-              href="https://wa.me/918918928045?text=Hello%20Stova%20Media,%20I%20am%20interested%20in%20discussing%20a%20software%20project"
+              href="https://wa.me/919432053261?text=Hello%20Stova%20Media,%20I%20am%20interested%20in%20discussing%20a%20software%20project"
               target="_blank"
               rel="noopener noreferrer"
               className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full border border-emerald-500/40 bg-emerald-950/30 text-emerald-400 hover:bg-emerald-900/40 transition-colors text-xs font-ui font-semibold"
@@ -215,7 +215,7 @@ export default function Navbar() {
               </Link>
 
               <a
-                href="https://wa.me/918918928045?text=Hello%20Stova%20Media,%20I%20want%20to%20discuss%20a%20software%20project"
+                href="https://wa.me/919432053261?text=Hello%20Stova%20Media,%20I%20want%20to%20discuss%20a%20software%20project"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full text-center py-3.5 border border-emerald-500/40 bg-emerald-950/30 text-emerald-400 font-bold text-xs uppercase tracking-wider rounded-lg flex items-center justify-center gap-2"

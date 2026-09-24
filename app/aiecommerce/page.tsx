@@ -10,7 +10,8 @@ import {
   AIEcomAudience,
   AIEcomFAQ,
   AIEcomBooking,
-  AIEcomStickyMobileBar
+  AIEcomStickyMobileBar,
+  AIEcomFloatingChatbot
 } from "@/components/aiecommerce";
 
 export default function AIEcommercePage() {
@@ -21,7 +22,7 @@ export default function AIEcommercePage() {
   };
 
   return (
-    <main className="font-['Hind_Siliguri',sans-serif] text-[#F8FAFC] bg-[#05070D] overflow-x-hidden selection:bg-indigo-500 selection:text-white pb-24 md:pb-0">
+    <main className="font-['Hind_Siliguri',sans-serif] text-[#F8FAFC] bg-[#05070D] overflow-x-hidden selection:bg-indigo-500 selection:text-white pb-16 md:pb-0">
       {/* 1️⃣ Hero Section with Responsive Motion */}
       <AIEcomHero onBookClick={handleScrollToBooking} />
 
@@ -34,11 +35,11 @@ export default function AIEcommercePage() {
       {/* 4️⃣ Old Way vs AI Way Workflow */}
       <AIEcomWorkflow />
 
-      {/* 5️⃣ Special Offer & Risk Reversals */}
-      <AIEcomOffer onBookClick={handleScrollToBooking} />
-
-      {/* 6️⃣ Target Audience Profiles */}
+      {/* 5️⃣ Target Audience Profiles (Self-Identification & Qualification) */}
       <AIEcomAudience />
+
+      {/* 6️⃣ Special Offer, Guarantees & Scarcity */}
+      <AIEcomOffer onBookClick={handleScrollToBooking} />
 
       {/* 7️⃣ Interactive FAQ Accordion */}
       <AIEcomFAQ />
@@ -48,6 +49,9 @@ export default function AIEcommercePage() {
 
       {/* 9️⃣ Mobile Sticky Conversion & Urgency Bar */}
       <AIEcomStickyMobileBar onBookClick={handleScrollToBooking} />
+
+      {/* 🔟 Floating Bottom-Right AI Shopping Assistant Chatbot */}
+      <AIEcomFloatingChatbot />
     </main>
   );
 }

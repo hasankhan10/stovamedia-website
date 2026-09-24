@@ -4,7 +4,7 @@ import React, { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MagneticElement, SpotlightCard } from "@/components/ui";
-import { CheckCircle2, ShieldCheck, Award, Clock } from "lucide-react";
+import { CheckCircle2, ShieldCheck, Award, Clock, Sparkles } from "lucide-react";
 import AIEcomTimer from "./AIEcomTimer";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -52,11 +52,11 @@ export default function AIEcomOffer({ onBookClick }: { onBookClick: () => void }
         <div className="offer-card-wrap">
           <SpotlightCard 
             spotlightColor="rgba(99, 102, 241, 0.22)"
-            className="p-6 sm:p-10 md:p-14 lg:p-20 border-indigo-500/40 bg-gradient-to-b from-[#0B0F19]/90 via-[#070A12] to-[#0B0F19]/80 shadow-2xl relative"
+            className="p-6 sm:p-10 md:p-14 lg:p-20 border-indigo-500/40 bg-gradient-to-b from-[#0B0F19]/90 via-[#070A12] to-[#0B0F19]/80 shadow-2xl relative rounded-3xl"
           >
             {/* Header */}
             <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-gradient-to-r from-indigo-500 to-cyan-500 text-white text-xs sm:text-sm font-bold uppercase tracking-widest font-ui mb-5 shadow-sm">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-gradient-to-r from-indigo-500 to-cyan-500 text-white text-xs sm:text-sm font-bold uppercase tracking-widest font-ui mb-5 shadow-sm rounded-full">
                 Special Launch Offer
               </div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#F8FAFC]">
@@ -70,7 +70,7 @@ export default function AIEcomOffer({ onBookClick }: { onBookClick: () => void }
             {/* Deliverables Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 mb-12 sm:mb-14">
               {deliverables.map((item, i) => (
-                <div key={i} className="p-6 sm:p-7 bg-[#05070D] border border-slate-800 flex items-start gap-4 hover:border-indigo-500/40 transition-colors">
+                <div key={i} className="p-6 sm:p-7 bg-[#05070D] border border-slate-800 flex items-start gap-4 hover:border-indigo-500/40 transition-colors rounded-2xl shadow-md">
                   <CheckCircle2 size={22} className="text-cyan-400 flex-shrink-0 mt-0.5" />
                   <div>
                     <h3 className="font-bold text-white text-base sm:text-lg md:text-xl mb-1.5">{item.title}</h3>
@@ -81,7 +81,7 @@ export default function AIEcomOffer({ onBookClick }: { onBookClick: () => void }
             </div>
 
             {/* Guarantees Banner */}
-            <div className="p-6 sm:p-9 bg-[#070B16] border border-indigo-500/30 mb-10 sm:mb-12 grid grid-cols-1 md:grid-cols-2 gap-7 sm:gap-9 items-center">
+            <div className="p-6 sm:p-9 bg-[#070B16] border border-indigo-500/30 mb-10 sm:mb-12 grid grid-cols-1 md:grid-cols-2 gap-7 sm:gap-9 items-center rounded-2xl shadow-lg">
               <div className="flex items-start gap-4">
                 <ShieldCheck size={36} className="text-emerald-400 flex-shrink-0" />
                 <div>
@@ -111,9 +111,10 @@ export default function AIEcomOffer({ onBookClick }: { onBookClick: () => void }
                 </div>
               )}
 
-              <div className="flex items-center gap-2 text-cyan-300 font-ui text-xs sm:text-sm font-semibold mb-6">
-                <Clock size={16} className="text-indigo-400 flex-shrink-0" />
-                <span>
+              {/* 🎯 Enlarged & Prominent Scarcity Line (Request 4) */}
+              <div className="my-6 px-6 py-4 rounded-2xl bg-indigo-950/60 border border-cyan-400/50 shadow-[0_0_25px_rgba(6,182,212,0.2)] max-w-3xl mx-auto flex items-center justify-center gap-3 text-center">
+                <Clock size={22} className="text-cyan-400 flex-shrink-0 animate-pulse" />
+                <span className="text-base sm:text-lg md:text-xl font-medium text-cyan-200 leading-relaxed">
                   {isBooked
                     ? "✓ আপনার কনসাল্টেশন স্লট নিশ্চিত করা হয়েছে। ধন্যবাদ!"
                     : "প্রতি মাসে আমরা মাত্র ৩ থেকে ৫টি Brand নিয়ে কাজ করি — কোয়ালিটি নিশ্চিত করার জন্য Slot সীমিত।"}
@@ -123,7 +124,7 @@ export default function AIEcomOffer({ onBookClick }: { onBookClick: () => void }
               <MagneticElement className="w-full sm:w-auto">
                 <button 
                   onClick={onBookClick} 
-                  className="w-full sm:w-auto px-9 sm:px-12 py-5 text-sm sm:text-base md:text-lg font-bold tracking-wider bg-gradient-to-r from-indigo-500 via-indigo-600 to-cyan-500 text-white shadow-[0_0_30px_rgba(99,102,241,0.4)] hover:shadow-[0_0_40px_rgba(6,182,212,0.55)] transition-all duration-300 cursor-pointer min-h-[52px]"
+                  className="w-full sm:w-auto px-9 sm:px-12 py-5 text-sm sm:text-base md:text-lg font-bold tracking-wider bg-gradient-to-r from-indigo-500 via-indigo-600 to-cyan-500 text-white shadow-[0_0_30px_rgba(99,102,241,0.4)] hover:shadow-[0_0_40px_rgba(6,182,212,0.55)] transition-all duration-300 cursor-pointer min-h-[52px] rounded-xl hover:brightness-110 active:scale-[0.99]"
                 >
                   {isBooked ? "বুকিং স্ট্যাটাস দেখুন" : "আপনার Brand-এর জন্য Free Consultation Book করুন →"}
                 </button>

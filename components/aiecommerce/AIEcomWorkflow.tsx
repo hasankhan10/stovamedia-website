@@ -52,9 +52,9 @@ export default function AIEcomWorkflow() {
 
         <div className="space-y-5 sm:space-y-6">
           {/* Old Way */}
-          <div className="workflow-card-node p-5 sm:p-7 md:p-8 border border-slate-800 bg-[#05070D] flex flex-col lg:flex-row lg:items-center justify-between gap-4 sm:gap-6">
+          <div className="workflow-card-node p-5 sm:p-7 md:p-8 border border-slate-800 bg-[#05070D] flex flex-col lg:flex-row lg:items-center justify-between gap-4 sm:gap-6 rounded-3xl">
             <div className="flex items-center gap-3">
-              <span className="px-3 py-1.5 bg-rose-950/80 text-rose-400 border border-rose-800/40 text-xs sm:text-sm font-bold uppercase font-ui">
+              <span className="px-3.5 py-1.5 bg-rose-950/80 text-rose-400 border border-rose-800/40 text-xs sm:text-sm font-bold uppercase font-ui rounded-full">
                 Traditional E-commerce
               </span>
               <span className="text-slate-400 text-xs sm:text-sm font-ui">জটিল ও দীর্ঘ ড্রপ-অফ ফানেল</span>
@@ -62,16 +62,16 @@ export default function AIEcomWorkflow() {
 
             <div className="grid grid-cols-2 sm:grid-cols-4 lg:flex lg:flex-wrap items-center gap-2.5 md:gap-3.5 text-xs sm:text-sm md:text-base text-slate-300">
               {["1. Product Catalogue", "২. Manual Search", "৩. Confusing Filter"].map((s, idx) => (
-                <span key={idx} className="px-3 py-2 bg-[#0B0F19] border border-slate-800 text-center font-medium">{s}</span>
+                <span key={idx} className="px-3.5 py-2 bg-[#0B0F19] border border-slate-800 text-center font-medium rounded-xl">{s}</span>
               ))}
-              <span className="px-3 py-2 bg-rose-950/40 border border-rose-900/40 text-rose-300 font-bold text-center col-span-2 sm:col-span-1">৪. ৭৩% Drop-off</span>
+              <span className="px-3.5 py-2 bg-rose-950/40 border border-rose-900/40 text-rose-300 font-bold text-center col-span-2 sm:col-span-1 rounded-xl">৪. ৭৩% Drop-off</span>
             </div>
           </div>
 
           {/* AI Way */}
-          <div className="workflow-card-node p-5 sm:p-7 md:p-8 border-2 border-indigo-500/60 bg-gradient-to-r from-indigo-950/40 via-[#0B0F19] to-cyan-950/30 flex flex-col lg:flex-row lg:items-center justify-between gap-4 sm:gap-6 shadow-md">
+          <div className="workflow-card-node p-5 sm:p-7 md:p-8 border-2 border-indigo-500/60 bg-gradient-to-r from-indigo-950/40 via-[#0B0F19] to-cyan-950/30 flex flex-col lg:flex-row lg:items-center justify-between gap-4 sm:gap-6 shadow-md rounded-3xl">
             <div className="flex items-center gap-3">
-              <span className="px-3 py-1.5 bg-gradient-to-r from-indigo-500 to-cyan-500 text-white font-bold text-xs sm:text-sm uppercase font-ui shadow-sm flex items-center gap-1.5">
+              <span className="px-3.5 py-1.5 bg-gradient-to-r from-indigo-500 to-cyan-500 text-white font-bold text-xs sm:text-sm uppercase font-ui shadow-sm flex items-center gap-1.5 rounded-full">
                 <Sparkles size={14} />
                 AI-Powered E-commerce
               </span>
@@ -80,9 +80,9 @@ export default function AIEcomWorkflow() {
 
             <div className="grid grid-cols-2 sm:grid-cols-4 lg:flex lg:flex-wrap items-center gap-2.5 md:gap-3.5 text-xs sm:text-sm md:text-base text-white font-medium">
               {["1. Customer বলে কী চায়", "২. AI ইন্টেন্ট বোঝে", "৩. সঠিক Product দেখায়"].map((s, idx) => (
-                <span key={idx} className="px-3 py-2 bg-[#05070D] border border-indigo-500/40 text-center">{s}</span>
+                <span key={idx} className="px-3.5 py-2 bg-[#05070D] border border-indigo-500/40 text-center rounded-xl">{s}</span>
               ))}
-              <span className="px-3 py-2 bg-emerald-950/60 border border-emerald-500/50 text-emerald-300 font-bold text-center col-span-2 sm:col-span-1">৪. ইনস্ট্যান্ট Checkout</span>
+              <span className="px-3.5 py-2 bg-emerald-950/60 border border-emerald-500/50 text-emerald-300 font-bold text-center col-span-2 sm:col-span-1 rounded-xl">৪. ইনস্ট্যান্ট Checkout</span>
             </div>
           </div>
         </div>

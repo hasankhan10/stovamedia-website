@@ -58,14 +58,14 @@ export default function AIEcomAudience() {
               <div key={i} className="audience-card-node">
                 <SpotlightCard 
                   spotlightColor="rgba(99, 102, 241, 0.18)"
-                  className="p-7 sm:p-9 border-slate-800 bg-[#0B0F19]/80 flex flex-col justify-between hover:border-indigo-500/40 transition-all duration-300 h-full"
+                  className="p-7 sm:p-9 border-slate-800 bg-[#0B0F19]/80 flex flex-col justify-between hover:border-indigo-500/40 transition-all duration-300 h-full rounded-3xl shadow-xl"
                 >
                   <div>
                     <div className="flex justify-between items-start mb-6">
-                      <div className={`p-3 sm:p-3.5 border border-slate-800 bg-[#05070D] ${aud.accent}`}>
+                      <div className={`p-3.5 border border-slate-800 bg-[#05070D] ${aud.accent} rounded-2xl`}>
                         <Icon size={24} />
                       </div>
-                      <span className="text-xs font-ui uppercase tracking-wider font-bold px-2.5 py-1 border border-slate-800 text-slate-300 bg-[#05070D]">
+                      <span className="text-xs font-ui uppercase tracking-wider font-bold px-3 py-1 border border-slate-800 text-slate-300 bg-[#05070D] rounded-full">
                         {aud.tag}
                       </span>
                     </div>

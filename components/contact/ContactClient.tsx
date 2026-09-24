@@ -3,206 +3,630 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { motion, AnimatePresence } from "framer-motion";
-import { SplitHeadline, SectionLabel, Button } from "@/components/ui";
+import { SectionLabel, SpotlightCard, MagneticElement } from "@/components/ui";
 import { cn } from "@/lib/utils";
-import { Mail, MapPin, Clock, MessageCircle, ChevronDown, CheckCircle2 } from "lucide-react";
+import { 
+  Mail, 
+  MapPin, 
+  Clock, 
+  MessageSquare, 
+  ChevronDown, 
+  CheckCircle2, 
+  ShieldCheck, 
+  Sparkles, 
+  Send, 
+  Copy, 
+  ArrowUpRight, 
+  Phone, 
+  Laptop, 
+  Lock, 
+  HelpCircle,
+  Check
+} from "lucide-react";
 
 interface ContactFormData {
   name: string;
   email: string;
-  company: string;
+  phone?: string;
+  company?: string;
   projectType: string;
   budget: string;
   details: string;
 }
 
+const projectCategories = [
+  "Autonomous AI Agents",
+  "Custom SaaS Platform",
+  "AI E-Commerce Engine",
+  "Full-Stack Web App",
+  "Clinical Ops / Healthcare",
+  "Other Bespoke Software"
+];
+
+const budgetRanges = [
+  "₹35k - ₹60k (Launch)",
+  "₹60k - ₹1.2L (Growth)",
+  "₹1.2L+ (Enterprise Custom)",
+  "$1,500 - $5,000+ (Global)"
+];
+
 const faqs = [
-  { q: "What is your typical project timeline?", a: "MVP development usually takes 1-2 weeks. Complex enterprise platforms can range from 3-6 months depending on requirements." },
-  { q: "Do you offer post-launch support?", a: "Every project comes with a 30-day bug-free guarantee. We also offer monthly maintenance retainers for long-term growth and scaling." },
-  { q: "Can you build for low-bandwidth environments?", a: "Yes. Our roots are in clinical software for Indian clinics (2G optimization). We specifically architect for performance on slower networks." },
-  { q: "How do we get started?", a: "Fill out the form. We'll review your project and get back to you within 24 hours to schedule a discovery call." },
-  { q: "Are project quotes fixed?", a: "Once the scope is finalized, we provide fixed quotes. No surprise hourly billing. No hidden fees." },
+  { 
+    q: "How fast do you typically deliver an MVP or custom software?", 
+    a: "Core MVPs and AI workflow automations typically ship in 10 to 14 days. Comprehensive enterprise platforms, custom SaaS, and complex e-commerce engines usually span 3 to 6 weeks with clear weekly staging milestone demos." 
+  },
+  { 
+    q: "Who will actually architect and write my codebase?", 
+    a: "100% of the engineering and system architecture is handled directly by our senior in-house engineering team in Kolkata, led personally by Founder & Lead Architect Mehedi Hasan. We never subcontract to junior interns or offshore mills." 
+  },
+  { 
+    q: "What is your milestone and payment structure?", 
+    a: "We operate on transparent, deterministic milestone billing (typically 40% initiation, 30% alpha staging milestone, and 30% final production cutover). Once the scope is locked, your quote is 100% fixed with zero hidden hourly fees." 
+  },
+  { 
+    q: "Do you offer post-launch warranties and support?", 
+    a: "Yes. Every deployment includes 30 to 90 days of complimentary priority bug-fix warranty, automated database backup configurations, and full CI/CD deployment handover. We also offer monthly maintenance retainers." 
+  },
+  { 
+    q: "Can you integrate with our existing databases, ERPs, or Shopify?", 
+    a: "Absolutely. We build custom real-time bidirectional synchronization pipelines connecting Next.js, Supabase, PostgreSQL, Shopify API, REST/GraphQL microservices, and WhatsApp Business webhooks." 
+  },
+  { 
+    q: "How do you handle intellectual property (IP) and NDAs?", 
+    a: "You retain 100% ownership of all source code, design assets, and database schemas from day one. We gladly sign mutual non-disclosure agreements (NDAs) prior to in-depth technical discovery." 
+  }
 ];
 
 export default function ContactClient() {
   const [submitted, setSubmitted] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
-  const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<ContactFormData>();
+  const [copiedEmail, setCopiedEmail] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState<string>(projectCategories[0]);
+  const [selectedBudget, setSelectedBudget] = useState<string>(budgetRanges[1]);
+
+  const { register, handleSubmit, setValue, formState: { errors, isSubmitting } } = useForm<ContactFormData>({
+    defaultValues: {
+      projectType: projectCategories[0],
+      budget: budgetRanges[1]
+    }
+  });
+
+  const handleCategorySelect = (cat: string) => {
+    setSelectedCategory(cat);
+    setValue("projectType", cat);
+  };
+
+  const handleBudgetSelect = (bud: string) => {
+    setSelectedBudget(bud);
+    setValue("budget", bud);
+  };
+
+  const copyEmail = () => {
+    navigator.clipboard.writeText("stovamedia@gmail.com");
+    setCopiedEmail(true);
+    setTimeout(() => setCopiedEmail(false), 2000);
+  };
 
   const onSubmit = async (data: ContactFormData) => {
     try {
+      const payload = {
+        ...data,
+        projectType: selectedCategory || data.projectType,
+        budget: selectedBudget || data.budget
+      };
+
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify(payload),
       });
-      if (res.ok) setSubmitted(true);
+
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        alert("Unable to send inquiry. Please reach us directly on WhatsApp at +91 9432053261.");
+      }
     } catch (err) {
       console.error(err);
+      alert("Unable to send inquiry. Please reach us directly on WhatsApp at +91 9432053261.");
     }
   };
 
   return (
-    <main className="pt-32 min-h-screen bg-ink">
-      <div className="px-6 md:px-10 lg:px-20 mb-32 flex flex-col items-center text-center">
-        <SectionLabel className="justify-center">Get In Touch</SectionLabel>
-        <SplitHeadline tag="h1" className="text-5xl md:text-7xl lg:text-8xl leading-none text-center justify-center">
-          Let&apos;s build something serious.
-        </SplitHeadline>
-      </div>
+    <main className="pt-28 md:pt-36 min-h-screen bg-[#05070D] text-[#F8FAFC]">
+      
+      {/* 1️⃣ HERO SECTION */}
+      <section className="px-5 sm:px-8 md:px-12 lg:px-20 mb-16 md:mb-24 flex flex-col items-center text-center relative overflow-hidden">
+        {/* Cyber-Obsidian Ambient Top Glow */}
+        <div 
+          className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[700px] md:w-[1000px] h-[450px] rounded-full blur-[140px] opacity-25 z-0"
+          style={{
+            background: "radial-gradient(circle, rgba(99, 102, 241, 0.45) 0%, rgba(6, 182, 212, 0.25) 50%, transparent 75%)"
+          }}
+        />
 
-      <div className="px-6 md:px-10 lg:px-20 grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-20 pb-40">
-        
-        {/* Left: Form */}
-        <div>
-          {!submitted ? (
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-12">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <InputGroup label="Name*" register={register("name", { required: true })} error={errors.name} />
-                <InputGroup label="Email*" type="email" register={register("email", { required: true, pattern: /^\S+@\S+$/i })} error={errors.email} />
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <InputGroup label="Company" register={register("company")} />
-                <InputGroup label="Project Type*" register={register("projectType", { required: true })} error={errors.projectType} />
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <InputGroup label="Budget Range*" register={register("budget", { required: true })} error={errors.budget} />
-                <InputGroup label="Details*" register={register("details", { required: true })} error={errors.details} />
-              </div>
-
-              <div className="pt-8">
-                <Button variant="primary" type="submit" className="w-full md:w-fit px-12 py-5" disabled={isSubmitting}>
-                  {isSubmitting ? "Sending..." : "Start a Conversation"}
-                </Button>
-              </div>
-            </form>
-          ) : (
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }} 
-              animate={{ opacity: 1, scale: 1 }}
-              className="p-16 border border-gold/30 bg-gold-glow flex flex-col items-center text-center gap-6"
-            >
-              <CheckCircle2 size={64} className="text-gold" />
-              <h2 className="font-display text-4xl">Message Received.</h2>
-              <p className="font-ui text-muted max-w-sm">
-                We&apos;ll review your project and get back to you personally within 24 hours. 
-                Talk soon.
-              </p>
-            </motion.div>
-          )}
-
-          {/* FAQ Accordion */}
-          <div className="mt-32">
-            <h3 className="text-[12px] uppercase tracking-[0.3em] font-bold text-dim mb-12">Frequently Asked Questions</h3>
-            <div className="space-y-4">
-              {faqs.map((faq, i) => (
-                <div key={i} className="border-b border-border/50">
-                  <button 
-                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                    className="w-full py-8 flex justify-between items-center text-left group"
-                  >
-                    <span className="font-display text-xl group-hover:text-gold transition-colors">{faq.q}</span>
-                    <ChevronDown className={cn("text-gold transition-transform duration-500", openFaq === i ? "rotate-180" : "")} />
-                  </button>
-                  <AnimatePresence>
-                    {openFaq === i && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        className="overflow-hidden"
-                      >
-                        <p className="pb-8 text-sm text-cream/70 max-w-2xl leading-relaxed">
-                          {faq.a}
-                        </p>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              ))}
-            </div>
+        <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
+          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-indigo-500/40 bg-[#0B0F19]/90 backdrop-blur-md mb-6 shadow-[0_0_20px_rgba(99,102,241,0.2)]">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-400" />
+            </span>
+            <span className="text-xs uppercase font-ui tracking-wider font-semibold text-cyan-300">
+              Direct Founder Intake · &lt; 4-Hour Response SLA · Kolkata &amp; Worldwide
+            </span>
           </div>
+
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-bold leading-[1.04] tracking-tight text-[#F8FAFC]">
+            Start A Conversation.{" "}
+            <span className="bg-gradient-to-r from-indigo-400 via-cyan-300 to-indigo-300 bg-clip-text text-transparent">
+              Architect Your Edge.
+            </span>
+          </h1>
+
+          <p className="mt-6 text-slate-300 font-ui text-base sm:text-xl max-w-2xl leading-relaxed font-light">
+            Tell us about your technical goals, bottlenecks, or product roadmap. You will receive an architectural response and estimated execution plan directly from our founder.
+          </p>
+        </div>
+      </section>
+
+      {/* 2️⃣ MAIN WORKSPACE GRID: FORM & DIRECT DOSSIER */}
+      <section className="px-5 sm:px-8 md:px-12 lg:px-20 max-w-[1400px] mx-auto mb-24 md:mb-36">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+          
+          {/* Left Column (7 cols): Interactive Intake Form or Success Screen */}
+          <div className="lg:col-span-7">
+            <SpotlightCard
+              spotlightColor="rgba(99, 102, 241, 0.18)"
+              className="p-7 sm:p-10 md:p-12 border-slate-800 bg-[#0B0F19]/90 backdrop-blur-xl rounded-xs shadow-2xl relative"
+            >
+              {!submitted ? (
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
+                  <div className="flex items-center justify-between border-b border-slate-800 pb-4 mb-2">
+                    <div className="flex items-center gap-2">
+                      <Sparkles size={16} className="text-cyan-400" />
+                      <span className="font-display font-bold text-sm sm:text-base text-[#F8FAFC]">
+                        Project Intake &amp; Architecture Brief
+                      </span>
+                    </div>
+                    <span className="text-[11px] font-mono text-slate-400">
+                      STEP 1 OF 1
+                    </span>
+                  </div>
+
+                  {/* Name & Email Row */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-xs uppercase font-mono tracking-wider font-bold text-slate-300 mb-2">
+                        Your Name *
+                      </label>
+                      <input 
+                        type="text"
+                        placeholder="e.g. Alex Rivera"
+                        {...register("name", { required: "Name is required" })}
+                        className={cn(
+                          "w-full px-4 py-3.5 bg-[#05070D] border rounded-xs font-ui text-sm text-slate-100 placeholder:text-slate-600 focus:outline-none focus:border-cyan-400 transition-colors",
+                          errors.name ? "border-rose-500/60" : "border-slate-800 focus:border-cyan-500/60"
+                        )}
+                      />
+                      {errors.name && (
+                        <p className="text-[11px] text-rose-400 mt-1 font-mono">{errors.name.message}</p>
+                      )}
+                    </div>
+
+                    <div>
+                      <label className="block text-xs uppercase font-mono tracking-wider font-bold text-slate-300 mb-2">
+                        Work Email *
+                      </label>
+                      <input 
+                        type="email"
+                        placeholder="alex@company.com"
+                        {...register("email", { 
+                          required: "Email is required",
+                          pattern: { value: /^\S+@\S+$/i, message: "Invalid email format" }
+                        })}
+                        className={cn(
+                          "w-full px-4 py-3.5 bg-[#05070D] border rounded-xs font-ui text-sm text-slate-100 placeholder:text-slate-600 focus:outline-none focus:border-cyan-400 transition-colors",
+                          errors.email ? "border-rose-500/60" : "border-slate-800 focus:border-cyan-500/60"
+                        )}
+                      />
+                      {errors.email && (
+                        <p className="text-[11px] text-rose-400 mt-1 font-mono">{errors.email.message}</p>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Phone / WhatsApp & Company Row */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-xs uppercase font-mono tracking-wider font-bold text-slate-300 mb-2">
+                        Phone / WhatsApp (Recommended)
+                      </label>
+                      <input 
+                        type="tel"
+                        placeholder="+91 98765 43210 or +1..."
+                        {...register("phone")}
+                        className="w-full px-4 py-3.5 bg-[#05070D] border border-slate-800 rounded-xs font-ui text-sm text-slate-100 placeholder:text-slate-600 focus:outline-none focus:border-cyan-400 transition-colors"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs uppercase font-mono tracking-wider font-bold text-slate-300 mb-2">
+                        Company / Organization
+                      </label>
+                      <input 
+                        type="text"
+                        placeholder="e.g. Apex Health or Stova Labs"
+                        {...register("company")}
+                        className="w-full px-4 py-3.5 bg-[#05070D] border border-slate-800 rounded-xs font-ui text-sm text-slate-100 placeholder:text-slate-600 focus:outline-none focus:border-cyan-400 transition-colors"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Project Category Selection */}
+                  <div>
+                    <label className="block text-xs uppercase font-mono tracking-wider font-bold text-slate-300 mb-2.5">
+                      What are you building? *
+                    </label>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+                      {projectCategories.map((cat, idx) => {
+                        const isSelected = selectedCategory === cat;
+                        return (
+                          <button
+                            key={idx}
+                            type="button"
+                            onClick={() => handleCategorySelect(cat)}
+                            className={cn(
+                              "p-2.5 text-left text-xs font-ui rounded-xs border transition-all duration-200 flex items-center justify-between",
+                              isSelected 
+                                ? "bg-indigo-950/70 border-indigo-500 text-cyan-300 shadow-[0_0_15px_rgba(99,102,241,0.25)] font-medium" 
+                                : "bg-[#05070D] border-slate-800/90 text-slate-400 hover:text-slate-200 hover:border-slate-700"
+                            )}
+                          >
+                            <span className="truncate">{cat}</span>
+                            {isSelected && <Check size={12} className="text-cyan-400 shrink-0 ml-1" />}
+                          </button>
+                        );
+                      })}
+                    </div>
+                    <input type="hidden" {...register("projectType", { required: true })} value={selectedCategory} />
+                  </div>
+
+                  {/* Budget Selector */}
+                  <div>
+                    <label className="block text-xs uppercase font-mono tracking-wider font-bold text-slate-300 mb-2.5">
+                      Target Budget Range *
+                    </label>
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                      {budgetRanges.map((bud, idx) => {
+                        const isSelected = selectedBudget === bud;
+                        return (
+                          <button
+                            key={idx}
+                            type="button"
+                            onClick={() => handleBudgetSelect(bud)}
+                            className={cn(
+                              "p-2.5 text-center text-xs font-mono rounded-xs border transition-all duration-200",
+                              isSelected 
+                                ? "bg-cyan-950/60 border-cyan-400 text-cyan-300 font-bold shadow-[0_0_15px_rgba(6,182,212,0.25)]" 
+                                : "bg-[#05070D] border-slate-800/90 text-slate-400 hover:text-slate-200 hover:border-slate-700"
+                            )}
+                          >
+                            {bud}
+                          </button>
+                        );
+                      })}
+                    </div>
+                    <input type="hidden" {...register("budget", { required: true })} value={selectedBudget} />
+                  </div>
+
+                  {/* Project Details */}
+                  <div>
+                    <label className="block text-xs uppercase font-mono tracking-wider font-bold text-slate-300 mb-2">
+                      Project Scope, Requirements &amp; Goals *
+                    </label>
+                    <textarea 
+                      rows={4}
+                      placeholder="Share high-level details: current bottleneck, target launch date, existing tech stack, or links to references..."
+                      {...register("details", { required: "Project details are required" })}
+                      className={cn(
+                        "w-full px-4 py-3.5 bg-[#05070D] border rounded-xs font-ui text-sm text-slate-100 placeholder:text-slate-600 focus:outline-none focus:border-cyan-400 transition-colors resize-none leading-relaxed",
+                        errors.details ? "border-rose-500/60" : "border-slate-800 focus:border-cyan-500/60"
+                      )}
+                    />
+                    {errors.details && (
+                      <p className="text-[11px] text-rose-400 mt-1 font-mono">{errors.details.message}</p>
+                    )}
+                  </div>
+
+                  {/* Submit Action */}
+                  <div className="pt-2">
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className={cn(
+                        "w-full py-4 px-8 rounded-xs font-ui font-semibold text-sm tracking-wide text-white transition-all duration-300 flex items-center justify-center gap-3 relative overflow-hidden group shadow-lg",
+                        isSubmitting 
+                          ? "bg-indigo-800/50 cursor-wait" 
+                          : "bg-gradient-to-r from-indigo-500 via-indigo-600 to-cyan-500 hover:shadow-[0_0_30px_rgba(6,182,212,0.4)] hover:brightness-110 active:scale-[0.99]"
+                      )}
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                          <span>Transmitting Architecture Request...</span>
+                        </>
+                      ) : (
+                        <>
+                          <Send size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
+                          <span>Submit Technical Brief · Receive Proposal</span>
+                        </>
+                      )}
+                    </button>
+                    <p className="text-center font-ui text-[11px] text-slate-400 mt-3 font-light">
+                      🔒 No spam guaranteed. We treat your product ideas with strict commercial confidentiality.
+                    </p>
+                  </div>
+                </form>
+              ) : (
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="py-12 px-6 flex flex-col items-center text-center space-y-6"
+                >
+                  <div className="w-20 h-20 rounded-full bg-gradient-to-tr from-indigo-500/20 to-cyan-500/20 border-2 border-cyan-400 flex items-center justify-center shadow-[0_0_30px_rgba(6,182,212,0.4)]">
+                    <CheckCircle2 size={40} className="text-cyan-300" />
+                  </div>
+
+                  <div className="space-y-2">
+                    <span className="px-3 py-1 text-xs font-mono uppercase bg-indigo-950/70 border border-indigo-500/40 text-cyan-300 rounded-xs">
+                      Brief Logged Successfully
+                    </span>
+                    <h2 className="text-3xl sm:text-4xl font-display font-bold text-[#F8FAFC]">
+                      We Have Received Your Architecture Request.
+                    </h2>
+                    <p className="font-ui text-sm sm:text-base text-slate-300 max-w-md mx-auto font-light leading-relaxed">
+                      Founder &amp; Lead Architect Mehedi Hasan will personally review your brief and reply within 4 to 24 hours with an actionable technical plan.
+                    </p>
+                  </div>
+
+                  <div className="pt-4 flex flex-col sm:flex-row items-center gap-4 w-full justify-center">
+                    <a 
+                      href="https://wa.me/919432053261?text=Hi%20Mehedi%2C%20I%20just%20submitted%20a%20project%20inquiry%20on%20Stova%20Media%20website%20and%20wanted%20to%20connect%20directly."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full sm:w-auto px-6 py-3 rounded-xs bg-emerald-500 hover:bg-emerald-400 text-[#05070D] font-ui font-semibold text-xs transition-colors flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(16,185,129,0.3)]"
+                    >
+                      <MessageSquare size={15} />
+                      <span>Instant WhatsApp Follow-Up</span>
+                      <ArrowUpRight size={13} />
+                    </a>
+
+                    <button
+                      onClick={() => setSubmitted(false)}
+                      className="w-full sm:w-auto px-6 py-3 rounded-xs border border-slate-800 bg-[#05070D] hover:border-slate-700 text-slate-300 font-ui text-xs transition-colors"
+                    >
+                      Submit Another Requirement
+                    </button>
+                  </div>
+                </motion.div>
+              )}
+            </SpotlightCard>
+          </div>
+
+          {/* Right Column (5 cols): Direct Channels & Studio Dossier */}
+          <div className="lg:col-span-5 space-y-6">
+            
+            {/* Live Availability Status Card */}
+            <SpotlightCard
+              spotlightColor="rgba(16, 185, 129, 0.22)"
+              className="p-6 sm:p-7 border-slate-800 bg-[#0B0F19]/90 backdrop-blur-md rounded-xs shadow-xl"
+            >
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center gap-2.5">
+                  <span className="relative flex h-3 w-3">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-400" />
+                  </span>
+                  <span className="text-xs font-mono uppercase tracking-wider font-bold text-emerald-400">
+                    Studio Status: Available
+                  </span>
+                </div>
+                <span className="text-[11px] font-mono text-slate-500">2026 Q2/Q3</span>
+              </div>
+
+              <h4 className="font-display font-bold text-lg text-[#F8FAFC] mb-2">
+                Accepting 2 New Production Deployments
+              </h4>
+              <p className="font-ui text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
+                To guarantee zero compromises and direct founder technical supervision, we maintain a strict concurrency limit on active client builds.
+              </p>
+            </SpotlightCard>
+
+            {/* Direct Connectors Bento */}
+            <SpotlightCard
+              spotlightColor="rgba(99, 102, 241, 0.18)"
+              className="p-6 sm:p-8 border-slate-800 bg-[#0B0F19]/90 backdrop-blur-md rounded-xs space-y-6 shadow-xl"
+            >
+              <div className="border-b border-slate-800 pb-4">
+                <span className="text-xs uppercase font-mono tracking-widest font-bold text-indigo-400 block mb-1">
+                  Direct Line
+                </span>
+                <h3 className="font-display text-xl font-bold text-[#F8FAFC]">
+                  Founder &amp; Engineering Contacts
+                </h3>
+              </div>
+
+              <div className="space-y-4 font-ui text-sm">
+                
+                {/* WhatsApp Direct */}
+                <a 
+                  href="https://wa.me/919432053261?text=Hi%20Mehedi%2C%20I%20would%20like%20to%20discuss%20a%20project%20with%20Stova%20Media."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-4 border border-slate-800/90 bg-[#05070D] rounded-xs flex items-center justify-between hover:border-emerald-500/50 transition-all group"
+                >
+                  <div className="flex items-center gap-3.5">
+                    <div className="w-9 h-9 rounded-xs bg-emerald-950/60 border border-emerald-500/40 flex items-center justify-center text-emerald-300">
+                      <MessageSquare size={18} />
+                    </div>
+                    <div>
+                      <span className="text-[11px] font-mono text-slate-400 uppercase tracking-wider block">
+                        Fastest Response (Instant)
+                      </span>
+                      <span className="font-display font-bold text-slate-100 group-hover:text-emerald-300 transition-colors">
+                        +91 9432053261 (WhatsApp)
+                      </span>
+                    </div>
+                  </div>
+                  <ArrowUpRight size={16} className="text-slate-500 group-hover:text-emerald-400 transition-colors" />
+                </a>
+
+                {/* Email Direct with One-Click Copy */}
+                <div className="p-4 border border-slate-800/90 bg-[#05070D] rounded-xs flex items-center justify-between hover:border-indigo-500/50 transition-all group">
+                  <div className="flex items-center gap-3.5">
+                    <div className="w-9 h-9 rounded-xs bg-indigo-950/60 border border-indigo-500/40 flex items-center justify-center text-indigo-300">
+                      <Mail size={18} />
+                    </div>
+                    <div>
+                      <span className="text-[11px] font-mono text-slate-400 uppercase tracking-wider block">
+                        Official Inquiries
+                      </span>
+                      <a 
+                        href="mailto:stovamedia@gmail.com"
+                        className="font-display font-bold text-slate-100 hover:text-cyan-300 transition-colors block"
+                      >
+                        stovamedia@gmail.com
+                      </a>
+                    </div>
+                  </div>
+                  <button 
+                    onClick={copyEmail}
+                    title="Copy Email Address"
+                    className="p-2 text-slate-400 hover:text-cyan-300 transition-colors"
+                  >
+                    {copiedEmail ? <Check size={16} className="text-cyan-400" /> : <Copy size={16} />}
+                  </button>
+                </div>
+
+                {/* Studio Location */}
+                <div className="p-4 border border-slate-800/90 bg-[#05070D] rounded-xs flex items-start gap-3.5">
+                  <div className="w-9 h-9 rounded-xs bg-cyan-950/60 border border-cyan-500/40 flex items-center justify-center text-cyan-300 shrink-0">
+                    <MapPin size={18} />
+                  </div>
+                  <div>
+                    <span className="text-[11px] font-mono text-slate-400 uppercase tracking-wider block">
+                      Studio Headquarters
+                    </span>
+                    <span className="font-display font-bold text-slate-100 block">
+                      Kolkata, West Bengal, India
+                    </span>
+                    <span className="text-xs text-slate-400 font-light mt-0.5 block">
+                      Serving enterprises across India, USA, UAE &amp; UK.
+                    </span>
+                  </div>
+                </div>
+
+                {/* SLA Assurance */}
+                <div className="p-4 border border-slate-800/90 bg-[#05070D] rounded-xs flex items-start gap-3.5">
+                  <div className="w-9 h-9 rounded-xs bg-purple-950/60 border border-purple-500/40 flex items-center justify-center text-purple-300 shrink-0">
+                    <Clock size={18} />
+                  </div>
+                  <div>
+                    <span className="text-[11px] font-mono text-slate-400 uppercase tracking-wider block">
+                      Response SLA Commitment
+                    </span>
+                    <span className="font-display font-bold text-slate-100 block">
+                      Under 4 Hours on Business Days
+                    </span>
+                    <span className="text-xs text-slate-400 font-light mt-0.5 block">
+                      Technical feasibility breakdown included.
+                    </span>
+                  </div>
+                </div>
+
+              </div>
+            </SpotlightCard>
+
+            {/* NDA & IP Protection Pillar */}
+            <div className="p-5 border border-slate-800/80 bg-[#0B0F19]/60 rounded-xs flex items-center gap-3.5 font-ui text-xs text-slate-300">
+              <ShieldCheck size={20} className="text-cyan-400 shrink-0" />
+              <span>
+                <strong>100% IP Ownership &amp; Mutual NDA:</strong> You own all source code and assets. Mutual NDA provided upon request.
+              </span>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* 3️⃣ FREQUENTLY ASKED QUESTIONS ACCORDION */}
+      <section className="px-5 sm:px-8 md:px-12 lg:px-20 max-w-[1100px] mx-auto mb-24 md:mb-36 relative z-10">
+        <div className="text-center max-w-2xl mx-auto mb-14">
+          <SectionLabel className="justify-center">Clear Answers</SectionLabel>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-[#F8FAFC] mt-3">
+            Frequently Asked Questions
+          </h2>
+          <p className="mt-3 text-sm sm:text-base text-slate-300 font-ui font-light">
+            Everything you need to know about partnering with Stova Media.
+          </p>
         </div>
 
-        {/* Right: Info Sidebar */}
-        <aside className="space-y-16">
-          <div className="bg-card p-10 md:p-14 border border-border">
-            <h3 className="text-[11px] uppercase tracking-[0.3em] font-bold text-dim mb-10">Direct Reach</h3>
-            <div className="space-y-10">
-              <ContactInfo icon={Mail} label="Email" value="stovamedia@gmail.com" href="mailto:stovamedia@gmail.com" />
-              <ContactInfo icon={MapPin} label="Studio Location" value="Kolkata, WB. India." />
-              <ContactInfo icon={Clock} label="Average Response" value="Under 24 Hours" />
-              <ContactInfo 
-                 icon={MessageCircle} 
-                 label="Direct Chat" 
-                 value="WhatsApp: +91 9432053261"
-                 href="https://wa.me/919432053261"
-                 active
-              />
-            </div>
-          </div>
+        <div className="space-y-4">
+          {faqs.map((faq, idx) => {
+            const isOpen = openFaq === idx;
+            return (
+              <div 
+                key={idx}
+                className={cn(
+                  "border rounded-xs transition-all duration-300 overflow-hidden",
+                  isOpen 
+                    ? "border-indigo-500/60 bg-[#0F1524] shadow-[0_0_25px_rgba(99,102,241,0.2)]" 
+                    : "border-slate-800 bg-[#0B0F19]/90 hover:border-slate-700 hover:bg-[#0D121F]"
+                )}
+              >
+                <button
+                  type="button"
+                  onClick={() => setOpenFaq(isOpen ? null : idx)}
+                  className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 font-display font-bold text-base sm:text-lg md:text-xl text-[#F8FAFC] cursor-pointer"
+                >
+                  <span className="flex items-center gap-3.5">
+                    <span className="px-2 py-0.5 rounded-xs bg-cyan-950/70 border border-cyan-500/40 text-cyan-300 font-mono text-xs font-bold shrink-0">
+                      0{idx + 1}
+                    </span>
+                    <span className="group-hover:text-cyan-300 transition-colors">{faq.q}</span>
+                  </span>
+                  <div className={cn(
+                    "p-2 rounded-xs border transition-transform duration-300 shrink-0",
+                    isOpen 
+                      ? "rotate-180 border-cyan-500/50 bg-cyan-950/60 text-cyan-300" 
+                      : "border-slate-800 bg-[#05070D] text-slate-400"
+                  )}>
+                    <ChevronDown size={16} />
+                  </div>
+                </button>
 
-          <div className="bg-gold-glow p-10 border border-gold/10">
-             <div className="flex items-center gap-3 mb-4">
-               <div className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse" />
-               <span className="text-[10px] uppercase font-bold text-green-500 tracking-widest">Available</span>
-             </div>
-             <p className="text-sm text-gold/80 font-ui leading-relaxed">
-               We are currently accepting new projects for **2026** onwards. 
-               Reach out today to secure your slot.
-             </p>
-          </div>
-        </aside>
+                <AnimatePresence>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.25 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-5 sm:px-6 pb-6 pt-2 font-ui text-sm sm:text-base text-slate-200 leading-relaxed font-light border-t border-slate-800/80 mt-1">
+                        {faq.a}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
+        </div>
+      </section>
 
-      </div>
     </main>
   );
-}
-
-function InputGroup({ label, type = "text", register, error }: any) {
-  const isTextArea = label.toLowerCase().includes("details");
-  const InputTag = isTextArea ? "textarea" : "input";
-
-  return (
-    <div className="flex flex-col gap-2 group/field">
-      <label className={cn(
-        "text-[10px] uppercase tracking-[0.2em] font-bold transition-colors duration-500", 
-        error ? "text-red-500" : "text-dim/80 group-focus-within/field:text-gold"
-      )}>
-        {label}
-      </label>
-      <div className={cn(
-        "relative bg-ink/[0.03] dark:bg-card/40 border-b-2 transition-all duration-500 rounded-t-sm",
-        error ? "border-red-500/50" : "border-ink/10 dark:border-border focus-within:border-gold"
-      )}>
-        <InputTag 
-          type={isTextArea ? undefined : type} 
-          {...register}
-          autoComplete="off"
-          rows={isTextArea ? 4 : 1}
-          className="w-full bg-transparent border-none outline-none font-display py-4 px-5 text-lg text-cream placeholder:text-dim/30 resize-none" 
-        />
-        <div className="absolute left-0 bottom-0 h-[2.5px] w-full bg-gold scale-x-0 transition-transform duration-700 group-focus-within/field:scale-x-100 shadow-[0_0_15px_rgba(201,168,76,0.3)]" />
-      </div>
-      {error && <span className="text-[9px] text-red-500 uppercase tracking-widest font-bold mt-1">This field is required</span>}
-    </div>
-  );
-}
-
-function ContactInfo({ icon: Icon, label, value, href, active }: any) {
-  const content = (
-    <div className="flex items-start gap-6 group cursor-pointer">
-      <div className="w-12 h-12 border border-border flex items-center justify-center text-muted group-hover:border-gold group-hover:text-gold transition-all duration-500">
-        <Icon size={20} />
-      </div>
-      <div>
-        <span className="text-[9px] uppercase tracking-widest font-bold text-dim block mb-1">{label}</span>
-        <span className={cn("text-lg font-display transition-colors", active ? "text-gold" : "text-cream hover:text-gold")}>{value}</span>
-      </div>
-    </div>
-  );
-
-  return href ? <a href={href}>{content}</a> : <div>{content}</div>;
 }

@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { SpotlightCard } from "@/components/ui";
 import { CheckCircle2, MessageSquare, Send, Lock, RefreshCw } from "lucide-react";
 import AIEcomTimer from "./AIEcomTimer";
@@ -72,7 +74,7 @@ export default function AIEcomBooking({ bookingRef }: AIEcomBookingProps) {
   return (
     <section 
       ref={bookingRef} 
-      className="py-16 sm:py-24 md:py-36 px-5 sm:px-8 md:px-12 lg:px-20 bg-[#070A12] relative z-10 overflow-hidden"
+      className="pt-12 sm:pt-16 md:pt-20 pb-6 sm:pb-8 px-5 sm:px-8 md:px-12 lg:px-20 bg-[#070A12] relative z-10 overflow-hidden"
     >
       <div 
         className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] md:w-[800px] h-[450px] md:h-[550px] rounded-full opacity-20 z-0"
@@ -109,7 +111,7 @@ export default function AIEcomBooking({ bookingRef }: AIEcomBookingProps) {
 
           <div className="pt-4">
             <a 
-              href="https://wa.me/918918928045?text=Hello%20Stova%20Media,%20I%20want%20to%20book%20a%20free%20consultation%20for%20AI%20E-commerce"
+              href="https://wa.me/919432053261?text=Hello%20Stova%20Media,%20I%20want%20to%20book%20a%20free%20consultation%20for%20AI%20E-commerce"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2.5 px-8 py-4.5 bg-[#25D366] hover:bg-[#20bd5a] text-[#05070D] font-bold text-sm sm:text-base uppercase tracking-wider transition-all duration-300 shadow-[0_0_25px_rgba(37,211,102,0.35)] min-h-[50px]"
@@ -124,7 +126,7 @@ export default function AIEcomBooking({ bookingRef }: AIEcomBookingProps) {
         <div className="lg:col-span-6 w-full">
           <SpotlightCard 
             spotlightColor="rgba(99, 102, 241, 0.2)"
-            className="p-6 sm:p-9 md:p-11 border-slate-800 bg-[#0B0F19]/90 shadow-2xl"
+            className="p-6 sm:p-9 md:p-11 border-slate-800 bg-[#0B0F19]/90 shadow-2xl rounded-3xl"
           >
             {!isBooked && (
               <div className="mb-6">
@@ -133,7 +135,7 @@ export default function AIEcomBooking({ bookingRef }: AIEcomBookingProps) {
             )}
 
             {isBooked || formStatus === "success" ? (
-              <div className="p-7 sm:p-10 bg-emerald-950/40 border border-emerald-500/50 text-center space-y-4 rounded-lg shadow-[0_0_35px_rgba(16,185,129,0.2)]">
+              <div className="p-7 sm:p-10 bg-emerald-950/40 border border-emerald-500/50 text-center space-y-4 rounded-2xl shadow-[0_0_35px_rgba(16,185,129,0.2)]">
                 <div className="w-16 h-16 rounded-full bg-emerald-900/50 border border-emerald-400/60 flex items-center justify-center mx-auto text-emerald-300 shadow-[0_0_25px_rgba(16,185,129,0.4)]">
                   <CheckCircle2 size={36} className="animate-bounce" />
                 </div>
@@ -145,10 +147,10 @@ export default function AIEcomBooking({ bookingRef }: AIEcomBookingProps) {
                 </p>
                 <div className="pt-2">
                   <a 
-                    href="https://wa.me/918918928045?text=Hello%20Stova%20Media,%20I%20just%20submitted%20my%20booking%20on%20your%20website"
+                    href="https://wa.me/919432053261?text=Hello%20Stova%20Media,%20I%20just%20submitted%20my%20booking%20on%20your%20website"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#25D366] hover:bg-[#20bd5a] text-[#05070D] font-bold text-xs sm:text-sm uppercase tracking-wider transition-all font-ui shadow-md"
+                    className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#25D366] hover:bg-[#20bd5a] text-[#05070D] font-bold text-xs sm:text-sm uppercase tracking-wider transition-all font-ui shadow-md rounded-xl"
                   >
                     <MessageSquare size={16} />
                     <span>WhatsApp-এ সরাসরি মেসেজ দিন</span>
@@ -156,7 +158,7 @@ export default function AIEcomBooking({ bookingRef }: AIEcomBookingProps) {
                 </div>
               </div>
             ) : isExpired ? (
-              <div className="p-7 sm:p-9 bg-[#110A14] border border-rose-500/50 text-center space-y-4 rounded-lg shadow-[0_0_35px_rgba(244,63,94,0.15)] relative overflow-hidden">
+              <div className="p-7 sm:p-9 bg-[#110A14] border border-rose-500/50 text-center space-y-4 rounded-2xl shadow-[0_0_35px_rgba(244,63,94,0.15)] relative overflow-hidden">
                 <div className="w-16 h-16 rounded-full bg-rose-950/60 border border-rose-500/50 flex items-center justify-center mx-auto text-rose-400 shadow-[0_0_20px_rgba(244,63,94,0.3)]">
                   <Lock size={32} className="animate-pulse" />
                 </div>
@@ -171,16 +173,16 @@ export default function AIEcomBooking({ bookingRef }: AIEcomBookingProps) {
                 <div className="pt-2 flex flex-col gap-3 max-w-sm mx-auto">
                   <button
                     onClick={handleRefreshUnlock}
-                    className="w-full py-4 bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white font-bold text-sm sm:text-base uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(6,182,212,0.4)] cursor-pointer"
+                    className="w-full py-4 bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white font-bold text-sm sm:text-base uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(6,182,212,0.4)] cursor-pointer rounded-xl"
                   >
                     <RefreshCw size={16} />
                     <span>পেজ রিফ্রেশ করে ফর্ম আনলক করুন</span>
                   </button>
                   <a
-                    href="https://wa.me/918918928045?text=Hello%20Stova%20Media,%20My%20timer%20expired%20on%20the%20landing%20page,%20I%20want%20to%20claim%20a%20slot%20directly"
+                    href="https://wa.me/919432053261?text=Hello%20Stova%20Media,%20My%20timer%20expired%20on%20the%20landing%20page,%20I%20want%20to%20claim%20a%20slot%20directly"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full py-3 bg-[#25D366] hover:bg-[#20bd5a] text-[#05070D] font-bold text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-1.5 shadow-md font-ui"
+                    className="w-full py-3 bg-[#25D366] hover:bg-[#20bd5a] text-[#05070D] font-bold text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-1.5 shadow-md font-ui rounded-xl"
                   >
                     <MessageSquare size={16} />
                     <span>সরাসরি WhatsApp-এ যোগাযোগ করুন</span>
@@ -205,7 +207,7 @@ export default function AIEcomBooking({ bookingRef }: AIEcomBookingProps) {
                       placeholder={f.placeholder} 
                       value={formData[f.key as keyof typeof formData]}
                       onChange={(e) => setFormData({ ...formData, [f.key]: e.target.value })}
-                      className="w-full p-4 bg-[#05070D] border border-slate-800 text-white placeholder:text-slate-600 focus:border-cyan-400 focus:outline-none text-base sm:text-sm transition-colors rounded-none min-h-[48px]"
+                      className="w-full p-4 bg-[#05070D] border border-slate-800 text-white placeholder:text-slate-600 focus:border-cyan-400 focus:outline-none text-base sm:text-sm transition-colors rounded-xl min-h-[48px]"
                     />
                   </div>
                 ))}
@@ -213,7 +215,7 @@ export default function AIEcomBooking({ bookingRef }: AIEcomBookingProps) {
                 <button
                   type="submit"
                   disabled={formStatus === "loading"}
-                  className="w-full py-4.5 bg-gradient-to-r from-indigo-500 via-indigo-600 to-cyan-500 hover:from-indigo-600 hover:to-cyan-600 text-white font-bold text-sm sm:text-base uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2.5 shadow-[0_0_25px_rgba(99,102,241,0.4)] disabled:opacity-60 cursor-pointer min-h-[52px]"
+                  className="w-full py-4.5 bg-gradient-to-r from-indigo-500 via-indigo-600 to-cyan-500 hover:from-indigo-600 hover:to-cyan-600 text-white font-bold text-sm sm:text-base uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2.5 shadow-[0_0_25px_rgba(99,102,241,0.4)] disabled:opacity-60 cursor-pointer min-h-[52px] rounded-xl"
                 >
                   {formStatus === "loading" ? (
                     <span>Submitting...</span>
@@ -230,8 +232,23 @@ export default function AIEcomBooking({ bookingRef }: AIEcomBookingProps) {
         </div>
       </div>
 
-      <div className="mt-16 sm:mt-24 pt-8 border-t border-slate-900/90 text-center text-xs sm:text-sm text-slate-400 font-ui">
-        <p>© {new Date().getFullYear()} Stova Media • All Rights Reserved. Transforming E-Commerce with Intelligent AI Solutions.</p>
+      {/* Compact Clean Footer */}
+      <div className="mt-8 sm:mt-10 pt-4 border-t border-slate-900/90 text-center text-xs text-slate-400 font-ui flex flex-col items-center gap-2.5">
+        <Link href="/" className="group inline-flex items-center gap-2">
+          <div className="relative">
+            <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-full blur opacity-20 group-hover:opacity-60 transition duration-300" />
+            <Image 
+              src="/logo.jpeg" 
+              alt="Stova Media Logo" 
+              width={160} 
+              height={42} 
+              className="relative h-8 sm:h-9 w-auto object-contain rounded-full border border-slate-700 shadow-sm" 
+            />
+          </div>
+        </Link>
+        <p className="text-[11px] sm:text-xs text-slate-500">
+          © {new Date().getFullYear()} Stova Media • All Rights Reserved. Transforming E-Commerce with Intelligent AI Solutions.
+        </p>
       </div>
     </section>
   );

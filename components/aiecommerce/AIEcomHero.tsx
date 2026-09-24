@@ -1,10 +1,12 @@
 "use client";
 
 import React, { useRef, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MagneticElement, SpotlightCard } from "@/components/ui";
-import { Sparkles, Bot, ArrowRight, MessageSquare, ShieldCheck, Award, Cpu } from "lucide-react";
+import { Sparkles, Bot, ArrowRight, MessageSquare, ShieldCheck, Award, Search, TrendingUp, Cpu, Zap } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,6 +18,10 @@ export default function AIEcomHero({ onBookClick }: AIEcomHeroProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const chatCardRef = useRef<HTMLDivElement>(null);
+
+  const handleOpenDemoChat = () => {
+    window.dispatchEvent(new Event("stova_open_aichat"));
+  };
 
   useEffect(() => {
     if (!sectionRef.current) return;
@@ -66,14 +72,31 @@ export default function AIEcomHero({ onBookClick }: AIEcomHeroProps) {
       >
         {/* Left Headline */}
         <div className="lg:col-span-7 flex flex-col items-start text-left">
-          <div className="hero-badge-node inline-flex items-center gap-2 px-4 py-2 border border-indigo-500/40 bg-[#0B0F19]/90 rounded-full mb-6 shadow-sm">
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-400" />
-            </span>
-            <span className="text-xs sm:text-sm uppercase font-ui tracking-wider font-semibold text-cyan-300">
-              Next-Gen AI E-Commerce Architecture
-            </span>
+          {/* Brand Logo Row */}
+          <div className="hero-badge-node flex items-center gap-3 mb-6">
+            <Link href="/" className="inline-flex items-center gap-2 group">
+              <div className="relative">
+                <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-full blur opacity-40 group-hover:opacity-80 transition duration-300" />
+                <Image 
+                  src="/logo.jpeg" 
+                  alt="Stova Media Logo" 
+                  width={220} 
+                  height={60} 
+                  className="relative h-11 sm:h-13 md:h-14 w-auto object-contain rounded-full border border-cyan-500/50 shadow-[0_0_25px_rgba(6,182,212,0.4)]" 
+                  priority
+                />
+              </div>
+            </Link>
+            <span className="h-4 w-px bg-slate-800" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 border border-indigo-500/40 bg-[#0B0F19]/90 rounded-full shadow-sm">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-400" />
+              </span>
+              <span className="text-[11px] sm:text-xs uppercase font-ui tracking-wider font-semibold text-cyan-300">
+                AI E-Commerce Architecture
+              </span>
+            </div>
           </div>
 
           <h1 className="hero-title-node text-3xl sm:text-5xl md:text-6xl lg:text-[58px] font-bold leading-[1.22] tracking-tight text-[#F8FAFC] mb-6 sm:mb-8">
@@ -92,7 +115,7 @@ export default function AIEcomHero({ onBookClick }: AIEcomHeroProps) {
             <MagneticElement className="w-full sm:w-auto">
               <button 
                 onClick={onBookClick} 
-                className="w-full sm:w-auto px-9 py-5 text-sm sm:text-base md:text-lg font-bold tracking-wider flex items-center justify-center gap-3 bg-gradient-to-r from-indigo-500 via-indigo-600 to-cyan-500 text-white shadow-[0_0_30px_rgba(99,102,241,0.4)] hover:shadow-[0_0_40px_rgba(6,182,212,0.55)] transition-all duration-300 cursor-pointer min-h-[52px]"
+                className="w-full sm:w-auto px-9 py-5 text-sm sm:text-base md:text-lg font-bold tracking-wider flex items-center justify-center gap-3 bg-gradient-to-r from-indigo-500 via-indigo-600 to-cyan-500 text-white shadow-[0_0_30px_rgba(99,102,241,0.4)] hover:shadow-[0_0_40px_rgba(6,182,212,0.55)] transition-all duration-300 cursor-pointer min-h-[52px] rounded-2xl"
               >
                 <span>Free Consultation Book করুন</span>
                 <ArrowRight size={18} />
@@ -101,10 +124,10 @@ export default function AIEcomHero({ onBookClick }: AIEcomHeroProps) {
 
             <MagneticElement className="w-full sm:w-auto">
               <a 
-                href="https://wa.me/918918928045?text=Hello%20Stova%20Media,%20I%20want%20to%20know%20more%20about%20your%20AI%20E-commerce%20Platform"
+                href="https://wa.me/919432053261?text=Hello%20Stova%20Media,%20I%20want%20to%20know%20more%20about%20your%20AI%20E-commerce%20Platform"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-8 py-5 text-sm sm:text-base uppercase tracking-wider font-bold font-ui border border-emerald-500/40 bg-emerald-950/30 text-emerald-400 hover:bg-emerald-900/40 transition-all duration-300 flex items-center justify-center gap-2.5 shadow-sm min-h-[52px]"
+                className="w-full sm:w-auto px-8 py-5 text-sm sm:text-base uppercase tracking-wider font-bold font-ui border border-emerald-500/40 bg-emerald-950/30 text-emerald-400 hover:bg-emerald-900/40 transition-all duration-300 flex items-center justify-center gap-2.5 shadow-sm min-h-[52px] rounded-2xl"
               >
                 <MessageSquare size={17} />
                 <span>WhatsApp-এ কথা বলুন</span>
@@ -122,62 +145,90 @@ export default function AIEcomHero({ onBookClick }: AIEcomHeroProps) {
           </div>
         </div>
 
-        {/* Right Live Assistant Preview */}
+        {/* Right Feature Showcase & Live Trigger Card */}
         <div className="lg:col-span-5 w-full">
           <div ref={chatCardRef}>
             <SpotlightCard 
-              spotlightColor="rgba(99, 102, 241, 0.2)"
-              className="p-6 sm:p-8 border-slate-800/90 bg-[#0A0E1A]/90 shadow-2xl relative"
+              spotlightColor="rgba(99, 102, 241, 0.22)"
+              className="p-6 sm:p-8 md:p-9 border-indigo-500/40 bg-gradient-to-b from-[#0C111F]/95 via-[#070A14]/95 to-[#090D1A]/95 shadow-2xl relative rounded-3xl backdrop-blur-xl"
             >
-              <div className="flex items-center justify-between pb-4 border-b border-slate-800 mb-6">
+              {/* Header */}
+              <div className="flex items-center justify-between pb-5 border-b border-slate-800 mb-6">
                 <div className="flex items-center gap-3">
-                  <div className="relative w-10 h-10 rounded-full bg-gradient-to-tr from-indigo-500 to-cyan-400 flex items-center justify-center text-white shadow-sm">
-                    <Bot size={20} />
-                    <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-400 border-2 border-[#05070D]" />
+                  <div className="relative w-11 h-11 rounded-2xl bg-gradient-to-tr from-indigo-500 via-indigo-600 to-cyan-400 flex items-center justify-center text-white shadow-[0_0_15px_rgba(99,102,241,0.4)]">
+                    <Bot size={22} className="animate-pulse" />
+                    <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-emerald-400 border-2 border-[#05070D]" />
                   </div>
                   <div>
-                    <h2 className="text-sm sm:text-base font-bold text-white">AI Sales Assistant</h2>
-                    <p className="text-[10px] sm:text-xs text-cyan-400 uppercase tracking-widest font-ui">Active & Live 24/7</p>
+                    <h3 className="text-base sm:text-lg font-bold text-white">
+                      AI E-Commerce Core
+                    </h3>
+                    <p className="text-xs text-cyan-400 uppercase tracking-wider font-ui font-medium">
+                      24/7 Autonomous Sales Engine
+                    </p>
                   </div>
                 </div>
-                <span className="text-[10px] sm:text-xs px-2.5 py-1 border border-indigo-500/40 text-indigo-300 bg-indigo-950/60 font-ui uppercase tracking-wider font-semibold">
-                  Live Preview
+
+                <span className="px-3 py-1 rounded-full text-[11px] bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 font-ui font-bold uppercase tracking-wider flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+                  Live System
                 </span>
               </div>
 
-              <div className="space-y-4 font-sans text-sm sm:text-base">
-                <div className="flex justify-end">
-                  <div className="bg-[#13192B] border border-slate-800 p-3.5 sm:p-4 max-w-[88%] text-slate-200 leading-relaxed">
-                    &ldquo;আমার চোখের নিচের ডার্ক সার্কেল দূর করার জন্য এমন একটা ক্রিম লাগবে যেটা স্কিন ড্রাই করবে না।&rdquo;
-                  </div>
-                </div>
-
-                <div className="flex justify-start">
-                  <div className="bg-gradient-to-br from-[#0F172A] to-[#131B33] border border-indigo-500/40 p-4 sm:p-5 max-w-[95%] shadow-md">
-                    <p className="text-cyan-400 font-semibold mb-2 flex items-center gap-1.5 text-sm sm:text-base">
-                      <Sparkles size={15} className="text-indigo-400 flex-shrink-0" />
-                      AI সাজেস্টেড প্রোডাক্ট:
-                    </p>
-                    <p className="text-slate-300 leading-relaxed mb-3.5 text-xs sm:text-sm font-light">
-                      আপনার স্কিনের হাইড্রেশন বজায় রেখে ডার্ক সার্কেল লাইট করার জন্য আমাদের সেরা <strong className="text-white font-medium">Hydra-Restore Eye Gel Serum</strong> পারফেক্ট হবে।
-                    </p>
-
-                    <div className="p-3 sm:p-3.5 bg-[#080B14] border border-slate-800 flex items-center justify-between gap-3">
-                      <div>
-                        <p className="font-bold text-white text-xs sm:text-sm">Hydra-Restore Eye Serum</p>
-                        <p className="text-cyan-400 text-xs sm:text-sm font-mono font-bold">₹899 <span className="text-slate-500 line-through text-[10px] sm:text-xs">₹1,299</span></p>
+              {/* 3 Core Highlights */}
+              <div className="space-y-3.5 mb-7">
+                {[
+                  {
+                    icon: Bot,
+                    title: "24/7 AI Sales Assistant",
+                    desc: "কাস্টমারের যেকোনো প্রশ্নের উত্তর দিয়ে সরাসরি সেলস ক্লোজ করে।",
+                    accent: "text-indigo-400 bg-indigo-950/60 border-indigo-500/30"
+                  },
+                  {
+                    icon: Search,
+                    title: "Smart Semantic Search",
+                    desc: "কাস্টমারের প্রয়োজন ও ভাষার অর্থ বুঝে সঠিক প্রোডাক্ট খুঁজে দেয়।",
+                    accent: "text-cyan-400 bg-cyan-950/60 border-cyan-500/30"
+                  },
+                  {
+                    icon: TrendingUp,
+                    title: "Autonomous Product SEO",
+                    desc: "গুগল সার্চ র‍্যাংকিং বাড়ানোর জন্য অটো-অপ্টিমাইজড মেটা ও স্কিমা।",
+                    accent: "text-emerald-400 bg-emerald-950/60 border-emerald-500/30"
+                  }
+                ].map((f, idx) => {
+                  const Icon = f.icon;
+                  return (
+                    <div key={idx} className="p-3.5 sm:p-4 bg-[#05070D]/80 border border-slate-800/90 rounded-2xl flex items-start gap-3.5 hover:border-slate-700 transition-colors">
+                      <div className={`p-2.5 rounded-xl border ${f.accent} shrink-0 mt-0.5`}>
+                        <Icon size={18} />
                       </div>
-                      <span className="px-3 py-1.5 bg-gradient-to-r from-indigo-500 to-cyan-500 text-white font-bold text-[10px] sm:text-xs uppercase tracking-wider">
-                        Add To Cart
-                      </span>
+                      <div>
+                        <h4 className="text-sm sm:text-base font-bold text-white mb-0.5">{f.title}</h4>
+                        <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">{f.desc}</p>
+                      </div>
                     </div>
-                  </div>
-                </div>
+                  );
+                })}
               </div>
 
-              <div className="mt-5 pt-3.5 border-t border-slate-800 flex items-center justify-between text-xs sm:text-sm text-slate-400 font-ui">
-                <span className="flex items-center gap-1.5 text-indigo-400"><Cpu size={14} /> Sub-second Semantic Matching</span>
-                <span className="text-emerald-400 font-semibold">3.4x Higher Conversion</span>
+              {/* Interactive Demo Trigger Button */}
+              <button
+                onClick={handleOpenDemoChat}
+                className="w-full py-4 px-4 rounded-2xl bg-gradient-to-r from-indigo-500 via-indigo-600 to-cyan-500 hover:from-indigo-600 hover:to-cyan-600 text-white font-bold text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2 shadow-[0_0_25px_rgba(99,102,241,0.4)] hover:shadow-[0_0_35px_rgba(6,182,212,0.6)] transition-all duration-300 cursor-pointer hover:brightness-110 active:scale-[0.98] font-['Hind_Siliguri',sans-serif]"
+              >
+                <Zap size={16} className="text-amber-300 fill-amber-300 animate-pulse" />
+                <span>AI শপিং অ্যাসিস্ট্যান্ট লাইভ ডেমো ট্রাই করুন →</span>
+              </button>
+
+              {/* Bottom Micro Metrics */}
+              <div className="mt-5 pt-3.5 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400 font-ui">
+                <span className="flex items-center gap-1.5 text-indigo-400">
+                  <Cpu size={14} /> Sub-0.4s Fast Engine
+                </span>
+                <span className="text-emerald-400 font-semibold">
+                  3.4x Higher Conversion
+                </span>
               </div>
             </SpotlightCard>
           </div>

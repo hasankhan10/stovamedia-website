@@ -227,7 +227,7 @@ export default function ServicesClient({ initialServices }: ServicesClientProps)
                           </MagneticElement>
 
                           <a
-                            href={`https://wa.me/918918928045?text=${waText}`}
+                            href={`https://wa.me/919432053261?text=${waText}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="px-6 py-4 border border-emerald-500/40 bg-emerald-950/30 text-emerald-400 hover:bg-emerald-900/40 font-bold text-xs sm:text-sm uppercase tracking-wider transition-all flex items-center gap-2 min-h-[48px]"

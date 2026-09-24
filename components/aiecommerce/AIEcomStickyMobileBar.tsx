@@ -81,7 +81,7 @@ export default function AIEcomStickyMobileBar({ onBookClick }: AIEcomStickyMobil
           </button>
 
           <a
-            href="https://wa.me/918918928045?text=Hello%20Stova%20Media,%20I%20want%20to%20claim%20a%20Free%20AI%20E-commerce%20Consultation%20Slot"
+            href="https://wa.me/919432053261?text=Hello%20Stova%20Media,%20I%20want%20to%20claim%20a%20Free%20AI%20E-commerce%20Consultation%20Slot"
             target="_blank"
             rel="noopener noreferrer"
             className="col-span-4 py-3 px-2 bg-[#25D366] hover:bg-[#20bd5a] text-[#05070D] font-bold text-xs uppercase tracking-wider transition-transform active:scale-[0.98] flex items-center justify-center gap-1 shadow-md font-ui"

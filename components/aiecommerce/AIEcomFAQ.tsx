@@ -1,9 +1,11 @@
 "use client";
 
 import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { SectionLabel } from "@/components/ui";
 import { FAQItem } from "./types";
 import { ChevronDown } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const faqs: FAQItem[] = [
   {
@@ -47,24 +49,49 @@ export default function AIEcomFAQ() {
             return (
               <div 
                 key={i}
-                className="border border-slate-800 bg-[#0B0F19]/80 overflow-hidden transition-colors duration-200 hover:border-indigo-500/40"
+                className={cn(
+                  "border rounded-2xl transition-all duration-300 overflow-hidden",
+                  isOpen 
+                    ? "border-indigo-500/60 bg-[#0F1524] shadow-[0_0_25px_rgba(99,102,241,0.2)]" 
+                    : "border-slate-800 bg-[#0B0F19]/90 hover:border-slate-700 hover:bg-[#0D121F]"
+                )}
               >
                 <button
+                  type="button"
                   onClick={() => setOpenFaq(isOpen ? null : i)}
-                  className="w-full p-6 sm:p-7 text-left flex justify-between items-center gap-4 text-white font-bold text-base sm:text-xl md:text-2xl focus:outline-none cursor-pointer"
+                  className="w-full p-5 sm:p-7 text-left flex items-center justify-between gap-4 text-white font-bold text-base sm:text-xl md:text-2xl cursor-pointer"
                 >
-                  <span>{faq.q}</span>
-                  <ChevronDown 
-                    size={22} 
-                    className={`text-cyan-400 flex-shrink-0 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} 
-                  />
+                  <span className="flex items-center gap-3.5">
+                    <span className="px-2.5 py-0.5 rounded-lg bg-cyan-950/70 border border-cyan-500/40 text-cyan-300 font-mono text-xs font-bold shrink-0">
+                      0{i + 1}
+                    </span>
+                    <span className="hover:text-cyan-300 transition-colors">{faq.q}</span>
+                  </span>
+                  <div className={cn(
+                    "p-2 rounded-xl border transition-transform duration-300 shrink-0",
+                    isOpen 
+                      ? "rotate-180 border-cyan-500/50 bg-cyan-950/60 text-cyan-300" 
+                      : "border-slate-800 bg-[#05070D] text-slate-400"
+                  )}>
+                    <ChevronDown size={18} />
+                  </div>
                 </button>
 
-                {isOpen && (
-                  <div className="px-6 sm:px-7 pb-6 sm:pb-7 text-slate-300 text-sm sm:text-base md:text-lg leading-relaxed font-light border-t border-slate-800/60 pt-5">
-                    {faq.a}
-                  </div>
-                )}
+                <AnimatePresence>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.25 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-6 sm:px-7 pb-6 sm:pb-7 text-slate-200 text-sm sm:text-base md:text-lg leading-relaxed font-light border-t border-slate-800/80 pt-4">
+                        {faq.a}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             );
           })}
