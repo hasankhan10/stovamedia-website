@@ -26,10 +26,11 @@ export const metadata: Metadata = {
     default: "Stova Media | Custom Software Development Agency & AI Agent Studio",
     template: "%s | Stova Media",
   },
-  description: "Stova Media is a premier custom software development agency and AI agent studio in Kolkata, India. Building high-fidelity SaaS, autonomous AI agents, enterprise web applications, and e-commerce platforms.",
+  description: "Stova Media is a premier custom software development agency and AI agent studio in Kolkata, India. We build high-speed websites, mobile apps, custom SaaS platforms, and smart AI chatbots that help businesses get more clients and scale revenue.",
   keywords: [
     "Custom Software Development Company",
     "AI Agent Studio",
+    "AI Web Development Agency",
     "Kolkata Software Agency",
     "Autonomous AI Agents India",
     "Healthcare SaaS Development",
@@ -41,6 +42,7 @@ export const metadata: Metadata = {
     "RAG Systems Integration",
     "Best website development company in Dholahat",
     "Best website development in Dholahat",
+    "Local Business Growth Package",
     "Offshore software development India",
     "Mehedi Hasan software architect"
   ],
@@ -52,13 +54,13 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Stova Media | Custom Software Development Agency & AI Agent Studio",
-    description: "Architecting custom software and autonomous AI agents that drive growth. Specialized in Healthcare SaaS, RAG Automation & High-Performance Web Architecture.",
+    description: "We build custom websites, mobile apps, and smart AI tools that help your business get more clients and grow revenue. 100% in-house engineering with zero templates.",
     url: "https://stovamedia.in",
     siteName: "Stova Media",
     locale: "en_IN",
     type: "website",
     images: [{
-      url: "/og-image.jpg",
+      url: "/logo.jpeg",
       width: 1200,
       height: 630,
       alt: "Stova Media | Custom Software & AI Agent Studio Kolkata"
@@ -67,8 +69,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Stova Media | Custom Software Development & AI Agent Studio",
-    description: "Building premium software and autonomous AI agents for serious businesses.",
-    images: ["/og-image.jpg"],
+    description: "We build custom websites, mobile apps, and smart AI tools that help your business get more clients and grow revenue.",
+    images: ["/logo.jpeg"],
   },
   robots: {
     index: true,
@@ -107,7 +109,7 @@ export default function RootLayout({
         "@id": "https://stovamedia.in/#organization",
         "name": "Stova Media",
         "alternateName": ["Stova", "Stova Media AI Studio", "Stova Software Agency"],
-        "description": "Premium Custom Software Development Agency and AI Agent Studio based in Kolkata, West Bengal, India. Specialized in high-fidelity healthcare SaaS, autonomous AI agents, enterprise web applications, and e-commerce platforms.",
+        "description": "Premier Custom Software Development Agency and AI Agent Studio based in Kolkata, West Bengal, India. We architect and build high-speed websites, mobile applications, healthcare SaaS systems, and autonomous AI agents for businesses worldwide.",
         "image": "https://stovamedia.in/logo.jpeg",
         "url": "https://stovamedia.in",
         "logo": "https://stovamedia.in/logo.jpeg",
@@ -138,13 +140,11 @@ export default function RootLayout({
           "Custom Software Development",
           "AI Agent Studio",
           "Autonomous AI Agents",
-          "Agentic AI Workflow Automation",
-          "Healthcare SaaS Architecture",
-          "Retrieval-Augmented Generation (RAG)",
-          "Next.js Development",
-          "React Native & Flutter Apps",
-          "Python & FastAPI",
-          "Full-Stack Web Engineering"
+          "AI-Powered E-Commerce",
+          "Healthcare SaaS Development",
+          "Next.js Full-Stack Engineering",
+          "Local Business Google Maps Ranking",
+          "Web Architecture and Speed Optimization"
         ],
         "founder": {
           "@type": "Person",
@@ -163,41 +163,41 @@ export default function RootLayout({
           "https://www.linkedin.com/company/stova-media/",
           "https://www.instagram.com/stovamedia"
         ],
-        "priceRange": "$$$",
+        "priceRange": "$$",
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
-          "name": "Custom Software Engineering & AI Agent Services",
+          "name": "Custom Software Engineering & AI Solutions",
           "itemListElement": [
             {
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Custom Software Development",
-                "description": "Bespoke full-stack web applications, mobile platforms, and healthcare SaaS architected 100% from scratch."
+                "name": "Custom Software & Web App Development",
+                "description": "Bespoke full-stack web applications, mobile platforms, and healthcare SaaS built 100% from scratch with zero templates."
               }
             },
             {
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "AI Agent Studio & Automation",
-                "description": "Autonomous AI agents, RAG pipelines, conversational interfaces, and intelligent workflow automation."
+                "name": "Autonomous AI Agent Studio",
+                "description": "Smart AI chatbots, customer support bots, and automated lead capture systems that work 24/7."
               }
             },
             {
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Local Business Growth Engine",
-                "description": "Google Business Profile optimization paired with a high-converting custom-coded landing page for local market dominance."
+                "name": "Local Business Growth Package",
+                "description": "Rank #1 on Google Business Profile / Google Maps combined with a fast, modern landing page for only ₹15,999."
               }
             },
             {
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Premium E-commerce Setup",
-                "description": "Custom-coded digital storefronts with secure payment gateway integrations, high page speeds, and brand-aligned design systems."
+                "name": "Full E-commerce Setup",
+                "description": "Custom-coded online store with secure payment gateways, fast mobile checkout, and high conversion design for upto ₹39,999."
               }
             }
           ]
@@ -218,42 +218,42 @@ export default function RootLayout({
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "What services does Stova Media provide?",
+            "name": "What services does Stova Media offer?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Stova Media specializes in Custom Software Development, AI Agent Studio & Automation services, Local Business Growth engines (GMB + High-Converting Web Platforms), and Premium Custom E-commerce Setups."
+              "text": "Stova Media provides Custom Software Development, Smart AI Agent Automation, Local Business Growth Packages (Google Maps ranking + modern website), and Custom E-commerce Store setups."
             }
           },
           {
             "@type": "Question",
-            "name": "Where is Stova Media located and which regions do you serve?",
+            "name": "How does Stova Media help businesses get more customers?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Stova Media is headquartered in Kolkata, West Bengal, India. We deliver custom software engineering and AI agent development to businesses across India, the United States, the UK, UAE, Bangladesh, and globally."
+              "text": "We build fast, beautiful websites that rank high on Google and integrate 24/7 smart AI chatbots that answer customer questions instantly and capture sales leads automatically."
             }
           },
           {
             "@type": "Question",
-            "name": "How does Stova Media build custom AI agents?",
+            "name": "Where is Stova Media located and who do you work with?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "We design and deploy autonomous AI agents using RAG architectures, LLM fine-tuning, vector databases, and custom workflow logic to automate business tasks, customer support, and lead qualification 24/7."
+              "text": "We are based in Kolkata, India, and work with local businesses across West Bengal as well as international companies across the USA, UK, UAE, Bangladesh, and worldwide."
             }
           },
           {
             "@type": "Question",
-            "name": "Does Stova Media use website templates or outsourcing?",
+            "name": "Do you use pre-made WordPress templates or write custom code?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "No. Stova Media operates with 100% in-house engineering in Kolkata. Every project is built from scratch with custom software architecture, zero pre-made themes, zero templates, and zero outsourcing."
+              "text": "We build 100% custom-coded software and websites using modern technologies like Next.js and TypeScript. No slow WordPress themes, no generic templates, and zero outsourcing."
             }
           },
           {
             "@type": "Question",
-            "name": "How much does custom software or AI agent development cost?",
+            "name": "How much does a project with Stova Media cost?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Stova Media provides transparent, outcome-driven fixed quotes based on project scope. Local business packages start at ₹15,999, premium e-commerce setups up to ₹39,999, and custom SaaS / AI agent systems are quoted following a discovery consultation."
+              "text": "We offer transparent fixed pricing: Local Business Growth package at ₹15,999, Custom E-commerce Store setup up to ₹39,999, and tailored fixed quotes for custom software and AI systems."
             }
           }
         ]
@@ -262,7 +262,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${displayFont.variable} ${uiFont.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`dark ${displayFont.variable} ${uiFont.variable}`} suppressHydrationWarning>
       <head>
         <link rel="icon" href="/logo.jpeg" type="image/jpeg" />
         <link rel="shortcut icon" href="/logo.jpeg" type="image/jpeg" />
@@ -273,8 +273,8 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="antialiased text-cream selection:bg-gold selection:text-ink">
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+      <body className="antialiased text-cream selection:bg-gold selection:text-ink bg-[#05070D]">
+        <ThemeProvider attribute="class" forcedTheme="dark">
           <Preloader />
           <GlobalBackground />
           <ScrollProgress />

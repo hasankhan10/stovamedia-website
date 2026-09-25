@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/"],
+        disallow: ["/api/", "/admin/", "/admin"],
       },
       {
         userAgent: [
@@ -24,7 +24,7 @@ export default function robots(): MetadataRoute.Robots {
           "CCBot"
         ],
         allow: "/",
-        disallow: ["/api/"],
+        disallow: ["/api/", "/admin/", "/admin"],
       }
     ],
     sitemap: "https://stovamedia.in/sitemap.xml",

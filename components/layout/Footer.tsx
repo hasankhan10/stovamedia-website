@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Linkedin, Mail, Instagram, ArrowUpRight, ShieldCheck, Zap } from "lucide-react";
+import { Linkedin, Mail, Instagram, ArrowUpRight } from "lucide-react";
 
 const navLinks = [
   { name: "Home", href: "/" },

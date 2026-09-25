@@ -1,45 +1,76 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import { RefreshCw, LogOut } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface AdminHeaderProps {
   isFromDb: boolean;
+  newLeadsCount?: number;
   onRefresh: () => void;
   onLogout: () => void;
 }
 
-export default function AdminHeader({ isFromDb, onRefresh, onLogout }: AdminHeaderProps) {
+export default function AdminHeader({
+  newLeadsCount = 0,
+  onRefresh,
+  onLogout,
+}: AdminHeaderProps) {
+  const [refreshing, setRefreshing] = useState(false);
+
+  const handleRefreshClick = () => {
+    setRefreshing(true);
+    onRefresh();
+    setTimeout(() => setRefreshing(false), 800);
+  };
+
   return (
-    <header className="border-b border-border bg-card/60 sticky top-0 z-40 backdrop-blur-md px-6 md:px-10 py-4 flex items-center justify-between">
-      <div className="flex items-center gap-4">
-        <span className="font-display text-2xl text-cream font-bold">Stova Studio</span>
-        <span className="text-[10px] uppercase tracking-widest bg-gold-glow border border-gold/30 text-gold px-2.5 py-1 rounded-sm">
-          Admin Panel
-        </span>
+    <header className="border-b border-slate-800/80 bg-[#05070D]/90 sticky top-0 z-40 backdrop-blur-xl px-4 sm:px-8 py-3.5 flex items-center justify-between shadow-2xl">
+      {/* BRAND & LOGO */}
+      <div className="flex items-center gap-3 sm:gap-4">
+        <Link href="/admin" className="flex items-center gap-3 group">
+          <div className="relative w-10 h-10 rounded-xl overflow-hidden border border-slate-700/80 shadow-[0_0_20px_rgba(99,102,241,0.25)] group-hover:border-cyan-500/50 transition-all">
+            <Image
+              src="/logo.jpeg"
+              alt="Stova Media Logo"
+              width={40}
+              height={40}
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+              priority
+            />
+          </div>
+          <div>
+            <span className="font-display text-lg text-slate-100 font-bold tracking-tight block leading-tight">
+              Stova Media
+            </span>
+            <span className="text-[10px] uppercase font-mono tracking-widest text-slate-400 font-medium">
+              Client Leads Control Center
+            </span>
+          </div>
+        </Link>
       </div>
 
-      <div className="flex items-center gap-6">
-        <div className="hidden sm:flex items-center gap-2 text-xs text-muted">
-          <span className={cn("w-2 h-2 rounded-full", isFromDb ? "bg-green-500 animate-pulse" : "bg-amber-500")} />
-          <span>{isFromDb ? "Supabase Connected" : "Local Memory Fallback"}</span>
-        </div>
-
+      {/* CONTROLS & ACTIONS */}
+      <div className="flex items-center gap-2 sm:gap-4">
+        {/* REFRESH BUTTON */}
         <button
-          onClick={onRefresh}
-          className="p-2 border border-border rounded-sm hover:border-gold text-muted hover:text-cream transition-colors"
-          title="Refresh Data"
+          onClick={handleRefreshClick}
+          className="flex items-center gap-1.5 p-2 sm:px-3 sm:py-1.5 border border-slate-800 rounded-xl hover:border-cyan-500/40 text-slate-400 hover:text-cyan-300 bg-[#0B0F19]/80 transition-colors cursor-pointer text-xs"
+          title="Refresh Leads Data"
         >
-          <RefreshCw size={16} />
+          <RefreshCw size={15} className={cn(refreshing && "animate-spin text-cyan-400")} />
+          <span className="hidden sm:inline font-mono">Sync</span>
         </button>
 
+        {/* LOGOUT BUTTON */}
         <button
           onClick={onLogout}
-          className="flex items-center gap-2 text-xs text-muted hover:text-red-400 border border-border px-3 py-1.5 rounded-sm hover:border-red-400/50 transition-colors"
+          className="flex items-center gap-1.5 text-xs text-slate-300 hover:text-rose-400 border border-slate-800 px-3 py-1.5 rounded-xl hover:border-rose-500/40 hover:bg-rose-950/20 bg-[#0B0F19]/80 transition-colors cursor-pointer"
         >
           <LogOut size={14} />
-          <span>Logout</span>
+          <span className="hidden sm:inline">Logout</span>
         </button>
       </div>
     </header>

@@ -13,8 +13,8 @@ const targetAudiences: TargetAudience[] = [
   { title: "D2C Brands", desc: "নিজের Brand-এর জন্য হাই-কনভার্টিং ও স্কেলেবল অনলাইন ফ্ল্যাগশিপ স্টোর।", icon: ShoppingBag, tag: "High Conversion", accent: "text-indigo-400" },
   { title: "Manufacturers", desc: "বিশাল Product Catalogue সহজে স্ট্রাকচার্ড ও স্মার্টলি Showcase করার জন্য।", icon: Building2, tag: "Bulk & B2B Ready", accent: "text-cyan-400" },
   { title: "Retail Business", desc: "অফলাইন রিটেল স্টোরকে আল্ট্রা-মডার্ন ডিজিটাল এক্সপেরিয়েন্সে রূপান্তর করার জন্য।", icon: Store, tag: "Omnichannel", accent: "text-emerald-400" },
-  { title: "Premium Brands", desc: "ব্র্যান্ডের আভিজাত্যের সাথে সামঞ্জস্যপূর্ণ $10k কোয়ালিটির ডিজিটাল লাক্সারি লুক।", icon: Crown, tag: "Luxury UI/UX", accent: "text-purple-400" },
-  { title: "Growing E-commerce", desc: "অর্ডার ও ট্রাফিক ভলিউম বাড়ার সাথে সাথে সিস্টেমকে সম্পূর্ণ অটোমেটেড ও বাগমুক্ত রাখা।", icon: LineChart, tag: "Scale & Speed", accent: "text-sky-400" }
+  { title: "Premium Brands", desc: "ব্র্যান্ডের আভিজাত্যের সাথে সামঞ্জস্যপূর্ণ ₹100,000 টাকার কোয়ালিটির ডিজিটাল লাক্সারি লুক।", icon: Crown, tag: "Luxury UI/UX", accent: "text-purple-400" },
+  { title: "Growing E-commerce", desc: "অর্ডার ও ট্রাফিক ভলিউম বাড়ার সাথে সাথে সিস্টেমকে সম্পূর্ণ অটোমেটেড রাখা।", icon: LineChart, tag: "Scale & Speed", accent: "text-sky-400" }
 ];
 
 export default function AIEcomAudience() {

@@ -2,8 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { ArrowLeft, ArrowUpRight, Compass, ShieldAlert } from "lucide-react";
-import { MagneticElement } from "@/components/ui";
+import { ArrowLeft, ArrowUpRight, ShieldAlert } from "lucide-react";
 
 export default function NotFound() {
   return (

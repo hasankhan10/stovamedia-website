@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { SplitHeadline, SectionLabel, Tag, RevealOnScroll, SpotlightCard, MagneticElement, Button } from "@/components/ui";
+import { SectionLabel, RevealOnScroll, SpotlightCard, MagneticElement } from "@/components/ui";
 import CTASection from "@/components/sections/CTASection";
 import { 
   Code2, 
@@ -20,7 +20,6 @@ import {
   ArrowUpRight,
   MessageSquare,
   Cpu,
-  Terminal,
   Clock
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -83,14 +82,14 @@ export default function ServicesClient({ initialServices }: ServicesClientProps)
           </div>
 
           <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-bold leading-[1.02] tracking-tight text-[#F8FAFC]">
-            Your Vision.{" "}
+            Custom Software &amp;{" "}
             <span className="bg-gradient-to-r from-indigo-400 via-cyan-300 to-indigo-300 bg-clip-text text-transparent">
-              Engineered To Perfection.
+              Smart AI Solutions.
             </span>
           </h1>
 
           <p className="mt-8 text-slate-300 font-ui text-base sm:text-xl max-w-2xl leading-relaxed font-light">
-            We architect and ship high-fidelity software products custom-tailored to your exact business requirements, adhering to zero tech debt standards and extreme performance.
+            We design and build fast custom websites, mobile apps, and 24/7 AI tools tailored to your exact business needs. 100% custom-coded with zero templates.
           </p>
 
           {/* Quick Jump Filter Pills */}

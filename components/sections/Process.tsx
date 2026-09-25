@@ -4,7 +4,7 @@ import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SectionLabel, SplitHeadline, SpotlightCard } from "@/components/ui";
-import { CheckCircle2, ShieldCheck, Zap, Terminal, Rocket, Sparkles } from "lucide-react";
+import { CheckCircle2, ShieldCheck, Zap, Terminal, Rocket } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -114,14 +114,14 @@ export default function Process() {
         {/* Left Column: Sticky Briefing */}
         <div className="lg:sticky lg:top-36 h-fit space-y-7">
           <div>
-            <SectionLabel>Engineering Protocol</SectionLabel>
+            <SectionLabel>How We Work</SectionLabel>
             <SplitHeadline tag="h2" className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display leading-[1.08] tracking-tight text-[#F8FAFC]">
-              Predictable. Transparent. Battle-Tested.
+              Simple, Fast &amp; Transparent Process.
             </SplitHeadline>
           </div>
 
           <p className="text-slate-300 font-ui text-base sm:text-lg leading-relaxed max-w-md font-light">
-            We operate on a zero-friction engineering protocol designed to eliminate scope creep, keep you informed weekly, and deliver production-grade software on schedule.
+            We follow a clear step-by-step roadmap so you always know what is being built, see weekly live demos, and launch on time with zero surprises.
           </p>
 
           <div className="p-6 border border-slate-800 bg-[#0B0F19]/80 backdrop-blur-md space-y-3.5">
@@ -132,7 +132,7 @@ export default function Process() {
               </span>
             </div>
             <p className="text-xs sm:text-sm text-slate-400 font-ui leading-relaxed">
-              Every project comes with 100% IP ownership, complete source code handover, and a dedicated communication channel with direct founder engineering access.
+              You receive 100% full ownership of all source code, weekly progress walkthroughs, and direct communication with our lead engineer.
             </p>
           </div>
         </div>

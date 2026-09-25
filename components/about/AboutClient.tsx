@@ -3,12 +3,11 @@
 import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { SectionLabel, RevealOnScroll, SpotlightCard, MagneticElement } from "@/components/ui";
+import { SectionLabel, RevealOnScroll, SpotlightCard } from "@/components/ui";
 import { 
   Linkedin, 
   ShieldCheck, 
   Code2, 
-  Cpu, 
   Award, 
   Zap, 
   CheckCircle2, 
@@ -16,13 +15,9 @@ import {
   ArrowUpRight, 
   Terminal, 
   Sparkles,
-  Layers,
-  HeartHandshake,
   Compass,
   Server,
   Database,
-  Globe2,
-  Lock,
   MessageSquare
 } from "lucide-react";
 import Image from "next/image";

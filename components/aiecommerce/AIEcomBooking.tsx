@@ -99,8 +99,8 @@ export default function AIEcomBooking({ bookingRef }: AIEcomBookingProps) {
           <div className="pt-2 sm:pt-4 space-y-3 font-ui text-sm sm:text-base text-slate-300">
             {[
               "ফ্রি ৩০ মিনিটের টেকনিক্যাল কনসাল্টেশন ও প্রজেক্ট এস্টিমেট",
-              "কোনো অ্যাগ্রিমেন্ট সাইন বা ডিপোজিটের বাধ্যবাধকতা নেই",
-              "সরাসরি লিড ইঞ্জিনিয়ারের সাথে কনসাল্টেশন"
+              "আপনার Brand-এর জন্য ১০০% ফ্রি ও Actionable AI Growth Roadmap",
+              "সরাসরি আমাদের সাথে কনসাল্টেশন"
             ].map((text, idx) => (
               <div key={idx} className="flex items-center gap-2.5 text-slate-200">
                 <CheckCircle2 size={18} className="text-cyan-400 flex-shrink-0" />

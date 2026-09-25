@@ -64,22 +64,22 @@ export default function Services({ initialServices }: ServicesProps) {
       {/* SECTION HEADER */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-end mb-16 sm:mb-20 max-w-[1400px] mx-auto">
         <div>
-          <SectionLabel>Core Capabilities</SectionLabel>
+          <SectionLabel>Our Core Services</SectionLabel>
           <SplitHeadline tag="h2" className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display leading-[1.08] tracking-tight text-[#F8FAFC]">
-            High-Impact Engineering. Built To Dominate.
+            High-Performance Web &amp; AI Solutions.
           </SplitHeadline>
         </div>
         
         <div className="flex flex-col lg:items-start space-y-4">
           <p className="font-ui text-base sm:text-lg text-slate-300 max-w-[540px] leading-relaxed font-light">
-            We bypass generic templates to architect custom, production-hardened software systems and autonomous AI solutions engineered for extreme performance and scale.
+            We don&apos;t use slow WordPress templates. We build 100% custom-coded websites, smart AI agents, and online stores designed to load fast and turn visitors into paying customers.
           </p>
           <div className="flex flex-wrap items-center gap-4 sm:gap-6 pt-2">
             <span className="font-ui text-xs tracking-wider uppercase text-cyan-400 font-semibold flex items-center gap-1.5">
-              <Sparkles size={14} /> 100% Bespoke Code
+              <Sparkles size={14} /> 100% Custom Coded
             </span>
             <span className="font-ui text-xs tracking-wider uppercase text-indigo-400 font-semibold flex items-center gap-1.5">
-              <ShieldCheck size={14} /> Zero Tech Debt SLA
+              <ShieldCheck size={14} /> Zero Templates Guaranteed
             </span>
           </div>
         </div>

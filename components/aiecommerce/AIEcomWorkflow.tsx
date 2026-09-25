@@ -46,7 +46,7 @@ export default function AIEcomWorkflow() {
             পুরোনো পদ্ধতি বনাম AI-পাওয়ার্ড পদ্ধতি
           </h2>
           <p className="text-slate-300 text-base sm:text-lg md:text-xl font-light">
-            কীভাবে আধুনিক AI আর্কিটেকচার ড্রপ-অফ রেট কমিয়ে বিক্রির গতি বাড়ায়:
+            কীভাবে Modern AI Architecture ড্রপ-অফ রেট কমিয়ে বিক্রির গতি বাড়ায়:
           </p>
         </div>
 
@@ -57,7 +57,7 @@ export default function AIEcomWorkflow() {
               <span className="px-3.5 py-1.5 bg-rose-950/80 text-rose-400 border border-rose-800/40 text-xs sm:text-sm font-bold uppercase font-ui rounded-full">
                 Traditional E-commerce
               </span>
-              <span className="text-slate-400 text-xs sm:text-sm font-ui">জটিল ও দীর্ঘ ড্রপ-অফ ফানেল</span>
+              <span className="text-slate-400 text-xs sm:text-sm font-ui">জটিল ও সময়সাপেক্ষ পদ্ধতি — যেখানে Customer বিরক্ত হয়ে চলে যায়</span>
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 lg:flex lg:flex-wrap items-center gap-2.5 md:gap-3.5 text-xs sm:text-sm md:text-base text-slate-300">
@@ -75,7 +75,7 @@ export default function AIEcomWorkflow() {
                 <Sparkles size={14} />
                 AI-Powered E-commerce
               </span>
-              <span className="text-emerald-400 text-xs sm:text-sm font-ui font-bold">৩.৪ গুণ দ্রুত কনভার্শন</span>
+              <span className="text-emerald-400 text-sm sm:text-base md:text-lg font-ui font-extrabold tracking-wide">৩.৪ গুণ দ্রুত কনভার্শন</span>
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 lg:flex lg:flex-wrap items-center gap-2.5 md:gap-3.5 text-xs sm:text-sm md:text-base text-white font-medium">

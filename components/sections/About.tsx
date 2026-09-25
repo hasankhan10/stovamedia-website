@@ -5,7 +5,7 @@ import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SectionLabel, SplitHeadline, SpotlightCard } from "@/components/ui";
-import { ShieldCheck, Code2, Cpu, CheckCircle2, Award, Sparkles } from "lucide-react";
+import { ShieldCheck, Code2, Cpu, Award } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -75,14 +75,14 @@ export default function About() {
         {/* Header */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-end mb-16">
           <div>
-            <SectionLabel>Founder-Led Studio</SectionLabel>
+            <SectionLabel>About Stova Media</SectionLabel>
             <SplitHeadline tag="h2" className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display leading-[1.08] tracking-tight text-[#F8FAFC]">
-              Product-Minded Engineers Only.
+              Senior Engineering. Real Business Results.
             </SplitHeadline>
           </div>
           
           <p className="font-ui text-base sm:text-lg text-slate-300 font-light leading-relaxed max-w-xl">
-            Stova Media was founded with a singular conviction: Indian businesses and international innovators deserve software engineered to the highest global standards, without agency bureaucracy or junior handoffs.
+            Stova Media was founded with a clear mission: provide businesses with world-class custom websites, software, and smart AI agents without agency bureaucracy, junior developers, or slow templates.
           </p>
         </div>
 

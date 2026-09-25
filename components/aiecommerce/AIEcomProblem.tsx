@@ -64,7 +64,7 @@ export default function AIEcomProblem() {
                 </div>
 
                 <p className="text-slate-300 leading-relaxed text-sm sm:text-base md:text-lg font-light">
-                  Normal Website কাস্টমারকে নিজে স্ক্রল করে ২০টি পেজে প্রোডাক্ট খুঁজতে বাধ্য করে। হতাশ হয়ে Customer ট্যাব বন্ধ করে প্রতিদ্বন্দীর কাছে চলে যায়।
+                  Normal Website কাস্টমারকে নিজে স্ক্রল করে 10 টি পেজে প্রোডাক্ট খুঁজতে বাধ্য করে। হতাশ হয়ে Customer ট্যাব বন্ধ করে Competitor এর কাছে চলে যায়।
                 </p>
               </div>
 
@@ -90,7 +90,7 @@ export default function AIEcomProblem() {
                 </div>
 
                 <p className="text-slate-200 leading-relaxed text-sm sm:text-base md:text-lg font-light">
-                  AI-Powered Website কাস্টমারের প্রয়োজন ও বাজেট স্বয়ংক্রিয়ভাবে অনুধাবন করে মুহূর্তের মধ্যে সঠিক প্রোডাক্টটি সামনে হাজির করে এবং অর্ডার কমপ্লিট করায়।
+                  AI-Powered Website কাস্টমারের প্রয়োজন ও বাজেট বুঝে মুহূর্তের মধ্যে সঠিক প্রোডাক্টটি সামনে এনে দেয় এবং অর্ডার কমপ্লিট করায়।
                 </p>
               </div>
 

@@ -91,20 +91,10 @@ export default function ContactClient() {
     }
   });
 
-  const handleCategorySelect = (cat: string) => {
-    setSelectedCategory(cat);
-    setValue("projectType", cat);
-  };
-
-  const handleBudgetSelect = (bud: string) => {
-    setSelectedBudget(bud);
-    setValue("budget", bud);
-  };
-
   const copyEmail = () => {
     navigator.clipboard.writeText("stovamedia@gmail.com");
     setCopiedEmail(true);
-    setTimeout(() => setCopiedEmail(false), 2000);
+    setTimeout(() => setCopiedEmail(false), 2500);
   };
 
   const onSubmit = async (data: ContactFormData) => {
@@ -126,23 +116,18 @@ export default function ContactClient() {
       } else {
         alert("Unable to send inquiry. Please reach us directly on WhatsApp at +91 9432053261.");
       }
-    } catch (err) {
-      console.error(err);
+    } catch {
       alert("Unable to send inquiry. Please reach us directly on WhatsApp at +91 9432053261.");
     }
   };
 
   return (
     <main className="pt-28 md:pt-36 min-h-screen bg-[#05070D] text-[#F8FAFC]">
-      
-      {/* 1️⃣ HERO SECTION */}
+      {/* 1. HERO SECTION */}
       <section className="px-5 sm:px-8 md:px-12 lg:px-20 mb-16 md:mb-24 flex flex-col items-center text-center relative overflow-hidden">
-        {/* Cyber-Obsidian Ambient Top Glow */}
         <div 
           className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[700px] md:w-[1000px] h-[450px] rounded-full blur-[140px] opacity-25 z-0"
-          style={{
-            background: "radial-gradient(circle, rgba(99, 102, 241, 0.45) 0%, rgba(6, 182, 212, 0.25) 50%, transparent 75%)"
-          }}
+          style={{ background: "radial-gradient(circle, rgba(99, 102, 241, 0.45) 0%, rgba(6, 182, 212, 0.25) 50%, transparent 75%)" }}
         />
 
         <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
@@ -157,23 +142,23 @@ export default function ContactClient() {
           </div>
 
           <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-bold leading-[1.04] tracking-tight text-[#F8FAFC]">
-            Start A Conversation.{" "}
+            Let&apos;s Build Your{" "}
             <span className="bg-gradient-to-r from-indigo-400 via-cyan-300 to-indigo-300 bg-clip-text text-transparent">
-              Architect Your Edge.
+              Next Project.
             </span>
           </h1>
 
           <p className="mt-6 text-slate-300 font-ui text-base sm:text-xl max-w-2xl leading-relaxed font-light">
-            Tell us about your technical goals, bottlenecks, or product roadmap. You will receive an architectural response and estimated execution plan directly from our founder.
+            Tell us about your website, app idea, or business goals. You will receive a clear roadmap, estimated timeline, and fixed quote directly from our lead engineer.
           </p>
         </div>
       </section>
 
-      {/* 2️⃣ MAIN WORKSPACE GRID: FORM & DIRECT DOSSIER */}
+      {/* 2. MAIN WORKSPACE GRID: FORM & DIRECT DOSSIER */}
       <section className="px-5 sm:px-8 md:px-12 lg:px-20 max-w-[1400px] mx-auto mb-24 md:mb-36">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
           
-          {/* Left Column (7 cols): Interactive Intake Form or Success Screen */}
+          {/* Left Column: Form */}
           <div className="lg:col-span-7">
             <SpotlightCard
               spotlightColor="rgba(99, 102, 241, 0.18)"
@@ -188,9 +173,7 @@ export default function ContactClient() {
                         Project Intake &amp; Architecture Brief
                       </span>
                     </div>
-                    <span className="text-[11px] font-mono text-slate-400">
-                      STEP 1 OF 1
-                    </span>
+                    <span className="text-[11px] font-mono text-slate-400">STEP 1 OF 1</span>
                   </div>
 
                   {/* Name & Email Row */}
@@ -208,9 +191,7 @@ export default function ContactClient() {
                           errors.name ? "border-rose-500/60" : "border-slate-800 focus:border-cyan-500/60"
                         )}
                       />
-                      {errors.name && (
-                        <p className="text-[11px] text-rose-400 mt-1 font-mono">{errors.name.message}</p>
-                      )}
+                      {errors.name && <p className="text-[11px] text-rose-400 mt-1 font-mono">{errors.name.message}</p>}
                     </div>
 
                     <div>
@@ -229,13 +210,11 @@ export default function ContactClient() {
                           errors.email ? "border-rose-500/60" : "border-slate-800 focus:border-cyan-500/60"
                         )}
                       />
-                      {errors.email && (
-                        <p className="text-[11px] text-rose-400 mt-1 font-mono">{errors.email.message}</p>
-                      )}
+                      {errors.email && <p className="text-[11px] text-rose-400 mt-1 font-mono">{errors.email.message}</p>}
                     </div>
                   </div>
 
-                  {/* Phone / WhatsApp & Company Row */}
+                  {/* Phone & Company Row */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-xs uppercase font-mono tracking-wider font-bold text-slate-300 mb-2">
@@ -274,9 +253,12 @@ export default function ContactClient() {
                           <button
                             key={idx}
                             type="button"
-                            onClick={() => handleCategorySelect(cat)}
+                            onClick={() => {
+                              setSelectedCategory(cat);
+                              setValue("projectType", cat);
+                            }}
                             className={cn(
-                              "p-2.5 text-left text-xs font-ui rounded-xs border transition-all duration-200 flex items-center justify-between",
+                              "p-2.5 text-left text-xs font-ui rounded-xs border transition-all duration-200 flex items-center justify-between cursor-pointer",
                               isSelected 
                                 ? "bg-indigo-950/70 border-indigo-500 text-cyan-300 shadow-[0_0_15px_rgba(99,102,241,0.25)] font-medium" 
                                 : "bg-[#05070D] border-slate-800/90 text-slate-400 hover:text-slate-200 hover:border-slate-700"
@@ -288,7 +270,6 @@ export default function ContactClient() {
                         );
                       })}
                     </div>
-                    <input type="hidden" {...register("projectType", { required: true })} value={selectedCategory} />
                   </div>
 
                   {/* Budget Selector */}
@@ -303,9 +284,12 @@ export default function ContactClient() {
                           <button
                             key={idx}
                             type="button"
-                            onClick={() => handleBudgetSelect(bud)}
+                            onClick={() => {
+                              setSelectedBudget(bud);
+                              setValue("budget", bud);
+                            }}
                             className={cn(
-                              "p-2.5 text-center text-xs font-mono rounded-xs border transition-all duration-200",
+                              "p-2.5 text-center text-xs font-mono rounded-xs border transition-all duration-200 cursor-pointer",
                               isSelected 
                                 ? "bg-cyan-950/60 border-cyan-400 text-cyan-300 font-bold shadow-[0_0_15px_rgba(6,182,212,0.25)]" 
                                 : "bg-[#05070D] border-slate-800/90 text-slate-400 hover:text-slate-200 hover:border-slate-700"
@@ -316,7 +300,6 @@ export default function ContactClient() {
                         );
                       })}
                     </div>
-                    <input type="hidden" {...register("budget", { required: true })} value={selectedBudget} />
                   </div>
 
                   {/* Project Details */}
@@ -333,9 +316,7 @@ export default function ContactClient() {
                         errors.details ? "border-rose-500/60" : "border-slate-800 focus:border-cyan-500/60"
                       )}
                     />
-                    {errors.details && (
-                      <p className="text-[11px] text-rose-400 mt-1 font-mono">{errors.details.message}</p>
-                    )}
+                    {errors.details && <p className="text-[11px] text-rose-400 mt-1 font-mono">{errors.details.message}</p>}
                   </div>
 
                   {/* Submit Action */}
@@ -344,7 +325,7 @@ export default function ContactClient() {
                       type="submit"
                       disabled={isSubmitting}
                       className={cn(
-                        "w-full py-4 px-8 rounded-xs font-ui font-semibold text-sm tracking-wide text-white transition-all duration-300 flex items-center justify-center gap-3 relative overflow-hidden group shadow-lg",
+                        "w-full py-4 px-8 rounded-xs font-ui font-semibold text-sm tracking-wide text-white transition-all duration-300 flex items-center justify-center gap-3 relative overflow-hidden group shadow-lg cursor-pointer",
                         isSubmitting 
                           ? "bg-indigo-800/50 cursor-wait" 
                           : "bg-gradient-to-r from-indigo-500 via-indigo-600 to-cyan-500 hover:shadow-[0_0_30px_rgba(6,182,212,0.4)] hover:brightness-110 active:scale-[0.99]"
@@ -403,7 +384,7 @@ export default function ContactClient() {
 
                     <button
                       onClick={() => setSubmitted(false)}
-                      className="w-full sm:w-auto px-6 py-3 rounded-xs border border-slate-800 bg-[#05070D] hover:border-slate-700 text-slate-300 font-ui text-xs transition-colors"
+                      className="w-full sm:w-auto px-6 py-3 rounded-xs border border-slate-800 bg-[#05070D] hover:border-slate-700 text-slate-300 font-ui text-xs transition-colors cursor-pointer"
                     >
                       Submit Another Requirement
                     </button>
@@ -413,10 +394,8 @@ export default function ContactClient() {
             </SpotlightCard>
           </div>
 
-          {/* Right Column (5 cols): Direct Channels & Studio Dossier */}
+          {/* Right Column: Direct Channels */}
           <div className="lg:col-span-5 space-y-6">
-            
-            {/* Live Availability Status Card */}
             <SpotlightCard
               spotlightColor="rgba(16, 185, 129, 0.22)"
               className="p-6 sm:p-7 border-slate-800 bg-[#0B0F19]/90 backdrop-blur-md rounded-xs shadow-xl"
@@ -442,7 +421,6 @@ export default function ContactClient() {
               </p>
             </SpotlightCard>
 
-            {/* Direct Connectors Bento */}
             <SpotlightCard
               spotlightColor="rgba(99, 102, 241, 0.18)"
               className="p-6 sm:p-8 border-slate-800 bg-[#0B0F19]/90 backdrop-blur-md rounded-xs space-y-6 shadow-xl"
@@ -457,8 +435,6 @@ export default function ContactClient() {
               </div>
 
               <div className="space-y-4 font-ui text-sm">
-                
-                {/* WhatsApp Direct */}
                 <a 
                   href="https://wa.me/919432053261?text=Hi%20Mehedi%2C%20I%20would%20like%20to%20discuss%20a%20project%20with%20Stova%20Media."
                   target="_blank"
@@ -481,7 +457,6 @@ export default function ContactClient() {
                   <ArrowUpRight size={16} className="text-slate-500 group-hover:text-emerald-400 transition-colors" />
                 </a>
 
-                {/* Email Direct with One-Click Copy */}
                 <div className="p-4 border border-slate-800/90 bg-[#05070D] rounded-xs flex items-center justify-between hover:border-indigo-500/50 transition-all group">
                   <div className="flex items-center gap-3.5">
                     <div className="w-9 h-9 rounded-xs bg-indigo-950/60 border border-indigo-500/40 flex items-center justify-center text-indigo-300">
@@ -502,13 +477,12 @@ export default function ContactClient() {
                   <button 
                     onClick={copyEmail}
                     title="Copy Email Address"
-                    className="p-2 text-slate-400 hover:text-cyan-300 transition-colors"
+                    className="p-2 text-slate-400 hover:text-cyan-300 transition-colors cursor-pointer"
                   >
                     {copiedEmail ? <Check size={16} className="text-cyan-400" /> : <Copy size={16} />}
                   </button>
                 </div>
 
-                {/* Studio Location */}
                 <div className="p-4 border border-slate-800/90 bg-[#05070D] rounded-xs flex items-start gap-3.5">
                   <div className="w-9 h-9 rounded-xs bg-cyan-950/60 border border-cyan-500/40 flex items-center justify-center text-cyan-300 shrink-0">
                     <MapPin size={18} />
@@ -520,113 +494,76 @@ export default function ContactClient() {
                     <span className="font-display font-bold text-slate-100 block">
                       Kolkata, West Bengal, India
                     </span>
-                    <span className="text-xs text-slate-400 font-light mt-0.5 block">
-                      Serving enterprises across India, USA, UAE &amp; UK.
+                    <span className="text-xs text-slate-400 font-light block mt-0.5">
+                      Serving Global Clients (USA, UK, UAE, Bangladesh, India)
                     </span>
                   </div>
                 </div>
-
-                {/* SLA Assurance */}
-                <div className="p-4 border border-slate-800/90 bg-[#05070D] rounded-xs flex items-start gap-3.5">
-                  <div className="w-9 h-9 rounded-xs bg-purple-950/60 border border-purple-500/40 flex items-center justify-center text-purple-300 shrink-0">
-                    <Clock size={18} />
-                  </div>
-                  <div>
-                    <span className="text-[11px] font-mono text-slate-400 uppercase tracking-wider block">
-                      Response SLA Commitment
-                    </span>
-                    <span className="font-display font-bold text-slate-100 block">
-                      Under 4 Hours on Business Days
-                    </span>
-                    <span className="text-xs text-slate-400 font-light mt-0.5 block">
-                      Technical feasibility breakdown included.
-                    </span>
-                  </div>
-                </div>
-
               </div>
             </SpotlightCard>
-
-            {/* NDA & IP Protection Pillar */}
-            <div className="p-5 border border-slate-800/80 bg-[#0B0F19]/60 rounded-xs flex items-center gap-3.5 font-ui text-xs text-slate-300">
-              <ShieldCheck size={20} className="text-cyan-400 shrink-0" />
-              <span>
-                <strong>100% IP Ownership &amp; Mutual NDA:</strong> You own all source code and assets. Mutual NDA provided upon request.
-              </span>
-            </div>
-
           </div>
-
         </div>
       </section>
 
-      {/* 3️⃣ FREQUENTLY ASKED QUESTIONS ACCORDION */}
-      <section className="px-5 sm:px-8 md:px-12 lg:px-20 max-w-[1100px] mx-auto mb-24 md:mb-36 relative z-10">
+      {/* 3. ARCHITECTURAL FAQ ACCORDION */}
+      <section className="px-5 sm:px-8 md:px-12 lg:px-20 max-w-[1100px] mx-auto mb-24 md:mb-36">
         <div className="text-center max-w-2xl mx-auto mb-14">
-          <SectionLabel className="justify-center">Clear Answers</SectionLabel>
+          <SectionLabel className="justify-center">Architecture FAQs</SectionLabel>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-[#F8FAFC] mt-3">
-            Frequently Asked Questions
+            Clear Answers Before We Kick Off
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-slate-300 font-ui font-light">
-            Everything you need to know about partnering with Stova Media.
-          </p>
         </div>
 
         <div className="space-y-4">
           {faqs.map((faq, idx) => {
             const isOpen = openFaq === idx;
             return (
-              <div 
+              <SpotlightCard
                 key={idx}
+                spotlightColor="rgba(6, 182, 212, 0.15)"
                 className={cn(
-                  "border rounded-xs transition-all duration-300 overflow-hidden",
-                  isOpen 
-                    ? "border-indigo-500/60 bg-[#0F1524] shadow-[0_0_25px_rgba(99,102,241,0.2)]" 
-                    : "border-slate-800 bg-[#0B0F19]/90 hover:border-slate-700 hover:bg-[#0D121F]"
+                  "p-6 sm:p-7 border-slate-800 bg-[#0B0F19]/90 backdrop-blur-md rounded-xs transition-all duration-300 shadow-lg",
+                  isOpen ? "border-cyan-500/40 bg-[#0E1424]" : "hover:border-slate-700"
                 )}
               >
                 <button
-                  type="button"
                   onClick={() => setOpenFaq(isOpen ? null : idx)}
-                  className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 font-display font-bold text-base sm:text-lg md:text-xl text-[#F8FAFC] cursor-pointer"
+                  className="w-full flex items-center justify-between text-left gap-4 cursor-pointer focus:outline-none"
                 >
-                  <span className="flex items-center gap-3.5">
-                    <span className="px-2 py-0.5 rounded-xs bg-cyan-950/70 border border-cyan-500/40 text-cyan-300 font-mono text-xs font-bold shrink-0">
-                      0{idx + 1}
-                    </span>
-                    <span className="group-hover:text-cyan-300 transition-colors">{faq.q}</span>
+                  <span className={cn(
+                    "font-display text-lg sm:text-xl font-bold transition-colors",
+                    isOpen ? "text-cyan-300" : "text-[#F8FAFC]"
+                  )}>
+                    {faq.q}
                   </span>
                   <div className={cn(
-                    "p-2 rounded-xs border transition-transform duration-300 shrink-0",
-                    isOpen 
-                      ? "rotate-180 border-cyan-500/50 bg-cyan-950/60 text-cyan-300" 
-                      : "border-slate-800 bg-[#05070D] text-slate-400"
+                    "w-8 h-8 rounded-full border border-slate-800 bg-[#05070D] flex items-center justify-center shrink-0 text-slate-400 transition-transform duration-300",
+                    isOpen && "rotate-180 border-cyan-500/40 text-cyan-400"
                   )}>
                     <ChevronDown size={16} />
                   </div>
                 </button>
 
-                <AnimatePresence>
+                <AnimatePresence initial={false}>
                   {isOpen && (
                     <motion.div
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.25 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
                       className="overflow-hidden"
                     >
-                      <div className="px-5 sm:px-6 pb-6 pt-2 font-ui text-sm sm:text-base text-slate-200 leading-relaxed font-light border-t border-slate-800/80 mt-1">
+                      <p className="pt-4 text-slate-300 font-ui text-sm sm:text-base leading-relaxed font-light border-t border-slate-800/80 mt-4">
                         {faq.a}
-                      </div>
+                      </p>
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </div>
+              </SpotlightCard>
             );
           })}
         </div>
       </section>
-
     </main>
   );
 }

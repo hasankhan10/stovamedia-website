@@ -1,9 +1,10 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { checkAdminSession, loginAdminWithSupabase } from "@/lib/admin-auth";
-import { Lock, ShieldCheck, ArrowRight, AlertCircle, Mail, KeyRound, Eye, EyeOff, Sparkles } from "lucide-react";
+import { ShieldCheck, ArrowRight, AlertCircle, Mail, KeyRound, Eye, EyeOff, Sparkles } from "lucide-react";
 
 export default function AdminLoginPage() {
   const router = useRouter();
@@ -35,7 +36,7 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#05070D] flex items-center justify-center px-6 py-20 font-ui text-[#F8FAFC] relative overflow-hidden">
+    <main className="min-h-screen bg-[#05070D] flex items-center justify-center px-4 sm:px-6 py-16 font-ui text-[#F8FAFC] relative overflow-hidden">
       {/* Ambient background glow */}
       <div 
         className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full blur-[140px] opacity-25 z-0"
@@ -44,10 +45,17 @@ export default function AdminLoginPage() {
         }}
       />
 
-      <div className="w-full max-w-md bg-[#0B0F19]/90 border border-slate-800 p-8 sm:p-10 rounded-xs shadow-2xl relative z-10 backdrop-blur-xl">
+      <div className="w-full max-w-md bg-[#0B0F19]/90 border border-slate-800/90 p-8 sm:p-10 rounded-2xl shadow-2xl relative z-10 backdrop-blur-2xl">
         <div className="flex flex-col items-center text-center mb-8">
-          <div className="w-14 h-14 rounded-full border border-indigo-500/40 bg-[#05070D] flex items-center justify-center text-cyan-400 mb-5 shadow-[0_0_20px_rgba(6,182,212,0.3)]">
-            <Lock size={24} />
+          <div className="relative w-16 h-16 rounded-2xl overflow-hidden border border-cyan-500/40 mb-4 shadow-[0_0_25px_rgba(6,182,212,0.3)]">
+            <Image
+              src="/logo.jpeg"
+              alt="Stova Media"
+              width={64}
+              height={64}
+              className="w-full h-full object-cover"
+              priority
+            />
           </div>
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-indigo-500/30 bg-indigo-950/40 text-[10px] uppercase font-mono tracking-widest text-cyan-300 font-bold mb-3">
             <Sparkles size={11} />
@@ -57,12 +65,12 @@ export default function AdminLoginPage() {
             Studio Control Center
           </h1>
           <p className="text-xs text-slate-400 font-light mt-1.5">
-            Enter authorized credentials to manage inquiries &amp; metrics.
+            Enter authorized administrator credentials to manage inquiries &amp; metrics.
           </p>
         </div>
 
         {error && (
-          <div className="mb-6 p-3.5 bg-rose-950/30 border border-rose-500/40 text-rose-300 text-xs flex items-center gap-2 rounded-xs">
+          <div className="mb-6 p-3.5 bg-rose-950/30 border border-rose-500/40 text-rose-300 text-xs flex items-center gap-2 rounded-xl">
             <AlertCircle size={16} className="shrink-0 text-rose-400" />
             <span>{error}</span>
           </div>
@@ -81,7 +89,7 @@ export default function AdminLoginPage() {
                 placeholder="stovamedia@gmail.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full bg-[#05070D] border border-slate-800 pl-10 pr-4 py-3 text-sm font-mono text-slate-100 outline-none focus:border-cyan-400 rounded-xs transition-colors"
+                className="w-full bg-[#05070D] border border-slate-800 pl-10 pr-4 py-3 text-sm font-mono text-slate-100 outline-none focus:border-cyan-400 rounded-xl transition-colors"
               />
             </div>
           </div>
@@ -98,12 +106,12 @@ export default function AdminLoginPage() {
                 placeholder="••••••••••••"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full bg-[#05070D] border border-slate-800 pl-10 pr-10 py-3 text-sm font-mono text-slate-100 outline-none focus:border-cyan-400 rounded-xs transition-colors"
+                className="w-full bg-[#05070D] border border-slate-800 pl-10 pr-10 py-3 text-sm font-mono text-slate-100 outline-none focus:border-cyan-400 rounded-xl transition-colors"
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-500 hover:text-cyan-400 transition-colors focus:outline-none"
+                className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-500 hover:text-cyan-400 transition-colors focus:outline-none cursor-pointer"
                 title={showPassword ? "Hide Password" : "Show Password"}
               >
                 {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
@@ -114,7 +122,7 @@ export default function AdminLoginPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3.5 bg-gradient-to-r from-indigo-500 to-cyan-500 text-white font-semibold text-xs uppercase tracking-wider hover:brightness-110 transition-all flex items-center justify-center gap-2 rounded-xs shadow-lg shadow-indigo-500/20 mt-4 cursor-pointer"
+            className="w-full py-3.5 bg-gradient-to-r from-indigo-500 via-indigo-600 to-cyan-500 text-white font-semibold text-xs uppercase tracking-wider hover:brightness-110 transition-all flex items-center justify-center gap-2 rounded-xl shadow-lg shadow-indigo-500/20 mt-4 cursor-pointer"
           >
             <span>{loading ? "Authenticating..." : "Unlock Dashboard"}</span>
             <ArrowRight size={14} />

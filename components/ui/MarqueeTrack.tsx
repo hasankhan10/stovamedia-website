@@ -45,7 +45,7 @@ export const MarqueeTrack = ({
         {duplicatedItems.map((item, index) => (
           <React.Fragment key={index}>
             <div className="flex-shrink-0">{item}</div>
-            <span className="text-gold opacity-50 select-none">✦</span>
+            <span className="text-cyan-400/50 select-none">✦</span>
           </React.Fragment>
         ))}
       </motion.div>

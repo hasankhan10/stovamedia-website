@@ -3,19 +3,14 @@
 import React, { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { SplitHeadline, Button, MagneticElement, SpotlightCard } from "@/components/ui";
+import { Button, MagneticElement, SpotlightCard } from "@/components/ui";
 import { 
   ArrowUpRight, 
   Bot, 
   Cpu, 
   ShieldCheck, 
   Zap, 
-  Terminal as TerminalIcon, 
-  Activity, 
-  CheckCircle2, 
-  Layers, 
-  Sparkles,
-  Play
+  Terminal as TerminalIcon 
 } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -172,17 +167,16 @@ export default function Hero() {
 
           {/* Master Headline */}
           <h1 className="hero-title-node text-3xl sm:text-5xl md:text-6xl lg:text-[62px] font-bold leading-[1.08] tracking-tight text-[#F8FAFC] mb-6">
-            We Architect Software For{" "}
+            We Build Custom Software &amp; AI Tools For{" "}
             <span className="bg-gradient-to-r from-indigo-400 via-cyan-300 to-indigo-300 bg-clip-text text-transparent underline decoration-cyan-400/40 decoration-wavy decoration-1 underline-offset-8">
-              High-Growth
+              Growing
             </span>{" "}
             Businesses.
           </h1>
 
-          {/* Subtext */}
+          {/* Subtext in easy, clear English */}
           <p className="hero-sub-node text-base sm:text-lg md:text-xl text-slate-300 font-light leading-relaxed mb-8 max-w-2xl">
-            Stova Media is an elite software engineering studio &amp; AI lab. We design, architect, and ship 
-            autonomous AI systems, custom web platforms, and healthcare SaaS with zero technical debt.
+            Stova Media is a custom software agency &amp; AI studio in Kolkata. We build fast websites, mobile apps, and 24/7 smart AI chatbots that help you win more customers and grow your revenue.
           </p>
 
           {/* CTAs */}

@@ -15,18 +15,22 @@ export default function AppLayoutWrapper({ children }: { children: React.ReactNo
   const isAIEcomRoute = pathname?.startsWith("/aiecommerce");
 
   if (isAdminRoute) {
-    return <div className="min-h-screen bg-ink">{children}</div>;
+    return <div className="min-h-screen bg-[#05070D] text-slate-100">{children}</div>;
+  }
+
+  if (isAIEcomRoute) {
+    return <SmoothScroll>{children}</SmoothScroll>;
   }
 
   return (
     <>
-      {!isAIEcomRoute && <Navbar />}
-      {!isAIEcomRoute && <ChatBot />}
+      <Navbar />
+      <ChatBot />
       <SmoothScroll>
         <PageTransition>
           {children}
-          {!isAIEcomRoute && <AISummary />}
-          {!isAIEcomRoute && <Footer />}
+          <AISummary />
+          <Footer />
         </PageTransition>
       </SmoothScroll>
     </>

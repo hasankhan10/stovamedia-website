@@ -14,7 +14,7 @@ const faqs: FAQItem[] = [
   },
   {
     q: "Existing Website-এ কি এই AI Features যুক্ত করা যাবে?",
-    a: "হ্যাঁ, আপনার বর্তমান Website-এর Technology Stack ও Product Database বিশ্লেষণ করে আমরা Seamlessly এই AI Shopping Assistant ও Smart Search Engine ইন্টিগ্রেট করে দিতে পারি।"
+    a: "হ্যাঁ, অবশ্যই! আপনার বর্তমান Website বা E-commerce স্টোরে আমরা সরাসরি আমাদের AI Shopping Assistant এবং Smart Search ইঞ্জিন ইন্টিগ্রেট করে দিতে পারি। তবে আপনার পুরোনো প্ল্যাটফর্ম যদি লোডিংয়ে স্লো হয় বা কনভার্শন কম থাকে, তাহলে সম্পূর্ণ সিমলেস কাস্টমার এক্সপেরিয়েন্স ও সর্বোচ্চ সেলস নিশ্চিত করতে আমাদের Modern Custom Architecture-এ আপগ্রেড করা হবে আপনার বিজনেসের জন্য সবচেয়ে সেরা এবং লাভজনক সিদ্ধান্ত।"
   },
   {
     q: "এটির Price কত?",

@@ -104,7 +104,7 @@ export default function AIEcomHero({ onBookClick }: AIEcomHeroProps) {
             <span className="bg-gradient-to-r from-indigo-400 via-cyan-300 to-indigo-300 bg-clip-text text-transparent underline decoration-cyan-400/40 decoration-wavy decoration-1 underline-offset-8">
               Product খুঁজে না পেয়ে
             </span>{" "}
-            চলে যাচ্ছে না তো?
+            <span className="text-red-600">চলে যাচ্ছে না তো?</span>
           </h1>
 
           <p className="hero-sub-node text-base sm:text-xl md:text-2xl text-slate-300 font-light leading-relaxed mb-8 sm:mb-10 max-w-2xl">

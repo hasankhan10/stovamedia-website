@@ -1,9 +1,8 @@
 "use client";
 
 import React from "react";
-import { ArrowUpRight, Sparkles } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Tag } from "./Tag";
 
 interface ProjectCardProps {
   slug: string;

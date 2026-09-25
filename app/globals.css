@@ -36,37 +36,8 @@
   --grid-color: rgba(255, 255, 255, 0.015);
 }
 
-:root.light {
-  --ink: #E5E5E5; /* 80% White / 20% Gray solid blend */
-  --ink-gradient: var(--ink);
-  --ink-2: #F0EDE6;
-  --card: #FFFFFF;
-  --card-2: #F5F3EC;
-  --border: #D1D1D1; /* Slightly darker to accommodate the new background */
-  --border-2: #BABABA;
-  --gold: #8C6F2A; /* Increased contrast for readability on light gray */
-  --gold-light: #A8862F;
-  --gold-glow: rgba(140, 111, 42, 0.08);
-  --cream: #1A1816; /* Near black text for the light mode */
-  --muted: #615E5B;
-  --dim: #827E7A;
-  --glow-color: rgba(34, 197, 94, 0.1); /* Greenish glow for white mode */
-  --glow-color-soft: rgba(34, 197, 94, 0.06);
-  --grid-color: rgba(0, 0, 0, 0.03);
-}
-
 html {
   scroll-behavior: auto;
-}
-
-body {
-  background: var(--ink);
-  color: var(--cream);
-  font-family: var(--font-ui);
-  font-weight: 300;
-  -webkit-font-smoothing: antialiased;
-  position: relative;
-  overflow-x: hidden;
 }
 
 body {

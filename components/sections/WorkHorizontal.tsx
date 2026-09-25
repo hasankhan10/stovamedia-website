@@ -4,8 +4,8 @@ import React, { useRef, useEffect, useState } from "react";
 import Link from "next/link";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { SectionLabel, SplitHeadline, ProjectCard } from "@/components/ui";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { SectionLabel, ProjectCard } from "@/components/ui";
+import { ArrowRight } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 

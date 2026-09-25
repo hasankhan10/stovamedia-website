@@ -2,22 +2,10 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { SplitHeadline, ProjectCard, SectionLabel, SpotlightCard, RevealOnScroll, MagneticElement } from "@/components/ui";
+import { ProjectCard, SpotlightCard } from "@/components/ui";
 import CTASection from "@/components/sections/CTASection";
 import { cn } from "@/lib/utils";
 import { Project } from "@/lib/work";
-import { 
-  ArrowUpRight, 
-  ExternalLink, 
-  Layers, 
-  ShieldCheck, 
-  Zap, 
-  Sparkles, 
-  Award, 
-  Code2, 
-  Bot, 
-  CheckCircle2 
-} from "lucide-react";
 
 export default function WorkIndexClient({ projects }: { projects: Project[] }) {
   const [activeCategory, setActiveCategory] = useState<string>("All");
@@ -54,14 +42,14 @@ export default function WorkIndexClient({ projects }: { projects: Project[] }) {
           </div>
 
           <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-bold leading-[1.02] tracking-tight text-[#F8FAFC]">
-            Products Built With{" "}
+            Our Work &amp;{" "}
             <span className="bg-gradient-to-r from-indigo-400 via-cyan-300 to-indigo-300 bg-clip-text text-transparent">
-              Intention.
+              Case Studies.
             </span>
           </h1>
 
           <p className="mt-8 text-slate-300 font-ui text-base sm:text-xl max-w-2xl leading-relaxed font-light">
-            Explore our battle-tested portfolio across healthcare SaaS platforms, autonomous AI pipelines, and high-performance digital architectures.
+            Explore our real-world custom software, healthcare SaaS platforms, smart AI tools, and high-speed online stores.
           </p>
 
           {/* Interactive Category Filter Pills */}

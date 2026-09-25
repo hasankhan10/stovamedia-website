@@ -2,7 +2,7 @@
 
 import React from "react";
 import { SplitHeadline, Button, MagneticElement, SpotlightCard } from "@/components/ui";
-import { ArrowUpRight, Calendar, MessageSquare, ShieldCheck, Zap, Sparkles } from "lucide-react";
+import { ArrowUpRight, Calendar, MessageSquare, ShieldCheck, Zap } from "lucide-react";
 
 export default function CTASection() {
   return (
@@ -31,15 +31,15 @@ export default function CTASection() {
           {/* Main Headline */}
           <div className="mb-8 sm:mb-10 max-w-[950px]">
             <SplitHeadline tag="h2" className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display leading-[1.02] tracking-tight justify-center text-center text-[#F8FAFC]">
-              Have A Complex Product?
+              Ready To Grow Your Business?
             </SplitHeadline>
             <div className="mt-3 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display bg-gradient-to-r from-indigo-400 via-cyan-300 to-indigo-300 bg-clip-text text-transparent font-bold">
-              Let&apos;s Engineer It.
+              Let&apos;s Build Together.
             </div>
           </div>
 
           <p className="font-ui text-base sm:text-xl text-slate-300 font-light max-w-[640px] leading-relaxed mb-10 sm:mb-12">
-            Whether you need an autonomous AI workforce, a full-stack SaaS platform, or high-throughput web architecture, we ship production-grade code on time and on budget.
+            Whether you need a modern custom website, a full-scale web application, or a 24/7 smart AI chatbot, we ship fast, beautiful code on time and within your budget.
           </p>
 
           {/* CTA Buttons */}

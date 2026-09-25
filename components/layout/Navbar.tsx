@@ -6,7 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { Menu, X, ArrowUpRight, MessageSquare, Sparkles } from "lucide-react";
+import { Menu, X, ArrowUpRight, MessageSquare } from "lucide-react";
 
 const navLinks = [
   { name: "Home", href: "/" },

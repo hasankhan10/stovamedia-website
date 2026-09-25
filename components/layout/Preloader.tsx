@@ -20,20 +20,12 @@ export default function Preloader() {
       return;
     }
 
-    // Session check to show only once
-    const hasLoaded = sessionStorage.getItem("stova-preloader-v1");
-    if (hasLoaded) {
-      setComplete(true);
-      return;
-    }
-
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
         onComplete: () => {
-          sessionStorage.setItem("stova-preloader-v1", "true");
           gsap.to(containerRef.current, {
             yPercent: -100,
-            duration: 1.2,
+            duration: 1.0,
             ease: "power4.inOut",
             onComplete: () => setComplete(true),
           });

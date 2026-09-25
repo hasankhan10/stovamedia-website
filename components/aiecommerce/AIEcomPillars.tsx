@@ -12,7 +12,7 @@ const pillars = [
   {
     icon: ShoppingBag,
     title: "Premium, Custom E-commerce Website",
-    desc: "Modern Design, সাব-সেকেন্ড পেজ লোডিং স্পিড, এবং ১০০% Mobile-Responsive আর্কিটেকচার। কাস্টমার যেকোনো ডিভাইসে প্রবেশ করলেই একটি প্রিমিয়াম ব্র্যান্ড অনুভূতি পাবেন।",
+    desc: "Modern Design, Scrolling Animation যুক্ত fast পেজ লোডিং স্পিড, এবং ১০০% Mobile-Responsive আর্কিটেকচার। কাস্টমার যেকোনো ডিভাইসে প্রবেশ করলেই একটি প্রিমিয়াম ব্র্যান্ড অনুভূতি পাবেন।",
     spotlight: "rgba(99, 102, 241, 0.2)",
     accent: "text-indigo-400 group-hover:bg-indigo-600 group-hover:text-white",
     hoverBorder: "hover:border-indigo-500/50",

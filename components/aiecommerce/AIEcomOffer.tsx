@@ -97,7 +97,7 @@ export default function AIEcomOffer({ onBookClick }: { onBookClick: () => void }
                 <div>
                   <h4 className="text-lg sm:text-xl font-bold text-white mb-1.5">প্রমাণিত অভিজ্ঞতা</h4>
                   <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-light">
-                    আমাদের টিমের Experience-এর মধ্যে রয়েছে খ্যাতনামা <strong>Dr. Paul&apos;s</strong>-এর প্রফেশনাল Website Development ও লং-টার্ম Maintenance।
+                    আমাদের টিমের Experience-এর মধ্যে রয়েছে খ্যাতনামা <strong>Dr. Paul&apos;s</strong>-এর প্রফেশনাল Software Development ও লং-টার্ম Maintenance।
                   </p>
                 </div>
               </div>
