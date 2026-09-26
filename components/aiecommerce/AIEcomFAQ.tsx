@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SectionLabel } from "@/components/ui";
 import { FAQItem } from "./types";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const faqs: FAQItem[] = [
@@ -30,7 +30,7 @@ const faqs: FAQItem[] = [
   }
 ];
 
-export default function AIEcomFAQ() {
+export default function AIEcomFAQ({ onBookClick }: { onBookClick?: () => void }) {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   return (
@@ -41,7 +41,7 @@ export default function AIEcomFAQ() {
       <div className="max-w-[1000px] mx-auto">
         <div className="text-center mb-12 sm:mb-16">
           <SectionLabel className="justify-center text-xs sm:text-sm">Got Questions?</SectionLabel>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#F8FAFC] mt-4">
+          <h2 className="font-['Anek_Bangla','Amar_Bangla',sans-serif] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#F8FAFC] mt-4">
             সাধারণ জিজ্ঞাসা (FAQ)
           </h2>
         </div>
@@ -99,6 +99,18 @@ export default function AIEcomFAQ() {
             );
           })}
         </div>
+
+        {onBookClick && (
+          <div className="mt-12 sm:mt-16 flex justify-center">
+            <button
+              onClick={onBookClick}
+              className="w-full sm:w-auto px-8 py-4 sm:px-10 sm:py-4.5 bg-gradient-to-r from-indigo-500 via-indigo-600 to-cyan-500 hover:from-indigo-600 hover:to-cyan-600 text-white font-bold text-sm sm:text-base tracking-wider transition-all duration-300 flex items-center justify-center gap-2.5 shadow-[0_0_25px_rgba(99,102,241,0.35)] hover:shadow-[0_0_35px_rgba(6,182,212,0.5)] cursor-pointer rounded-2xl active:scale-[0.98] font-['Hind_Siliguri',sans-serif]"
+            >
+              <span>Free Consultation Appointment বুক করুন</span>
+              <ArrowRight size={18} />
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

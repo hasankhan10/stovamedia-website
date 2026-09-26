@@ -72,9 +72,9 @@ export default function AIEcomHero({ onBookClick, onWhatsAppClick }: AIEcomHeroP
         className="max-w-[1300px] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center relative z-10"
       >
         {/* Left Headline */}
-        <div className="lg:col-span-7 flex flex-col items-start text-left">
+        <div className="lg:col-span-7 flex flex-col items-center text-center lg:items-start lg:text-left">
           {/* Brand Logo Row */}
-          <div className="hero-badge-node flex items-center gap-3 mb-6">
+          <div className="hero-badge-node flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-6">
             <Link href="/" className="inline-flex items-center gap-2 group">
               <div className="relative">
                 <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-full blur opacity-40 group-hover:opacity-80 transition duration-300" />
@@ -88,7 +88,7 @@ export default function AIEcomHero({ onBookClick, onWhatsAppClick }: AIEcomHeroP
                 />
               </div>
             </Link>
-            <span className="h-4 w-px bg-slate-800" />
+            <span className="h-4 w-px bg-slate-800 hidden sm:inline" />
             <div className="inline-flex items-center gap-2 px-3 py-1 border border-indigo-500/40 bg-[#0B0F19]/90 rounded-full shadow-sm">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
@@ -100,7 +100,7 @@ export default function AIEcomHero({ onBookClick, onWhatsAppClick }: AIEcomHeroP
             </div>
           </div>
 
-          <h1 className="hero-title-node text-3xl sm:text-5xl md:text-6xl lg:text-[58px] font-bold leading-[1.22] tracking-tight text-[#F8FAFC] mb-6 sm:mb-8">
+          <h1 className="hero-title-node font-['Anek_Bangla','Amar_Bangla',sans-serif] text-3xl sm:text-5xl md:text-6xl lg:text-[58px] font-bold leading-[1.22] tracking-tight text-[#F8FAFC] mb-6 sm:mb-8 text-center lg:text-left">
             আপনার Website-এ Customer আসছে, কিন্তু{" "}
             <span className="bg-gradient-to-r from-indigo-400 via-cyan-300 to-indigo-300 bg-clip-text text-transparent underline decoration-cyan-400/40 decoration-wavy decoration-1 underline-offset-8">
               Product খুঁজে না পেয়ে
@@ -108,11 +108,11 @@ export default function AIEcomHero({ onBookClick, onWhatsAppClick }: AIEcomHeroP
             <span className="text-red-600">চলে যাচ্ছে না তো?</span>
           </h1>
 
-          <p className="hero-sub-node text-base sm:text-xl md:text-2xl text-slate-300 font-light leading-relaxed mb-8 sm:mb-10 max-w-2xl">
+          <p className="hero-sub-node font-['Noto_Sans_Bengali','Noto_Sans',sans-serif] text-base sm:text-xl md:text-2xl text-slate-300 font-light leading-relaxed mb-8 sm:mb-10 max-w-2xl text-center lg:text-left">
             এবার আনুন এমন একটা <strong className="text-white font-medium">AI-Powered E-commerce Platform</strong>, যেটা প্রতিটা Customer-কে বোঝে, ঠিক Product দেখায়, আর কিনতে সাহায্য করে — একদম নিজের একজন দক্ষ <span className="text-cyan-400 font-medium">24/7 Digital Sales Assistant</span>-এর মতো।
           </p>
 
-          <div className="hero-cta-node flex flex-wrap items-center gap-4 mb-8 sm:mb-10 w-full sm:w-auto">
+          <div className="hero-cta-node flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-8 sm:mb-10 w-full sm:w-auto">
             <MagneticElement className="w-full sm:w-auto">
               <button 
                 onClick={onBookClick} 
@@ -143,7 +143,7 @@ export default function AIEcomHero({ onBookClick, onWhatsAppClick }: AIEcomHeroP
             </MagneticElement>
           </div>
 
-          <div className="flex flex-wrap items-center gap-5 sm:gap-6 text-sm sm:text-base font-ui text-slate-300">
+          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-5 sm:gap-6 text-sm sm:text-base font-ui text-slate-300">
             <span className="flex items-center gap-2 text-slate-200">
               <ShieldCheck size={18} className="text-emerald-400 flex-shrink-0" /> ১০০% Approval না পাওয়া পর্যন্ত Final Payment নেই
             </span>

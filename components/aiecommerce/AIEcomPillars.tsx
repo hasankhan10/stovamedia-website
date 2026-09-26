@@ -4,7 +4,7 @@ import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SectionLabel, SpotlightCard } from "@/components/ui";
-import { ShoppingBag, Bot, Search, TrendingUp } from "lucide-react";
+import { ShoppingBag, Bot, Search, TrendingUp, ArrowRight } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -47,7 +47,7 @@ const pillars = [
   }
 ];
 
-export default function AIEcomPillars() {
+export default function AIEcomPillars({ onBookClick }: { onBookClick?: () => void }) {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -66,7 +66,7 @@ export default function AIEcomPillars() {
       gsap.fromTo(
         ".pillar-item-anim",
         { y: 15, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: "power2.out", scrollTrigger: { trigger: sectionRef.current, start: "top 85%" } }
+        { y: 0, opacity: 1, duration: 0.6, stagger: 0.08, ease: "power2.out", scrollTrigger: { trigger: sectionRef.current, start: "top 85%" } }
       );
     });
 
@@ -82,10 +82,10 @@ export default function AIEcomPillars() {
       <div className="max-w-[1300px] mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <SectionLabel className="justify-center text-xs sm:text-sm">Complete Ecosystem</SectionLabel>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#F8FAFC] mt-4 mb-5">
+          <h2 className="font-['Anek_Bangla','Amar_Bangla',sans-serif] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#F8FAFC] mt-4 mb-5">
             একটাই Platform-এ যা কিছু দরকার
           </h2>
-          <p className="text-slate-300 text-base sm:text-xl md:text-2xl font-light">
+          <p className="font-['Noto_Sans_Bengali','Noto_Sans',sans-serif] text-slate-300 text-base sm:text-xl md:text-2xl font-light">
             আপনার E-Commerce ব্যবসাকে সম্পূর্ণ অটোমেটেড ও প্রফেশনাল করার জন্য ৪টি পাওয়ারফুল ইঞ্জিন এক সাথে।
           </p>
         </div>
@@ -115,6 +115,19 @@ export default function AIEcomPillars() {
             );
           })}
         </div>
+
+        {/* Appointment Booking CTA Button */}
+        {onBookClick && (
+          <div className="mt-10 sm:mt-14 flex justify-center">
+            <button
+              onClick={onBookClick}
+              className="w-full sm:w-auto px-8 py-4 sm:px-10 sm:py-4.5 bg-gradient-to-r from-indigo-500 via-indigo-600 to-cyan-500 hover:from-indigo-600 hover:to-cyan-600 text-white font-bold text-sm sm:text-base tracking-wider transition-all duration-300 flex items-center justify-center gap-2.5 shadow-[0_0_25px_rgba(99,102,241,0.35)] hover:shadow-[0_0_35px_rgba(6,182,212,0.5)] cursor-pointer rounded-2xl active:scale-[0.98] font-['Hind_Siliguri',sans-serif]"
+            >
+              <span>Free Consultation Appointment বুক করুন</span>
+              <ArrowRight size={18} />
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

@@ -60,10 +60,10 @@ export default function AIEcomOffer({ onBookClick }: { onBookClick: () => void }
               <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-gradient-to-r from-indigo-500 to-cyan-500 text-white text-xs sm:text-sm font-bold uppercase tracking-widest font-ui mb-5 shadow-sm rounded-full">
                 Special Launch Offer
               </div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#F8FAFC]">
+              <h2 className="font-['Anek_Bangla','Amar_Bangla',sans-serif] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#F8FAFC]">
                 আপনার জন্য একটা Special Offer অপেক্ষা করছে
               </h2>
-              <p className="text-slate-300 text-base sm:text-xl md:text-2xl mt-4 font-light leading-relaxed">
+              <p className="font-['Noto_Sans_Bengali','Noto_Sans',sans-serif] text-slate-300 text-base sm:text-xl md:text-2xl mt-4 font-light leading-relaxed">
                 সম্পূর্ণ জিরো-রিস্কে আপনার ব্যবসাকে আধুনিক প্রযুক্তির শীর্ষে নিয়ে যাওয়ার সম্পূর্ণ প্যাকেজ:
               </p>
             </div>

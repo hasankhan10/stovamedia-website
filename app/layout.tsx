@@ -268,6 +268,12 @@ export default function RootLayout({
         <link rel="shortcut icon" href="/logo.jpeg" type="image/jpeg" />
         <link rel="apple-touch-icon" href="/logo.jpeg" />
         <link rel="author" href="/llms.txt" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link 
+          rel="stylesheet" 
+          href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@400;500;600;700;800;900&family=Hind+Siliguri:wght@300;400;500;600;700&family=Noto+Sans+Bengali:wght@300;400;500;600;700&display=swap" 
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

@@ -11,6 +11,7 @@ import {
   AIEcomAudience,
   AIEcomFAQ,
   AIEcomBooking,
+  AIEcomBookingModal,
   AIEcomStickyMobileBar
 } from "@/components/aiecommerce";
 
@@ -25,7 +26,7 @@ const AIEcomConfirmModal = dynamic(
 );
 
 export default function AIEcommercePage() {
-  const bookingRef = useRef<HTMLDivElement>(null);
+  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const [confirmModal, setConfirmModal] = useState<{
     isOpen: boolean;
     onConfirm: () => void;
@@ -34,12 +35,13 @@ export default function AIEcommercePage() {
     onConfirm: () => {}
   });
 
-  const handleScrollToBooking = () => {
-    const formElement = document.getElementById("booking-form") || bookingRef.current;
-    if (formElement) {
-      formElement.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
+  const handleOpenBookingModal = useCallback(() => {
+    setIsBookingModalOpen(true);
+  }, []);
+
+  const handleCloseBookingModal = useCallback(() => {
+    setIsBookingModalOpen(false);
+  }, []);
 
   const handleWhatsAppClick = useCallback((url: string) => {
     setConfirmModal({
@@ -65,45 +67,52 @@ export default function AIEcommercePage() {
     <main className="font-['Hind_Siliguri',sans-serif] text-[#F8FAFC] bg-[#05070D] overflow-x-hidden selection:bg-indigo-500 selection:text-white pb-16 md:pb-0">
       {/* 1️⃣ Hero Section with Responsive Motion */}
       <AIEcomHero 
-        onBookClick={handleScrollToBooking} 
+        onBookClick={handleOpenBookingModal} 
         onWhatsAppClick={handleWhatsAppClick} 
       />
 
       {/* 2️⃣ Problem vs Solution Comparison */}
-      <AIEcomProblem />
+      <AIEcomProblem onBookClick={handleOpenBookingModal} />
 
       {/* 3️⃣ What We Build (4 Core Pillars) */}
-      <AIEcomPillars />
+      <AIEcomPillars onBookClick={handleOpenBookingModal} />
 
       {/* 4️⃣ Old Way vs AI Way Workflow */}
-      <AIEcomWorkflow />
+      <AIEcomWorkflow onBookClick={handleOpenBookingModal} />
 
       {/* 5️⃣ Target Audience Profiles (Self-Identification & Qualification) */}
-      <AIEcomAudience />
+      <AIEcomAudience onBookClick={handleOpenBookingModal} />
 
       {/* 6️⃣ Special Offer, Guarantees & Scarcity */}
-      <AIEcomOffer onBookClick={handleScrollToBooking} />
+      <AIEcomOffer onBookClick={handleOpenBookingModal} />
 
       {/* 7️⃣ Interactive FAQ Accordion */}
-      <AIEcomFAQ />
+      <AIEcomFAQ onBookClick={handleOpenBookingModal} />
 
-      {/* 8️⃣ Final CTA & Direct Lead Booking Form */}
+      {/* 8️⃣ Final CTA & Value Proposition Section */}
       <AIEcomBooking 
-        bookingRef={bookingRef} 
+        onBookClick={handleOpenBookingModal}
         onWhatsAppClick={handleWhatsAppClick}
-        onRequestConfirm={handleRequestConfirm}
       />
 
       {/* 9️⃣ Mobile Sticky Conversion & Urgency Bar */}
       <AIEcomStickyMobileBar 
-        onBookClick={handleScrollToBooking} 
+        onBookClick={handleOpenBookingModal} 
         onWhatsAppClick={handleWhatsAppClick}
       />
 
       {/* 🔟 Floating Bottom-Right AI Shopping Assistant Chatbot */}
       <AIEcomFloatingChatbot />
 
-      {/* 1️⃣1️⃣ Global Decision Confirmation Modal */}
+      {/* 1️⃣1️⃣ Appointment Booking Popup Modal */}
+      <AIEcomBookingModal 
+        isOpen={isBookingModalOpen}
+        onClose={handleCloseBookingModal}
+        onWhatsAppClick={handleWhatsAppClick}
+        onRequestConfirm={handleRequestConfirm}
+      />
+
+      {/* 1️⃣2️⃣ Global Decision Confirmation Modal */}
       <AIEcomConfirmModal 
         isOpen={confirmModal.isOpen}
         onClose={handleCloseConfirmModal}

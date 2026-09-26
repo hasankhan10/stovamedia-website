@@ -4,11 +4,11 @@ import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SectionLabel, SpotlightCard } from "@/components/ui";
-import { XCircle, CheckCircle2, Sparkles } from "lucide-react";
+import { XCircle, CheckCircle2, Sparkles, ArrowRight } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function AIEcomProblem() {
+export default function AIEcomProblem({ onBookClick }: { onBookClick?: () => void }) {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -40,10 +40,10 @@ export default function AIEcomProblem() {
       <div className="max-w-[1200px] mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <SectionLabel className="justify-center text-xs sm:text-sm">The Real Friction Point</SectionLabel>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#F8FAFC] mt-4 mb-6">
+          <h2 className="font-['Anek_Bangla','Amar_Bangla',sans-serif] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#F8FAFC] mt-4 mb-6">
             Customer সবসময় জানে না ঠিক কী Search করতে হবে
           </h2>
-          <p className="text-slate-300 text-base sm:text-xl md:text-2xl leading-relaxed font-light">
+          <p className="font-['Noto_Sans_Bengali','Noto_Sans',sans-serif] text-slate-300 text-base sm:text-xl md:text-2xl leading-relaxed font-light">
             একজন Customer আপনার Website-এ এসে হয়তো বলবেন না, <span className="text-white font-medium">&ldquo;আমি এই নির্দিষ্ট প্রোডাক্ট কিনতে চাই।&rdquo;</span> বরং তিনি নিজের ভাষায় বলবেন, <span className="text-cyan-400 font-medium">&ldquo;আমার এমন একটা Product দরকার যেটা আমার সমস্যার সমাধান করবে...&rdquo;</span>
           </p>
         </div>
@@ -104,6 +104,19 @@ export default function AIEcomProblem() {
             </SpotlightCard>
           </div>
         </div>
+
+        {/* Appointment Booking CTA Button */}
+        {onBookClick && (
+          <div className="mt-10 sm:mt-14 flex justify-center">
+            <button
+              onClick={onBookClick}
+              className="w-full sm:w-auto px-8 py-4 sm:px-10 sm:py-4.5 bg-gradient-to-r from-indigo-500 via-indigo-600 to-cyan-500 hover:from-indigo-600 hover:to-cyan-600 text-white font-bold text-sm sm:text-base tracking-wider transition-all duration-300 flex items-center justify-center gap-2.5 shadow-[0_0_25px_rgba(99,102,241,0.35)] hover:shadow-[0_0_35px_rgba(6,182,212,0.5)] cursor-pointer rounded-2xl active:scale-[0.98] font-['Hind_Siliguri',sans-serif]"
+            >
+              <span>Free Consultation Appointment বুক করুন</span>
+              <ArrowRight size={18} />
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
