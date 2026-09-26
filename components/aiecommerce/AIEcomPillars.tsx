@@ -76,6 +76,7 @@ export default function AIEcomPillars() {
   return (
     <section 
       ref={sectionRef}
+      style={{ contentVisibility: "auto", containIntrinsicSize: "1px 700px" }}
       className="py-16 sm:py-24 md:py-32 px-5 sm:px-8 md:px-12 lg:px-20 bg-[#05070D] relative z-10 border-b border-slate-800/80"
     >
       <div className="max-w-[1300px] mx-auto">

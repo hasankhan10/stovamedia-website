@@ -5,15 +5,26 @@ import { MessageSquare, ArrowRight, Flame } from "lucide-react";
 
 interface AIEcomStickyMobileBarProps {
   onBookClick: () => void;
+  onWhatsAppClick?: (url: string) => void;
 }
 
-export default function AIEcomStickyMobileBar({ onBookClick }: AIEcomStickyMobileBarProps) {
+export default function AIEcomStickyMobileBar({ onBookClick, onWhatsAppClick }: AIEcomStickyMobileBarProps) {
   const [visible, setVisible] = useState(false);
   const [timeLeft, setTimeLeft] = useState<number>(600);
   const [isBooked, setIsBooked] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setVisible(window.scrollY > 280);
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const isOver = window.scrollY > 280;
+          setVisible((prev) => (prev !== isOver ? isOver : prev));
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
 
@@ -84,6 +95,13 @@ export default function AIEcomStickyMobileBar({ onBookClick }: AIEcomStickyMobil
             href="https://wa.me/919432053261?text=Hello%20Stova%20Media,%20I%20want%20to%20claim%20a%20Free%20AI%20E-commerce%20Consultation%20Slot"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={(e) => {
+              const url = "https://wa.me/919432053261?text=Hello%20Stova%20Media,%20I%20want%20to%20claim%20a%20Free%20AI%20E-commerce%20Consultation%20Slot";
+              if (onWhatsAppClick) {
+                e.preventDefault();
+                onWhatsAppClick(url);
+              }
+            }}
             className="col-span-4 py-3 px-2 bg-[#25D366] hover:bg-[#20bd5a] text-[#05070D] font-bold text-xs uppercase tracking-wider transition-transform active:scale-[0.98] flex items-center justify-center gap-1 shadow-md font-ui"
           >
             <MessageSquare size={14} className="flex-shrink-0" />

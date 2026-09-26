@@ -9,9 +9,15 @@ import AIEcomTimer from "./AIEcomTimer";
 
 interface AIEcomBookingProps {
   bookingRef: React.RefObject<HTMLDivElement | null>;
+  onWhatsAppClick?: (url: string) => void;
+  onRequestConfirm?: (onConfirm: () => void) => void;
 }
 
-export default function AIEcomBooking({ bookingRef }: AIEcomBookingProps) {
+export default function AIEcomBooking({ 
+  bookingRef, 
+  onWhatsAppClick, 
+  onRequestConfirm 
+}: AIEcomBookingProps) {
   const [formStatus, setFormStatus] = useState<"idle" | "loading" | "success">("idle");
   const [isExpired, setIsExpired] = useState<boolean>(false);
   const [isBooked, setIsBooked] = useState<boolean>(false);
@@ -41,8 +47,7 @@ export default function AIEcomBooking({ bookingRef }: AIEcomBookingProps) {
     window.location.reload();
   };
 
-  const handleFormSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const executeFormSubmission = async () => {
     if (isExpired || isBooked) return;
     setFormStatus("loading");
 
@@ -71,9 +76,21 @@ export default function AIEcomBooking({ bookingRef }: AIEcomBookingProps) {
     }
   };
 
+  const handleFormSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (isExpired || isBooked) return;
+    if (onRequestConfirm) {
+      onRequestConfirm(executeFormSubmission);
+    } else {
+      executeFormSubmission();
+    }
+  };
+
   return (
     <section 
+      id="booking"
       ref={bookingRef} 
+      style={{ contentVisibility: "auto", containIntrinsicSize: "1px 750px" }}
       className="pt-12 sm:pt-16 md:pt-20 pb-6 sm:pb-8 px-5 sm:px-8 md:px-12 lg:px-20 bg-[#070A12] relative z-10 overflow-hidden"
     >
       <div 
@@ -114,6 +131,13 @@ export default function AIEcomBooking({ bookingRef }: AIEcomBookingProps) {
               href="https://wa.me/919432053261?text=Hello%20Stova%20Media,%20I%20want%20to%20book%20a%20free%20consultation%20for%20AI%20E-commerce"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={(e) => {
+                const url = "https://wa.me/919432053261?text=Hello%20Stova%20Media,%20I%20want%20to%20book%20a%20free%20consultation%20for%20AI%20E-commerce";
+                if (onWhatsAppClick) {
+                  e.preventDefault();
+                  onWhatsAppClick(url);
+                }
+              }}
               className="inline-flex items-center gap-2.5 px-8 py-4.5 bg-[#25D366] hover:bg-[#20bd5a] text-[#05070D] font-bold text-sm sm:text-base uppercase tracking-wider transition-all duration-300 shadow-[0_0_25px_rgba(37,211,102,0.35)] min-h-[50px]"
             >
               <MessageSquare size={18} />
@@ -123,7 +147,7 @@ export default function AIEcomBooking({ bookingRef }: AIEcomBookingProps) {
         </div>
 
         {/* Right: Booking Form or States */}
-        <div className="lg:col-span-6 w-full">
+        <div id="booking-form" className="lg:col-span-6 w-full scroll-mt-20 sm:scroll-mt-24">
           <SpotlightCard 
             spotlightColor="rgba(99, 102, 241, 0.2)"
             className="p-6 sm:p-9 md:p-11 border-slate-800 bg-[#0B0F19]/90 shadow-2xl rounded-3xl"
@@ -150,6 +174,13 @@ export default function AIEcomBooking({ bookingRef }: AIEcomBookingProps) {
                     href="https://wa.me/919432053261?text=Hello%20Stova%20Media,%20I%20just%20submitted%20my%20booking%20on%20your%20website"
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={(e) => {
+                      const url = "https://wa.me/919432053261?text=Hello%20Stova%20Media,%20I%20just%20submitted%20my%20booking%20on%20your%20website";
+                      if (onWhatsAppClick) {
+                        e.preventDefault();
+                        onWhatsAppClick(url);
+                      }
+                    }}
                     className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#25D366] hover:bg-[#20bd5a] text-[#05070D] font-bold text-xs sm:text-sm uppercase tracking-wider transition-all font-ui shadow-md rounded-xl"
                   >
                     <MessageSquare size={16} />
@@ -182,6 +213,13 @@ export default function AIEcomBooking({ bookingRef }: AIEcomBookingProps) {
                     href="https://wa.me/919432053261?text=Hello%20Stova%20Media,%20My%20timer%20expired%20on%20the%20landing%20page,%20I%20want%20to%20claim%20a%20slot%20directly"
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={(e) => {
+                      const url = "https://wa.me/919432053261?text=Hello%20Stova%20Media,%20My%20timer%20expired%20on%20the%20landing%20page,%20I%20want%20to%20claim%20a%20slot%20directly";
+                      if (onWhatsAppClick) {
+                        e.preventDefault();
+                        onWhatsAppClick(url);
+                      }
+                    }}
                     className="w-full py-3 bg-[#25D366] hover:bg-[#20bd5a] text-[#05070D] font-bold text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-1.5 shadow-md font-ui rounded-xl"
                   >
                     <MessageSquare size={16} />

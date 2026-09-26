@@ -1,8 +1,20 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import dynamic from "next/dynamic";
 import { Bot, X, Minimize2 } from "lucide-react";
-import AIEcomChatbotDemo from "./AIEcomChatbotDemo";
+
+const AIEcomChatbotDemo = dynamic(() => import("./AIEcomChatbotDemo"), {
+  ssr: false,
+  loading: () => (
+    <div className="h-[480px] sm:h-[520px] flex items-center justify-center bg-[#070A14] text-slate-400 font-ui text-sm">
+      <div className="flex items-center gap-2.5">
+        <div className="w-5 h-5 border-2 border-cyan-400 border-t-transparent rounded-full animate-spin" />
+        <span>AI Assistant লোড হচ্ছে...</span>
+      </div>
+    </div>
+  )
+});
 
 export default function AIEcomFloatingChatbot() {
   const [isOpen, setIsOpen] = useState(false);

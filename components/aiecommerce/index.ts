@@ -10,5 +10,6 @@ export { default as AIEcomTimer } from "./AIEcomTimer";
 export { default as AIEcomStickyMobileBar } from "./AIEcomStickyMobileBar";
 export { default as AIEcomChatbotDemo } from "./AIEcomChatbotDemo";
 export { default as AIEcomFloatingChatbot } from "./AIEcomFloatingChatbot";
+export { default as AIEcomConfirmModal } from "./AIEcomConfirmModal";
 export * from "./types";
 

@@ -12,9 +12,10 @@ gsap.registerPlugin(ScrollTrigger);
 
 interface AIEcomHeroProps {
   onBookClick: () => void;
+  onWhatsAppClick?: (url: string) => void;
 }
 
-export default function AIEcomHero({ onBookClick }: AIEcomHeroProps) {
+export default function AIEcomHero({ onBookClick, onWhatsAppClick }: AIEcomHeroProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const chatCardRef = useRef<HTMLDivElement>(null);
@@ -127,6 +128,13 @@ export default function AIEcomHero({ onBookClick }: AIEcomHeroProps) {
                 href="https://wa.me/919432053261?text=Hello%20Stova%20Media,%20I%20want%20to%20know%20more%20about%20your%20AI%20E-commerce%20Platform"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={(e) => {
+                  const url = "https://wa.me/919432053261?text=Hello%20Stova%20Media,%20I%20want%20to%20know%20more%20about%20your%20AI%20E-commerce%20Platform";
+                  if (onWhatsAppClick) {
+                    e.preventDefault();
+                    onWhatsAppClick(url);
+                  }
+                }}
                 className="w-full sm:w-auto px-8 py-5 text-sm sm:text-base uppercase tracking-wider font-bold font-ui border border-emerald-500/40 bg-emerald-950/30 text-emerald-400 hover:bg-emerald-900/40 transition-all duration-300 flex items-center justify-center gap-2.5 shadow-sm min-h-[52px] rounded-2xl"
               >
                 <MessageSquare size={17} />

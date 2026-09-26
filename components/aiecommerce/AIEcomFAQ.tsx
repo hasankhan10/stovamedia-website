@@ -34,7 +34,10 @@ export default function AIEcomFAQ() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   return (
-    <section className="py-16 sm:py-24 md:py-32 px-5 sm:px-8 md:px-12 lg:px-20 bg-[#05070D] relative z-10 border-b border-slate-800/80">
+    <section 
+      style={{ contentVisibility: "auto", containIntrinsicSize: "1px 650px" }}
+      className="py-16 sm:py-24 md:py-32 px-5 sm:px-8 md:px-12 lg:px-20 bg-[#05070D] relative z-10 border-b border-slate-800/80"
+    >
       <div className="max-w-[1000px] mx-auto">
         <div className="text-center mb-12 sm:mb-16">
           <SectionLabel className="justify-center text-xs sm:text-sm">Got Questions?</SectionLabel>

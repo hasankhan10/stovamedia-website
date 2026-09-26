@@ -37,6 +37,7 @@ export default function AIEcomWorkflow() {
   return (
     <section 
       ref={sectionRef}
+      style={{ contentVisibility: "auto", containIntrinsicSize: "1px 650px" }}
       className="py-16 sm:py-24 md:py-32 px-5 sm:px-8 md:px-12 lg:px-20 bg-[#070A12] relative z-10 border-b border-slate-800/80"
     >
       <div className="max-w-[1200px] mx-auto">
