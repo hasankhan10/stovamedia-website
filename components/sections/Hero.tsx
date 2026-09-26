@@ -135,22 +135,7 @@ export default function Hero() {
         },
       });
 
-      // 3. Smooth fade out and elevation of hero text as frames reach completion
-      if (heroContentRef.current) {
-        gsap.to(heroContentRef.current, {
-          yPercent: -20,
-          opacity: 0,
-          ease: "power2.inOut",
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: "60% top",
-            end: "bottom bottom",
-            scrub: true,
-          },
-        });
-      }
-
-      // 4. Stats Counter trigger
+      // 3. Stats Counter trigger on mount / in-view
       if (statsRef.current) {
         const counters = statsRef.current.querySelectorAll(".stat-number");
         counters.forEach((counter) => {
@@ -160,10 +145,13 @@ export default function Hero() {
             { textContent: "0" },
             {
               textContent: target,
-              duration: 2.2,
+              duration: 2,
               snap: { textContent: 1 },
-              scrollTrigger: { trigger: counter, start: "top 95%" },
               ease: "power2.out",
+              scrollTrigger: { 
+                trigger: containerRef.current, 
+                start: "top 80%" 
+              },
             }
           );
         });
@@ -184,7 +172,7 @@ export default function Hero() {
       {/* Pinned Viewport Container - Exactly 100svh on all devices */}
       <div 
         ref={stickyRef}
-        className="sticky top-0 left-0 w-full h-[100svh] min-h-[100svh] max-h-[100svh] overflow-hidden flex flex-col justify-between items-center px-5 sm:px-8 md:px-12 lg:px-20 pt-[95px] md:pt-[110px] pb-6 sm:pb-8 border-b border-slate-800/80 z-10"
+        className="sticky top-0 left-0 w-full h-[100svh] min-h-[100svh] max-h-[100svh] overflow-hidden flex flex-col justify-between items-center px-4 sm:px-8 md:px-12 lg:px-20 pt-[72px] sm:pt-[90px] md:pt-[110px] pb-3 sm:pb-6 md:pb-8 border-b border-slate-800/80 z-10"
       >
         {/* Background Image Sequence Canvas */}
         <canvas 
@@ -193,7 +181,7 @@ export default function Hero() {
         />
 
         {/* Ambient Dark Gradient Overlays for optimal contrast & text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#05070D]/85 via-[#05070D]/40 to-[#05070D]/90 z-0 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#05070D]/85 via-[#05070D]/45 to-[#05070D]/90 z-0 pointer-events-none" />
         <div 
           className="absolute inset-0 z-0 pointer-events-none opacity-60"
           style={{
@@ -204,43 +192,43 @@ export default function Hero() {
         {/* Main Centered Content */}
         <div 
           ref={heroContentRef}
-          className="max-w-4xl mx-auto w-full flex flex-col items-center text-center relative z-10 my-auto"
+          className="max-w-5xl mx-auto w-full flex-1 flex flex-col items-center justify-center text-center relative z-10 px-1 sm:px-4 py-1"
         >
           {/* Availability Pill */}
-          <div className="hero-eyebrow inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-indigo-500/40 bg-[#0B0F19]/90 backdrop-blur-md mb-5 shadow-[0_0_25px_rgba(99,102,241,0.25)]">
-            <span className="relative flex h-2.5 w-2.5">
+          <div className="hero-eyebrow inline-flex items-center gap-2 px-3 py-1 sm:px-4 sm:py-1.5 rounded-full border border-indigo-500/40 bg-[#0B0F19]/90 backdrop-blur-md mb-2.5 sm:mb-4 shadow-[0_0_20px_rgba(99,102,241,0.25)]">
+            <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-400" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-400" />
             </span>
-            <span className="font-ui text-xs sm:text-sm font-semibold tracking-wider uppercase text-cyan-300">
+            <span className="font-ui text-[11px] sm:text-xs md:text-sm font-semibold tracking-wider uppercase text-cyan-300">
               Accepting Q2/Q3 Projects <span className="text-indigo-400">·</span> Kolkata &amp; Global
             </span>
           </div>
 
           {/* Master Headline */}
-          <h1 className="hero-title-node text-3xl sm:text-5xl md:text-6xl lg:text-[64px] font-bold leading-[1.08] tracking-tight text-[#F8FAFC] mb-5 max-w-3xl drop-shadow-md">
+          <h1 className="hero-title-node text-3xl sm:text-5xl md:text-6xl lg:text-[68px] xl:text-[76px] font-bold leading-[1.08] tracking-tight text-[#F8FAFC] mb-3 sm:mb-5 max-w-4xl drop-shadow-md">
             We Build Custom Software &amp; AI Tools For{" "}
-            <span className="bg-gradient-to-r from-indigo-400 via-cyan-300 to-indigo-300 bg-clip-text text-transparent underline decoration-cyan-400/40 decoration-wavy decoration-1 underline-offset-8">
+            <span className="bg-gradient-to-r from-indigo-400 via-cyan-300 to-indigo-300 bg-clip-text text-transparent underline decoration-cyan-400/40 decoration-wavy decoration-1 underline-offset-4 sm:underline-offset-8">
               Growing
             </span>{" "}
             Businesses.
           </h1>
 
           {/* Subtext in easy, clear English */}
-          <p className="hero-sub-node text-sm sm:text-base md:text-lg text-slate-200 font-light leading-relaxed mb-7 max-w-2xl drop-shadow">
+          <p className="hero-sub-node text-sm sm:text-lg md:text-xl lg:text-2xl text-slate-200 font-light leading-relaxed mb-4 sm:mb-6 max-w-3xl drop-shadow px-1">
             Stova Media is a custom software agency &amp; AI studio in Kolkata. We build fast websites, mobile apps, and 24/7 smart AI chatbots that help you win more customers and grow your revenue.
           </p>
 
           {/* CTAs */}
-          <div className="hero-cta-node flex flex-wrap items-center justify-center gap-4 mb-7 w-full sm:w-auto">
+          <div className="hero-cta-node flex flex-wrap items-center justify-center gap-2.5 sm:gap-4 mb-3 sm:mb-5 w-full sm:w-auto">
             <MagneticElement className="w-full sm:w-auto">
               <Button 
                 variant="primary" 
                 href="/contact" 
-                className="w-full sm:w-auto px-8 py-4 text-xs sm:text-sm font-bold tracking-wider flex items-center justify-center gap-2.5 bg-gradient-to-r from-indigo-500 via-indigo-600 to-cyan-500 text-white shadow-[0_0_30px_rgba(99,102,241,0.4)] hover:shadow-[0_0_40px_rgba(6,182,212,0.55)] transition-all duration-300 cursor-pointer min-h-[48px]"
+                className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-xs sm:text-sm font-bold tracking-wider flex items-center justify-center gap-2 bg-gradient-to-r from-indigo-500 via-indigo-600 to-cyan-500 text-white shadow-[0_0_25px_rgba(99,102,241,0.4)] hover:shadow-[0_0_35px_rgba(6,182,212,0.55)] transition-all duration-300 cursor-pointer min-h-[42px] sm:min-h-[48px]"
               >
                 <span>Start Your Project</span>
-                <ArrowUpRight size={16} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <ArrowUpRight size={15} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Button>
             </MagneticElement>
 
@@ -248,7 +236,7 @@ export default function Hero() {
               <Button 
                 variant="outline" 
                 href="/work" 
-                className="w-full sm:w-auto px-7 py-4 text-xs sm:text-sm uppercase tracking-wider font-bold font-ui border border-slate-700 bg-[#0B0F19]/85 backdrop-blur-md text-slate-200 hover:border-cyan-400/50 hover:text-cyan-300 transition-all duration-300 flex items-center justify-center gap-2 min-h-[48px]"
+                className="w-full sm:w-auto px-5 sm:px-7 py-3 sm:py-4 text-xs sm:text-sm uppercase tracking-wider font-bold font-ui border border-slate-700 bg-[#0B0F19]/85 backdrop-blur-md text-slate-200 hover:border-cyan-400/50 hover:text-cyan-300 transition-all duration-300 flex items-center justify-center gap-2 min-h-[42px] sm:min-h-[48px]"
               >
                 <span>Explore Selected Works</span>
               </Button>
@@ -256,15 +244,15 @@ export default function Hero() {
           </div>
 
           {/* Capability Pills */}
-          <div className="hero-pills-node flex flex-wrap justify-center gap-2 max-w-2xl">
+          <div className="hero-pills-node hidden xs:flex flex-wrap justify-center gap-1.5 sm:gap-2 max-w-2xl">
             {capabilityPills.map((pill, idx) => {
               const Icon = pill.icon;
               return (
                 <div 
                   key={idx}
-                  className="inline-flex items-center gap-2 px-3 py-1.5 border border-slate-800/90 bg-[#0A0E1A]/85 backdrop-blur-md text-slate-300 hover:text-cyan-300 hover:border-cyan-500/40 transition-colors duration-300 text-xs font-ui rounded-full"
+                  className="inline-flex items-center gap-1.5 px-2.5 py-1 sm:px-3 sm:py-1.5 border border-slate-800/90 bg-[#0A0E1A]/85 backdrop-blur-md text-slate-300 hover:text-cyan-300 hover:border-cyan-500/40 transition-colors duration-300 text-[10px] sm:text-xs font-ui rounded-full"
                 >
-                  <Icon size={13} className="text-cyan-400" />
+                  <Icon size={12} className="text-cyan-400 shrink-0" />
                   <span>{pill.label}</span>
                 </div>
               );
@@ -275,21 +263,21 @@ export default function Hero() {
         {/* Stats Strip Bar */}
         <div 
           ref={statsRef}
-          className="relative z-10 max-w-[1400px] mx-auto w-full pt-4 md:pt-5 border-t border-slate-800/80 backdrop-blur-sm bg-[#05070D]/40 rounded-lg px-4"
+          className="relative z-10 max-w-[1400px] mx-auto w-full pt-2.5 sm:pt-4 md:pt-5 border-t border-slate-800/80 backdrop-blur-sm bg-[#05070D]/60 rounded-xl px-3 sm:px-6 shrink-0"
         >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center md:text-left">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4 md:gap-6 text-center sm:text-left">
             {stats.map((stat, i) => (
-              <div key={i} className="flex flex-col items-center md:items-start group">
+              <div key={i} className="flex flex-col items-center sm:items-start group py-0.5 sm:py-1">
                 <div className="flex items-baseline">
                   <span 
-                    className="stat-number font-display text-2xl sm:text-3xl lg:text-4xl text-[#F8FAFC] tracking-tight group-hover:text-cyan-400 transition-colors duration-500 font-bold" 
+                    className="stat-number font-display text-xl xs:text-2xl sm:text-3xl lg:text-4xl text-[#F8FAFC] tracking-tight group-hover:text-cyan-400 transition-colors duration-500 font-bold" 
                     data-target={stat.value}
                   >
-                    0
+                    {stat.value}
                   </span>
-                  <span className="text-indigo-400 font-display text-xl sm:text-2xl ml-0.5 font-bold">{stat.suffix}</span>
+                  <span className="text-indigo-400 font-display text-base xs:text-xl sm:text-2xl ml-0.5 font-bold">{stat.suffix}</span>
                 </div>
-                <span className="text-slate-400 text-[11px] sm:text-xs uppercase tracking-[0.18em] font-medium font-ui">
+                <span className="text-slate-300 text-[9px] xs:text-[10px] sm:text-xs uppercase tracking-[0.14em] font-medium font-ui leading-tight">
                   {stat.label}
                 </span>
               </div>
