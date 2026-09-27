@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { DM_Serif_Display, Outfit } from "next/font/google";
 import "./globals.css";
 
 import Preloader from "@/components/layout/Preloader";
@@ -7,19 +6,6 @@ import GlobalBackground from "@/components/layout/GlobalBackground";
 import ScrollProgress from "@/components/layout/ScrollProgress";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import AppLayoutWrapper from "@/components/layout/AppLayoutWrapper";
-
-const displayFont = DM_Serif_Display({
-  subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
-  variable: "--font-display",
-});
-
-const uiFont = Outfit({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-  variable: "--font-ui",
-});
 
 export const metadata: Metadata = {
   title: {
@@ -262,7 +248,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`dark ${displayFont.variable} ${uiFont.variable}`} suppressHydrationWarning>
+    <html lang="en" className="dark" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/logo.jpeg" type="image/jpeg" />
         <link rel="shortcut icon" href="/logo.jpeg" type="image/jpeg" />
@@ -272,7 +258,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link 
           rel="stylesheet" 
-          href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@400;500;600;700;800;900&family=Hind+Siliguri:wght@300;400;500;600;700&family=Noto+Sans+Bengali:wght@300;400;500;600;700&display=swap" 
+          href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@400;500;600;700;800;900&family=DM+Serif+Display:ital,wght@0,400;1,400&family=Hind+Siliguri:wght@300;400;500;600;700&family=Noto+Sans+Bengali:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap" 
         />
         <script
           type="application/ld+json"

@@ -18,6 +18,8 @@
 }
 
 :root {
+  --font-display: 'DM Serif Display', serif;
+  --font-ui: 'Outfit', sans-serif;
   --ink: #0A0A0B; /* Solid Premium Dark Charcoal (80% Black / 20% Gray blend) */
   --ink-gradient: var(--ink);
   --ink-2: #0C0C0C;
