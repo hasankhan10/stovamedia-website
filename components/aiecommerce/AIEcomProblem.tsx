@@ -35,16 +35,16 @@ export default function AIEcomProblem({ onBookClick }: { onBookClick?: () => voi
     <section 
       ref={sectionRef}
       style={{ contentVisibility: "auto", containIntrinsicSize: "1px 700px" }}
-      className="py-16 sm:py-24 md:py-32 px-5 sm:px-8 md:px-12 lg:px-20 bg-[#070A12] relative z-10 border-b border-slate-800/80"
+      className="py-16 sm:py-24 md:py-32 px-5 sm:px-8 md:px-12 lg:px-20 bg-slate-50/100 relative z-10 border-b border-slate-200/80"
     >
       <div className="max-w-[1200px] mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <SectionLabel className="justify-center text-xs sm:text-sm">The Real Friction Point</SectionLabel>
-          <h2 className="font-['Anek_Bangla','Amar_Bangla',sans-serif] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#F8FAFC] mt-4 mb-6">
+          <h2 className="font-['Anek_Bangla','Amar_Bangla',sans-serif] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-slate-900 mt-4 mb-6">
             Customer সবসময় জানে না ঠিক কী Search করতে হবে
           </h2>
-          <p className="font-['Noto_Sans_Bengali','Noto_Sans',sans-serif] text-slate-300 text-base sm:text-xl md:text-2xl leading-relaxed font-light">
-            একজন Customer আপনার Website-এ এসে হয়তো বলবেন না, <span className="text-white font-medium">&ldquo;আমি এই নির্দিষ্ট প্রোডাক্ট কিনতে চাই।&rdquo;</span> বরং তিনি নিজের ভাষায় বলবেন, <span className="text-cyan-400 font-medium">&ldquo;আমার এমন একটা Product দরকার যেটা আমার সমস্যার সমাধান করবে...&rdquo;</span>
+          <p className="font-['Noto_Sans_Bengali','Noto_Sans',sans-serif] text-slate-600 text-base sm:text-xl md:text-2xl leading-relaxed font-light">
+            একজন Customer আপনার Website-এ এসে হয়তো বলবেন না, <span className="text-slate-900 font-medium">&ldquo;আমি এই নির্দিষ্ট প্রোডাক্ট কিনতে চাই।&rdquo;</span> বরং তিনি নিজের ভাষায় বলবেন, <span className="text-cyan-700 font-medium">&ldquo;আমার এমন একটা Product দরকার যেটা আমার সমস্যার সমাধান করবে...&rdquo;</span>
           </p>
         </div>
 
@@ -53,23 +53,23 @@ export default function AIEcomProblem({ onBookClick }: { onBookClick?: () => voi
           {/* Traditional */}
           <div className="problem-left-anim">
             <SpotlightCard 
-              spotlightColor="rgba(244, 63, 94, 0.12)"
-              className="p-7 sm:p-10 md:p-12 border-rose-950/60 bg-[#0F0A0E]/80 relative overflow-hidden h-full shadow-lg rounded-3xl flex flex-col justify-between"
+              spotlightColor="rgba(244, 63, 94, 0.08)"
+              className="p-7 sm:p-10 md:p-12 border-rose-200/80 bg-rose-50/40 relative overflow-hidden h-full shadow-[0_4px_25px_rgba(244,63,94,0.04)] rounded-3xl flex flex-col justify-between"
             >
               <div>
-                <div className="flex items-center gap-3 mb-6 text-rose-400">
-                  <div className="w-12 h-12 rounded-2xl bg-rose-950/60 border border-rose-800/40 flex items-center justify-center shrink-0">
+                <div className="flex items-center gap-3 mb-6 text-rose-600">
+                  <div className="w-12 h-12 rounded-2xl bg-rose-100 border border-rose-200 flex items-center justify-center shrink-0">
                     <XCircle size={26} />
                   </div>
-                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold">সাধারণ Website (Traditional Search)</h3>
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-900">সাধারণ Website (Traditional Search)</h3>
                 </div>
 
-                <p className="text-slate-300 leading-relaxed text-sm sm:text-base md:text-lg font-light">
+                <p className="text-slate-600 leading-relaxed text-sm sm:text-base md:text-lg font-light">
                   Normal Website কাস্টমারকে নিজে স্ক্রল করে 10 টি পেজে প্রোডাক্ট খুঁজতে বাধ্য করে। হতাশ হয়ে Customer ট্যাব বন্ধ করে Competitor এর কাছে চলে যায়।
                 </p>
               </div>
 
-              <div className="mt-8 pt-5 border-t border-rose-900/30 text-xs sm:text-sm font-bold text-rose-400 uppercase tracking-wider font-ui flex items-center justify-between">
+              <div className="mt-8 pt-5 border-t border-rose-200/60 text-xs sm:text-sm font-bold text-rose-600 uppercase tracking-wider font-ui flex items-center justify-between">
                 <span>High Bounce Rate</span>
                 <span>Lost Revenue Daily</span>
               </div>
@@ -79,25 +79,25 @@ export default function AIEcomProblem({ onBookClick }: { onBookClick?: () => voi
           {/* AI-Powered */}
           <div className="problem-right-anim">
             <SpotlightCard 
-              spotlightColor="rgba(6, 182, 212, 0.18)"
-              className="p-7 sm:p-10 md:p-12 border-cyan-500/40 bg-[#09111D]/80 relative overflow-hidden h-full shadow-xl rounded-3xl flex flex-col justify-between"
+              spotlightColor="rgba(6, 182, 212, 0.1)"
+              className="p-7 sm:p-10 md:p-12 border-cyan-200/90 bg-cyan-50/40 relative overflow-hidden h-full shadow-[0_4px_25px_rgba(6,182,212,0.06)] rounded-3xl flex flex-col justify-between"
             >
               <div>
-                <div className="flex items-center gap-3 mb-6 text-cyan-400">
-                  <div className="w-12 h-12 rounded-2xl bg-cyan-950/60 border border-cyan-500/40 flex items-center justify-center shrink-0">
+                <div className="flex items-center gap-3 mb-6 text-cyan-700">
+                  <div className="w-12 h-12 rounded-2xl bg-cyan-100 border border-cyan-200 flex items-center justify-center shrink-0">
                     <CheckCircle2 size={26} />
                   </div>
-                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold">AI-Powered Website (Smart Intent)</h3>
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-900">AI-Powered Website (Smart Intent)</h3>
                 </div>
 
-                <p className="text-slate-200 leading-relaxed text-sm sm:text-base md:text-lg font-light">
+                <p className="text-slate-700 leading-relaxed text-sm sm:text-base md:text-lg font-light">
                   AI-Powered Website কাস্টমারের প্রয়োজন ও বাজেট বুঝে মুহূর্তের মধ্যে সঠিক প্রোডাক্টটি সামনে এনে দেয় এবং অর্ডার কমপ্লিট করায়।
                 </p>
               </div>
 
-              <div className="mt-8 pt-5 border-t border-cyan-500/30 text-xs sm:text-sm font-bold text-cyan-400 uppercase tracking-wider font-ui flex items-center justify-between">
+              <div className="mt-8 pt-5 border-t border-cyan-200/70 text-xs sm:text-sm font-bold text-cyan-800 uppercase tracking-wider font-ui flex items-center justify-between">
                 <span className="flex items-center gap-2">
-                  <Sparkles size={16} className="text-indigo-400" /> Higher Conversion
+                  <Sparkles size={16} className="text-indigo-600" /> Higher Conversion
                 </span>
                 <span>Zero Friction Purchase</span>
               </div>
@@ -110,7 +110,7 @@ export default function AIEcomProblem({ onBookClick }: { onBookClick?: () => voi
           <div className="mt-10 sm:mt-14 flex justify-center">
             <button
               onClick={onBookClick}
-              className="w-full sm:w-auto px-8 py-4 sm:px-10 sm:py-4.5 bg-gradient-to-r from-indigo-500 via-indigo-600 to-cyan-500 hover:from-indigo-600 hover:to-cyan-600 text-white font-bold text-sm sm:text-base tracking-wider transition-all duration-300 flex items-center justify-center gap-2.5 shadow-[0_0_25px_rgba(99,102,241,0.35)] hover:shadow-[0_0_35px_rgba(6,182,212,0.5)] cursor-pointer rounded-2xl active:scale-[0.98] font-['Hind_Siliguri',sans-serif]"
+              className="w-full sm:w-auto px-8 py-4 sm:px-10 sm:py-4.5 bg-gradient-to-r from-indigo-600 via-indigo-700 to-cyan-600 hover:from-indigo-700 hover:to-cyan-700 text-white font-bold text-sm sm:text-base tracking-wider transition-all duration-300 flex items-center justify-center gap-2.5 shadow-[0_4px_20px_rgba(99,102,241,0.25)] hover:shadow-[0_8px_30px_rgba(6,182,212,0.35)] cursor-pointer rounded-2xl active:scale-[0.98] font-['Hind_Siliguri',sans-serif]"
             >
               <span>Free Consultation Appointment বুক করুন</span>
               <ArrowRight size={18} />

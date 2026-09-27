@@ -65,23 +65,23 @@ export default function AIEcomTimer({ className = "", size = "lg", onExpire }: A
   const isLg = size === "lg";
 
   return (
-    <div className={`flex flex-col items-center justify-center gap-3 p-4 sm:p-5 bg-gradient-to-b from-[#0B0F1E] via-[#070A14] to-[#0B0F1E] border border-indigo-500/40 rounded-xl shadow-[0_0_35px_rgba(99,102,241,0.25)] relative overflow-hidden backdrop-blur-xl ${className}`}>
-      <div className="pointer-events-none absolute -top-10 left-1/2 -translate-x-1/2 w-48 h-20 bg-cyan-500/20 rounded-full blur-2xl" />
+    <div className={`flex flex-col items-center justify-center gap-3 p-4 sm:p-5 bg-white border border-slate-200 rounded-2xl shadow-[0_4px_25px_rgba(0,0,0,0.04)] relative overflow-hidden ${className}`}>
+      <div className="pointer-events-none absolute -top-10 left-1/2 -translate-x-1/2 w-48 h-20 bg-indigo-500/10 rounded-full blur-2xl" />
 
       {/* Header Badge */}
-      <div className="flex items-center justify-between w-full gap-3 px-1 border-b border-slate-800/80 pb-2.5 z-10">
+      <div className="flex items-center justify-between w-full gap-3 px-1 border-b border-slate-100 pb-2.5 z-10">
         <div className="flex items-center gap-2">
           <span className="relative flex h-2.5 w-2.5">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75" />
-            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-rose-500 shadow-[0_0_8px_rgba(244,63,94,0.8)]" />
+            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-rose-500" />
           </span>
-          <span className="text-xs sm:text-sm font-bold text-rose-300 font-ui uppercase tracking-wider flex items-center gap-1.5">
-            <Flame size={14} className="text-rose-400 animate-bounce" />
+          <span className="text-xs sm:text-sm font-bold text-rose-600 font-ui uppercase tracking-wider flex items-center gap-1.5">
+            <Flame size={14} className="text-rose-500 animate-bounce" />
             Limited Monthly Slots
           </span>
         </div>
-        <div className="flex items-center gap-1.5 text-slate-300 text-xs sm:text-sm font-['Hind_Siliguri',sans-serif]">
-          <Clock size={13} className="text-cyan-400" />
+        <div className="flex items-center gap-1.5 text-slate-500 text-xs sm:text-sm font-['Hind_Siliguri',sans-serif]">
+          <Clock size={13} className="text-indigo-600" />
           <span>অফার শেষ হতে বাকি</span>
         </div>
       </div>
@@ -95,20 +95,20 @@ export default function AIEcomTimer({ className = "", size = "lg", onExpire }: A
           <React.Fragment key={item.label}>
             {idx === 1 && (
               <div className="flex flex-col gap-1.5 pb-5">
-                <span className="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-cyan-400 shadow-[0_0_10px_rgba(6,182,212,0.9)] animate-pulse" />
-                <span className="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-cyan-400 shadow-[0_0_10px_rgba(6,182,212,0.9)] animate-pulse" />
+                <span className="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-indigo-600 animate-pulse" />
+                <span className="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-indigo-600 animate-pulse" />
               </div>
             )}
             <div className="flex flex-col items-center">
               <div className="relative group">
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-lg blur opacity-30 group-hover:opacity-60 transition" />
-                <div className={`relative flex items-center justify-center ${isLg ? "min-w-[68px] sm:min-w-[85px] py-2.5 sm:py-3.5 px-3 sm:px-4 text-2xl sm:text-4xl md:text-5xl" : "min-w-[56px] py-2 px-2.5 text-xl sm:text-2xl"} font-mono font-extrabold text-white bg-[#05070D] border border-indigo-500/50 rounded-lg shadow-[inset_0_1px_15px_rgba(99,102,241,0.2)] tracking-wider`}>
-                  <span className="bg-gradient-to-b from-white via-slate-100 to-cyan-200 bg-clip-text text-transparent drop-shadow-[0_0_12px_rgba(6,182,212,0.4)]">
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-xl blur opacity-20 group-hover:opacity-40 transition" />
+                <div className={`relative flex items-center justify-center ${isLg ? "min-w-[68px] sm:min-w-[85px] py-2.5 sm:py-3.5 px-3 sm:px-4 text-2xl sm:text-4xl md:text-5xl" : "min-w-[56px] py-2 px-2.5 text-xl sm:text-2xl"} font-mono font-extrabold text-slate-900 bg-slate-50 border border-slate-200 rounded-xl shadow-xs tracking-wider`}>
+                  <span className="text-slate-900">
                     {item.val}
                   </span>
                 </div>
               </div>
-              <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-slate-300 font-ui mt-1.5">
+              <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-slate-500 font-ui mt-1.5">
                 {item.label}
               </span>
             </div>
@@ -117,9 +117,9 @@ export default function AIEcomTimer({ className = "", size = "lg", onExpire }: A
       </div>
 
       {/* Progress Bar */}
-      <div className="w-full bg-[#05070D] border border-slate-800 rounded-full h-2 overflow-hidden relative z-10 mt-1">
+      <div className="w-full bg-slate-100 border border-slate-200 rounded-full h-2 overflow-hidden relative z-10 mt-1">
         <div 
-          className="h-full bg-gradient-to-r from-indigo-500 via-cyan-400 to-emerald-400 transition-all duration-1000 ease-linear rounded-full shadow-[0_0_10px_rgba(6,182,212,0.6)]"
+          className="h-full bg-gradient-to-r from-indigo-600 via-cyan-500 to-emerald-500 transition-all duration-1000 ease-linear rounded-full"
           style={{ width: `${percent}%` }}
         />
       </div>

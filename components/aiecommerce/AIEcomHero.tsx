@@ -60,11 +60,12 @@ export default function AIEcomHero({ onBookClick, onWhatsAppClick }: AIEcomHeroP
   return (
     <section 
       ref={sectionRef}
-      className="relative min-h-[92svh] flex flex-col justify-center px-5 sm:px-8 md:px-12 lg:px-20 pt-[60px] md:pt-[90px] pb-16 md:pb-24 overflow-hidden border-b border-slate-800/80"
+      className="relative min-h-[92svh] flex flex-col justify-center px-5 sm:px-8 md:px-12 lg:px-20 pt-[60px] md:pt-[90px] pb-16 md:pb-24 overflow-hidden bg-white border-b border-slate-200/80"
     >
+      {/* Soft Ambient Light Glows */}
       <div 
-        className="pointer-events-none absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] md:w-[700px] h-[550px] md:h-[700px] rounded-full opacity-20 z-0"
-        style={{ background: "radial-gradient(circle, rgba(99, 102, 241, 0.4) 0%, rgba(6, 182, 212, 0.15) 50%, transparent 70%)" }}
+        className="pointer-events-none absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] md:w-[850px] h-[600px] md:h-[850px] rounded-full opacity-60 z-0"
+        style={{ background: "radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, rgba(6, 182, 212, 0.04) 50%, transparent 70%)" }}
       />
 
       <div 
@@ -77,46 +78,46 @@ export default function AIEcomHero({ onBookClick, onWhatsAppClick }: AIEcomHeroP
           <div className="hero-badge-node flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-6">
             <Link href="/" className="inline-flex items-center gap-2 group">
               <div className="relative">
-                <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-full blur opacity-40 group-hover:opacity-80 transition duration-300" />
+                <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-full blur opacity-25 group-hover:opacity-60 transition duration-300" />
                 <Image 
                   src="/logo.jpeg" 
                   alt="Stova Media Logo" 
                   width={220} 
                   height={60} 
-                  className="relative h-11 sm:h-13 md:h-14 w-auto object-contain rounded-full border border-cyan-500/50 shadow-[0_0_25px_rgba(6,182,212,0.4)]" 
+                  className="relative h-11 sm:h-13 md:h-14 w-auto object-contain rounded-full border border-slate-200 shadow-md" 
                   priority
                 />
               </div>
             </Link>
-            <span className="h-4 w-px bg-slate-800 hidden sm:inline" />
-            <div className="inline-flex items-center gap-2 px-3 py-1 border border-indigo-500/40 bg-[#0B0F19]/90 rounded-full shadow-sm">
+            <span className="h-4 w-px bg-slate-300 hidden sm:inline" />
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 border border-indigo-200/80 bg-indigo-50/60 rounded-full shadow-xs">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-400" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-500 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-600" />
               </span>
-              <span className="text-[11px] sm:text-xs uppercase font-ui tracking-wider font-semibold text-cyan-300">
+              <span className="text-[11px] sm:text-xs uppercase font-ui tracking-wider font-bold text-indigo-700">
                 AI E-Commerce Architecture
               </span>
             </div>
           </div>
 
-          <h1 className="hero-title-node font-['Anek_Bangla','Amar_Bangla',sans-serif] text-3xl sm:text-5xl md:text-6xl lg:text-[58px] font-bold leading-[1.22] tracking-tight text-[#F8FAFC] mb-6 sm:mb-8 text-center lg:text-left">
+          <h1 className="hero-title-node font-['Anek_Bangla','Amar_Bangla',sans-serif] text-3xl sm:text-5xl md:text-6xl lg:text-[58px] font-bold leading-[1.22] tracking-tight text-slate-900 mb-6 sm:mb-8 text-center lg:text-left">
             আপনার Website-এ Customer আসছে, কিন্তু{" "}
-            <span className="bg-gradient-to-r from-indigo-400 via-cyan-300 to-indigo-300 bg-clip-text text-transparent underline decoration-cyan-400/40 decoration-wavy decoration-1 underline-offset-8">
+            <span className="bg-gradient-to-r from-indigo-600 via-cyan-600 to-indigo-600 bg-clip-text text-transparent underline decoration-cyan-500/40 decoration-wavy decoration-1 underline-offset-8">
               Product খুঁজে না পেয়ে
             </span>{" "}
-            <span className="text-red-600">চলে যাচ্ছে না তো?</span>
+            <span className="text-rose-600">চলে যাচ্ছে না তো?</span>
           </h1>
 
-          <p className="hero-sub-node font-['Noto_Sans_Bengali','Noto_Sans',sans-serif] text-base sm:text-xl md:text-2xl text-slate-300 font-light leading-relaxed mb-8 sm:mb-10 max-w-2xl text-center lg:text-left">
-            এবার আনুন এমন একটা <strong className="text-white font-medium">AI-Powered E-commerce Platform</strong>, যেটা প্রতিটা Customer-কে বোঝে, ঠিক Product দেখায়, আর কিনতে সাহায্য করে — একদম নিজের একজন দক্ষ <span className="text-cyan-400 font-medium">24/7 Digital Sales Assistant</span>-এর মতো।
+          <p className="hero-sub-node font-['Noto_Sans_Bengali','Noto_Sans',sans-serif] text-base sm:text-xl md:text-2xl text-slate-600 font-light leading-relaxed mb-8 sm:mb-10 max-w-2xl text-center lg:text-left">
+            এবার আনুন এমন একটা <strong className="text-slate-900 font-semibold">AI-Powered E-commerce Platform</strong>, যেটা প্রতিটা Customer-কে বোঝে, ঠিক Product দেখায়, আর কিনতে সাহায্য করে — একদম নিজের একজন দক্ষ <span className="text-cyan-700 font-medium">24/7 Digital Sales Assistant</span>-এর মতো।
           </p>
 
           <div className="hero-cta-node flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-8 sm:mb-10 w-full sm:w-auto">
             <MagneticElement className="w-full sm:w-auto">
               <button 
                 onClick={onBookClick} 
-                className="w-full sm:w-auto px-9 py-5 text-sm sm:text-base md:text-lg font-bold tracking-wider flex items-center justify-center gap-3 bg-gradient-to-r from-indigo-500 via-indigo-600 to-cyan-500 text-white shadow-[0_0_30px_rgba(99,102,241,0.4)] hover:shadow-[0_0_40px_rgba(6,182,212,0.55)] transition-all duration-300 cursor-pointer min-h-[52px] rounded-2xl"
+                className="w-full sm:w-auto px-9 py-5 text-sm sm:text-base md:text-lg font-bold tracking-wider flex items-center justify-center gap-3 bg-gradient-to-r from-indigo-600 via-indigo-700 to-cyan-600 hover:from-indigo-700 hover:to-cyan-700 text-white shadow-[0_4px_25px_rgba(99,102,241,0.35)] hover:shadow-[0_8px_35px_rgba(6,182,212,0.45)] transition-all duration-300 cursor-pointer min-h-[52px] rounded-2xl active:scale-[0.98]"
               >
                 <span>Free Consultation Book করুন</span>
                 <ArrowRight size={18} />
@@ -135,20 +136,20 @@ export default function AIEcomHero({ onBookClick, onWhatsAppClick }: AIEcomHeroP
                     onWhatsAppClick(url);
                   }
                 }}
-                className="w-full sm:w-auto px-8 py-5 text-sm sm:text-base uppercase tracking-wider font-bold font-ui border border-emerald-500/40 bg-emerald-950/30 text-emerald-400 hover:bg-emerald-900/40 transition-all duration-300 flex items-center justify-center gap-2.5 shadow-sm min-h-[52px] rounded-2xl"
+                className="w-full sm:w-auto px-8 py-5 text-sm sm:text-base uppercase tracking-wider font-bold font-ui border border-emerald-300 bg-emerald-50 text-emerald-800 hover:bg-emerald-100 transition-all duration-300 flex items-center justify-center gap-2.5 shadow-sm min-h-[52px] rounded-2xl active:scale-[0.98]"
               >
-                <MessageSquare size={17} />
+                <MessageSquare size={17} className="text-[#25D366]" />
                 <span>WhatsApp-এ কথা বলুন</span>
               </a>
             </MagneticElement>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-5 sm:gap-6 text-sm sm:text-base font-ui text-slate-300">
-            <span className="flex items-center gap-2 text-slate-200">
-              <ShieldCheck size={18} className="text-emerald-400 flex-shrink-0" /> ১০০% Approval না পাওয়া পর্যন্ত Final Payment নেই
+          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-5 sm:gap-6 text-sm sm:text-base font-ui text-slate-600">
+            <span className="flex items-center gap-2 text-slate-700 font-medium">
+              <ShieldCheck size={18} className="text-emerald-600 flex-shrink-0" /> ১০০% Approval না পাওয়া পর্যন্ত Final Payment নেই
             </span>
-            <span className="flex items-center gap-2 text-slate-200">
-              <Award size={18} className="text-cyan-400 flex-shrink-0" /> Dr. Paul&apos;s Website Partner
+            <span className="flex items-center gap-2 text-slate-700 font-medium">
+              <Award size={18} className="text-cyan-600 flex-shrink-0" /> Dr. Paul&apos;s Website Partner
             </span>
           </div>
         </div>
@@ -157,28 +158,28 @@ export default function AIEcomHero({ onBookClick, onWhatsAppClick }: AIEcomHeroP
         <div className="lg:col-span-5 w-full">
           <div ref={chatCardRef}>
             <SpotlightCard 
-              spotlightColor="rgba(99, 102, 241, 0.22)"
-              className="p-6 sm:p-8 md:p-9 border-indigo-500/40 bg-gradient-to-b from-[#0C111F]/95 via-[#070A14]/95 to-[#090D1A]/95 shadow-2xl relative rounded-3xl backdrop-blur-xl"
+              spotlightColor="rgba(99, 102, 241, 0.08)"
+              className="p-6 sm:p-8 md:p-9 border-slate-200/90 bg-white/90 shadow-[0_15px_50px_rgba(0,0,0,0.06)] relative rounded-3xl backdrop-blur-xl"
             >
               {/* Header */}
-              <div className="flex items-center justify-between pb-5 border-b border-slate-800 mb-6">
+              <div className="flex items-center justify-between pb-5 border-b border-slate-100 mb-6">
                 <div className="flex items-center gap-3">
-                  <div className="relative w-11 h-11 rounded-2xl bg-gradient-to-tr from-indigo-500 via-indigo-600 to-cyan-400 flex items-center justify-center text-white shadow-[0_0_15px_rgba(99,102,241,0.4)]">
+                  <div className="relative w-11 h-11 rounded-2xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-cyan-500 flex items-center justify-center text-white shadow-[0_4px_15px_rgba(99,102,241,0.3)]">
                     <Bot size={22} className="animate-pulse" />
-                    <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-emerald-400 border-2 border-[#05070D]" />
+                    <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-emerald-500 border-2 border-white" />
                   </div>
                   <div>
-                    <h3 className="text-base sm:text-lg font-bold text-white">
+                    <h3 className="text-base sm:text-lg font-bold text-slate-900">
                       AI E-Commerce Core
                     </h3>
-                    <p className="text-xs text-cyan-400 uppercase tracking-wider font-ui font-medium">
+                    <p className="text-xs text-indigo-600 uppercase tracking-wider font-ui font-semibold">
                       24/7 Autonomous Sales Engine
                     </p>
                   </div>
                 </div>
 
-                <span className="px-3 py-1 rounded-full text-[11px] bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 font-ui font-bold uppercase tracking-wider flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+                <span className="px-3 py-1 rounded-full text-[11px] bg-emerald-50 border border-emerald-200 text-emerald-700 font-ui font-bold uppercase tracking-wider flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
                   Live System
                 </span>
               </div>
@@ -190,30 +191,30 @@ export default function AIEcomHero({ onBookClick, onWhatsAppClick }: AIEcomHeroP
                     icon: Bot,
                     title: "24/7 AI Sales Assistant",
                     desc: "কাস্টমারের যেকোনো প্রশ্নের উত্তর দিয়ে সরাসরি সেলস ক্লোজ করে।",
-                    accent: "text-indigo-400 bg-indigo-950/60 border-indigo-500/30"
+                    accent: "text-indigo-600 bg-indigo-50 border-indigo-100"
                   },
                   {
                     icon: Search,
                     title: "Smart Semantic Search",
                     desc: "কাস্টমারের প্রয়োজন ও ভাষার অর্থ বুঝে সঠিক প্রোডাক্ট খুঁজে দেয়।",
-                    accent: "text-cyan-400 bg-cyan-950/60 border-cyan-500/30"
+                    accent: "text-cyan-700 bg-cyan-50 border-cyan-100"
                   },
                   {
                     icon: TrendingUp,
                     title: "Autonomous Product SEO",
                     desc: "গুগল সার্চ র‍্যাংকিং বাড়ানোর জন্য অটো-অপ্টিমাইজড মেটা ও স্কিমা।",
-                    accent: "text-emerald-400 bg-emerald-950/60 border-emerald-500/30"
+                    accent: "text-emerald-700 bg-emerald-50 border-emerald-100"
                   }
                 ].map((f, idx) => {
                   const Icon = f.icon;
                   return (
-                    <div key={idx} className="p-3.5 sm:p-4 bg-[#05070D]/80 border border-slate-800/90 rounded-2xl flex items-start gap-3.5 hover:border-slate-700 transition-colors">
+                    <div key={idx} className="p-3.5 sm:p-4 bg-slate-50/70 border border-slate-200/80 rounded-2xl flex items-start gap-3.5 hover:border-indigo-300 hover:bg-white transition-all shadow-xs">
                       <div className={`p-2.5 rounded-xl border ${f.accent} shrink-0 mt-0.5`}>
                         <Icon size={18} />
                       </div>
                       <div>
-                        <h4 className="text-sm sm:text-base font-bold text-white mb-0.5">{f.title}</h4>
-                        <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">{f.desc}</p>
+                        <h4 className="text-sm sm:text-base font-bold text-slate-900 mb-0.5">{f.title}</h4>
+                        <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">{f.desc}</p>
                       </div>
                     </div>
                   );
@@ -223,18 +224,18 @@ export default function AIEcomHero({ onBookClick, onWhatsAppClick }: AIEcomHeroP
               {/* Interactive Demo Trigger Button */}
               <button
                 onClick={handleOpenDemoChat}
-                className="w-full py-4 px-4 rounded-2xl bg-gradient-to-r from-indigo-500 via-indigo-600 to-cyan-500 hover:from-indigo-600 hover:to-cyan-600 text-white font-bold text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2 shadow-[0_0_25px_rgba(99,102,241,0.4)] hover:shadow-[0_0_35px_rgba(6,182,212,0.6)] transition-all duration-300 cursor-pointer hover:brightness-110 active:scale-[0.98] font-['Hind_Siliguri',sans-serif]"
+                className="w-full py-4 px-4 rounded-2xl bg-gradient-to-r from-indigo-600 via-indigo-700 to-cyan-600 hover:from-indigo-700 hover:to-cyan-700 text-white font-bold text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2 shadow-[0_4px_20px_rgba(99,102,241,0.3)] hover:shadow-[0_6px_25px_rgba(6,182,212,0.45)] transition-all duration-300 cursor-pointer hover:brightness-105 active:scale-[0.98] font-['Hind_Siliguri',sans-serif]"
               >
                 <Zap size={16} className="text-amber-300 fill-amber-300 animate-pulse" />
                 <span>AI শপিং অ্যাসিস্ট্যান্ট লাইভ ডেমো ট্রাই করুন →</span>
               </button>
 
               {/* Bottom Micro Metrics */}
-              <div className="mt-5 pt-3.5 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400 font-ui">
-                <span className="flex items-center gap-1.5 text-indigo-400">
+              <div className="mt-5 pt-3.5 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-ui">
+                <span className="flex items-center gap-1.5 text-indigo-600 font-medium">
                   <Cpu size={14} /> Sub-0.4s Fast Engine
                 </span>
-                <span className="text-emerald-400 font-semibold">
+                <span className="text-emerald-600 font-bold">
                   3.4x Higher Conversion
                 </span>
               </div>

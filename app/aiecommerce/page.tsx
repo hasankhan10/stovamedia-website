@@ -64,7 +64,7 @@ export default function AIEcommercePage() {
   }, []);
 
   return (
-    <main className="font-['Hind_Siliguri',sans-serif] text-[#F8FAFC] bg-[#05070D] overflow-x-hidden selection:bg-indigo-500 selection:text-white pb-16 md:pb-0">
+    <main className="font-['Hind_Siliguri',sans-serif] text-slate-900 bg-white overflow-x-hidden selection:bg-indigo-500 selection:text-white pb-16 md:pb-0">
       {/* 1️⃣ Hero Section with Responsive Motion */}
       <AIEcomHero 
         onBookClick={handleOpenBookingModal} 

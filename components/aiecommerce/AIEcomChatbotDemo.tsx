@@ -243,20 +243,20 @@ export default function AIEcomChatbotDemo({ onClose }: AIEcomChatbotDemoProps = 
   };
 
   return (
-    <div className="w-full rounded-t-3xl sm:rounded-3xl border-0 sm:border border-indigo-500/40 bg-gradient-to-b from-[#0B0F19]/98 via-[#070A14]/98 to-[#090D1A]/98 shadow-[0_0_40px_rgba(99,102,241,0.25)] overflow-hidden backdrop-blur-2xl flex flex-col h-[78svh] sm:h-[560px] max-h-[85svh] sm:max-h-[82vh]">
+    <div className="w-full rounded-t-3xl sm:rounded-3xl border-0 sm:border border-slate-200 bg-white shadow-[0_25px_70px_rgba(0,0,0,0.15)] overflow-hidden flex flex-col h-[78svh] sm:h-[560px] max-h-[85svh] sm:max-h-[82vh]">
       {/* 1️⃣ Clean Chat Header without Smart Intent Engine, Cart, or Refresh Icon */}
-      <div className="px-4 sm:px-6 py-3.5 bg-[#05070D]/95 border-b border-slate-800/90 flex items-center justify-between shrink-0">
+      <div className="px-4 sm:px-6 py-3.5 bg-slate-50/90 border-b border-slate-200 flex items-center justify-between shrink-0">
         <div className="flex items-center gap-3">
-          <div className="relative w-10 h-10 rounded-2xl bg-gradient-to-tr from-indigo-500 via-indigo-600 to-cyan-400 flex items-center justify-center text-white shadow-[0_0_15px_rgba(99,102,241,0.5)]">
+          <div className="relative w-10 h-10 rounded-2xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-cyan-500 flex items-center justify-center text-white shadow-[0_4px_15px_rgba(99,102,241,0.3)]">
             <Bot size={22} className="animate-pulse" />
-            <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-emerald-400 border-2 border-[#05070D]" />
+            <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-emerald-500 border-2 border-white" />
           </div>
           <div>
-            <h3 className="text-sm sm:text-base font-bold text-white tracking-wide">
+            <h3 className="text-sm sm:text-base font-bold text-slate-900 tracking-wide">
               Stova AI Sales Assistant
             </h3>
-            <p className="text-[11px] sm:text-xs text-emerald-400 font-ui flex items-center gap-1.5 font-medium">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+            <p className="text-[11px] sm:text-xs text-emerald-600 font-ui flex items-center gap-1.5 font-semibold">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
               Active & Live 24/7
             </p>
           </div>
@@ -268,7 +268,7 @@ export default function AIEcomChatbotDemo({ onClose }: AIEcomChatbotDemoProps = 
         ref={scrollContainerRef}
         onWheel={(e) => e.stopPropagation()}
         onTouchMove={(e) => e.stopPropagation()}
-        className="flex-1 min-h-0 p-3.5 sm:p-5 overflow-y-auto overscroll-contain touch-pan-y space-y-4 [scrollbar-width:thin] [scrollbar-color:#334155_transparent] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-slate-700/80 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-slate-600"
+        className="flex-1 min-h-0 p-3.5 sm:p-5 overflow-y-auto overscroll-contain touch-pan-y space-y-4 bg-white [scrollbar-width:thin] [scrollbar-color:#CBD5E1_transparent] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-slate-300 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-slate-400"
       >
         {messages.map((msg) => {
           const isUser = msg.sender === "user";
@@ -281,13 +281,13 @@ export default function AIEcomChatbotDemo({ onClose }: AIEcomChatbotDemoProps = 
               <div
                 className={`max-w-[90%] sm:max-w-[85%] p-3.5 sm:p-4 rounded-2xl text-xs sm:text-sm leading-relaxed ${
                   isUser
-                    ? "bg-[#141B2D] border border-indigo-500/30 text-slate-100 rounded-tr-xs shadow-md"
-                    : "bg-gradient-to-br from-[#0F172A] to-[#121C38] border border-indigo-500/40 text-slate-200 rounded-tl-xs shadow-lg"
+                    ? "bg-indigo-600 text-white rounded-tr-xs shadow-xs font-normal"
+                    : "bg-slate-100/90 border border-slate-200/80 text-slate-800 rounded-tl-xs shadow-xs"
                 }`}
               >
                 {!isUser && (
-                  <div className="flex items-center gap-1.5 text-cyan-400 font-semibold mb-1 text-xs">
-                    <Sparkles size={13} className="text-indigo-400" />
+                  <div className="flex items-center gap-1.5 text-indigo-600 font-semibold mb-1 text-xs">
+                    <Sparkles size={13} className="text-cyan-600" />
                     <span>AI সাজেস্টেড রেকমেনডেশন:</span>
                   </div>
                 )}
@@ -303,48 +303,48 @@ export default function AIEcomChatbotDemo({ onClose }: AIEcomChatbotDemoProps = 
                       return (
                         <div
                           key={p.id}
-                          className="p-3 sm:p-3.5 bg-[#060912]/90 border border-slate-800/90 rounded-2xl flex flex-col gap-2.5 hover:border-cyan-500/40 transition-colors shadow-md"
+                          className="p-3 sm:p-3.5 bg-white border border-slate-200 rounded-2xl flex flex-col gap-2.5 hover:border-indigo-300 transition-colors shadow-xs"
                         >
                           <div className="flex items-start justify-between gap-2">
                             <div>
                               <div className="flex items-center gap-1.5 mb-1">
-                                <span className="px-2 py-0.5 bg-indigo-950/80 border border-indigo-500/30 text-indigo-300 text-[10px] font-bold rounded-md font-ui uppercase">
+                                <span className="px-2 py-0.5 bg-indigo-50 border border-indigo-200 text-indigo-700 text-[10px] font-bold rounded-md font-ui uppercase">
                                   {p.tag}
                                 </span>
-                                <div className="flex items-center gap-1 text-[11px] text-amber-400 font-bold">
+                                <div className="flex items-center gap-1 text-[11px] text-amber-500 font-bold">
                                   <Star size={11} className="fill-amber-400" />
                                   <span>{p.rating}</span>
-                                  <span className="text-slate-500 font-normal">({p.reviews})</span>
+                                  <span className="text-slate-400 font-normal">({p.reviews})</span>
                                 </div>
                               </div>
-                              <h4 className="font-bold text-white text-xs sm:text-sm tracking-wide">
+                              <h4 className="font-bold text-slate-900 text-xs sm:text-sm tracking-wide">
                                 {p.name}
                               </h4>
                             </div>
 
                             <div className="text-right shrink-0">
-                              <p className="text-cyan-400 font-bold font-mono text-sm sm:text-base">
+                              <p className="text-indigo-600 font-bold font-mono text-sm sm:text-base">
                                 ₹{p.price}
                               </p>
-                              <p className="text-slate-500 line-through text-[10px] sm:text-xs">
+                              <p className="text-slate-400 line-through text-[10px] sm:text-xs">
                                 ₹{p.oldPrice}
                               </p>
                             </div>
                           </div>
 
-                          <p className="text-[11px] sm:text-xs text-slate-300 font-light leading-relaxed">
+                          <p className="text-[11px] sm:text-xs text-slate-600 font-light leading-relaxed">
                             {p.desc}
                           </p>
 
                           {/* In-Demo Simulated Buttons (Zero Redirects) */}
-                          <div className="flex items-center justify-between gap-2 pt-1 border-t border-slate-800/80">
+                          <div className="flex items-center justify-between gap-2 pt-1 border-t border-slate-100">
                             <button
                               type="button"
                               onClick={() => handleAddToCart(p)}
                               className={`flex-1 py-2 px-3 rounded-xl font-bold text-[11px] sm:text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all cursor-pointer ${
                                 isAdded
-                                  ? "bg-emerald-600 text-white shadow-[0_0_15px_rgba(16,185,129,0.5)]"
-                                  : "bg-gradient-to-r from-indigo-500 to-cyan-500 hover:from-indigo-600 hover:to-cyan-600 text-white shadow-sm hover:brightness-110 active:scale-[0.98]"
+                                  ? "bg-emerald-600 text-white shadow-xs"
+                                  : "bg-gradient-to-r from-indigo-600 to-cyan-600 hover:from-indigo-700 hover:to-cyan-700 text-white shadow-xs hover:brightness-105 active:scale-[0.98]"
                               }`}
                             >
                               {isAdded ? (
@@ -365,18 +365,18 @@ export default function AIEcomChatbotDemo({ onClose }: AIEcomChatbotDemoProps = 
                               onClick={() => handleSimulatedBuy(p)}
                               className={`py-2 px-3 rounded-xl text-[11px] sm:text-xs font-bold font-ui flex items-center gap-1 transition-all cursor-pointer ${
                                 isBought
-                                  ? "bg-emerald-950 border border-emerald-500/50 text-emerald-300 shadow-sm"
-                                  : "bg-cyan-950/80 hover:bg-cyan-900/90 border border-cyan-500/40 text-cyan-300 active:scale-[0.98]"
+                                  ? "bg-emerald-100 border border-emerald-300 text-emerald-800 shadow-2xs"
+                                  : "bg-cyan-50 hover:bg-cyan-100 border border-cyan-200 text-cyan-800 active:scale-[0.98]"
                               }`}
                             >
                               {isBought ? (
                                 <>
-                                  <Check size={12} className="text-emerald-400" />
+                                  <Check size={12} className="text-emerald-600" />
                                   <span>অর্ডার ডেমো ✓</span>
                                 </>
                               ) : (
                                 <>
-                                  <Zap size={12} className="text-amber-400" />
+                                  <Zap size={12} className="text-amber-500 fill-amber-500" />
                                   <span>Instant Demo Buy</span>
                                 </>
                               )}
@@ -388,7 +388,7 @@ export default function AIEcomChatbotDemo({ onClose }: AIEcomChatbotDemoProps = 
                   </div>
                 )}
               </div>
-              <span className="text-[10px] text-slate-500 px-1 font-mono">
+              <span className="text-[10px] text-slate-400 px-1 font-mono">
                 {msg.timestamp}
               </span>
             </div>
@@ -397,13 +397,13 @@ export default function AIEcomChatbotDemo({ onClose }: AIEcomChatbotDemoProps = 
 
         {/* Live Typing Indicator */}
         {isTyping && (
-          <div className="flex items-center gap-2 p-3 bg-[#0F172A] border border-indigo-500/30 rounded-2xl rounded-tl-xs max-w-[200px] text-xs text-cyan-300">
-            <Bot size={15} className="animate-spin text-cyan-400" />
+          <div className="flex items-center gap-2 p-3 bg-slate-100 border border-slate-200 rounded-2xl rounded-tl-xs max-w-[200px] text-xs text-indigo-700">
+            <Bot size={15} className="animate-spin text-indigo-600" />
             <span className="font-light">AI ক্যাটালগ খুঁজছে</span>
             <span className="flex gap-0.5">
-              <span className="w-1 h-1 bg-cyan-400 rounded-full animate-bounce" />
-              <span className="w-1 h-1 bg-cyan-400 rounded-full animate-bounce [animation-delay:0.2s]" />
-              <span className="w-1 h-1 bg-cyan-400 rounded-full animate-bounce [animation-delay:0.4s]" />
+              <span className="w-1 h-1 bg-indigo-600 rounded-full animate-bounce" />
+              <span className="w-1 h-1 bg-indigo-600 rounded-full animate-bounce [animation-delay:0.2s]" />
+              <span className="w-1 h-1 bg-indigo-600 rounded-full animate-bounce [animation-delay:0.4s]" />
             </span>
           </div>
         )}
@@ -411,9 +411,9 @@ export default function AIEcomChatbotDemo({ onClose }: AIEcomChatbotDemoProps = 
       </div>
 
       {/* 3️⃣ Preset Prompt Chips */}
-      <div className="px-3 sm:px-4 py-2 bg-[#060912]/90 border-t border-slate-800/80 overflow-x-auto scrollbar-none flex items-center gap-2 shrink-0">
+      <div className="px-3 sm:px-4 py-2 bg-slate-50 border-t border-slate-200 overflow-x-auto scrollbar-none flex items-center gap-2 shrink-0">
         <span className="text-[10px] uppercase font-bold text-slate-500 tracking-wider shrink-0 font-ui flex items-center gap-1">
-          <Zap size={11} className="text-amber-400" /> ট্রাই করুন:
+          <Zap size={11} className="text-amber-500 fill-amber-500" /> ট্রাই করুন:
         </span>
         {PRESET_PROMPTS.map((prompt, idx) => (
           <button
@@ -421,7 +421,7 @@ export default function AIEcomChatbotDemo({ onClose }: AIEcomChatbotDemoProps = 
             type="button"
             onClick={() => handleSend(prompt.query)}
             disabled={isTyping}
-            className="px-2.5 py-1 bg-[#0F1424] hover:bg-indigo-950 border border-slate-800 hover:border-cyan-400/50 text-[11px] text-slate-300 hover:text-white rounded-lg whitespace-nowrap transition-colors cursor-pointer shrink-0 disabled:opacity-50"
+            className="px-2.5 py-1 bg-white hover:bg-indigo-50 border border-slate-200 hover:border-indigo-300 text-[11px] text-slate-700 hover:text-indigo-700 rounded-lg whitespace-nowrap transition-colors cursor-pointer shrink-0 disabled:opacity-50 shadow-2xs"
           >
             {prompt.label}
           </button>
@@ -434,7 +434,7 @@ export default function AIEcomChatbotDemo({ onClose }: AIEcomChatbotDemoProps = 
           e.preventDefault();
           handleSend();
         }}
-        className="p-3 bg-[#05070D] border-t border-slate-800 flex items-center gap-2 shrink-0"
+        className="p-3 bg-white border-t border-slate-200 flex items-center gap-2 shrink-0"
         style={{ paddingBottom: "max(12px, env(safe-area-inset-bottom))" }}
       >
         <input
@@ -442,12 +442,12 @@ export default function AIEcomChatbotDemo({ onClose }: AIEcomChatbotDemoProps = 
           value={inputVal}
           onChange={(e) => setInputVal(e.target.value)}
           placeholder="প্রোডাক্টের নাম বা প্রয়োজন লিখুন (e.g. ড্রাই স্কিন ক্রিম, জ্যাকেট...)"
-          className="flex-1 bg-[#0B0F19] border border-slate-800 focus:border-cyan-400 text-white placeholder:text-slate-500 text-base sm:text-sm px-3.5 py-2.5 rounded-xl focus:outline-none transition-colors min-h-[44px]"
+          className="flex-1 bg-slate-50 border border-slate-200 focus:border-indigo-500 focus:bg-white text-slate-900 placeholder:text-slate-400 text-base sm:text-sm px-3.5 py-2.5 rounded-xl focus:outline-none transition-colors min-h-[44px]"
         />
         <button
           type="submit"
           disabled={!inputVal.trim() || isTyping}
-          className="p-2.5 bg-gradient-to-r from-indigo-500 to-cyan-500 hover:from-indigo-600 hover:to-cyan-600 text-white rounded-xl disabled:opacity-40 transition-all cursor-pointer shadow-md shrink-0 active:scale-95 min-h-[44px] min-w-[44px] flex items-center justify-center"
+          className="p-2.5 bg-gradient-to-r from-indigo-600 to-cyan-600 hover:from-indigo-700 hover:to-cyan-700 text-white rounded-xl disabled:opacity-40 transition-all cursor-pointer shadow-xs shrink-0 active:scale-95 min-h-[44px] min-w-[44px] flex items-center justify-center"
         >
           <Send size={16} />
         </button>

@@ -36,13 +36,13 @@ export default function AIEcomFAQ({ onBookClick }: { onBookClick?: () => void })
   return (
     <section 
       style={{ contentVisibility: "auto", containIntrinsicSize: "1px 650px" }}
-      className="py-16 sm:py-24 md:py-32 px-5 sm:px-8 md:px-12 lg:px-20 bg-[#05070D] relative z-10 border-b border-slate-800/80"
+      className="py-16 sm:py-24 md:py-32 px-5 sm:px-8 md:px-12 lg:px-20 bg-white relative z-10 border-b border-slate-200/80"
     >
       <div className="max-w-[1000px] mx-auto">
         <div className="text-center mb-12 sm:mb-16">
           <SectionLabel className="justify-center text-xs sm:text-sm">Got Questions?</SectionLabel>
-          <h2 className="font-['Anek_Bangla','Amar_Bangla',sans-serif] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#F8FAFC] mt-4">
-            সাধারণ জিজ্ঞাসা (FAQ)
+          <h2 className="font-['Anek_Bangla','Amar_Bangla',sans-serif] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-slate-900 mt-4">
+            সাধারণ প্রশ্ন (FAQ)
           </h2>
         </div>
 
@@ -55,26 +55,26 @@ export default function AIEcomFAQ({ onBookClick }: { onBookClick?: () => void })
                 className={cn(
                   "border rounded-2xl transition-all duration-300 overflow-hidden",
                   isOpen 
-                    ? "border-indigo-500/60 bg-[#0F1524] shadow-[0_0_25px_rgba(99,102,241,0.2)]" 
-                    : "border-slate-800 bg-[#0B0F19]/90 hover:border-slate-700 hover:bg-[#0D121F]"
+                    ? "border-indigo-300 bg-white shadow-[0_4px_25px_rgba(99,102,241,0.08)]" 
+                    : "border-slate-200 bg-slate-50/70 hover:border-slate-300 hover:bg-white"
                 )}
               >
                 <button
                   type="button"
                   onClick={() => setOpenFaq(isOpen ? null : i)}
-                  className="w-full p-5 sm:p-7 text-left flex items-center justify-between gap-4 text-white font-bold text-base sm:text-xl md:text-2xl cursor-pointer"
+                  className="w-full p-5 sm:p-7 text-left flex items-center justify-between gap-4 text-slate-900 font-bold text-base sm:text-xl md:text-2xl cursor-pointer"
                 >
                   <span className="flex items-center gap-3.5">
-                    <span className="px-2.5 py-0.5 rounded-lg bg-cyan-950/70 border border-cyan-500/40 text-cyan-300 font-mono text-xs font-bold shrink-0">
+                    <span className="px-2.5 py-0.5 rounded-lg bg-cyan-50 border border-cyan-200 text-cyan-800 font-mono text-xs font-bold shrink-0">
                       0{i + 1}
                     </span>
-                    <span className="hover:text-cyan-300 transition-colors">{faq.q}</span>
+                    <span className="hover:text-indigo-600 transition-colors">{faq.q}</span>
                   </span>
                   <div className={cn(
                     "p-2 rounded-xl border transition-transform duration-300 shrink-0",
                     isOpen 
-                      ? "rotate-180 border-cyan-500/50 bg-cyan-950/60 text-cyan-300" 
-                      : "border-slate-800 bg-[#05070D] text-slate-400"
+                      ? "rotate-180 border-cyan-300 bg-cyan-50 text-cyan-800" 
+                      : "border-slate-200 bg-white text-slate-400"
                   )}>
                     <ChevronDown size={18} />
                   </div>
@@ -89,7 +89,7 @@ export default function AIEcomFAQ({ onBookClick }: { onBookClick?: () => void })
                       transition={{ duration: 0.25 }}
                       className="overflow-hidden"
                     >
-                      <div className="px-6 sm:px-7 pb-6 sm:pb-7 text-slate-200 text-sm sm:text-base md:text-lg leading-relaxed font-light border-t border-slate-800/80 pt-4">
+                      <div className="px-6 sm:px-7 pb-6 sm:pb-7 text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed font-light border-t border-slate-100 pt-4">
                         {faq.a}
                       </div>
                     </motion.div>
@@ -104,7 +104,7 @@ export default function AIEcomFAQ({ onBookClick }: { onBookClick?: () => void })
           <div className="mt-12 sm:mt-16 flex justify-center">
             <button
               onClick={onBookClick}
-              className="w-full sm:w-auto px-8 py-4 sm:px-10 sm:py-4.5 bg-gradient-to-r from-indigo-500 via-indigo-600 to-cyan-500 hover:from-indigo-600 hover:to-cyan-600 text-white font-bold text-sm sm:text-base tracking-wider transition-all duration-300 flex items-center justify-center gap-2.5 shadow-[0_0_25px_rgba(99,102,241,0.35)] hover:shadow-[0_0_35px_rgba(6,182,212,0.5)] cursor-pointer rounded-2xl active:scale-[0.98] font-['Hind_Siliguri',sans-serif]"
+              className="w-full sm:w-auto px-8 py-4 sm:px-10 sm:py-4.5 bg-gradient-to-r from-indigo-600 via-indigo-700 to-cyan-600 hover:from-indigo-700 hover:to-cyan-700 text-white font-bold text-sm sm:text-base tracking-wider transition-all duration-300 flex items-center justify-center gap-2.5 shadow-[0_4px_20px_rgba(99,102,241,0.25)] hover:shadow-[0_8px_30px_rgba(6,182,212,0.35)] cursor-pointer rounded-2xl active:scale-[0.98] font-['Hind_Siliguri',sans-serif]"
             >
               <span>Free Consultation Appointment বুক করুন</span>
               <ArrowRight size={18} />

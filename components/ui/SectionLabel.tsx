@@ -12,13 +12,13 @@ export const SectionLabel = ({
   className,
 }: SectionLabelProps) => {
   return (
-    <div className={cn("flex items-center gap-3 mb-4 select-none", className)}>
-      <span className="w-6 h-[1.5px] bg-gradient-to-r from-indigo-500 to-cyan-400 rounded-full transition-all duration-500 origin-left" />
-      <span className="text-[10px] uppercase font-mono tracking-[0.22em] font-bold text-cyan-400 whitespace-nowrap">
+    <div className={cn("flex items-center gap-3 mb-4 select-none text-black dark:text-black", className)}>
+      <span className="w-6 h-[1.5px] bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-full transition-all duration-500 origin-left" />
+      <span className="text-[10px] uppercase font-mono tracking-[0.22em] font-bold text-inherit whitespace-nowrap">
         {children}
       </span>
       {className?.includes("justify-center") && (
-        <span className="w-6 h-[1.5px] bg-gradient-to-r from-cyan-400 to-indigo-500 rounded-full transition-all duration-500 origin-right" />
+        <span className="w-6 h-[1.5px] bg-gradient-to-r from-cyan-500 to-indigo-500 rounded-full transition-all duration-500 origin-right" />
       )}
     </div>
   );
