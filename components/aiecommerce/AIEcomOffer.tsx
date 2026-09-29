@@ -10,11 +10,11 @@ import AIEcomTimer from "./AIEcomTimer";
 gsap.registerPlugin(ScrollTrigger);
 
 const deliverables = [
-  { title: "Full Platform Build", desc: "কাস্টম কোডেড আল্ট্রা-ফাস্ট ই-কমার্স ফ্রন্টএন্ড ও ব্যাকএন্ড আর্কিটেকচার।" },
-  { title: "AI Shopping Assistant", desc: "২৪/৭ কাস্টমার এনগেজমেন্ট ও সেলস ক্লোজিং বট ইন্টিগ্রেশন।" },
+  { title: "Full Platform Build", desc: "কাস্টম কোডেড আল্ট্রা-ফাস্ট ই-কমার্স ফ্রন্টএন্ড ও ব্যাকএন্ড সিস্টেম" },
+  { title: "AI Shopping Assistant", desc: "২৪/৭ কাস্টমার এনগেজমেন্ট ও সেলস ক্লোজিং AI ইন্টিগ্রেশন।" },
   { title: "AI SEO Engine", desc: "স্বয়ংক্রিয় মেটা-ট্যাগ ও গুগল র‍্যাঙ্কিং অপ্টিমাইজেশন অ্যালগরিদম।" },
   { title: "Business Analytics Dashboard", desc: "রিয়েল-টাইম সেলস, ইনভেন্টরি ও কাস্টমার অ্যানালিটিক্স প্যানেল।" },
-  { title: "Payment & WhatsApp Integration", desc: "Razorpay/Stripe/UPI ও ইনস্ট্যান্ট WhatsApp অর্ডার নোটিফিকেশন।" },
+  { title: "Payment & WhatsApp Integration", desc: "Razorpay ও ইনস্ট্যান্ট E-mail অর্ডার নোটিফিকেশন।" },
   { title: "৩ মাসের Free Priority Support", desc: "লঞ্চের পর ৩ মাস সার্বক্ষণিক টেকনিক্যাল সাপোর্ট ও টিউনিং।" },
 ];
 
@@ -61,9 +61,9 @@ export default function AIEcomOffer({ onBookClick }: { onBookClick: () => void }
                 Special Launch Offer
               </div>
               <h2 className="font-['Anek_Bangla','Amar_Bangla',sans-serif] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-slate-900">
-                আপনার জন্য একটা Special Offer অপেক্ষা করছে
+                আপনার জন্য একটা <span className="text-green-600">Special Offer</span> অপেক্ষা করছে <span className="text-red-500">!!!</span>
               </h2>
-              <p className="font-['Noto_Sans_Bengali','Noto_Sans',sans-serif] text-slate-600 text-base sm:text-xl md:text-2xl mt-4 font-light leading-relaxed">
+              <p className="font-['Noto_Sans_Bengali','Noto_Sans',sans-serif] text-slate-600 text-base sm:text-xl md:text-2xl mt-4 font-medium leading-relaxed">
                 সম্পূর্ণ জিরো-রিস্কে আপনার ব্যবসাকে আধুনিক প্রযুক্তির শীর্ষে নিয়ে যাওয়ার সম্পূর্ণ প্যাকেজ:
               </p>
             </div>
@@ -75,7 +75,7 @@ export default function AIEcomOffer({ onBookClick }: { onBookClick: () => void }
                   <CheckCircle2 size={22} className="text-cyan-700 flex-shrink-0 mt-0.5" />
                   <div>
                     <h3 className="font-bold text-slate-900 text-base sm:text-lg md:text-xl mb-1.5">{item.title}</h3>
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">{item.desc}</p>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">{item.desc}</p>
                   </div>
                 </div>
               ))}
@@ -87,8 +87,8 @@ export default function AIEcomOffer({ onBookClick }: { onBookClick: () => void }
                 <ShieldCheck size={36} className="text-emerald-600 flex-shrink-0" />
                 <div>
                   <h4 className="text-lg sm:text-xl font-bold text-slate-900 mb-1.5">১০০% নো-রিস্ক ডেভেলপমেন্ট</h4>
-                  <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-light">
-                    Platform সম্পূর্ণ তৈরি হয়ে আপনার Approval না পাওয়া পর্যন্ত Final Payment করতে হবে না। এছাড়া Launch-এর পর সর্বোচ্চ কনভার্শন নিশ্চিত করতে আমরা নিয়মিত AI মডেল টিউনিং ও প্রায়োরিটি সাপোর্ট প্রদান করি।
+                  <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-medium">
+                    Platform সম্পূর্ণ তৈরি হয়ে আপনার <span className="font-semibold">Approval</span> না পাওয়া পর্যন্ত Final Payment করতে হবে না। এছাড়া Launch-এর পর সর্বোচ্চ কনভার্শন নিশ্চিত করতে আমরা নিয়মিত AI মডেল টিউনিং ও প্রায়োরিটি সাপোর্ট প্রদান করি।
                   </p>
                 </div>
               </div>
@@ -97,7 +97,7 @@ export default function AIEcomOffer({ onBookClick }: { onBookClick: () => void }
                 <Award size={36} className="text-cyan-700 flex-shrink-0" />
                 <div>
                   <h4 className="text-lg sm:text-xl font-bold text-slate-900 mb-1.5">প্রমাণিত অভিজ্ঞতা</h4>
-                  <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-light">
+                  <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-medium">
                     আমাদের টিমের Experience-এর মধ্যে রয়েছে খ্যাতনামা <strong>Dr. Paul&apos;s</strong>-এর প্রফেশনাল Software Development ও লং-টার্ম Maintenance।
                   </p>
                 </div>

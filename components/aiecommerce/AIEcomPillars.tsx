@@ -12,7 +12,7 @@ const pillars = [
   {
     icon: ShoppingBag,
     title: "Premium, Custom E-commerce Website",
-    desc: "Modern Design, Scrolling Animation যুক্ত fast পেজ লোডিং স্পিড, এবং ১০০% Mobile-Responsive আর্কিটেকচার। কাস্টমার যেকোনো ডিভাইসে প্রবেশ করলেই একটি প্রিমিয়াম ব্র্যান্ড অনুভূতি পাবেন।",
+    desc: "Modern Design, Scrolling Animation যুক্ত fast পেজ লোডিং স্পিড, এবং 100% All Device-Responsive আর্কিটেকচার। কাস্টমার যেকোনো ডিভাইসে প্রবেশ করলেই একটি প্রিমিয়াম ব্র্যান্ড অনুভূতি পাবেন।",
     spotlight: "rgba(99, 102, 241, 0.08)",
     accent: "text-indigo-600 bg-indigo-50 border-indigo-200 group-hover:bg-indigo-600 group-hover:text-white",
     hoverBorder: "hover:border-indigo-300",
@@ -81,12 +81,12 @@ export default function AIEcomPillars({ onBookClick }: { onBookClick?: () => voi
     >
       <div className="max-w-[1300px] mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <SectionLabel className="justify-center text-xs sm:text-sm">Complete Ecosystem</SectionLabel>
+          <SectionLabel className="justify-center text-xs sm:text-sm">Complete System</SectionLabel>
           <h2 className="font-['Anek_Bangla','Amar_Bangla',sans-serif] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-slate-900 mt-4 mb-5">
-            একটাই Platform-এ যা কিছু দরকার
+            একটাই <span className="text-blue-600">Platform</span>-এ যা কিছু দরকার <span className="text-red-600">!</span>
           </h2>
-          <p className="font-['Noto_Sans_Bengali','Noto_Sans',sans-serif] text-slate-600 text-base sm:text-xl md:text-2xl font-light">
-            আপনার E-Commerce ব্যবসাকে সম্পূর্ণ অটোমেটেড ও প্রফেশনাল করার জন্য ৪টি পাওয়ারফুল ইঞ্জিন এক সাথে।
+          <p className="font-['Noto_Sans_Bengali','Noto_Sans',sans-serif] text-slate-600 text-base sm:text-xl md:text-2xl font-medium">
+            আপনার <span className="font-semibold">E-Commerce</span> ব্যবসাকে সম্পূর্ণ <span className="text-black bg-yellow-300 px-2 rounded-lg">অটোমেটেড ও প্রফেশনাল</span> জন্য <span className="text-blue-600 font-semibold">চারটি পাওয়ারফুল ইঞ্জিন</span> এক সাথে।
           </p>
         </div>
 
@@ -106,7 +106,7 @@ export default function AIEcomPillars({ onBookClick }: { onBookClick?: () => voi
                     <h3 className={`text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-4 ${item.hoverTitle} transition-colors duration-300`}>
                       {item.title}
                     </h3>
-                    <p className="text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed font-light">
+                    <p className="text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed font-medium">
                       {item.desc}
                     </p>
                   </div>

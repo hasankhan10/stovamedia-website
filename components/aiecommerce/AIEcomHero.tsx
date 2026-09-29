@@ -96,7 +96,7 @@ export default function AIEcomHero({ onBookClick, onWhatsAppClick }: AIEcomHeroP
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-600" />
               </span>
               <span className="text-[11px] sm:text-xs uppercase font-ui tracking-wider font-bold text-indigo-700">
-                AI E-Commerce Architecture
+                AI E-Commerce Platform
               </span>
             </div>
           </div>
@@ -109,8 +109,8 @@ export default function AIEcomHero({ onBookClick, onWhatsAppClick }: AIEcomHeroP
             <span className="text-rose-600">চলে যাচ্ছে না তো?</span>
           </h1>
 
-          <p className="hero-sub-node font-['Noto_Sans_Bengali','Noto_Sans',sans-serif] text-base sm:text-xl md:text-2xl text-slate-600 font-light leading-relaxed mb-8 sm:mb-10 max-w-2xl text-center lg:text-left">
-            এবার আনুন এমন একটা <strong className="text-slate-900 font-semibold">AI-Powered E-commerce Platform</strong>, যেটা প্রতিটা Customer-কে বোঝে, ঠিক Product দেখায়, আর কিনতে সাহায্য করে — একদম নিজের একজন দক্ষ <span className="text-cyan-700 font-medium">24/7 Digital Sales Assistant</span>-এর মতো।
+          <p className="hero-sub-node font-['Noto_Sans_Bengali','Noto_Sans',sans-serif] text-base sm:text-xl md:text-2xl text-slate-600 font-light leading-relaxed mb-8 sm:mb-10 max-w-2xl text-center lg:text-left font-medium">
+            এবার আনুন এমন একটা <strong className="text-green-700 font-semibold">AI-Powered E-commerce Platform</strong>, যেটা প্রতিটা Customer-কে বোঝে, ঠিক Product দেখায়, আর কিনতে সাহায্য করে — একদম নিজের একজন দক্ষ <span className="text-cyan-600 font-semibold">24/7 Digital Sales Assistant</span>-এর মতো।
           </p>
 
           <div className="hero-cta-node flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-8 sm:mb-10 w-full sm:w-auto">
@@ -145,11 +145,11 @@ export default function AIEcomHero({ onBookClick, onWhatsAppClick }: AIEcomHeroP
           </div>
 
           <div className="flex flex-wrap items-center justify-center lg:justify-start gap-5 sm:gap-6 text-sm sm:text-base font-ui text-slate-600">
-            <span className="flex items-center gap-2 text-slate-700 font-medium">
-              <ShieldCheck size={18} className="text-emerald-600 flex-shrink-0" /> ১০০% Approval না পাওয়া পর্যন্ত Final Payment নেই
+            <span className="flex items-center gap-2 text-slate-700 font-semibold">
+              <ShieldCheck size={18} className="text-emerald-600 flex-shrink-0" /> <span className="text-green-600">১০০% Approval</span> না পাওয়া পর্যন্ত Final Payment নেই
             </span>
-            <span className="flex items-center gap-2 text-slate-700 font-medium">
-              <Award size={18} className="text-cyan-600 flex-shrink-0" /> Dr. Paul&apos;s Website Partner
+            <span className="flex items-center gap-2 text-slate-700 font-semibold">
+              <Award size={18} className="text-cyan-600 flex-shrink-0" /> <span className="text-red-500">Dr. Paul's</span> Website Partner
             </span>
           </div>
         </div>
@@ -170,7 +170,7 @@ export default function AIEcomHero({ onBookClick, onWhatsAppClick }: AIEcomHeroP
                   </div>
                   <div>
                     <h3 className="text-base sm:text-lg font-bold text-slate-900">
-                      AI E-Commerce Core
+                      AI Sales Assistant
                     </h3>
                     <p className="text-xs text-indigo-600 uppercase tracking-wider font-ui font-semibold">
                       24/7 Autonomous Sales Engine
@@ -202,7 +202,7 @@ export default function AIEcomHero({ onBookClick, onWhatsAppClick }: AIEcomHeroP
                   {
                     icon: TrendingUp,
                     title: "Autonomous Product SEO",
-                    desc: "গুগল সার্চ র‍্যাংকিং বাড়ানোর জন্য অটো-অপ্টিমাইজড মেটা ও স্কিমা।",
+                    desc: "গুগল সার্চ র‍্যাংকিং বাড়ানোর জন্য অটো-SEO",
                     accent: "text-emerald-700 bg-emerald-50 border-emerald-100"
                   }
                 ].map((f, idx) => {
@@ -214,7 +214,7 @@ export default function AIEcomHero({ onBookClick, onWhatsAppClick }: AIEcomHeroP
                       </div>
                       <div>
                         <h4 className="text-sm sm:text-base font-bold text-slate-900 mb-0.5">{f.title}</h4>
-                        <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">{f.desc}</p>
+                        <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed font-semibold">{f.desc}</p>
                       </div>
                     </div>
                   );

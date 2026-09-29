@@ -42,7 +42,7 @@ export default function AIEcomFAQ({ onBookClick }: { onBookClick?: () => void })
         <div className="text-center mb-12 sm:mb-16">
           <SectionLabel className="justify-center text-xs sm:text-sm">Got Questions?</SectionLabel>
           <h2 className="font-['Anek_Bangla','Amar_Bangla',sans-serif] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-slate-900 mt-4">
-            সাধারণ প্রশ্ন (FAQ)
+            সাধারণ প্রশ্ন (FAQ) <span className="text-red-500">?</span>
           </h2>
         </div>
 
@@ -68,7 +68,7 @@ export default function AIEcomFAQ({ onBookClick }: { onBookClick?: () => void })
                     <span className="px-2.5 py-0.5 rounded-lg bg-cyan-50 border border-cyan-200 text-cyan-800 font-mono text-xs font-bold shrink-0">
                       0{i + 1}
                     </span>
-                    <span className="hover:text-indigo-600 transition-colors">{faq.q}</span>
+                    <span className="hover:text-blue-600 transition-colors">{faq.q}</span>
                   </span>
                   <div className={cn(
                     "p-2 rounded-xl border transition-transform duration-300 shrink-0",
@@ -89,7 +89,7 @@ export default function AIEcomFAQ({ onBookClick }: { onBookClick?: () => void })
                       transition={{ duration: 0.25 }}
                       className="overflow-hidden"
                     >
-                      <div className="px-6 sm:px-7 pb-6 sm:pb-7 text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed font-light border-t border-slate-100 pt-4">
+                      <div className="px-6 sm:px-7 pb-6 sm:pb-7 text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed font-medium border-t border-slate-100 pt-4">
                         {faq.a}
                       </div>
                     </motion.div>

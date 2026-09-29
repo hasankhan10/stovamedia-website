@@ -35,15 +35,15 @@ export default function AIEcomBooking({
           আপনার Business-কে এবার একটা <span className="text-green-700">Real AI-Powered</span> Platform দিন
         </h2>
 
-        <p className="font-['Noto_Sans_Bengali','Noto_Sans',sans-serif] text-slate-600 text-base sm:text-xl md:text-2xl leading-relaxed font-light max-w-3xl mx-auto">
-          কোনো ঝুঁকি ছাড়াই, একটা Complete Premium Platform। প্রতি মাসে আমরা মাত্র ৩-৫টি ব্র্যান্ড নিয়ে সম্পূর্ণ ফোকাস দিয়ে কাজ করি — আপনার Slot শেষ হওয়ার আগেই যোগাযোগ করুন।
+        <p className="font-['Noto_Sans_Bengali','Noto_Sans',sans-serif] text-slate-600 text-base sm:text-xl md:text-2xl leading-relaxed font-medium max-w-3xl mx-auto">
+          কোনো ঝুঁকি ছাড়াই, একটা <span className="font-semibold text-black">Complete Premium Platform</span>। প্রতি মাসে আমরা মাত্র <span className="text-red-800 font-bold text-2xl">3-5 টি Brand</span> নিয়ে সম্পূর্ণ ফোকাস দিয়ে কাজ করি — আপনার <span className=" bg-red-500 text-black px-2 py-1 rounded-md font-semibold">Slot শেষ হওয়ার আগেই !</span> যোগাযোগ করুন।
         </p>
 
-        <div className="pt-2 flex flex-wrap items-center justify-center gap-4 sm:gap-6 font-ui text-sm sm:text-base text-slate-700 max-w-3xl mx-auto">
+        <div className="pt-2 flex flex-wrap items-center justify-center gap-4 sm:gap-6 font-ui text-sm sm:text-base text-slate-700 max-w-3xl mx-auto font-medium">
           {[
             "ফ্রি ৩০ মিনিটের টেকনিক্যাল কনসাল্টেশন",
             "Actionable AI Growth Roadmap",
-            "ডাইরেক্ট আর্কিটেক্ট সাপোর্ট"
+            "ডাইরেক্ট সাপোর্ট"
           ].map((text, idx) => (
             <div key={idx} className="flex items-center gap-2 text-slate-800 bg-white border border-slate-200 px-4 py-2 rounded-xl shadow-2xs">
               <CheckCircle2 size={16} className="text-cyan-600 flex-shrink-0" />

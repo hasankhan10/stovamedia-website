@@ -12,8 +12,8 @@ gsap.registerPlugin(ScrollTrigger);
 const targetAudiences: TargetAudience[] = [
   { title: "D2C Brands", desc: "নিজের Brand-এর জন্য হাই-কনভার্টিং ও স্কেলেবল অনলাইন ফ্ল্যাগশিপ স্টোর।", icon: ShoppingBag, tag: "High Conversion", accent: "text-indigo-600 bg-indigo-50 border-indigo-100" },
   { title: "Manufacturers", desc: "বিশাল Product Catalogue সহজে স্ট্রাকচার্ড ও স্মার্টলি Showcase করার জন্য।", icon: Building2, tag: "Bulk & B2B Ready", accent: "text-cyan-700 bg-cyan-50 border-cyan-100" },
-  { title: "Retail Business", desc: "অফলাইন রিটেল স্টোরকে আল্ট্রা-মডার্ন ডিজিটাল এক্সপেরিয়েন্সে রূপান্তর করার জন্য।", icon: Store, tag: "Omnichannel", accent: "text-emerald-700 bg-emerald-50 border-emerald-100" },
-  { title: "Premium Brands", desc: "ব্র্যান্ডের আভিজাত্যের সাথে সামঞ্জস্যপূর্ণ ₹100,000 টাকার কোয়ালিটির ডিজিটাল লাক্সারি লুক।", icon: Crown, tag: "Luxury UI/UX", accent: "text-purple-700 bg-purple-50 border-purple-100" },
+  { title: "Retail Business", desc: "অফলাইন রিটেল স্টোরকে Ultra-Modern ডিজিটাল এক্সপেরিয়েন্সে রূপান্তর করার জন্য।", icon: Store, tag: "Omnichannel", accent: "text-emerald-700 bg-emerald-50 border-emerald-100" },
+  { title: "Premium Brands", desc: "ব্র্যান্ডের Theme - er সাথে সামঞ্জস্যপূর্ণ ₹100,000 টাকার কোয়ালিটির ডিজিটাল লাক্সারি লুক।", icon: Crown, tag: "Luxury UI/UX", accent: "text-purple-700 bg-purple-50 border-purple-100" },
   { title: "Growing E-commerce", desc: "অর্ডার ও ট্রাফিক ভলিউম বাড়ার সাথে সাথে সিস্টেমকে সম্পূর্ণ অটোমেটেড রাখা।", icon: LineChart, tag: "Scale & Speed", accent: "text-sky-600 bg-sky-50 border-sky-100" }
 ];
 
@@ -45,10 +45,10 @@ export default function AIEcomAudience({ onBookClick }: { onBookClick?: () => vo
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <SectionLabel className="justify-center text-xs sm:text-sm">Target Profiles</SectionLabel>
           <h2 className="font-['Anek_Bangla','Amar_Bangla',sans-serif] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-slate-900 mt-4 mb-4">
-            কাদের জন্য এই Platform আদর্শ?
+            কাদের জন্য এই <span className="text-blue-700">Platform</span> আদর্শ <span className="text-red-700">?</span>
           </h2>
-          <p className="font-['Noto_Sans_Bengali','Noto_Sans',sans-serif] text-slate-600 text-base sm:text-xl md:text-2xl font-light">
-            যারা সাধারণ রেডিমেড টেমপ্লেট ছেড়ে প্রফেশনাল, হাই-কনভার্টিং ব্র্যান্ড তৈরি করতে চান:
+          <p className="font-['Noto_Sans_Bengali','Noto_Sans',sans-serif] text-slate-600 text-base sm:text-xl md:text-2xl font-medium">
+            যারা সাধারণ <span className="bg-red-300 px-2 text-black rounded-md">রেডিমেড টেমপ্লেট</span> ছেড়ে <span className="bg-green-500 px-2 rounded-md text-black">প্রফেশনাল, হাই-কনভার্টিং ব্র্যান্ড</span> তৈরি করতে চান:
           </p>
         </div>
 
@@ -71,7 +71,7 @@ export default function AIEcomAudience({ onBookClick }: { onBookClick?: () => vo
                       </span>
                     </div>
                     <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-3.5">{aud.title}</h3>
-                    <p className="text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed font-light">{aud.desc}</p>
+                    <p className="text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed font-medium">{aud.desc}</p>
                   </div>
                 </SpotlightCard>
               </div>

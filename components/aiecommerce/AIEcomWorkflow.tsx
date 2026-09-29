@@ -44,10 +44,10 @@ export default function AIEcomWorkflow({ onBookClick }: { onBookClick?: () => vo
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
           <SectionLabel className="justify-center text-xs sm:text-sm">Workflow Comparison</SectionLabel>
           <h2 className="font-['Anek_Bangla','Amar_Bangla',sans-serif] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-slate-900 mt-4 mb-4">
-            পুরোনো পদ্ধতি বনাম AI-পাওয়ার্ড পদ্ধতি
+            <span className="text-red-500">পুরোনো পদ্ধতি</span> VS <span className="text-green-700">AI-পাওয়ার্ড পদ্ধতি</span>
           </h2>
-          <p className="font-['Noto_Sans_Bengali','Noto_Sans',sans-serif] text-slate-600 text-base sm:text-lg md:text-xl font-light">
-            কীভাবে Modern AI Architecture ড্রপ-অফ রেট কমিয়ে বিক্রির গতি বাড়ায়:
+          <p className="font-['Noto_Sans_Bengali','Noto_Sans',sans-serif] text-slate-600 text-base sm:text-lg md:text-xl font-medium">
+            কীভাবে <span className="bg-yellow-400 px-2 py-1 rounded-md text-black font-semibold">Modern AI System</span> বিক্রির গতি বাড়ায়:
           </p>
         </div>
 
@@ -55,10 +55,10 @@ export default function AIEcomWorkflow({ onBookClick }: { onBookClick?: () => vo
           {/* Old Way */}
           <div className="workflow-card-node p-5 sm:p-7 md:p-8 border border-slate-200 bg-white shadow-xs flex flex-col lg:flex-row lg:items-center justify-between gap-4 sm:gap-6 rounded-3xl">
             <div className="flex items-center gap-3">
-              <span className="px-3.5 py-1.5 bg-rose-100 text-rose-700 border border-rose-200 text-xs sm:text-sm font-bold uppercase font-ui rounded-full">
-                Traditional E-commerce
+              <span className="px-3.5 py-1.5 bg-rose-100 text-rose-700 border border-rose-200 text-xs sm:text-sm font-bold uppercase font-ui rounded-xl">
+                Old Way E-commerce
               </span>
-              <span className="text-slate-500 text-xs sm:text-sm font-ui">জটিল ও সময়সাপেক্ষ পদ্ধতি — যেখানে Customer বিরক্ত হয়ে চলে যায়</span>
+              <span className="text-slate-700 text-xl sm:text-base font-ui">জটিল ও সময়সাপেক্ষ পদ্ধতি — যেখানে Customer বিরক্ত হয়ে চলে যায়</span>
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 lg:flex lg:flex-wrap items-center gap-2.5 md:gap-3.5 text-xs sm:text-sm md:text-base text-slate-700">
@@ -72,7 +72,7 @@ export default function AIEcomWorkflow({ onBookClick }: { onBookClick?: () => vo
           {/* AI Way */}
           <div className="workflow-card-node p-5 sm:p-7 md:p-8 border-2 border-indigo-200 bg-gradient-to-r from-indigo-50/70 via-white to-cyan-50/70 flex flex-col lg:flex-row lg:items-center justify-between gap-4 sm:gap-6 shadow-md rounded-3xl">
             <div className="flex items-center gap-3">
-              <span className="px-3.5 py-1.5 bg-gradient-to-r from-indigo-600 to-cyan-600 text-white font-bold text-xs sm:text-sm uppercase font-ui shadow-xs flex items-center gap-1.5 rounded-full">
+              <span className="px-3.5 py-1.5 bg-gradient-to-r from-indigo-600 to-cyan-600 text-white font-bold text-xs sm:text-sm uppercase font-ui shadow-xs flex items-center gap-1.5 rounded-xl">
                 <Sparkles size={14} />
                 AI-Powered E-commerce
               </span>
@@ -83,7 +83,7 @@ export default function AIEcomWorkflow({ onBookClick }: { onBookClick?: () => vo
               {["1. Customer বলে কী চায়", "২. AI ইন্টেন্ট বোঝে", "৩. সঠিক Product দেখায়"].map((s, idx) => (
                 <span key={idx} className="px-3.5 py-2 bg-white border border-indigo-200/80 text-center rounded-xl shadow-2xs">{s}</span>
               ))}
-              <span className="px-3.5 py-2 bg-emerald-100 border border-emerald-300 text-emerald-800 font-bold text-center col-span-2 sm:col-span-1 rounded-xl">৪. ইনস্ট্যান্ট Checkout</span>
+              <span className="px-3.5 py-2 bg-emerald-100 border border-emerald-300 text-emerald-800 font-bold text-center col-span-2 sm:col-span-1 rounded-xl">৪. ইনস্ট্যান্ট Checkout Buy</span>
             </div>
           </div>
         </div>
