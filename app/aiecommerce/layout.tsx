@@ -1,11 +1,25 @@
 import type { Metadata } from "next";
-import { Hind_Siliguri } from "next/font/google";
+import { Hind_Siliguri, Anek_Bangla, Noto_Sans_Bengali } from "next/font/google";
 import { MetaPixel } from "@/components/analytics";
 
 const hindSiliguri = Hind_Siliguri({
   subsets: ["bengali", "latin"],
   weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-bengali",
+  variable: "--font-hind-siliguri",
+  display: "swap",
+});
+
+const anekBangla = Anek_Bangla({
+  subsets: ["bengali", "latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-anek-bangla",
+  display: "swap",
+});
+
+const notoSansBengali = Noto_Sans_Bengali({
+  subsets: ["bengali", "latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-noto-bengali",
   display: "swap",
 });
 
@@ -37,9 +51,19 @@ export default function AIEcommerceLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className={`${hindSiliguri.variable} font-sans min-h-screen bg-[#05070D] text-[#F8FAFC] selection:bg-indigo-500 selection:text-white`}>
-      <MetaPixel />
-      {children}
-    </div>
+    <>
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@300;400;500;600;700;800&family=Hind+Siliguri:wght@300;400;500;600;700&family=Noto+Sans+Bengali:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+      />
+      <div
+        className={`${hindSiliguri.variable} ${anekBangla.variable} ${notoSansBengali.variable} font-['Hind_Siliguri',sans-serif] min-h-screen bg-white text-slate-900 selection:bg-indigo-500 selection:text-white`}
+      >
+        <MetaPixel />
+        {children}
+      </div>
+    </>
   );
 }
