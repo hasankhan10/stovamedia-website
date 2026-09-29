@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { CheckCircle2, MessageSquare, Send, Lock, RefreshCw, X, Sparkles, AlertCircle, Check } from "lucide-react";
 import AIEcomTimer from "./AIEcomTimer";
+import { trackEvent } from "@/lib/meta-pixel";
 
 interface AIEcomBookingModalProps {
   isOpen: boolean;
@@ -159,6 +160,16 @@ export default function AIEcomBookingModal({
     if (isExpired || isBooked) return;
     setFormStatus("loading");
 
+    const eventId = `aiecom_lead_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`;
+
+    // Trigger Meta Pixel 'Lead' event for AI E-Commerce conversion tracking
+    trackEvent("Lead", {
+      content_name: "AI E-commerce Platform",
+      content_category: formData.category.trim() || "General",
+      value: 39999,
+      currency: "INR",
+    }, eventId);
+
     try {
       await fetch("/api/contact", {
         method: "POST",
@@ -171,7 +182,9 @@ export default function AIEcomBookingModal({
           category: formData.category.trim() || "General",
           projectType: "AI E-commerce Platform",
           budget: "Discovery Consultation",
-          details: `Phone/WhatsApp: ${formData.phone.trim()} | Brand: ${formData.business.trim() || "N/A"} | Category: ${formData.category.trim() || "General"}`
+          details: `Phone/WhatsApp: ${formData.phone.trim()} | Brand: ${formData.business.trim() || "N/A"} | Category: ${formData.category.trim() || "General"}`,
+          eventId,
+          sourceUrl: "https://stovamedia.in/aiecommerce",
         })
       });
     } catch (err) {

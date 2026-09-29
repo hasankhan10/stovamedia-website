@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Hind_Siliguri } from "next/font/google";
+import { MetaPixel } from "@/components/analytics";
 
 const hindSiliguri = Hind_Siliguri({
   subsets: ["bengali", "latin"],
@@ -37,6 +38,7 @@ export default function AIEcommerceLayout({
 }) {
   return (
     <div className={`${hindSiliguri.variable} font-sans min-h-screen bg-[#05070D] text-[#F8FAFC] selection:bg-indigo-500 selection:text-white`}>
+      <MetaPixel />
       {children}
     </div>
   );

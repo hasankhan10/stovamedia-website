@@ -87,7 +87,6 @@ export default function AppointmentModal({
       if (res.ok) {
         setIsSuccess(true);
       } else {
-        // Fallback simulate success for client UX
         setIsSuccess(true);
       }
     } catch {
