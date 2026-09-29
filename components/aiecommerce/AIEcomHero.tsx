@@ -103,7 +103,7 @@ export default function AIEcomHero({ onBookClick, onWhatsAppClick }: AIEcomHeroP
 
           <h1 className="hero-title-node font-['Anek_Bangla','Amar_Bangla',sans-serif] text-3xl sm:text-5xl md:text-6xl lg:text-[58px] font-bold leading-[1.22] tracking-tight text-slate-900 mb-6 sm:mb-8 text-center lg:text-left">
             আপনার Website-এ Customer আসছে, কিন্তু{" "}
-            <span className="bg-gradient-to-r from-indigo-600 via-cyan-600 to-indigo-600 bg-clip-text text-transparent underline decoration-cyan-500/40 decoration-wavy decoration-1 underline-offset-8">
+            <span className="text-blue-700 underline decoration-blue-500/40 decoration-wavy decoration-1 underline-offset-10">
               Product খুঁজে না পেয়ে
             </span>{" "}
             <span className="text-rose-600">চলে যাচ্ছে না তো?</span>
