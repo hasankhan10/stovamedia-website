@@ -1,37 +1,20 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
+import React from "react";
+import { motion, useScroll, useSpring } from "framer-motion";
 
 export default function ScrollProgress() {
-  const barRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!barRef.current) return;
-
-    const ctx = gsap.context(() => {
-      gsap.to(barRef.current, {
-        scaleX: 1,
-        ease: "none",
-        scrollTrigger: {
-          trigger: document.body,
-          start: "top top",
-          end: "bottom bottom",
-          scrub: 0.3,
-        },
-      });
-    }, barRef);
-
-    return () => ctx.revert();
-  }, []);
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 300,
+    damping: 30,
+    restDelta: 0.001,
+  });
 
   return (
-    <div 
-      ref={barRef}
-      className="fixed top-0 left-0 right-0 h-[2px] bg-gold z-[1000] origin-left scale-x-0"
+    <motion.div
+      style={{ scaleX }}
+      className="fixed top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-indigo-600 via-indigo-500 to-cyan-500 z-[1000] origin-left pointer-events-none"
     />
   );
 }

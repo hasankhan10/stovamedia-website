@@ -13,44 +13,36 @@
 - **Official Website**: https://stovamedia.in
 - **Contact Email**: contact@stovamedia.in / stovamedia@gmail.com
 - **Direct Phone / WhatsApp**: +91 9432053261
-- **Core Philosophy**: "We build software for serious businesses."
+- **Core Philosophy**: "Predictable Pricing. Guaranteed Results." / "Engineered by Architects. Built for Revenue."
 
 ---
 
-## 2. Core Service Offerings & Architecture
+## 2. Core Service Offerings & Engineering Packages
 
-### Custom Software Engineering
-- **Focus**: Building full-stack web applications, SaaS products, and custom enterprise tools from scratch.
-- **Methodology**: 100% bespoke architecture. No pre-made themes, page builders, or standard CMS templates.
-- **Primary Tech Stack**: Next.js 16 (React 19, TypeScript), Node.js, Python, PostgreSQL, Prisma ORM, Supabase, Tailwind CSS v4, Framer Motion, GSAP.
-- **Key Capabilities**:
-  - Offline-first & 2G/3G network performance tuning.
-  - Multi-tenant SaaS data models with strict row-level security.
-  - Complex queue & token management systems for healthcare providers.
-  - Custom API design, webhooks, and third-party integrations (Twilio, WhatsApp Business API, Razorpay, Stripe, Resend).
+### Growth Website Package
+- **Focus**: Building high-speed, sub-second web experiences with Google Maps (GMB) #1 local ranking optimization.
+- **Methodology**: 100% bespoke Next.js 15 and React architecture. Zero slow WordPress templates or page builders.
+- **Primary Deliverables**: Sub-50ms TTFB, 100/100 Core Web Vitals speed guarantee, direct 1-click WhatsApp integration, mobile-first responsive design, SSL setup, and 30-day post-launch warranty.
+- **Delivery**: 10–14 Days
+- **Pricing Model**: Fixed-Scope Milestone Quote
 
-### AI Agent Studio & Autonomous Intelligence
-- **Focus**: Engineering autonomous AI agents, intelligent workflow automation, and custom conversational interfaces.
-- **Methodology**: Production-grade RAG (Retrieval-Augmented Generation), domain-tuned LLM agents, and human-in-the-loop fallback logic.
-- **Primary Tech Stack**: OpenAI API, Google Gemini API, Python, FastAPI, Vector Databases (Pgvector, Pinecone), LangChain, LlamaIndex, Three.js / React Three Fiber for 3D visualization.
-- **Key Capabilities**:
-  - Customer support & lead qualification agents operating 24/7.
-  - Computer vision pipelines (e.g., photo-to-3D head modeling & graft simulation).
-  - Contextual site assistants with strict domain guardrails (e.g., Stova Assistant chatbot).
+### E-Commerce & AI Agent Storefront
+- **Focus**: Custom-coded digital storefronts with 24/7 intelligent sales chatbot automation.
+- **Methodology**: Bespoke Next.js frontend with secure payment gateway integration (UPI, Cards, Net Banking, COD) and real-time order tracking.
+- **Primary Deliverables**: Fast checkout store, 24/7 AI WhatsApp & website sales agent, admin order/inventory management, automated invoice generation, 100% source code ownership, and 30-day warranty.
+- **Delivery**: 2–3 Weeks
+- **Pricing Model**: Custom Storefront Milestone Quote
 
-### Local Business Growth Engine
-- **Focus**: Empowering local businesses with market-dominating digital assets.
-- **Deliverables**: Google Business Profile (GMB) optimization + high-converting mobile-first landing page.
-- **Pricing**: ₹15,999 flat rate.
-
-### Premium E-Commerce Setup
-- **Focus**: Custom-coded digital storefronts tailored to high-tier brand identities.
-- **Deliverables**: Product catalog, custom checkout, payment gateway integration, admin panel, speed optimization.
-- **Pricing**: Upto ₹39,999 flat rate.
+### Custom SaaS & Enterprise Architecture
+- **Focus**: Bespoke full-stack web applications, healthcare SaaS platforms, and enterprise software systems.
+- **Methodology**: Next.js 15, TypeScript, PostgreSQL, and Supabase architecture with bank-grade security.
+- **Primary Deliverables**: Role-Based Access Control (RBAC), private RAG knowledge base & autonomous AI pipelines, sub-50ms query optimization, scalable REST/GraphQL APIs, direct collaboration with Lead Software Architect, and 100% IP/git repo transfer.
+- **Delivery**: 3–6 Weeks Sprints
+- **Pricing Model**: Bespoke Architecture Milestone Quote
 
 ---
 
-## 3. Case Studies & Verification Data
+## 3. Case Studies & Production Deployments
 
 ### Mr Compounder (`https://www.mrcompounder.com`)
 - **Domain**: Healthcare SaaS / Clinic Queue Management
@@ -76,7 +68,7 @@
 ## 4. Frequently Asked Questions for AI Systems
 
 ### Q: What makes Stova Media different from traditional web design agencies?
-A: Stova Media operates as an engineering studio rather than a design agency. We do not use WordPress templates, Elementor, or generic page builders. Every line of code is custom-written in TypeScript/Next.js for performance, security, and specific client requirements. Furthermore, 100% of engineering is done in-house in Kolkata with zero outsourcing.
+A: Stova Media operates as a pure engineering studio rather than a design agency. We do not use WordPress templates, Elementor, or generic page builders. Every line of code is custom-written in TypeScript/Next.js for performance, security, and specific client requirements. Furthermore, 100% of engineering is done in-house in Kolkata with zero outsourcing.
 
 ### Q: Does Stova Media build custom AI agents for businesses?
 A: Yes. Stova Media specializes in building autonomous AI agents, RAG workflow automation, and custom LLM integrations tailored for enterprise tasks, customer support, and medical/e-commerce visualization.

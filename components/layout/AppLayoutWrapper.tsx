@@ -2,10 +2,8 @@
 
 import React from "react";
 import { usePathname } from "next/navigation";
-import SmoothScroll from "@/components/animations/SmoothScroll";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import PageTransition from "@/components/layout/PageTransition";
 import { ChatBot } from "@/components/ui";
 import { AISummary } from "@/components/layout/AISummary";
 
@@ -19,20 +17,18 @@ export default function AppLayoutWrapper({ children }: { children: React.ReactNo
   }
 
   if (isAIEcomRoute) {
-    return <SmoothScroll>{children}</SmoothScroll>;
+    return <>{children}</>;
   }
 
   return (
-    <>
+    <div className="flex min-h-screen flex-col bg-white">
       <Navbar />
       <ChatBot />
-      <SmoothScroll>
-        <PageTransition>
-          {children}
-          <AISummary />
-          <Footer />
-        </PageTransition>
-      </SmoothScroll>
-    </>
+      <div className="flex-1 w-full">
+        {children}
+      </div>
+      <AISummary />
+      <Footer />
+    </div>
   );
 }

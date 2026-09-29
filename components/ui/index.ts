@@ -8,3 +8,4 @@ export * from "./Tag";
 export * from "./MarqueeTrack";
 export * from "./ChatBot";
 export * from "./SpotlightCard";
+export { default as AppointmentModal } from "./AppointmentModal";

@@ -6,32 +6,32 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { Menu, X, ArrowUpRight, MessageSquare } from "lucide-react";
+import { Menu, X, ArrowUpRight, MessageSquare, Sparkles } from "lucide-react";
+import { AppointmentModal, MagneticElement } from "@/components/ui";
 
 const navLinks = [
   { name: "Home", href: "/" },
-  { name: "Work", href: "/work" },
-  { name: "Services", href: "/services" },
   { name: "Pricing", href: "/pricing" },
-  { name: "AI E-Commerce", href: "/aiecommerce", badge: "AI" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
+  { name: "AI E-Commerce", href: "/aiecommerce", badge: "AI" },
 ];
 
 export default function Navbar() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 40);
+      setScrolled(window.scrollY > 30);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Body scroll lock
+  // Body scroll lock on mobile drawer
   useEffect(() => {
     if (mobileMenuOpen) {
       document.body.style.overflow = "hidden";
@@ -47,35 +47,34 @@ export default function Navbar() {
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 w-full z-[500] transition-all duration-300 px-5 sm:px-8 md:px-12 lg:px-20",
+          "fixed top-0 left-0 w-full z-[500] transition-all duration-300 px-4 sm:px-8 md:px-12 lg:px-20",
           scrolled ? "py-3 md:py-3.5" : "py-5 md:py-6"
         )}
       >
         <div
           className={cn(
-            "max-w-[1400px] mx-auto flex items-center justify-between transition-all duration-300 rounded-full px-5 sm:px-7 py-2.5",
+            "max-w-[1300px] mx-auto flex items-center justify-between transition-all duration-300 rounded-full px-5 sm:px-7 py-2.5",
             scrolled
-              ? "bg-[#070B16]/90 backdrop-blur-2xl border border-slate-800/90 shadow-[0_10px_35px_rgba(0,0,0,0.7)]"
-              : "bg-[#070B16]/60 backdrop-blur-md border border-slate-800/50"
+              ? "bg-white/85 backdrop-blur-2xl border border-slate-200/90 shadow-[0_8px_30px_rgba(15,23,42,0.06)]"
+              : "bg-white/60 backdrop-blur-md border border-slate-200/50"
           )}
         >
           {/* Left: Brand Logo */}
           <Link href="/" className="group flex items-center gap-2">
             <div className="relative">
-              <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-full blur opacity-0 group-hover:opacity-50 transition duration-300" />
               <Image 
                 src="/logo.jpeg" 
                 alt="Stova Media" 
-                width={150} 
-                height={38} 
-                className="relative h-7 sm:h-8 w-auto object-contain rounded-full border border-slate-800" 
+                width={140} 
+                height={36} 
+                className="h-7 sm:h-8 w-auto object-contain rounded-full border border-slate-200 group-hover:scale-105 transition-transform" 
                 priority
               />
             </div>
           </Link>
 
           {/* Center: Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-7">
+          <nav className="hidden md:flex items-center gap-6 lg:gap-8">
             {navLinks.map((link) => {
               const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
               return (
@@ -83,23 +82,23 @@ export default function Navbar() {
                   key={link.name}
                   href={link.href}
                   className={cn(
-                    "relative text-xs uppercase tracking-[0.16em] font-ui font-semibold transition-all py-1 flex items-center gap-1.5 group",
-                    isActive ? "text-cyan-300" : "text-slate-300 hover:text-[#F8FAFC]"
+                    "relative py-1 text-sm font-ui transition-all duration-200 flex items-center gap-1.5 group",
+                    isActive
+                      ? "text-indigo-600 font-bold"
+                      : "text-slate-600 hover:text-slate-900 font-medium"
                   )}
                 >
                   <span>{link.name}</span>
-
                   {link.badge && (
-                    <span className="px-1.5 py-0.2 text-[9px] font-mono font-bold bg-cyan-950 border border-cyan-500/50 text-cyan-400 rounded-xs shadow-[0_0_8px_rgba(6,182,212,0.4)]">
+                    <span className="px-1.5 py-0.5 text-[10px] font-mono font-bold bg-indigo-600 text-white rounded-full leading-none">
                       {link.badge}
                     </span>
                   )}
-
                   {isActive && (
-                    <motion.div 
-                      layoutId="active-nav-glow-line"
-                      className="absolute -bottom-1 left-0 w-full h-[2px] bg-gradient-to-r from-indigo-500 via-cyan-400 to-indigo-500 shadow-[0_0_10px_rgba(6,182,212,0.8)]"
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                    <motion.div
+                      layoutId="active-underline"
+                      className="absolute -bottom-1 left-0 right-0 h-[2px] bg-indigo-600 rounded-full"
+                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
                     />
                   )}
                 </Link>
@@ -108,30 +107,34 @@ export default function Navbar() {
           </nav>
 
           {/* Right: Actions */}
-          <div className="flex items-center gap-3">
-            {/* WhatsApp Quick Link */}
-            <a
-              href="https://wa.me/919432053261?text=Hello%20Stova%20Media,%20I%20am%20interested%20in%20discussing%20a%20software%20project"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full border border-emerald-500/40 bg-emerald-950/30 text-emerald-400 hover:bg-emerald-900/40 transition-colors text-xs font-ui font-semibold"
-            >
-              <MessageSquare size={13} />
-              <span>WhatsApp</span>
-            </a>
+          <div className="flex items-center gap-2.5">
+            {/* WhatsApp Direct Link */}
+            <MagneticElement strength={0.25} className="hidden sm:inline-block">
+              <a
+                href="https://wa.me/919432053261?text=Hello%20Stova%20Media,%20I%20am%20interested%20in%20discussing%20a%20project"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full border border-emerald-200 bg-emerald-50 text-emerald-700 hover:bg-emerald-100 transition-colors text-xs font-semibold"
+              >
+                <MessageSquare size={13} />
+                <span>WhatsApp</span>
+              </a>
+            </MagneticElement>
 
             {/* Primary CTA Button */}
-            <Link
-              href="/contact"
-              className="hidden sm:inline-flex items-center gap-1.5 px-5 py-2 rounded-full bg-gradient-to-r from-indigo-500 via-indigo-600 to-cyan-500 text-white text-xs uppercase tracking-wider font-bold shadow-[0_0_20px_rgba(99,102,241,0.35)] hover:shadow-[0_0_25px_rgba(6,182,212,0.5)] transition-all duration-300 active:scale-[0.98]"
-            >
-              <span>Start Project</span>
-              <ArrowUpRight size={14} />
-            </Link>
+            <MagneticElement strength={0.25} className="hidden sm:inline-block">
+              <button
+                onClick={() => setModalOpen(true)}
+                className="inline-flex items-center gap-1.5 px-5 py-2 rounded-full bg-indigo-600 hover:bg-indigo-700 text-white text-xs uppercase tracking-wider font-bold shadow-sm shadow-indigo-600/30 hover:shadow-indigo-600/50 transition-all duration-200 active:scale-[0.98] cursor-pointer"
+              >
+                <Sparkles size={13} />
+                <span>Start Project</span>
+              </button>
+            </MagneticElement>
 
-            {/* Mobile Menu Toggle Button */}
+            {/* Mobile Menu Toggle */}
             <button
-              className="lg:hidden text-slate-200 p-2 hover:text-cyan-400 transition-colors"
+              className="md:hidden text-slate-700 p-2 hover:text-indigo-600 transition-colors"
               onClick={() => setMobileMenuOpen(true)}
               aria-label="Toggle menu"
             >
@@ -141,7 +144,7 @@ export default function Navbar() {
         </div>
       </header>
 
-      {/* Mobile Menu Fullscreen Drawer */}
+      {/* Mobile Drawer */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -149,28 +152,28 @@ export default function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-0 bg-[#05070D]/95 backdrop-blur-2xl z-[1000] flex flex-col p-6 sm:p-10 overflow-y-auto"
+            className="fixed inset-0 bg-white/95 backdrop-blur-2xl z-[1000] flex flex-col p-6 sm:p-10 overflow-y-auto"
             data-lenis-prevent
           >
-            {/* Drawer Top Header */}
-            <div className="flex justify-between items-center pb-6 border-b border-slate-800">
+            {/* Drawer Header */}
+            <div className="flex justify-between items-center pb-6 border-b border-slate-100">
               <Image 
                 src="/logo.jpeg" 
                 alt="Stova Media" 
-                width={150} 
-                height={38} 
-                className="h-8 w-auto object-contain rounded-full border border-slate-800" 
+                width={140} 
+                height={36} 
+                className="h-8 w-auto object-contain rounded-full border border-slate-200" 
               />
               <button
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-slate-300 p-2 hover:text-cyan-400 transition-colors rounded-full border border-slate-800 bg-[#0B0F19]"
+                className="p-2 text-slate-500 hover:text-slate-900 rounded-full border border-slate-200 bg-slate-50"
                 aria-label="Close menu"
               >
                 <X size={20} />
               </button>
             </div>
 
-            {/* Drawer Navigation Links */}
+            {/* Navigation Links */}
             <nav className="flex flex-col gap-6 my-auto py-8">
               {navLinks.map((link, i) => {
                 const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
@@ -186,18 +189,18 @@ export default function Navbar() {
                       onClick={() => setMobileMenuOpen(false)}
                       className={cn(
                         "font-display text-3xl sm:text-4xl transition-colors flex items-center justify-between font-bold",
-                        isActive ? "text-cyan-400" : "text-[#F8FAFC] hover:text-cyan-300"
+                        isActive ? "text-indigo-600" : "text-slate-900 hover:text-indigo-600"
                       )}
                     >
                       <span className="flex items-center gap-3">
                         <span>{link.name}</span>
                         {link.badge && (
-                          <span className="text-[11px] font-mono px-2 py-0.5 bg-cyan-950 border border-cyan-500/50 text-cyan-400 font-bold rounded-xs">
+                          <span className="text-[11px] font-mono px-2 py-0.5 bg-indigo-50 border border-indigo-200 text-indigo-600 font-bold rounded-full">
                             {link.badge}
                           </span>
                         )}
                       </span>
-                      <ArrowUpRight size={22} className={isActive ? "text-cyan-400" : "text-slate-600"} />
+                      <ArrowUpRight size={22} className={isActive ? "text-indigo-600" : "text-slate-300"} />
                     </Link>
                   </motion.div>
                 );
@@ -205,20 +208,22 @@ export default function Navbar() {
             </nav>
 
             {/* Drawer Bottom Actions */}
-            <div className="pt-6 border-t border-slate-800 flex flex-col gap-3 mt-auto">
-              <Link
-                href="/contact"
-                onClick={() => setMobileMenuOpen(false)}
-                className="w-full text-center py-4 bg-gradient-to-r from-indigo-500 via-indigo-600 to-cyan-500 text-white font-bold text-sm uppercase tracking-wider rounded-lg shadow-[0_0_25px_rgba(99,102,241,0.4)]"
+            <div className="pt-6 border-t border-slate-100 flex flex-col gap-3 mt-auto">
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  setModalOpen(true);
+                }}
+                className="w-full text-center py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm uppercase tracking-wider rounded-xl shadow-md shadow-indigo-600/25"
               >
                 Start A Project
-              </Link>
+              </button>
 
               <a
-                href="https://wa.me/919432053261?text=Hello%20Stova%20Media,%20I%20want%20to%20discuss%20a%20software%20project"
+                href="https://wa.me/919432053261?text=Hello%20Stova%20Media,%20I%20want%20to%20discuss%20a%20project"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full text-center py-3.5 border border-emerald-500/40 bg-emerald-950/30 text-emerald-400 font-bold text-xs uppercase tracking-wider rounded-lg flex items-center justify-center gap-2"
+                className="w-full text-center py-3.5 border border-emerald-200 bg-emerald-50 text-emerald-700 font-bold text-xs uppercase tracking-wider rounded-xl flex items-center justify-center gap-2"
               >
                 <MessageSquare size={16} />
                 <span>Chat on WhatsApp</span>
@@ -227,6 +232,9 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Appointment Modal */}
+      <AppointmentModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </>
   );
 }

@@ -2,68 +2,63 @@
 
 import React from "react";
 import Link from "next/link";
-import { ArrowLeft, ArrowUpRight, ShieldAlert } from "lucide-react";
+import { ArrowLeft, ArrowRight, ShieldAlert, Sparkles, Home } from "lucide-react";
+
+import { MagneticElement } from "@/components/ui";
 
 export default function NotFound() {
   return (
-    <main className="min-h-screen bg-[#05070D] flex flex-col items-center justify-center p-6 sm:p-10 overflow-hidden relative text-[#F8FAFC]">
-      {/* Cyber-Obsidian Glow */}
+    <div className="min-h-[85vh] bg-white flex flex-col items-center justify-center p-6 sm:p-10 relative overflow-hidden text-slate-900">
+      {/* Soft Ambient Light Glow */}
       <div 
-        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] rounded-full blur-[140px] opacity-25 z-0"
-        style={{
-          background: "radial-gradient(circle, rgba(99, 102, 241, 0.5) 0%, rgba(6, 182, 212, 0.3) 50%, transparent 70%)"
-        }}
+        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] max-w-[700px] h-[350px] rounded-full blur-[110px] bg-gradient-to-tr from-indigo-100/80 via-cyan-100/50 to-blue-50/40 -z-10"
       />
       
-      {/* Giant Cyber 404 Watermark */}
-      <h1 
-        className="font-display font-bold text-[clamp(120px,25vw,340px)] leading-none select-none pointer-events-none opacity-10 text-transparent bg-gradient-to-b from-indigo-400 to-transparent bg-clip-text"
+      {/* Giant 404 Watermark */}
+      <div 
+        className="font-display font-extrabold text-[clamp(100px,22vw,280px)] leading-none select-none pointer-events-none text-slate-100/80 -mb-8 sm:-mb-14"
       >
         404
-      </h1>
+      </div>
 
       {/* Narrative Section */}
-      <div className="relative z-10 text-center flex flex-col items-center -mt-16 md:-mt-28 max-w-xl">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-indigo-500/40 bg-[#0B0F19]/90 backdrop-blur-md mb-6">
-          <ShieldAlert size={14} className="text-cyan-400" />
-          <span className="text-xs uppercase font-mono tracking-wider text-cyan-300 font-semibold">
-            Route Not Found · 404 System Status
-          </span>
+      <div className="relative z-10 text-center flex flex-col items-center max-w-xl mx-auto">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700 text-xs sm:text-sm font-semibold mb-4 sm:mb-5 shadow-xs">
+          <ShieldAlert size={14} className="text-indigo-600" />
+          <span>Page Not Found · Error 404</span>
         </div>
 
-        <h2 className="font-display text-3xl sm:text-5xl font-bold text-[#F8FAFC] mb-4 leading-tight">
-          This Coordinates Do Not Exist.
-        </h2>
+        <h1 className="font-display text-3xl sm:text-5xl font-extrabold text-slate-900 mb-3 sm:mb-4 tracking-tight">
+          Lost in the Architecture?
+        </h1>
 
-        <p className="font-ui text-sm sm:text-base text-slate-400 font-light max-w-md mb-10 leading-relaxed">
-          The requested architectural blueprint or endpoint was moved or does not exist on our servers.
+        <p className="font-ui text-sm sm:text-base text-slate-600 font-light max-w-md mb-8 sm:mb-10 leading-relaxed">
+          The requested page or resource has been relocated, renamed, or does not exist on our servers.
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
-          <Link
-            href="/"
-            className="w-full sm:w-auto px-8 py-3.5 rounded-xs bg-gradient-to-r from-indigo-500 to-cyan-500 text-white font-ui font-semibold text-xs tracking-wider uppercase transition-all duration-300 hover:shadow-[0_0_25px_rgba(6,182,212,0.4)] flex items-center justify-center gap-2"
-          >
-            <ArrowLeft size={14} />
-            <span>Return to HQ</span>
-          </Link>
+        <div className="flex flex-col sm:flex-row items-center gap-3.5 w-full sm:w-auto">
+          <MagneticElement strength={0.3} className="w-full sm:w-auto">
+            <Link
+              href="/"
+              className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-indigo-600 hover:bg-indigo-700 text-white font-ui font-bold text-xs uppercase tracking-wider transition-all duration-200 shadow-md shadow-indigo-600/25 flex items-center justify-center gap-2"
+            >
+              <Home size={15} />
+              <span>Return to Homepage</span>
+            </Link>
+          </MagneticElement>
 
-          <Link
-            href="/work"
-            className="w-full sm:w-auto px-8 py-3.5 rounded-xs border border-slate-800 bg-[#0B0F19] text-slate-300 hover:text-cyan-300 hover:border-cyan-500/40 font-ui font-semibold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2"
-          >
-            <span>Explore Case Studies</span>
-            <ArrowUpRight size={14} />
-          </Link>
+          <MagneticElement strength={0.3} className="w-full sm:w-auto">
+            <Link
+              href="/pricing"
+              className="w-full sm:w-auto px-7 py-3.5 rounded-full border border-slate-200 bg-slate-50 hover:bg-white text-slate-800 hover:text-indigo-700 hover:border-indigo-300 font-ui font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-2xs"
+            >
+              <Sparkles size={14} className="text-indigo-600" />
+              <span>View Pricing &amp; Scope</span>
+              <ArrowRight size={14} />
+            </Link>
+          </MagneticElement>
         </div>
       </div>
-
-      {/* Footer Location Pill */}
-      <div className="absolute bottom-10 flex items-center gap-2 text-slate-500 text-[11px] font-mono uppercase tracking-widest">
-        <span>Stova Media Engineering Studio</span>
-        <span>·</span>
-        <span className="text-cyan-400">Kolkata, India</span>
-      </div>
-    </main>
+    </div>
   );
 }

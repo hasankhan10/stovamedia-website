@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Outfit, DM_Serif_Display } from "next/font/google";
 import "./globals.css";
 
 import Preloader from "@/components/layout/Preloader";
@@ -6,6 +7,20 @@ import GlobalBackground from "@/components/layout/GlobalBackground";
 import ScrollProgress from "@/components/layout/ScrollProgress";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import AppLayoutWrapper from "@/components/layout/AppLayoutWrapper";
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  variable: "--font-ui",
+  display: "swap",
+  weight: ["300", "400", "500", "600", "700"],
+});
+
+const dmSerif = DM_Serif_Display({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+  weight: ["400"],
+});
 
 export const metadata: Metadata = {
   title: {
@@ -248,25 +263,19 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
+    <html lang="en" className={`light ${outfit.variable} ${dmSerif.variable}`} suppressHydrationWarning>
       <head>
         <link rel="icon" href="/logo.jpeg" type="image/jpeg" />
         <link rel="shortcut icon" href="/logo.jpeg" type="image/jpeg" />
         <link rel="apple-touch-icon" href="/logo.jpeg" />
         <link rel="author" href="/llms.txt" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link 
-          rel="stylesheet" 
-          href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@400;500;600;700;800;900&family=DM+Serif+Display:ital,wght@0,400;1,400&family=Hind+Siliguri:wght@300;400;500;600;700&family=Noto+Sans+Bengali:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap" 
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="antialiased text-cream selection:bg-gold selection:text-ink bg-[#05070D]">
-        <ThemeProvider attribute="class" forcedTheme="dark">
+      <body className="antialiased text-slate-900 selection:bg-indigo-600 selection:text-white bg-white font-ui">
+        <ThemeProvider attribute="class" forcedTheme="light">
           <Preloader />
           <GlobalBackground />
           <ScrollProgress />

@@ -3,7 +3,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { gsap } from "gsap";
-import { cn } from "@/lib/utils";
 
 export default function Preloader() {
   const pathname = usePathname();
@@ -11,21 +10,17 @@ export default function Preloader() {
   const containerRef = useRef<HTMLDivElement>(null);
   const underlineRef = useRef<HTMLDivElement>(null);
 
-  // Disable preloader on specific standalone landing pages like /aiecommerce
   const isExcludedPage = pathname === "/aiecommerce" || pathname?.startsWith("/aiecommerce");
 
   useEffect(() => {
-    if (isExcludedPage) {
-      setComplete(true);
-      return;
-    }
+    if (isExcludedPage) return;
 
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
         onComplete: () => {
           gsap.to(containerRef.current, {
             yPercent: -100,
-            duration: 1.0,
+            duration: 0.8,
             ease: "power4.inOut",
             onComplete: () => setComplete(true),
           });
@@ -36,29 +31,29 @@ export default function Preloader() {
       tl.from(".char-stova", {
         opacity: 0,
         y: 20,
-        stagger: 0.07,
-        duration: 0.6,
+        stagger: 0.05,
+        duration: 0.5,
         ease: "power2.out",
       })
       .from(".char-dot", {
         opacity: 0,
         scale: 0,
-        color: "#C9A84C",
-        duration: 0.4,
+        color: "#4F46E5",
+        duration: 0.3,
         ease: "back.out(2)",
-      }, "0.9")
+      }, "0.7")
       .from(".char-media", {
         opacity: 0,
         y: 20,
-        stagger: 0.07,
-        duration: 0.6,
+        stagger: 0.05,
+        duration: 0.5,
         ease: "power2.out",
-      }, "1.1")
+      }, "0.9")
       .to(underlineRef.current, {
         scaleX: 1,
-        duration: 1,
+        duration: 0.8,
         ease: "power4.inOut",
-      }, "1.8");
+      }, "1.3");
     }, containerRef);
 
     return () => ctx.revert();
@@ -72,19 +67,19 @@ export default function Preloader() {
   return (
     <div 
       ref={containerRef}
-      className="fixed inset-0 z-[9999] bg-ink flex items-center justify-center overflow-hidden"
+      className="fixed inset-0 z-[9999] bg-white flex items-center justify-center overflow-hidden"
     >
       <div className="relative">
-        <div className="font-display text-4xl md:text-6xl lg:text-8xl flex items-baseline gap-1 overflow-hidden">
+        <div className="font-display text-4xl md:text-6xl lg:text-8xl flex items-baseline gap-1 overflow-hidden font-bold text-slate-900">
           <div className="flex">
             {stova.map((char, i) => (
               <span key={i} className="char-stova inline-block">{char}</span>
             ))}
           </div>
-          <span className="char-dot text-gold">.</span>
+          <span className="char-dot text-indigo-600">.</span>
           <div className="flex">
             {media.map((char, i) => (
-              <span key={i} className="char-media inline-block font-light text-cream/60">{char}</span>
+              <span key={i} className="char-media inline-block font-light text-slate-500">{char}</span>
             ))}
           </div>
         </div>
@@ -92,13 +87,8 @@ export default function Preloader() {
         {/* Animated Underline */}
         <div 
           ref={underlineRef}
-          className="absolute -bottom-4 left-0 w-full h-[2px] bg-gold scale-x-0 origin-center"
+          className="absolute -bottom-4 left-0 w-full h-[3px] bg-gradient-to-r from-indigo-600 to-cyan-500 scale-x-0 origin-center rounded-full"
         />
-      </div>
-
-      {/* Background scaling circles for "Flash" exit */}
-      <div className="absolute inset-0 z-[-1] pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-0 h-0 bg-gold/5 rounded-full flash-circle group-hover:block" />
       </div>
     </div>
   );

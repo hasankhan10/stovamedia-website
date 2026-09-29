@@ -1,550 +1,397 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
-import Link from "next/link";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { SplitHeadline, SectionLabel, RevealOnScroll, SpotlightCard, MagneticElement } from "@/components/ui";
-import CTASection from "@/components/sections/CTASection";
 import { 
-  Zap, 
+  Check, 
   ShieldCheck, 
-  Bot, 
-  Store, 
-  ShoppingCart, 
-  Code2, 
-  CheckCircle2, 
-  ArrowUpRight, 
-  MessageSquare, 
-  Sparkles, 
-  Layers, 
   Clock, 
-  HelpCircle, 
+  Zap, 
+  Calendar, 
+  MessageSquare, 
+  ArrowRight, 
+  Layers,
+  HelpCircle,
   ChevronDown,
-  Calculator,
-  Flame,
-  Award
+  Server,
+  Globe,
+  Bot
 } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { AppointmentModal, MagneticElement } from "@/components/ui";
+import TiltCard from "@/components/animations/TiltCard";
+import { 
+  GrowthWebsiteMotionGraphic, 
+  EcommerceAIMotionGraphic, 
+  CustomSaaSMotionGraphic 
+} from "@/components/animations/PricingTierGraphics";
 
-interface PricingTier {
-  id: string;
-  name: string;
-  tagline: string;
-  badge?: string;
-  badgeColor?: string;
-  marketPrice?: string;
-  price: string;
-  billingType: string;
-  timeline: string;
-  deliverables: string[];
-  ctaText: string;
-  popular?: boolean;
-  spotlight: string;
-  accent: string;
-}
-
-const pricingTiers: PricingTier[] = [
+const pricingTiers = [
   {
-    id: "local-business",
-    name: "Local Business Growth",
-    tagline: "Dominate your local market with verified digital presence.",
-    badge: "Special Intake Offer",
-    badgeColor: "bg-emerald-950/60 border-emerald-500/40 text-emerald-300",
-    marketPrice: "₹25,000",
-    price: "₹15,999",
-    billingType: "One-time Investment",
-    timeline: "5-7 Business Days",
-    deliverables: [
-      "High-Converting Landing Page",
-      "Google Business Profile Setup & Local SEO",
-      "24/7 AI Assistant Chatbot Integration",
-      "100% Mobile Responsive Architecture",
-      "Direct WhatsApp Lead Dispatch",
-      "SSL Certificate & Fast Cloud CDN",
-      "1 Month Free Priority Support"
+    id: "growth-website",
+    title: "Growth Website Package",
+    tagline: "For small businesses, doctors, and local brands wanting high Google Maps rankings and sub-second speed.",
+    price: "Fixed-Scope Quote",
+    period: "Milestone Deliverable",
+    popular: false,
+    badge: "Fast Launch",
+    badgeColor: "bg-slate-100 text-slate-700 border-slate-200",
+    icon: Globe,
+    accent: "from-slate-800 to-slate-900",
+    delivery: "10–14 Days Delivery",
+    graphic: <GrowthWebsiteMotionGraphic />,
+    features: [
+      "100% Custom Next.js 15 & React code (zero slow WordPress templates)",
+      "Google Maps (GMB) #1 ranking optimization & Local SEO setup",
+      "Sub-50ms TTFB & 100/100 Core Web Vitals speed guarantee",
+      "Direct 1-Click WhatsApp click-to-chat integration",
+      "Mobile-first responsive design tailored to your branding",
+      "Free SSL setup & 30-day post-launch warranty",
     ],
-    ctaText: "Claim ₹15,999 Offer",
-    spotlight: "rgba(16, 185, 129, 0.2)",
-    accent: "text-emerald-400"
   },
   {
-    id: "ai-ecom",
-    name: "Turnkey AI E-Commerce",
-    tagline: "Next-gen intelligent digital storefront that sells 24/7.",
-    badge: "Highest ROI · 3.4x Conversion",
-    badgeColor: "bg-indigo-950/70 border-indigo-500/50 text-cyan-300",
-    marketPrice: "₹55,000",
-    price: "Upto ₹39,999",
-    billingType: "Fixed Scope Package",
-    timeline: "2-3 Weeks",
+    id: "ecommerce-ai",
+    title: "E-Commerce & AI Agent",
+    tagline: "For brands and online sellers needing a high-converting storefront with a 24/7 automated sales AI bot.",
+    price: "Custom Storefront",
+    period: "Milestone Deliverable",
     popular: true,
-    deliverables: [
-      "Custom Full-Stack Next.js E-commerce",
-      "24/7 AI Sales & Recommendation Assistant",
-      "AI-Powered Semantic Vector Search",
-      "Automated Product Schema & AI SEO Engine",
-      "Razorpay, Stripe & UPI Instant Checkout",
-      "Real-time Inventory & Customer Analytics",
-      "3 Months Free Dedicated Support & Tuning"
+    badge: "Most Popular",
+    badgeColor: "bg-indigo-50 text-indigo-700 border-indigo-200",
+    icon: Bot,
+    accent: "from-indigo-600 to-cyan-600",
+    delivery: "2–3 Weeks Delivery",
+    graphic: <EcommerceAIMotionGraphic />,
+    features: [
+      "Custom-coded fast checkout store with secure UPI/Card/COD payments",
+      "24/7 Intelligent AI WhatsApp & Website Chatbot (answers queries & takes orders)",
+      "Admin inventory, customer order management & automated invoice generation",
+      "Sub-second load times designed for high mobile conversion rates",
+      "Automated WhatsApp order confirmation & tracking notifications",
+      "100% source code ownership & 30-day dedicated warranty",
     ],
-    ctaText: "Explore E-Commerce Setup",
-    spotlight: "rgba(6, 182, 212, 0.25)",
-    accent: "text-cyan-400"
   },
   {
-    id: "ai-agent-studio",
-    name: "Autonomous AI Agent Swarm",
-    tagline: "Custom AI automation pipelines engineered for production.",
-    badge: "Enterprise Automation",
-    badgeColor: "bg-indigo-950/60 border-indigo-500/40 text-indigo-300",
-    price: "Custom Fixed Quote",
-    billingType: "Based on Architecture Scope",
-    timeline: "2-4 Weeks",
-    deliverables: [
-      "Bespoke Multi-Agent Task Orchestrator",
-      "RAG Vector Database (1536-dim embeddings)",
-      "Multi-lingual NLP (Bengali, Hindi, English)",
-      "CRM & Internal Tool API Connectors",
-      "Automated Lead Qualification Pipeline",
-      "Real-time Telemetry & Fallback Guardrails",
-      "Complete Source Code & Architecture Handover"
+    id: "custom-saas",
+    title: "Custom SaaS & Enterprise",
+    tagline: "For startups, clinics, and businesses building custom full-stack software, portals, or internal tools.",
+    price: "Bespoke Architecture",
+    period: "Sprint Milestone",
+    popular: false,
+    badge: "Bespoke Scale",
+    badgeColor: "bg-cyan-50 text-cyan-700 border-cyan-200",
+    icon: Server,
+    accent: "from-cyan-600 to-indigo-700",
+    delivery: "3–6 Weeks Sprints",
+    graphic: <CustomSaaSMotionGraphic />,
+    features: [
+      "End-to-end custom Next.js 15, TypeScript & PostgreSQL architecture",
+      "Bank-grade Role-Based Access Control (RBAC) & encrypted auth",
+      "Autonomous AI pipelines, private RAG knowledge base & CRM sync",
+      "Scalable REST/GraphQL APIs with sub-50ms query optimization",
+      "Direct daily collaboration with Lead Software Architect",
+      "100% intellectual property & complete git repository transfer",
     ],
-    ctaText: "Book AI Feasibility Call",
-    spotlight: "rgba(99, 102, 241, 0.22)",
-    accent: "text-indigo-400"
   },
-  {
-    id: "custom-software",
-    name: "Enterprise Custom Software",
-    tagline: "Mission-critical web apps & healthcare/fintech SaaS.",
-    badge: "Zero Tech Debt SLA",
-    badgeColor: "bg-sky-950/60 border-sky-500/40 text-sky-300",
-    price: "Bespoke Scoping",
-    billingType: "Milestone-based Deliverables",
-    timeline: "4-8 Weeks",
-    deliverables: [
-      "End-to-End System Design & DB Schema",
-      "Healthcare, OPD & Silent Queue SaaS Engines",
-      "Next.js 16 + Supabase/PostgreSQL Stack",
-      "Weekly Live Staging Deployments",
-      "Automated E2E Testing & SOC-2 Compliance",
-      "Sub-Second Edge Caching Architecture",
-      "100% IP Ownership & 30-Day Launch SLA"
-    ],
-    ctaText: "Request Architecture Review",
-    spotlight: "rgba(56, 189, 248, 0.22)",
-    accent: "text-sky-400"
-  }
 ];
 
-const faqs = [
+const guarantees = [
   {
-    q: "Do you bill hourly or provide fixed-price quotes?",
-    a: "We operate exclusively on fixed-scope, outcome-driven quotes. Once we finalize the technical architecture and deliverables during discovery, your price is locked. There are zero surprise hourly invoices or hidden fees."
+    icon: ShieldCheck,
+    title: "100% IP & Code Ownership",
+    description: "You own every single line of code, database schema, and git repository upon project completion.",
   },
   {
-    q: "What are the standard payment terms?",
-    a: "We work on a milestone-based protocol: typically 50% initial commitment upon kickoff, and the remaining 50% only after final deployment, automated testing, and client sign-off. You hold full leverage until you are 100% satisfied."
+    icon: Clock,
+    title: "4-Hour Feasibility Response",
+    description: "Submit your requirements and get a detailed engineering review and fixed timeline within 4 hours.",
   },
   {
-    q: "Do we own the full source code and intellectual property?",
-    a: "Yes, 100%. Upon project completion, full copyright, source code, database access, and intellectual property are transferred directly to your organization with zero vendor lock-in."
+    icon: Zap,
+    title: "Zero Hidden Fees",
+    description: "Fixed milestone pricing with zero surprise hourly overages or recurring agency maintenance lock-ins.",
+  },
+];
+
+const pricingFaqs = [
+  {
+    question: "How does your milestone-based payment work?",
+    answer: "We break projects into clear, verifiable milestones. Typically, projects start with a 50% upfront deposit to begin development, and the remaining 50% is only payable after you test and approve the finished staging build.",
   },
   {
-    q: "What happens after the software launches?",
-    a: "Every project includes a complimentary post-launch warranty period (up to 3 months depending on the tier) with 24/7 telemetry monitoring and bug fixing. We also offer affordable ongoing engineering retainers for continuous feature expansion."
+    question: "What is included in the 30-day post-launch warranty?",
+    answer: "Every custom build includes 30 days of complimentary technical support, server monitoring, bug fixes, and performance tuning to ensure your software runs with 100% stability.",
   },
   {
-    q: "How fast can you start on our project?",
-    a: "Because we maintain a strict intake limit of 3-5 concurrent clients to ensure exceptional code quality, we can typically commence architecture discovery within 48 to 72 hours of contract execution."
-  }
+    question: "Can I upgrade features or add custom AI workflows later?",
+    answer: "Yes! Because our architecture is 100% modular and clean, adding new AI agent pipelines, custom database models, or checkout integrations in the future is seamless without rebuilding.",
+  },
+  {
+    question: "How do you calculate custom quotes for SaaS and internal tools?",
+    answer: "We evaluate your exact user workflows, database complexity, third-party integrations, and target launch date. We then provide a fixed milestone proposal with guaranteed delivery dates.",
+  },
 ];
 
 export default function PricingClient() {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState("Growth Website Package");
   const [openFaq, setOpenFaq] = useState<number | null>(0);
-  const [calcService, setCalcService] = useState<string>("ecommerce");
-  const [calcScale, setCalcScale] = useState<string>("production");
-  const [addons, setAddons] = useState<string[]>(["whatsapp", "seo"]);
 
-  const toggleAddon = (id: string) => {
-    setAddons((prev) =>
-      prev.includes(id) ? prev.filter((a) => a !== id) : [...prev, id]
-    );
+  const openBookingFor = (serviceTitle: string) => {
+    setSelectedService(serviceTitle);
+    setModalOpen(true);
   };
 
-  const estimatedEstimate = useMemo(() => {
-    let base = 25000;
-    let timeline = "2-3 Weeks";
-
-    if (calcService === "landing") base = 15999;
-    if (calcService === "ecommerce") base = 39999;
-    if (calcService === "ai-agent") { base = 45000; timeline = "2-4 Weeks"; }
-    if (calcService === "saas") { base = 85000; timeline = "4-6 Weeks"; }
-
-    if (calcScale === "enterprise") base *= 1.6;
-
-    if (addons.includes("whatsapp")) base += 5000;
-    if (addons.includes("seo")) base += 6000;
-    if (addons.includes("rag")) base += 12000;
-    if (addons.includes("multi-clinic")) base += 15000;
-
-    return {
-      priceFormatted: `₹${Math.round(base).toLocaleString("en-IN")}`,
-      timeline
-    };
-  }, [calcService, calcScale, addons]);
-
   return (
-    <main className="pt-28 md:pt-36 min-h-screen bg-[#05070D] text-[#F8FAFC]">
-      {/* 1. HERO SECTION */}
-      <section className="px-5 sm:px-8 md:px-12 lg:px-20 mb-16 md:mb-24 flex flex-col items-center text-center relative overflow-hidden">
-        <div 
-          className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[700px] md:w-[900px] h-[450px] rounded-full blur-[140px] opacity-25 z-0"
-          style={{ background: "radial-gradient(circle, rgba(99, 102, 241, 0.45) 0%, rgba(6, 182, 212, 0.2) 60%, transparent 70%)" }}
-        />
+    <div className="w-full bg-white relative">
+      {/* 1. Pricing Header & Cards */}
+      <section className="relative pt-28 sm:pt-36 pb-12 sm:pb-16 px-4 sm:px-6 md:px-10 lg:px-16 overflow-hidden bg-white">
+        {/* Soft Ambient Glow */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] max-w-[800px] h-[350px] sm:h-[450px] bg-gradient-to-tr from-indigo-100/70 via-cyan-100/40 to-blue-50/30 rounded-full blur-[100px] sm:blur-[130px] pointer-events-none -z-10" />
 
-        <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
-          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-indigo-500/40 bg-[#0B0F19]/90 backdrop-blur-md mb-6 shadow-[0_0_20px_rgba(99,102,241,0.2)]">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-400" />
-            </span>
-            <span className="text-xs uppercase font-ui tracking-wider font-semibold text-cyan-300">
-              Transparent Investment Architecture · Zero Hidden Billing
-            </span>
+        <div className="max-w-[1300px] mx-auto text-center">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700 text-xs sm:text-sm font-semibold mb-4 sm:mb-5 shadow-xs">
+            <Layers size={14} className="text-indigo-600" />
+            <span>Transparent Investment · Fixed Scope Delivery</span>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-bold leading-[1.02] tracking-tight text-[#F8FAFC]">
-            Clear, Honest &amp;{" "}
-            <span className="bg-gradient-to-r from-indigo-400 via-cyan-300 to-indigo-300 bg-clip-text text-transparent">
-              Transparent Pricing.
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-display font-extrabold text-slate-900 tracking-tight leading-[1.08] max-w-4xl mx-auto mb-4 sm:mb-5">
+            Predictable Pricing.{" "}
+            <span className="bg-gradient-to-r from-indigo-600 via-indigo-700 to-cyan-600 bg-clip-text text-transparent">
+              Guaranteed Results.
             </span>
           </h1>
 
-          <p className="mt-8 text-slate-300 font-ui text-base sm:text-xl max-w-2xl leading-relaxed font-light">
-            No confusing hourly rates, no hidden fees, and zero surprise invoices. We provide fixed-scope quotes designed to deliver real business returns.
+          <p className="text-slate-600 text-base sm:text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed mb-10 sm:mb-14">
+            No endless hourly billing, no surprise invoices. Choose a fixed-scope engineering package or request a tailored milestone quote.
           </p>
-        </div>
-      </section>
 
-      {/* 2. PRICING TIERS BENTO GRID */}
-      <section className="px-5 sm:px-8 md:px-12 lg:px-20 max-w-[1400px] mx-auto mb-24 md:mb-36">
-        <div className="text-center max-w-2xl mx-auto mb-14">
-          <SectionLabel className="justify-center">Fixed Scope Packages</SectionLabel>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-[#F8FAFC] mt-3">
-            Engineered For Immediate ROI
-          </h2>
-        </div>
+          {/* 3 Core Pricing Cards Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 text-left items-stretch">
+            {pricingTiers.map((tier) => {
+              const IconComponent = tier.icon;
+              return (
+                <div key={tier.id} className="h-full">
+                  <TiltCard maxTilt={4} className="h-full">
+                    <div
+                      className={`h-full rounded-3xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 relative ${
+                        tier.popular
+                          ? "bg-white border-2 border-indigo-500 shadow-[0_15px_40px_rgba(79,70,229,0.12)]"
+                          : "bg-white border border-slate-200/90 shadow-2xs hover:border-indigo-300 hover:shadow-xs"
+                      }`}
+                    >
+                      {/* Popular Top Badge */}
+                      {tier.popular && (
+                        <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3.5 py-0.5 rounded-full bg-indigo-600 text-white text-[11px] font-bold uppercase tracking-wider shadow-sm">
+                          Most Recommended
+                        </div>
+                      )}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-          {pricingTiers.map((tier) => {
-            const waText = encodeURIComponent(`Hi Stova Media, I am interested in the ${tier.name} package (${tier.price}). Let's discuss scope.`);
-
-            return (
-              <RevealOnScroll key={tier.id}>
-                <SpotlightCard
-                  spotlightColor={tier.spotlight}
-                  className={cn(
-                    "p-7 sm:p-9 md:p-11 border-slate-800 bg-[#0B0F19]/90 backdrop-blur-xl rounded-xs relative flex flex-col justify-between h-full shadow-2xl transition-all duration-500 hover:border-indigo-500/50 group",
-                    tier.popular ? "border-cyan-500/50 shadow-[0_0_35px_rgba(6,182,212,0.15)]" : ""
-                  )}
-                >
-                  <div>
-                    <div className="flex justify-between items-start mb-6">
                       <div>
-                        {tier.badge && (
-                          <span className={cn("text-[10px] uppercase font-mono tracking-widest px-3 py-1 rounded-full border inline-block mb-3 font-semibold", tier.badgeColor)}>
+                        {/* Header & Icon */}
+                        <div className="flex items-center justify-between mb-4">
+                          <div className={`w-11 h-11 rounded-2xl bg-gradient-to-tr ${tier.accent} text-white flex items-center justify-center shadow-xs`}>
+                            <IconComponent size={20} />
+                          </div>
+                          <span className={`px-2.5 py-0.5 rounded-full text-xs font-semibold border ${tier.badgeColor}`}>
                             {tier.badge}
                           </span>
-                        )}
-                        <h3 className="text-2xl sm:text-3xl font-display font-bold text-[#F8FAFC]">
-                          {tier.name}
+                        </div>
+
+                        {/* Title & Tagline */}
+                        <h3 className="text-xl sm:text-2xl font-display font-bold text-slate-900 mb-2 tracking-tight">
+                          {tier.title}
                         </h3>
-                        <p className="text-xs sm:text-sm text-slate-400 font-ui font-light mt-1 max-w-sm">
+                        <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
                           {tier.tagline}
                         </p>
-                      </div>
-                    </div>
 
-                    <div className="mb-8 pb-6 border-b border-slate-800/80">
-                      {tier.marketPrice && (
-                        <div className="flex items-center gap-2 mb-1">
-                          <span className="text-xs font-mono text-slate-500 line-through">Market: {tier.marketPrice}</span>
-                          <span className="text-[10px] font-mono uppercase bg-emerald-950/60 text-emerald-400 border border-emerald-500/40 px-1.5 py-0.5 rounded-xs">
-                            Studio Discount Active
-                          </span>
+                        {/* Price Display */}
+                        <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 mb-4">
+                          <div className="text-2xl sm:text-3xl font-extrabold font-display text-slate-900">
+                            {tier.price}
+                          </div>
+                          <div className="text-[11px] font-mono text-slate-500 mt-0.5 flex justify-between items-center">
+                            <span>{tier.period}</span>
+                            <span className="text-indigo-700 font-bold">{tier.delivery}</span>
+                          </div>
                         </div>
-                      )}
-                      <div className="flex items-baseline gap-2">
-                        <span className={cn("text-3xl sm:text-4xl lg:text-5xl font-display font-bold tracking-tight", tier.accent)}>
-                          {tier.price}
-                        </span>
-                        <span className="text-xs font-ui text-slate-400 font-light">/ {tier.billingType}</span>
-                      </div>
-                      <div className="flex items-center gap-2 mt-2 text-xs font-mono text-slate-400">
-                        <Clock size={13} className="text-cyan-400" />
-                        <span>Estimated Delivery: <strong className="text-slate-200">{tier.timeline}</strong></span>
-                      </div>
-                    </div>
 
-                    <div className="space-y-3 mb-8">
-                      <span className="text-[11px] uppercase font-mono tracking-wider font-bold text-slate-400 block">
-                        Included Architecture Deliverables:
-                      </span>
-                      {tier.deliverables.map((del, dIdx) => (
-                        <div key={dIdx} className="flex items-start gap-3 text-xs sm:text-sm font-ui text-slate-300">
-                          <CheckCircle2 size={16} className="text-cyan-400 shrink-0 mt-0.5" />
-                          <span>{del}</span>
+                        {/* Animated Motion Graphic Widget */}
+                        <div className="mb-5">
+                          {tier.graphic}
                         </div>
-                      ))}
+
+                        {/* Feature List */}
+                        <ul className="space-y-3 mb-8">
+                          {tier.features.map((feature, fIndex) => (
+                            <li key={fIndex} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 leading-normal">
+                              <span className="mt-0.5 rounded-full p-0.5 bg-emerald-100 text-emerald-700 shrink-0">
+                                <Check size={12} strokeWidth={3} />
+                              </span>
+                              <span>{feature}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      {/* Action Button */}
+                      <MagneticElement strength={0.25} className="w-full">
+                        <button
+                          onClick={() => openBookingFor(tier.title)}
+                          className={`w-full py-3.5 px-5 rounded-xl font-bold text-xs sm:text-sm transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer ${
+                            tier.popular
+                              ? "bg-indigo-600 hover:bg-indigo-700 text-white shadow-md shadow-indigo-600/25"
+                              : "bg-slate-50 hover:bg-indigo-600 text-slate-800 hover:text-white border border-slate-200"
+                          }`}
+                        >
+                          <span>Get {tier.title.split(" ")[0]} Quote</span>
+                          <ArrowRight size={15} />
+                        </button>
+                      </MagneticElement>
                     </div>
-                  </div>
-
-                  <div className="pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row items-center gap-3">
-                    <a
-                      href={`https://wa.me/919432053261?text=${waText}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full sm:w-1/2 py-3.5 px-4 rounded-xs bg-[#05070D] border border-slate-700 hover:border-emerald-500/60 text-slate-200 hover:text-emerald-300 font-ui font-semibold text-xs transition-colors flex items-center justify-center gap-2"
-                    >
-                      <MessageSquare size={14} />
-                      <span>WhatsApp Scope</span>
-                    </a>
-
-                    <Link
-                      href={`/contact?tier=${tier.id}`}
-                      className={cn(
-                        "w-full sm:w-1/2 py-3.5 px-4 rounded-xs text-white font-ui font-semibold text-xs transition-all flex items-center justify-center gap-2 shadow-lg",
-                        tier.popular 
-                          ? "bg-gradient-to-r from-indigo-500 via-indigo-600 to-cyan-500 hover:brightness-110 shadow-cyan-500/20" 
-                          : "bg-gradient-to-r from-slate-800 to-slate-900 border border-slate-700 hover:border-cyan-400"
-                      )}
-                    >
-                      <span>{tier.ctaText}</span>
-                      <ArrowUpRight size={14} />
-                    </Link>
-                  </div>
-                </SpotlightCard>
-              </RevealOnScroll>
-            );
-          })}
+                  </TiltCard>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
 
-      {/* 3. INTERACTIVE SCOPE & ROI ESTIMATOR */}
-      <section className="px-5 sm:px-8 md:px-12 lg:px-20 max-w-[1200px] mx-auto mb-24 md:mb-36">
-        <SpotlightCard
-          spotlightColor="rgba(99, 102, 241, 0.2)"
-          className="p-8 sm:p-12 md:p-16 border-slate-800 bg-[#0B0F19]/90 backdrop-blur-xl rounded-xs shadow-2xl relative"
-        >
-          <div className="max-w-2xl mx-auto text-center mb-10">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-950/30 text-cyan-300 text-xs font-mono uppercase mb-3">
-              <Calculator size={13} />
-              <span>Interactive Architecture Calculator</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-display font-bold text-[#F8FAFC]">
-              Estimate Your Production Scope
+      {/* 2. Trust Guarantees Section */}
+      <section className="py-14 sm:py-18 px-4 sm:px-6 md:px-10 lg:px-16 bg-slate-50 border-t border-slate-200/80">
+        <div className="max-w-[1100px] mx-auto">
+          <div className="text-center max-w-xl mx-auto mb-10">
+            <h2 className="text-2xl sm:text-3xl font-display font-bold text-slate-900 tracking-tight mb-2">
+              Our Investment Standards
             </h2>
-            <p className="text-xs sm:text-sm text-slate-400 font-ui font-light mt-2">
-              Select your system requirements to preview typical engineering budgets and timelines.
+            <p className="text-slate-600 text-xs sm:text-sm">
+              We eliminate financial risk and guarantee enterprise code quality on every engagement.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-7 space-y-6">
-              <div>
-                <label className="text-xs uppercase font-mono tracking-wider font-bold text-slate-300 block mb-2.5">
-                  1. Core Software System
-                </label>
-                <div className="grid grid-cols-2 gap-2.5">
-                  {[
-                    { id: "landing", label: "Local Growth Engine", desc: "Landing + GMB" },
-                    { id: "ecommerce", label: "Turnkey E-Commerce", desc: "Full Storefront" },
-                    { id: "ai-agent", label: "Autonomous AI Agent", desc: "RAG & Workflows" },
-                    { id: "saas", label: "Custom SaaS Platform", desc: "OPD & Clinical" },
-                  ].map((s) => (
-                    <button
-                      key={s.id}
-                      type="button"
-                      onClick={() => setCalcService(s.id)}
-                      className={cn(
-                        "p-3 rounded-xs border text-left transition-all cursor-pointer",
-                        calcService === s.id
-                          ? "bg-indigo-950/70 border-cyan-400 text-cyan-300 shadow-[0_0_15px_rgba(6,182,212,0.2)]"
-                          : "bg-[#05070D] border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
-                      )}
-                    >
-                      <div className="font-display font-bold text-xs sm:text-sm">{s.label}</div>
-                      <div className="text-[10px] text-slate-500 font-ui font-light">{s.desc}</div>
-                    </button>
-                  ))}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {guarantees.map((item) => {
+              const Icon = item.icon;
+              return (
+                <div key={item.title} className="p-6 rounded-2xl bg-white border border-slate-200/90 shadow-2xs">
+                  <div className="w-10 h-10 rounded-xl bg-indigo-50 border border-indigo-100 text-indigo-600 flex items-center justify-center mb-4 shadow-2xs">
+                    <Icon size={20} />
+                  </div>
+                  <h3 className="font-display font-bold text-base sm:text-lg text-slate-900 mb-1.5">
+                    {item.title}
+                  </h3>
+                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                    {item.description}
+                  </p>
                 </div>
-              </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
 
-              <div>
-                <label className="text-xs uppercase font-mono tracking-wider font-bold text-slate-300 block mb-2.5">
-                  2. Architectural Scale
-                </label>
-                <div className="grid grid-cols-2 gap-2.5">
-                  {[
-                    { id: "production", label: "Production Standard", desc: "Up to 50k monthly users" },
-                    { id: "enterprise", label: "High-Concurrency", desc: "500k+ users & 99.99% SLA" },
-                  ].map((sc) => (
-                    <button
-                      key={sc.id}
-                      type="button"
-                      onClick={() => setCalcScale(sc.id)}
-                      className={cn(
-                        "p-3 rounded-xs border text-left transition-all cursor-pointer",
-                        calcScale === sc.id
-                          ? "bg-indigo-950/70 border-cyan-400 text-cyan-300 shadow-[0_0_15px_rgba(6,182,212,0.2)]"
-                          : "bg-[#05070D] border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
-                      )}
-                    >
-                      <div className="font-display font-bold text-xs sm:text-sm">{sc.label}</div>
-                      <div className="text-[10px] text-slate-500 font-ui font-light">{sc.desc}</div>
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <label className="text-xs uppercase font-mono tracking-wider font-bold text-slate-300 block mb-2.5">
-                  3. Production Addons
-                </label>
-                <div className="grid grid-cols-2 gap-2">
-                  {[
-                    { id: "whatsapp", label: "WhatsApp Live Dispatch (+₹5k)" },
-                    { id: "seo", label: "AI SEO Schema & GMB (+₹6k)" },
-                    { id: "rag", label: "Custom RAG Vector Memory (+₹12k)" },
-                    { id: "multi-clinic", label: "Multi-Clinic Sync Engine (+₹15k)" },
-                  ].map((addon) => {
-                    const active = addons.includes(addon.id);
-                    return (
-                      <button
-                        key={addon.id}
-                        type="button"
-                        onClick={() => toggleAddon(addon.id)}
-                        className={cn(
-                          "p-2.5 rounded-xs border text-xs font-ui transition-all text-left flex items-center justify-between cursor-pointer",
-                          active
-                            ? "bg-cyan-950/40 border-cyan-400/80 text-cyan-300"
-                            : "bg-[#05070D] border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
-                        )}
-                      >
-                        <span className="truncate">{addon.label}</span>
-                        {active && <CheckCircle2 size={13} className="text-cyan-400 shrink-0 ml-1" />}
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
+      {/* 3. Pricing FAQs Section */}
+      <section className="py-14 sm:py-18 px-4 sm:px-6 md:px-10 lg:px-16 bg-white border-t border-slate-200/80">
+        <div className="max-w-[900px] mx-auto">
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700 text-xs font-semibold uppercase tracking-wider mb-2.5 shadow-xs">
+              <HelpCircle size={14} className="text-indigo-600" />
+              <span>Payment &amp; Scope Questions</span>
             </div>
+            <h2 className="text-2xl sm:text-3xl font-display font-bold text-slate-900 tracking-tight mb-2">
+              Frequently Asked Pricing Questions
+            </h2>
+          </div>
 
-            <div className="lg:col-span-5 p-6 sm:p-8 bg-[#05070D] border border-slate-800 rounded-xs flex flex-col justify-between h-full space-y-6 text-center">
-              <div>
-                <span className="text-[11px] font-mono uppercase tracking-widest text-slate-500 block mb-1">
-                  Estimated Investment
-                </span>
-                <div className="font-display text-4xl sm:text-5xl font-bold text-cyan-400 tracking-tight">
-                  {estimatedEstimate.priceFormatted}
-                </div>
-                <p className="text-xs font-mono text-slate-400 mt-2">
-                  Timeline: <strong className="text-slate-200">{estimatedEstimate.timeline}</strong>
-                </p>
-              </div>
+          <div className="space-y-3.5">
+            {pricingFaqs.map((faq, index) => {
+              const isOpen = openFaq === index;
+              return (
+                <div
+                  key={index}
+                  className="rounded-2xl border border-slate-200/90 overflow-hidden bg-slate-50/50 shadow-2xs transition-colors"
+                >
+                  <button
+                    onClick={() => setOpenFaq(isOpen ? null : index)}
+                    className="w-full p-4 sm:p-5 text-left flex justify-between items-center gap-3 cursor-pointer"
+                  >
+                    <span className="font-bold text-sm sm:text-base text-slate-900 font-display">
+                      {faq.question}
+                    </span>
+                    <ChevronDown
+                      size={18}
+                      className={`text-slate-400 transition-transform duration-200 shrink-0 ${
+                        isOpen ? "rotate-180 text-indigo-600" : ""
+                      }`}
+                    />
+                  </button>
 
-              <div className="space-y-2 text-xs text-slate-400 font-ui font-light border-y border-slate-800/80 py-4">
-                <div className="flex justify-between">
-                  <span>Code Ownership:</span>
-                  <span className="text-slate-200 font-medium">100% Perpetual IP</span>
+                  <AnimatePresence>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <div className="px-4 sm:px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 bg-white">
+                          {faq.answer}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
-                <div className="flex justify-between">
-                  <span>Engineering Team:</span>
-                  <span className="text-slate-200 font-medium">Senior In-House</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Scope Guarantee:</span>
-                  <span className="text-slate-200 font-medium">Zero Hourly Overages</span>
-                </div>
-              </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
 
-              <a
-                href={`https://wa.me/919432053261?text=${encodeURIComponent(`Hi Stova Media, I used your pricing calculator. My estimated scope is ${calcService} (${estimatedEstimate.priceFormatted}). Let's discuss starting this build.`)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full py-4 px-6 rounded-xs bg-gradient-to-r from-indigo-500 via-indigo-600 to-cyan-500 text-white font-ui font-semibold text-xs tracking-wider uppercase transition-all shadow-lg hover:brightness-110 flex items-center justify-center gap-2"
-              >
-                <span>Lock In Scope on WhatsApp</span>
-                <ArrowUpRight size={15} />
-              </a>
+      {/* 4. Bottom Consultation Trigger Strip */}
+      <section className="py-14 sm:py-18 px-4 sm:px-6 md:px-10 lg:px-16 bg-slate-50 border-t border-slate-200/80">
+        <div className="max-w-[950px] mx-auto text-center">
+          <div className="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200/90 shadow-[0_15px_40px_rgba(15,23,42,0.05)] flex flex-col items-center">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-extrabold text-slate-900 tracking-tight mb-3">
+              Need a Custom Milestone or Technical Review?
+            </h2>
+            <p className="text-slate-600 text-xs sm:text-sm md:text-base max-w-lg mb-6 leading-relaxed">
+              Book a direct consultation with our lead software architect to discuss feasibility, project scope, and fixed milestone pricing.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+              <MagneticElement strength={0.3}>
+                <button
+                  onClick={() => setModalOpen(true)}
+                  className="px-7 sm:px-8 py-3.5 rounded-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs sm:text-sm tracking-wide shadow-sm shadow-indigo-600/30 hover:shadow-indigo-600/40 transition-all flex items-center justify-center gap-2 active:scale-[0.98] cursor-pointer"
+                >
+                  <Calendar size={15} />
+                  <span>Book Free Consultation</span>
+                  <ArrowRight size={15} />
+                </button>
+              </MagneticElement>
+
+              <MagneticElement strength={0.3}>
+                <a
+                  href="https://wa.me/919432053261?text=Hello%20Stova%20Media,%20I%20am%20interested%20in%20pricing%20options"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 sm:px-7 py-3.5 rounded-full bg-emerald-50 hover:bg-emerald-100/80 border border-emerald-200 text-emerald-700 font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2"
+                >
+                  <MessageSquare size={15} />
+                  <span>Chat on WhatsApp</span>
+                </a>
+              </MagneticElement>
             </div>
           </div>
-        </SpotlightCard>
-      </section>
-
-      {/* 4. PRICING FAQ ACCORDION */}
-      <section className="px-5 sm:px-8 md:px-12 lg:px-20 max-w-[1100px] mx-auto mb-24 md:mb-36">
-        <div className="text-center max-w-2xl mx-auto mb-14">
-          <SectionLabel className="justify-center">Pricing Clarity</SectionLabel>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-[#F8FAFC] mt-3">
-            Deterministic Investment Terms
-          </h2>
-        </div>
-
-        <div className="space-y-4">
-          {faqs.map((faq, idx) => {
-            const isOpen = openFaq === idx;
-            return (
-              <SpotlightCard
-                key={idx}
-                spotlightColor="rgba(6, 182, 212, 0.15)"
-                className={cn(
-                  "p-6 sm:p-7 border-slate-800 bg-[#0B0F19]/90 backdrop-blur-md rounded-xs transition-all duration-300 shadow-lg",
-                  isOpen ? "border-cyan-500/40 bg-[#0E1424]" : "hover:border-slate-700"
-                )}
-              >
-                <button
-                  onClick={() => setOpenFaq(isOpen ? null : idx)}
-                  className="w-full flex items-center justify-between text-left gap-4 cursor-pointer focus:outline-none"
-                >
-                  <span className={cn(
-                    "font-display text-lg sm:text-xl font-bold transition-colors",
-                    isOpen ? "text-cyan-300" : "text-[#F8FAFC]"
-                  )}>
-                    {faq.q}
-                  </span>
-                  <div className={cn(
-                    "w-8 h-8 rounded-full border border-slate-800 bg-[#05070D] flex items-center justify-center shrink-0 text-slate-400 transition-transform duration-300",
-                    isOpen && "rotate-180 border-cyan-500/40 text-cyan-400"
-                  )}>
-                    <ChevronDown size={16} />
-                  </div>
-                </button>
-
-                <AnimatePresence initial={false}>
-                  {isOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
-                      className="overflow-hidden"
-                    >
-                      <p className="pt-4 text-slate-300 font-ui text-sm sm:text-base leading-relaxed font-light border-t border-slate-800/80 mt-4">
-                        {faq.a}
-                      </p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </SpotlightCard>
-            );
-          })}
         </div>
       </section>
 
-      {/* 5. FINAL CTA */}
-      <CTASection />
-    </main>
+      {/* Appointment Modal */}
+      <AppointmentModal 
+        isOpen={modalOpen} 
+        onClose={() => setModalOpen(false)} 
+        defaultService={selectedService}
+      />
+    </div>
   );
 }

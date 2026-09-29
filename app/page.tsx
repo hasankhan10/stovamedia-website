@@ -1,49 +1,61 @@
-import Hero from "@/components/sections/Hero";
-import MarqueeStrip from "@/components/sections/MarqueeStrip";
-import Services from "@/components/sections/Services";
-import WorkHorizontal from "@/components/sections/WorkHorizontal";
-import Process from "@/components/sections/Process";
-import About from "@/components/sections/About";
-import Testimonial from "@/components/sections/Testimonial";
-import CTASection from "@/components/sections/CTASection";
-import { RevealOnScroll } from "@/components/ui";
-import { fetchProjectsFromSupabase } from "@/lib/db-projects";
-import { fetchServicesFromSupabase } from "@/lib/db-services";
+import type { Metadata } from "next";
+import HomeHero from "@/components/home/HomeHero";
+import WhatWeDo from "@/components/home/WhatWeDo";
+import HomeCTA from "@/components/home/HomeCTA";
+
+export const metadata: Metadata = {
+  title: "Stova Media | Custom Software Development Agency & AI Agent Studio Kolkata",
+  description: "Boutique software engineering studio and AI lab in Kolkata. We build 100% custom-coded high-speed websites, SaaS platforms, and autonomous AI chatbots. Zero templates.",
+  keywords: [
+    "Custom Software Development Agency Kolkata",
+    "AI Agent Studio India",
+    "Next.js Full-Stack Developers",
+    "Local Business Growth Website",
+    "Healthcare SaaS Engineering",
+    "Autonomous AI Chatbots",
+    "Stova Media"
+  ],
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Stova Media | Custom Software & AI Agent Studio",
+    description: "100% In-house software architecture, sub-second speeds, and autonomous AI automation.",
+    url: "https://stovamedia.in",
+    type: "website",
+  },
+};
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
-export default async function Home() {
-  const { data: allProjects } = await fetchProjectsFromSupabase();
-  const { data: services } = await fetchServicesFromSupabase();
-
-  // Filter featured for the horizontal showcase
-  const featuredProjects = allProjects.filter((p) => p.featured && !p.locked);
+export default function Home() {
+  const homeJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Stova Media",
+    "url": "https://stovamedia.in",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://stovamedia.in/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  };
 
   return (
-    <main>
-      <Hero />
-      <MarqueeStrip />
-      
-      <RevealOnScroll>
-        <Services initialServices={services} />
-      </RevealOnScroll>
-      
-      <WorkHorizontal projects={featuredProjects} />
-      
-      <RevealOnScroll>
-        <Process />
-      </RevealOnScroll>
-      
-      <RevealOnScroll>
-        <About />
-      </RevealOnScroll>
-      
-      <RevealOnScroll>
-        <Testimonial />
-      </RevealOnScroll>
-      
-      <CTASection />
-    </main>
+    <div className="w-full bg-white relative">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homeJsonLd) }}
+      />
+      {/* 1. Monumental Hero Section */}
+      <HomeHero />
+
+      {/* 2. What We Do - 3 Core Pillars */}
+      <WhatWeDo />
+
+      {/* 3. High-Converting CTA & Appointment Booking */}
+      <HomeCTA />
+    </div>
   );
 }
