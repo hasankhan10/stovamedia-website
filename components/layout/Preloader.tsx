@@ -10,7 +10,7 @@ export default function Preloader() {
   const containerRef = useRef<HTMLDivElement>(null);
   const underlineRef = useRef<HTMLDivElement>(null);
 
-  const isExcludedPage = pathname === "/aiecommerce" || pathname?.startsWith("/aiecommerce");
+  const isExcludedPage = pathname?.startsWith("/aiecommerce") || pathname?.startsWith("/admin");
 
   useEffect(() => {
     if (isExcludedPage) return;

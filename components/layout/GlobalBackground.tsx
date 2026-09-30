@@ -5,10 +5,9 @@ import { usePathname } from "next/navigation";
 
 export default function GlobalBackground() {
   const pathname = usePathname();
-  const isAIEcomRoute = pathname?.startsWith("/aiecommerce");
+  const isExcluded = pathname?.startsWith("/aiecommerce") || pathname?.startsWith("/admin");
 
-  // Keep dark background for standalone routes if needed, otherwise ultra-clean light grid & ambient glows
-  if (isAIEcomRoute) {
+  if (isExcluded) {
     return null;
   }
 

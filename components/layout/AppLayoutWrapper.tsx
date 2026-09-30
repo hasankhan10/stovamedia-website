@@ -13,7 +13,7 @@ export default function AppLayoutWrapper({ children }: { children: React.ReactNo
   const isAIEcomRoute = pathname?.startsWith("/aiecommerce");
 
   if (isAdminRoute) {
-    return <div className="min-h-screen bg-[#05070D] text-slate-100">{children}</div>;
+    return <div className="admin-theme min-h-screen bg-[#F8FAFC] text-slate-900">{children}</div>;
   }
 
   if (isAIEcomRoute) {

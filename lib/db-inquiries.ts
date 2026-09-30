@@ -8,7 +8,7 @@ export interface Inquiry {
   project_type: string;
   budget?: string;
   details: string;
-  status: "new" | "contacted" | "in_progress" | "archived";
+  status: "new" | "sheet_imported" | string;
   created_at?: string;
 }
 
