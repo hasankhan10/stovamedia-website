@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import HomeHero from "@/components/home/HomeHero";
 import WhatWeDo from "@/components/home/WhatWeDo";
+import GoogleReviews from "@/components/home/GoogleReviews";
 import HomeCTA from "@/components/home/HomeCTA";
 
 export const metadata: Metadata = {
@@ -54,7 +55,10 @@ export default function Home() {
       {/* 2. What We Do - 3 Core Pillars */}
       <WhatWeDo />
 
-      {/* 3. High-Converting CTA & Appointment Booking */}
+      {/* 3. Verified Google Reviews Showcase */}
+      <GoogleReviews />
+
+      {/* 4. High-Converting CTA & Appointment Booking */}
       <HomeCTA />
     </div>
   );

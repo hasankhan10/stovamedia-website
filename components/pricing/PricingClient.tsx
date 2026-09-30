@@ -25,11 +25,33 @@ import {
   CustomSaaSMotionGraphic 
 } from "@/components/animations/PricingTierGraphics";
 
-const pricingTiers = [
+interface PricingTier {
+  id: string;
+  title: string;
+  tagline: React.ReactNode;
+  price: string;
+  period: string;
+  popular: boolean;
+  badge: string;
+  badgeColor: string;
+  icon: React.ComponentType<{ size?: number; className?: string }>;
+  accent: string;
+  delivery: string;
+  graphic: React.ReactNode;
+  features: React.ReactNode[];
+}
+
+const pricingTiers: PricingTier[] = [
   {
     id: "growth-website",
     title: "Growth Website Package",
-    tagline: "For small businesses, doctors, and local brands wanting high Google Maps rankings and sub-second speed.",
+    tagline: (
+      <>
+        For small businesses, doctors, and local brands wanting{" "}
+        <span className="text-emerald-700 font-bold underline decoration-emerald-500/40">high Google Maps rankings</span> and{" "}
+        <span className="text-blue-600 font-semibold">sub-second speed</span>.
+      </>
+    ),
     price: "Fixed-Scope Quote",
     period: "Milestone Deliverable",
     popular: false,
@@ -40,18 +62,51 @@ const pricingTiers = [
     delivery: "10–14 Days Delivery",
     graphic: <GrowthWebsiteMotionGraphic />,
     features: [
-      "100% Custom Next.js 15 & React code (zero slow WordPress templates)",
-      "Google Maps (GMB) #1 ranking optimization & Local SEO setup",
-      "Sub-50ms TTFB & 100/100 Core Web Vitals speed guarantee",
-      "Direct 1-Click WhatsApp click-to-chat integration",
-      "Mobile-first responsive design tailored to your branding",
-      "Free SSL setup & 30-day post-launch warranty",
+      (
+        <>
+          <span className="text-slate-900 font-semibold">100% Custom Next.js 15 & React</span> code (
+          <span className="text-rose-600 font-semibold">zero slow WordPress bloat</span>)
+        </>
+      ),
+      (
+        <>
+          <span className="text-emerald-700 font-bold">Google Maps (GMB) #1 ranking</span> & Local SEO dominance
+        </>
+      ),
+      (
+        <>
+          <span className="text-blue-600 font-semibold">Sub-50ms TTFB</span> &{" "}
+          <span className="text-emerald-700 font-bold">100/100 Core Web Vitals</span> speed guarantee
+        </>
+      ),
+      (
+        <>
+          Direct <span className="text-emerald-700 font-semibold">1-Click WhatsApp click-to-chat</span> conversion integration
+        </>
+      ),
+      (
+        <>
+          <span className="text-slate-900 font-medium">Mobile-first responsive design</span> tailored to your branding
+        </>
+      ),
+      (
+        <>
+          <span className="text-indigo-600 font-semibold">Free SSL setup</span> &{" "}
+          <span className="text-emerald-700 font-bold">30-day post-launch warranty</span>
+        </>
+      ),
     ],
   },
   {
     id: "ecommerce-ai",
     title: "E-Commerce & AI Agent",
-    tagline: "For brands and online sellers needing a high-converting storefront with a 24/7 automated sales AI bot.",
+    tagline: (
+      <>
+        For brands and online sellers needing a{" "}
+        <span className="text-emerald-700 font-bold">high-converting storefront</span> with a{" "}
+        <span className="text-cyan-700 font-semibold">24/7 automated sales AI bot</span>.
+      </>
+    ),
     price: "Custom Storefront",
     period: "Milestone Deliverable",
     popular: true,
@@ -62,18 +117,52 @@ const pricingTiers = [
     delivery: "2–3 Weeks Delivery",
     graphic: <EcommerceAIMotionGraphic />,
     features: [
-      "Custom-coded fast checkout store with secure UPI/Card/COD payments",
-      "24/7 Intelligent AI WhatsApp & Website Chatbot (answers queries & takes orders)",
-      "Admin inventory, customer order management & automated invoice generation",
-      "Sub-second load times designed for high mobile conversion rates",
-      "Automated WhatsApp order confirmation & tracking notifications",
-      "100% source code ownership & 30-day dedicated warranty",
+      (
+        <>
+          <span className="text-slate-900 font-semibold">Custom fast checkout store</span> with{" "}
+          <span className="text-emerald-700 font-bold">secure UPI / Card / COD</span>
+        </>
+      ),
+      (
+        <>
+          <span className="text-cyan-700 font-semibold">24/7 Intelligent AI WhatsApp Bot</span> (answers queries &{" "}
+          <span className="text-emerald-700 font-bold">takes orders automatically</span>)
+        </>
+      ),
+      (
+        <>
+          Admin inventory, customer order management &{" "}
+          <span className="text-slate-900 font-medium">automated invoice generation</span>
+        </>
+      ),
+      (
+        <>
+          <span className="text-blue-600 font-semibold">Sub-second load times</span> designed for{" "}
+          <span className="text-emerald-700 font-bold">3X higher mobile checkout rates</span>
+        </>
+      ),
+      (
+        <>
+          <span className="text-emerald-700 font-semibold">Automated WhatsApp order confirmation</span> & live tracking alerts
+        </>
+      ),
+      (
+        <>
+          <span className="text-slate-900 font-bold">100% source code ownership</span> &{" "}
+          <span className="text-emerald-700 font-bold">30-day dedicated warranty</span>
+        </>
+      ),
     ],
   },
   {
     id: "custom-saas",
     title: "Custom SaaS & Enterprise",
-    tagline: "For startups, clinics, and businesses building custom full-stack software, portals, or internal tools.",
+    tagline: (
+      <>
+        For startups, clinics, and businesses building{" "}
+        <span className="text-indigo-700 font-semibold">custom full-stack software</span>, portals, or internal tools.
+      </>
+    ),
     price: "Bespoke Architecture",
     period: "Sprint Milestone",
     popular: false,
@@ -84,12 +173,38 @@ const pricingTiers = [
     delivery: "3–6 Weeks Sprints",
     graphic: <CustomSaaSMotionGraphic />,
     features: [
-      "End-to-end custom Next.js 15, TypeScript & PostgreSQL architecture",
-      "Bank-grade Role-Based Access Control (RBAC) & encrypted auth",
-      "Autonomous AI pipelines, private RAG knowledge base & CRM sync",
-      "Scalable REST/GraphQL APIs with sub-50ms query optimization",
-      "Direct daily collaboration with Lead Software Architect",
-      "100% intellectual property & complete git repository transfer",
+      (
+        <>
+          End-to-end custom <span className="text-indigo-700 font-semibold">Next.js 15, TypeScript & PostgreSQL</span> architecture
+        </>
+      ),
+      (
+        <>
+          <span className="text-slate-900 font-semibold">Bank-grade Role-Based Access Control (RBAC)</span> & encrypted auth
+        </>
+      ),
+      (
+        <>
+          <span className="text-cyan-700 font-semibold">Autonomous AI pipelines</span>, private RAG knowledge base & CRM sync
+        </>
+      ),
+      (
+        <>
+          <span className="text-blue-600 font-semibold">Scalable REST/GraphQL APIs</span> with{" "}
+          <span className="text-emerald-700 font-bold">sub-50ms query optimization</span>
+        </>
+      ),
+      (
+        <>
+          Direct daily collaboration with <span className="text-slate-900 font-bold">Lead Software Architect</span>
+        </>
+      ),
+      (
+        <>
+          <span className="text-emerald-700 font-bold">100% intellectual property</span> &{" "}
+          <span className="text-slate-900 font-semibold">complete git repository transfer</span>
+        </>
+      ),
     ],
   },
 ];
@@ -98,36 +213,64 @@ const guarantees = [
   {
     icon: ShieldCheck,
     title: "100% IP & Code Ownership",
-    description: "You own every single line of code, database schema, and git repository upon project completion.",
+    description: (
+      <>
+        You own <span className="text-slate-900 font-bold">every single line of code</span>, database schema, and git repository upon completion with <span className="text-emerald-700 font-semibold">zero lock-in</span>.
+      </>
+    ),
   },
   {
     icon: Clock,
     title: "4-Hour Feasibility Response",
-    description: "Submit your requirements and get a detailed engineering review and fixed timeline within 4 hours.",
+    description: (
+      <>
+        Submit your requirements and get a <span className="text-blue-600 font-semibold">detailed engineering review</span> and <span className="text-emerald-700 font-bold">fixed timeline within 4 hours</span>.
+      </>
+    ),
   },
   {
     icon: Zap,
     title: "Zero Hidden Fees",
-    description: "Fixed milestone pricing with zero surprise hourly overages or recurring agency maintenance lock-ins.",
+    description: (
+      <>
+        Fixed milestone pricing with <span className="text-rose-600 font-semibold">zero surprise hourly overages</span> or <span className="text-rose-600 font-semibold">recurring agency maintenance traps</span>.
+      </>
+    ),
   },
 ];
 
 const pricingFaqs = [
   {
     question: "How does your milestone-based payment work?",
-    answer: "We break projects into clear, verifiable milestones. Typically, projects start with a 50% upfront deposit to begin development, and the remaining 50% is only payable after you test and approve the finished staging build.",
+    answer: (
+      <>
+        We break projects into clear, verifiable milestones. Typically, projects start with a <span className="text-slate-900 font-semibold">50% upfront deposit</span> to begin development, and the remaining 50% is <span className="text-emerald-700 font-bold">only payable after you test and approve</span> the finished staging build.
+      </>
+    ),
   },
   {
     question: "What is included in the 30-day post-launch warranty?",
-    answer: "Every custom build includes 30 days of complimentary technical support, server monitoring, bug fixes, and performance tuning to ensure your software runs with 100% stability.",
+    answer: (
+      <>
+        Every custom build includes <span className="text-emerald-700 font-bold">30 days of complimentary technical support</span>, server monitoring, bug fixes, and performance tuning to ensure your software runs with <span className="text-blue-600 font-semibold">100% stability</span>.
+      </>
+    ),
   },
   {
     question: "Can I upgrade features or add custom AI workflows later?",
-    answer: "Yes! Because our architecture is 100% modular and clean, adding new AI agent pipelines, custom database models, or checkout integrations in the future is seamless without rebuilding.",
+    answer: (
+      <>
+        Yes! Because our architecture is <span className="text-slate-900 font-semibold">100% modular and clean</span>, adding new AI agent pipelines, custom database models, or checkout integrations in the future is <span className="text-emerald-700 font-bold">seamless without rebuilding</span>.
+      </>
+    ),
   },
   {
     question: "How do you calculate custom quotes for SaaS and internal tools?",
-    answer: "We evaluate your exact user workflows, database complexity, third-party integrations, and target launch date. We then provide a fixed milestone proposal with guaranteed delivery dates.",
+    answer: (
+      <>
+        We evaluate your exact user workflows, database complexity, third-party integrations, and target launch date. We then provide a fixed milestone proposal with <span className="text-emerald-700 font-bold">guaranteed delivery dates</span>.
+      </>
+    ),
   },
 ];
 
@@ -151,18 +294,20 @@ export default function PricingClient() {
         <div className="max-w-[1300px] mx-auto text-center">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700 text-xs sm:text-sm font-semibold mb-4 sm:mb-5 shadow-xs">
             <Layers size={14} className="text-indigo-600" />
-            <span>Transparent Investment · Fixed Scope Delivery</span>
+            <span>
+              <span className="text-indigo-700 font-bold">Transparent Investment</span> · <span className="text-emerald-700 font-bold">Fixed Scope Delivery</span>
+            </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl md:text-6xl font-display font-extrabold text-slate-900 tracking-tight leading-[1.08] max-w-4xl mx-auto mb-4 sm:mb-5">
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-extrabold text-slate-900 tracking-tight leading-[1.06] max-w-5xl mx-auto mb-6 sm:mb-8">
             Predictable Pricing.{" "}
-            <span className="bg-gradient-to-r from-indigo-600 via-indigo-700 to-cyan-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-indigo-600 via-indigo-700 to-cyan-600 bg-clip-text text-transparent underline decoration-indigo-300/40">
               Guaranteed Results.
             </span>
           </h1>
 
-          <p className="text-slate-600 text-base sm:text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed mb-10 sm:mb-14">
-            No endless hourly billing, no surprise invoices. Choose a fixed-scope engineering package or request a tailored milestone quote.
+          <p className="text-slate-600 text-lg sm:text-xl md:text-2xl font-light max-w-3xl mx-auto leading-relaxed mb-12 sm:mb-16">
+            <span className="text-rose-600 font-semibold">No endless hourly billing</span>, <span className="text-rose-600 font-semibold">no surprise invoices</span>. Choose a <span className="text-emerald-700 font-bold">fixed-scope engineering package</span> or request a <span className="text-indigo-600 font-semibold">tailored milestone quote</span>.
           </p>
 
           {/* 3 Core Pricing Cards Grid */}
@@ -258,13 +403,13 @@ export default function PricingClient() {
       </section>
 
       {/* 2. Trust Guarantees Section */}
-      <section className="py-14 sm:py-18 px-4 sm:px-6 md:px-10 lg:px-16 bg-slate-50 border-t border-slate-200/80">
-        <div className="max-w-[1100px] mx-auto">
-          <div className="text-center max-w-xl mx-auto mb-10">
-            <h2 className="text-2xl sm:text-3xl font-display font-bold text-slate-900 tracking-tight mb-2">
+      <section className="py-16 sm:py-20 px-4 sm:px-6 md:px-10 lg:px-16 bg-slate-50 border-t border-slate-200/80">
+        <div className="max-w-[1200px] mx-auto">
+          <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-14">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-slate-900 tracking-tight mb-3">
               Our Investment Standards
             </h2>
-            <p className="text-slate-600 text-xs sm:text-sm">
+            <p className="text-slate-600 text-sm sm:text-base md:text-lg">
               We eliminate financial risk and guarantee enterprise code quality on every engagement.
             </p>
           </div>
@@ -273,11 +418,11 @@ export default function PricingClient() {
             {guarantees.map((item) => {
               const Icon = item.icon;
               return (
-                <div key={item.title} className="p-6 rounded-2xl bg-white border border-slate-200/90 shadow-2xs">
-                  <div className="w-10 h-10 rounded-xl bg-indigo-50 border border-indigo-100 text-indigo-600 flex items-center justify-center mb-4 shadow-2xs">
-                    <Icon size={20} />
+                <div key={item.title} className="p-6 sm:p-7 rounded-2xl bg-white border border-slate-200/90 shadow-2xs">
+                  <div className="w-11 h-11 rounded-xl bg-indigo-50 border border-indigo-100 text-indigo-600 flex items-center justify-center mb-4 shadow-2xs">
+                    <Icon size={22} />
                   </div>
-                  <h3 className="font-display font-bold text-base sm:text-lg text-slate-900 mb-1.5">
+                  <h3 className="font-display font-bold text-lg sm:text-xl text-slate-900 mb-2">
                     {item.title}
                   </h3>
                   <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
@@ -291,14 +436,14 @@ export default function PricingClient() {
       </section>
 
       {/* 3. Pricing FAQs Section */}
-      <section className="py-14 sm:py-18 px-4 sm:px-6 md:px-10 lg:px-16 bg-white border-t border-slate-200/80">
-        <div className="max-w-[900px] mx-auto">
-          <div className="text-center mb-10">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700 text-xs font-semibold uppercase tracking-wider mb-2.5 shadow-xs">
+      <section className="py-16 sm:py-20 px-4 sm:px-6 md:px-10 lg:px-16 bg-white border-t border-slate-200/80">
+        <div className="max-w-[950px] mx-auto">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700 text-xs sm:text-sm font-semibold uppercase tracking-wider mb-3 shadow-xs">
               <HelpCircle size={14} className="text-indigo-600" />
               <span>Payment &amp; Scope Questions</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-display font-bold text-slate-900 tracking-tight mb-2">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-slate-900 tracking-tight mb-3">
               Frequently Asked Pricing Questions
             </h2>
           </div>
@@ -348,14 +493,14 @@ export default function PricingClient() {
       </section>
 
       {/* 4. Bottom Consultation Trigger Strip */}
-      <section className="py-14 sm:py-18 px-4 sm:px-6 md:px-10 lg:px-16 bg-slate-50 border-t border-slate-200/80">
-        <div className="max-w-[950px] mx-auto text-center">
-          <div className="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200/90 shadow-[0_15px_40px_rgba(15,23,42,0.05)] flex flex-col items-center">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-extrabold text-slate-900 tracking-tight mb-3">
-              Need a Custom Milestone or Technical Review?
+      <section className="py-16 sm:py-20 px-4 sm:px-6 md:px-10 lg:px-16 bg-slate-50 border-t border-slate-200/80">
+        <div className="max-w-[1000px] mx-auto text-center">
+          <div className="bg-white rounded-3xl p-8 sm:p-14 border border-slate-200/90 shadow-[0_15px_40px_rgba(15,23,42,0.05)] flex flex-col items-center">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-slate-900 tracking-tight mb-4">
+              Need a <span className="text-indigo-600 font-bold">Custom Milestone</span> or <span className="text-cyan-600 font-bold">Technical Review</span>?
             </h2>
-            <p className="text-slate-600 text-xs sm:text-sm md:text-base max-w-lg mb-6 leading-relaxed">
-              Book a direct consultation with our lead software architect to discuss feasibility, project scope, and fixed milestone pricing.
+            <p className="text-slate-600 text-sm sm:text-base md:text-lg max-w-xl mb-8 leading-relaxed">
+              Book a direct consultation with our <span className="text-slate-900 font-semibold">Lead Software Architect</span> to discuss feasibility, project scope, and <span className="text-emerald-700 font-bold">fixed milestone pricing</span>.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">

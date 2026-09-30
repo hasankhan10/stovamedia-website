@@ -22,21 +22,21 @@ export default function HomeCTA() {
           className="relative bg-gradient-to-b from-white to-slate-50/90 rounded-2xl sm:rounded-[36px] p-6 sm:p-12 md:p-16 border border-slate-200/90 shadow-[0_20px_50px_rgba(15,23,42,0.06)] text-center flex flex-col items-center overflow-hidden"
         >
           {/* Top Pill */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-200/80 text-indigo-700 text-xs sm:text-sm font-semibold mb-6 sm:mb-8 shadow-xs">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs sm:text-sm font-semibold mb-6 sm:mb-8 shadow-xs">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span>Currently Accepting New Projects for Q2/Q3</span>
+            <span>Limited Monthly Intake · Accepting Q2/Q3 Projects</span>
           </div>
 
           {/* Main Headline */}
           <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-extrabold text-slate-900 tracking-tight leading-[1.1] max-w-3xl mb-5 sm:mb-6">
             Ready to Build Software That{" "}
-            <span className="bg-gradient-to-r from-indigo-600 via-indigo-700 to-cyan-600 bg-clip-text text-transparent">
-              Scales Your Business?
+            <span className="text-emerald-600 font-bold underline decoration-emerald-500/40 decoration-wavy decoration-1 underline-offset-8">
+              Scales Your Revenue?
             </span>
           </h2>
 
           <p className="text-slate-600 text-sm sm:text-base md:text-lg font-light max-w-2xl leading-relaxed mb-8 sm:mb-10">
-            No endless sales calls, no junior handoffs. Talk directly with our lead technical architect and get a crystal-clear execution roadmap within 4 hours.
+            <span className="text-rose-600 font-semibold">No endless sales pitches</span>, <span className="text-rose-600 font-semibold">no junior handoffs</span>. Talk directly with our <span className="text-blue-600 font-semibold">lead technical architect</span> and get a crystal-clear execution roadmap within <span className="text-emerald-700 font-bold">4 hours</span>.
           </p>
 
           {/* Dual Action Buttons */}

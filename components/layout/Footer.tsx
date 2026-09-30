@@ -37,7 +37,7 @@ export default function Footer() {
             />
           </Link>
           <p className="text-slate-600 text-xs sm:text-sm max-w-md leading-relaxed font-light">
-            Stova Media is an elite software engineering studio &amp; AI lab based in Kolkata. We build high-speed websites, custom SaaS platforms, and autonomous AI systems that scale revenue.
+            Stova Media is an elite software engineering studio &amp; AI lab based in Kolkata. We build <span className="text-blue-600 font-semibold">high-speed websites</span>, <span className="text-indigo-700 font-semibold">custom SaaS platforms</span>, and <span className="text-cyan-700 font-semibold">autonomous AI systems</span> that <span className="text-emerald-700 font-bold">scale revenue</span>.
           </p>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-200 bg-emerald-50 text-emerald-700 w-fit text-[11px] font-semibold shadow-xs">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />

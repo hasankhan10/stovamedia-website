@@ -101,3 +101,24 @@ body {
   opacity: 0;
 }
 
+@keyframes marquee-slide {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-loop {
+  display: flex;
+  width: max-content;
+  animation: marquee-slide 42s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-loop:hover {
+  animation-play-state: paused;
+}
+
+

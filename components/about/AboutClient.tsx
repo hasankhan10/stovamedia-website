@@ -23,38 +23,86 @@ import TiltCard from "@/components/animations/TiltCard";
 import TerminalMotionGraphic from "@/components/animations/TerminalMotionGraphic";
 
 const stats = [
-  { value: "100%", label: "In-House Code", description: "Zero outsourcing or white labeling" },
-  { value: "0%", label: "Template Usage", description: "100% bespoke architecture" },
-  { value: "< 50ms", label: "Server TTFB", description: "Sub-second edge CDN delivery" },
-  { value: "24/7", label: "AI Autopilot", description: "Autonomous lead & workflow sync" },
+  { 
+    value: "100%", 
+    label: "In-House Code", 
+    description: (
+      <>
+        <span className="text-rose-600 font-semibold">Zero outsourcing</span> or white labeling
+      </>
+    ) 
+  },
+  { 
+    value: "0%", 
+    label: "Template Usage", 
+    description: (
+      <>
+        <span className="text-emerald-700 font-bold">100% bespoke</span> architecture
+      </>
+    ) 
+  },
+  { 
+    value: "< 50ms", 
+    label: "Server TTFB", 
+    description: (
+      <>
+        <span className="text-blue-600 font-semibold">Sub-second</span> edge CDN delivery
+      </>
+    ) 
+  },
+  { 
+    value: "24/7", 
+    label: "AI Autopilot", 
+    description: (
+      <>
+        <span className="text-cyan-700 font-semibold">Autonomous lead</span> & workflow sync
+      </>
+    ) 
+  },
 ];
 
 const values = [
   {
     icon: Code2,
     title: "100% Custom Engineering",
-    description: "We don't use slow WordPress themes, generic page builders, or cookie-cutter templates. Every line of code is purpose-built for speed, security, and scalability.",
+    description: (
+      <>
+        We don&apos;t use <span className="text-rose-600 font-semibold">slow WordPress themes</span>, generic page builders, or <span className="text-rose-600 font-semibold">cookie-cutter templates</span>. Every line of code is purpose-built for <span className="text-blue-600 font-semibold">extreme speed</span>, <span className="text-slate-900 font-semibold">bank-grade security</span>, and <span className="text-emerald-700 font-bold">effortless scalability</span>.
+      </>
+    ),
     badge: "Engineering Standard",
     badgeColor: "bg-emerald-50 text-emerald-700 border-emerald-200",
   },
   {
     icon: Users,
     title: "Direct Architect Access",
-    description: "No middlemen, no non-technical project managers. You work directly with the lead engineers building your software, guaranteeing razor-sharp communication.",
+    description: (
+      <>
+        <span className="text-rose-600 font-semibold">No middlemen</span>, no non-technical project managers. You work directly with the <span className="text-slate-900 font-bold">Lead Engineers</span> building your software, guaranteeing <span className="text-emerald-700 font-semibold">zero miscommunication</span>.
+      </>
+    ),
     badge: "Frictionless Collaboration",
     badgeColor: "bg-indigo-50 text-indigo-700 border-indigo-200",
   },
   {
     icon: ShieldCheck,
     title: "Total IP & Code Ownership",
-    description: "You own 100% of the intellectual property, git repository, and cloud infrastructure from day one. Zero vendor lock-in or proprietary traps.",
+    description: (
+      <>
+        You own <span className="text-emerald-700 font-bold">100% of the intellectual property</span>, git repository, and cloud infrastructure from day one. <span className="text-rose-600 font-semibold">Zero vendor lock-in</span> or proprietary traps.
+      </>
+    ),
     badge: "Complete Control",
     badgeColor: "bg-cyan-50 text-cyan-700 border-cyan-200",
   },
   {
     icon: Zap,
     title: "Performance & Conversion First",
-    description: "Every interaction, animation, and database query is engineered to maximize conversion rates and earn top-tier Google search rankings.",
+    description: (
+      <>
+        Every interaction, animation, and database query is engineered to <span className="text-emerald-700 font-bold">maximize conversion rates</span> and earn <span className="text-emerald-700 font-bold">top-tier Google search rankings</span>.
+      </>
+    ),
     badge: "Revenue Driven",
     badgeColor: "bg-amber-50 text-amber-700 border-amber-200",
   },
@@ -89,16 +137,16 @@ export default function AboutClient() {
           </div>
 
           {/* Monumental Headline */}
-          <h1 className="text-3xl sm:text-5xl md:text-6xl font-display font-extrabold text-slate-900 tracking-tight leading-[1.08] max-w-4xl mx-auto mb-4 sm:mb-5">
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-extrabold text-slate-900 tracking-tight leading-[1.06] max-w-5xl mx-auto mb-6 sm:mb-8">
             Engineered by Architects.{" "}
-            <span className="bg-gradient-to-r from-indigo-600 via-indigo-700 to-cyan-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-indigo-600 via-indigo-700 to-cyan-600 bg-clip-text text-transparent underline decoration-indigo-300/40">
               Built for Revenue.
             </span>
           </h1>
 
           {/* Clean narrative */}
-          <p className="text-slate-600 text-base sm:text-lg md:text-xl font-light max-w-3xl mx-auto leading-relaxed mb-4 sm:mb-6">
-            Stova Media is a boutique custom software engineering studio and AI lab based in Kolkata, India. We replace agency bureaucracy with senior technical craftsmanship to deliver high-speed web apps, custom software platforms, and autonomous AI automation.
+          <p className="text-slate-600 text-lg sm:text-xl md:text-2xl font-light max-w-4xl mx-auto leading-relaxed mb-8 sm:mb-12">
+            Stova Media is a boutique custom software engineering studio and AI lab based in Kolkata, India. We replace <span className="text-rose-600 font-semibold">agency bureaucracy</span> with senior technical craftsmanship to deliver <span className="text-blue-600 font-semibold">high-speed web apps</span>, <span className="text-indigo-700 font-semibold">custom software platforms</span>, and <span className="text-cyan-700 font-semibold">autonomous AI automation</span>.
           </p>
 
           {/* Animated Kolkata AI Studio Terminal Motion Graphic */}
@@ -127,18 +175,18 @@ export default function AboutClient() {
       </section>
 
       {/* 2. Core Engineering Standards (Manifesto) */}
-      <section className="py-12 sm:py-16 px-4 sm:px-6 md:px-10 lg:px-16 bg-slate-50 border-y border-slate-200/80">
+      <section className="py-16 sm:py-20 px-4 sm:px-6 md:px-10 lg:px-16 bg-slate-50 border-y border-slate-200/80">
         <div className="max-w-[1200px] mx-auto">
-          <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700 text-xs font-semibold uppercase tracking-wider mb-2.5 shadow-xs">
+          <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-14">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200 text-slate-700 text-xs sm:text-sm font-semibold uppercase tracking-wider mb-3 shadow-xs">
               <Award size={13} className="text-indigo-600" />
               <span>Our Code of Engineering</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-slate-900 tracking-tight mb-2 sm:mb-3">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-slate-900 tracking-tight mb-3">
               How We Build Differently
             </h2>
-            <p className="text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed">
-              We operate under four foundational principles that protect your investment and guarantee world-class software.
+            <p className="text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed">
+              We operate under four foundational principles that <span className="text-emerald-700 font-bold">protect your investment</span> and <span className="text-indigo-600 font-semibold">guarantee enterprise software</span>.
             </p>
           </div>
 
@@ -174,7 +222,7 @@ export default function AboutClient() {
       </section>
 
       {/* 3. Founder & Leadership Section */}
-      <section className="py-12 sm:py-16 px-4 sm:px-6 md:px-10 lg:px-16 bg-white">
+      <section className="py-16 sm:py-20 px-4 sm:px-6 md:px-10 lg:px-16 bg-white">
         <div className="max-w-[1100px] mx-auto">
           <TiltCard maxTilt={3}>
             <div className="bg-gradient-to-b from-white to-slate-50 rounded-2xl sm:rounded-3xl p-6 sm:p-10 border border-slate-200/90 shadow-[0_10px_35px_rgba(15,23,42,0.04)] grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 items-center">
@@ -209,11 +257,11 @@ export default function AboutClient() {
                   <Terminal size={14} />
                   <span>Founder Note</span>
                 </div>
-                <blockquote className="text-base sm:text-lg md:text-xl font-display text-slate-800 leading-snug italic mb-4">
-                  &ldquo;Software shouldn&apos;t be an unpredictable black box. When you build with Stova Media, you get clean, maintainable architecture built by people who genuinely care about your business growth.&rdquo;
+                <blockquote className="text-lg sm:text-xl md:text-2xl font-display text-slate-800 leading-snug italic mb-4">
+                  &ldquo;Software shouldn&apos;t be an unpredictable black box. When you build with Stova Media, you get <span className="text-slate-900 font-semibold not-italic">clean, maintainable architecture</span> built by engineers who genuinely care about your <span className="text-emerald-700 font-bold not-italic">business revenue growth</span>.&rdquo;
                 </blockquote>
-                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
-                  Based in Kolkata, Mehedi Hasan leads the technical architecture across custom Next.js applications, healthcare SaaS systems, and autonomous AI agents for clients locally and internationally across the USA, UK, and UAE.
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-4">
+                  Based in Kolkata, Mehedi Hasan leads technical architecture across <span className="text-indigo-700 font-semibold">custom Next.js applications</span>, <span className="text-blue-600 font-semibold">healthcare SaaS systems</span>, and <span className="text-cyan-700 font-semibold">autonomous AI agents</span> for clients locally and internationally across the <span className="text-slate-900 font-semibold">USA, UK, and UAE</span>.
                 </p>
 
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 text-xs font-mono text-slate-600 pt-3 border-t border-slate-200">
@@ -237,13 +285,13 @@ export default function AboutClient() {
       </section>
 
       {/* 4. Technology Stack */}
-      <section className="py-12 sm:py-16 px-4 sm:px-6 md:px-10 lg:px-16 bg-slate-50 border-t border-slate-200/80">
+      <section className="py-16 sm:py-20 px-4 sm:px-6 md:px-10 lg:px-16 bg-slate-50 border-t border-slate-200/80">
         <div className="max-w-[1100px] mx-auto text-center">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700 text-xs font-semibold uppercase tracking-wider mb-2.5 shadow-xs">
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white border border-slate-200 text-slate-700 text-xs sm:text-sm font-semibold uppercase tracking-wider mb-3 shadow-xs">
             <Server size={13} className="text-indigo-600" />
             <span>Modern Stack</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-display font-bold text-slate-900 tracking-tight mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-slate-900 tracking-tight mb-8">
             The Battle-Tested Technologies We Build With
           </h2>
 
@@ -262,14 +310,14 @@ export default function AboutClient() {
       </section>
 
       {/* 5. Bottom Call to Action */}
-      <section className="py-12 sm:py-16 px-4 sm:px-6 md:px-10 lg:px-16 bg-white relative overflow-hidden">
-        <div className="max-w-[950px] mx-auto text-center">
-          <div className="bg-gradient-to-b from-white to-slate-50 rounded-2xl sm:rounded-3xl p-6 sm:p-10 border border-slate-200/90 shadow-[0_15px_40px_rgba(15,23,42,0.05)] flex flex-col items-center">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-extrabold text-slate-900 tracking-tight mb-3">
-              Have an Idea or Existing System to Upgrade?
+      <section className="py-16 sm:py-20 px-4 sm:px-6 md:px-10 lg:px-16 bg-white relative overflow-hidden">
+        <div className="max-w-[1000px] mx-auto text-center">
+          <div className="bg-gradient-to-b from-white to-slate-50 rounded-2xl sm:rounded-3xl p-8 sm:p-14 border border-slate-200/90 shadow-[0_15px_40px_rgba(15,23,42,0.05)] flex flex-col items-center">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-slate-900 tracking-tight mb-4">
+              Have an Idea or <span className="text-indigo-600 font-bold">Existing System to Upgrade</span>?
             </h2>
-            <p className="text-slate-600 text-xs sm:text-sm md:text-base max-w-lg mb-6 leading-relaxed">
-              Book a direct consultation with our lead architect and get an honest, actionable technical proposal within 4 hours.
+            <p className="text-slate-600 text-sm sm:text-base md:text-lg max-w-xl mb-8 leading-relaxed">
+              Book a direct consultation with our <span className="text-slate-900 font-semibold">Lead Architect</span> and get an honest, actionable technical proposal within <span className="text-emerald-700 font-bold">4 hours</span>.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">

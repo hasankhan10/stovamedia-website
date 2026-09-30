@@ -19,30 +19,59 @@ import TiltCard from "@/components/animations/TiltCard";
 import StudioTelemetryGraphic from "@/components/animations/StudioTelemetryGraphic";
 import { MagneticElement } from "@/components/ui";
 
-const faqs = [
+interface ContactFAQ {
+  question: string;
+  answer: React.ReactNode;
+}
+
+const faqs: ContactFAQ[] = [
   {
     question: "How fast will you respond to my project inquiry?",
-    answer: "Our lead software architect reviews all project briefs directly. You will receive an engineering feasibility review, proposed timeline, and transparent quote within 4 business hours.",
+    answer: (
+      <>
+        Our lead software architect reviews all project briefs directly. You will receive an <span className="text-blue-600 font-semibold">engineering feasibility review</span>, proposed timeline, and transparent quote within <span className="text-emerald-700 font-bold">4 business hours</span>.
+      </>
+    ),
   },
   {
     question: "Do you build with templates or 100% custom code?",
-    answer: "We write 100% bespoke code using Next.js 15, React, TypeScript, and high-performance databases. Zero slow WordPress themes, zero page builders, and zero unnecessary bloat.",
+    answer: (
+      <>
+        We write <span className="text-slate-900 font-bold">100% bespoke code</span> using Next.js 15, React, TypeScript, and high-performance databases. <span className="text-rose-600 font-semibold">Zero slow WordPress themes</span>, <span className="text-rose-600 font-semibold">zero page builders</span>, and <span className="text-rose-600 font-semibold">zero unnecessary bloat</span>.
+      </>
+    ),
   },
   {
     question: "Who owns the code and intellectual property?",
-    answer: "You own 100% of the intellectual property, git repository, design assets, and cloud deployment pipelines immediately upon project completion.",
+    answer: (
+      <>
+        You own <span className="text-emerald-700 font-bold">100% of the intellectual property</span>, git repository, design assets, and cloud deployment pipelines immediately upon project completion.
+      </>
+    ),
   },
   {
     question: "Can we start with an MVP or small milestone first?",
-    answer: "Yes! We specialize in modular milestone delivery. We can build an initial high-converting website or functional MVP in 2–3 weeks and iterate from there.",
+    answer: (
+      <>
+        Yes! We specialize in modular milestone delivery. We can build an initial <span className="text-emerald-700 font-bold">high-converting website</span> or functional MVP in <span className="text-blue-600 font-semibold">2–3 weeks</span> and iterate from there.
+      </>
+    ),
   },
   {
     question: "How do you handle maintenance and support after launch?",
-    answer: "Every custom build includes 30 days of comprehensive post-launch warranty and monitoring. We also provide ongoing SLA maintenance retainers for continuous feature upgrades.",
+    answer: (
+      <>
+        Every custom build includes <span className="text-emerald-700 font-bold">30 days of comprehensive post-launch warranty</span> and monitoring. We also provide ongoing SLA maintenance retainers for continuous feature upgrades.
+      </>
+    ),
   },
   {
     question: "What payment structures do you accept?",
-    answer: "We work with transparent milestone-based payments (e.g. 50% upfront deposit and 50% upon final deployment after staging approval), accepting Bank Transfers, UPI, and International Wire.",
+    answer: (
+      <>
+        We work with transparent milestone-based payments (e.g. <span className="text-slate-900 font-semibold">50% upfront deposit</span> and <span className="text-emerald-700 font-bold">50% only upon final approval</span>), accepting Bank Transfers, UPI, and International Wire.
+      </>
+    ),
   },
 ];
 
@@ -116,7 +145,9 @@ export default function ContactClient() {
           <div className="flex justify-center mb-5 sm:mb-7">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700 text-xs sm:text-sm font-semibold shadow-xs">
               <Layers size={14} className="text-indigo-600" />
-              <span>Direct Technical Access · 4-Hour Response SLA</span>
+              <span>
+                <span className="text-indigo-700 font-bold">Direct Technical Access</span> · <span className="text-emerald-700 font-bold">4-Hour Response SLA</span>
+              </span>
             </div>
           </div>
 
@@ -126,14 +157,14 @@ export default function ContactClient() {
             {/* LEFT COLUMN: Narrative & Direct Channels (5 cols) */}
             <div className="lg:col-span-5 flex flex-col space-y-5">
               <div>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-slate-900 tracking-tight leading-[1.1] mb-3">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-extrabold text-slate-900 tracking-tight leading-[1.08] mb-4">
                   Let&apos;s Architect Your{" "}
-                  <span className="bg-gradient-to-r from-indigo-600 via-indigo-700 to-cyan-600 bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-indigo-600 via-indigo-700 to-cyan-600 bg-clip-text text-transparent underline decoration-indigo-300/40">
                     Next Milestone
                   </span>
                 </h1>
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-5">
-                  Have a new software project, need a high-converting website, or want to deploy autonomous AI agents? Connect directly with our lead architect.
+                <p className="text-slate-600 text-base sm:text-lg md:text-xl font-light leading-relaxed mb-6">
+                  Have a new <span className="text-indigo-700 font-semibold">custom software project</span>, need a <span className="text-emerald-700 font-bold">high-converting website</span>, or want to deploy <span className="text-cyan-700 font-semibold">autonomous AI agents</span>? Connect directly with our <span className="text-slate-900 font-semibold">Lead Architect</span>.
                 </p>
 
                 {/* Direct Contact Cards */}
@@ -428,17 +459,17 @@ export default function ContactClient() {
       </section>
 
       {/* 2. Frequently Asked Questions Section (Fills lower page seamlessly before footer) */}
-      <section className="py-14 sm:py-20 px-4 sm:px-6 md:px-10 lg:px-16 bg-slate-50 border-t border-slate-200/80">
+      <section className="py-16 sm:py-20 px-4 sm:px-6 md:px-10 lg:px-16 bg-slate-50 border-t border-slate-200/80">
         <div className="max-w-[850px] mx-auto">
-          <div className="text-center mb-10 sm:mb-12">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700 text-xs font-semibold uppercase tracking-wider mb-2.5 shadow-xs">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200 text-slate-700 text-xs sm:text-sm font-semibold uppercase tracking-wider mb-3 shadow-xs">
               <HelpCircle size={14} className="text-indigo-600" />
               <span>Got Questions?</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-slate-900 tracking-tight mb-2">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-slate-900 tracking-tight mb-3">
               Frequently Asked Questions
             </h2>
-            <p className="text-slate-600 text-xs sm:text-sm md:text-base max-w-xl mx-auto">
+            <p className="text-slate-600 text-sm sm:text-base md:text-lg max-w-xl mx-auto">
               Everything you need to know about our custom engineering process, intellectual property rights, and turnaround times.
             </p>
           </div>
@@ -492,7 +523,7 @@ export default function ContactClient() {
                 Have a specialized custom requirement?
               </h3>
               <p className="text-xs sm:text-sm text-slate-600">
-                Talk directly to lead architect Mehedi Hasan and get an instant technical answer.
+                Talk directly to <span className="text-slate-900 font-semibold">Lead Architect Mehedi Hasan</span> and get an <span className="text-emerald-700 font-bold">instant technical answer</span>.
               </p>
             </div>
             <MagneticElement strength={0.25} className="shrink-0">

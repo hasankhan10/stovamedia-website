@@ -13,48 +13,64 @@ const pillars = [
   {
     id: "websites",
     title: "Small Business & Local Growth Websites",
-    tagline: "Sub-second load times engineered to rank #1 on Google and turn visitors into paying customers.",
+    tagline: (
+      <>
+        <span className="text-blue-600 font-semibold">Sub-second load times</span> engineered to rank{" "}
+        <span className="text-emerald-700 font-bold">#1 on Google</span> and eliminate{" "}
+        <span className="text-rose-600 font-semibold">lost bounce traffic</span>.
+      </>
+    ),
     badge: "High Performance",
-    badgeColor: "bg-emerald-50 text-emerald-700 border-emerald-200",
+    badgeColor: "bg-emerald-50 text-emerald-800 border-emerald-200",
     icon: Globe,
     accent: "from-emerald-500 to-teal-600",
     features: [
-      "Custom Next.js & React architecture (zero slow WordPress templates)",
-      "Google Maps & Local SEO dominance setup included",
-      "Mobile-first checkout & instant WhatsApp click-to-chat triggers",
-      "100/100 Google Core Web Vitals benchmark guarantee",
+      <>Custom Next.js architecture (<span className="text-rose-600 font-semibold">zero slow WordPress bloat</span>)</>,
+      <><span className="text-emerald-700 font-bold">Google Maps &amp; Local SEO</span> dominance setup</>,
+      <>Mobile-first checkout &amp; instant <span className="text-emerald-700 font-semibold">WhatsApp click-to-chat</span></>,
+      <><span className="text-emerald-700 font-bold">100/100 Google Core Web Vitals</span> guarantee</>,
     ],
     graphic: <SpeedDialGraphic />,
   },
   {
     id: "software",
     title: "Custom Web Apps & Enterprise Software",
-    tagline: "Tailored full-stack platforms, internal operational tools, and SaaS products built with zero technical debt.",
+    tagline: (
+      <>
+        Tailored <span className="text-indigo-700 font-semibold">full-stack platforms</span>, operational tools, and SaaS products built with{" "}
+        <span className="text-rose-600 font-semibold">zero technical debt</span>.
+      </>
+    ),
     badge: "Enterprise Scale",
-    badgeColor: "bg-indigo-50 text-indigo-700 border-indigo-200",
+    badgeColor: "bg-indigo-50 text-indigo-800 border-indigo-200",
     icon: Server,
     accent: "from-indigo-600 to-cyan-600",
     features: [
-      "Bespoke SaaS platforms, patient portals & business management systems",
-      "Enterprise PostgreSQL, Supabase & REST/GraphQL API integration",
-      "Bank-grade role-based authentication (RBAC) & data encryption",
-      "100% source code ownership with zero vendor lock-in",
+      <>Bespoke SaaS platforms, patient portals &amp; <span className="text-slate-900 font-semibold">CRM tools</span></>,
+      <>Enterprise PostgreSQL, Supabase &amp; <span className="text-indigo-600 font-medium">REST/GraphQL APIs</span></>,
+      <>Bank-grade role-based authentication &amp; <span className="text-blue-600 font-medium">AES-256 data security</span></>,
+      <><span className="text-emerald-700 font-bold">100% source code ownership</span> with zero lock-in</>,
     ],
     graphic: <NodeNetworkGraphic />,
   },
   {
     id: "ai-workflows",
     title: "Autonomous AI & Automation Workflows",
-    tagline: "Custom AI agents that qualify leads, handle customer inquiries, and automate repetitive backend operations 24/7.",
+    tagline: (
+      <>
+        Custom AI agents that <span className="text-emerald-700 font-bold">qualify leads</span>, resolve customer tickets, and automate operations{" "}
+        <span className="text-cyan-700 font-semibold">24/7 on autopilot</span>.
+      </>
+    ),
     badge: "24/7 Autopilot",
-    badgeColor: "bg-cyan-50 text-cyan-700 border-cyan-200",
+    badgeColor: "bg-cyan-50 text-cyan-800 border-cyan-200",
     icon: Bot,
     accent: "from-cyan-500 to-indigo-600",
     features: [
-      "24/7 Intelligent AI chatbots for WhatsApp, Website & Instagram",
-      "Automated lead capture, CRM syncing & instant email follow-ups",
-      "Custom RAG systems trained strictly on your private business data",
-      "Autonomous scheduling & multi-step workflow automation",
+      <><span className="text-cyan-700 font-semibold">24/7 Intelligent AI chatbots</span> for WhatsApp &amp; Web</>,
+      <>Automated <span className="text-emerald-700 font-bold">lead capture</span> &amp; instant CRM syncing</>,
+      <>Custom RAG systems trained on your <span className="text-slate-900 font-semibold">private business data</span></>,
+      <><span className="text-indigo-600 font-medium">Autonomous scheduling</span> &amp; multi-step email actions</>,
     ],
     graphic: <AICoreGraphic />,
   },

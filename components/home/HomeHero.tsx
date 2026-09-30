@@ -43,21 +43,23 @@ export default function HomeHero() {
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-extrabold text-slate-900 tracking-tight leading-[1.08]"
           >
-            We Engineer Websites, Custom Software &amp;{" "}
-            <span className="bg-gradient-to-r from-indigo-600 via-indigo-700 to-cyan-600 bg-clip-text text-transparent">
-              AI Automations
+            We Build Fast Websites, Custom Software &amp;{" "}
+            <span className="text-blue-600 font-bold">Autonomous AI Agents</span>{" "}
+            That{" "}
+            <span className="text-emerald-600 font-bold underline decoration-emerald-500/40 decoration-wavy decoration-1 underline-offset-8">
+              Scale Your Revenue
             </span>
           </motion.h1>
         </div>
 
-        {/* Jargon-free Subtitle */}
+        {/* Jargon-free Subtitle with Cognitive Triggers */}
         <motion.p
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
           className="text-center text-slate-600 text-base sm:text-lg md:text-xl font-light max-w-3xl mx-auto leading-relaxed mb-8 sm:mb-11"
         >
-          From lightning-fast small business websites to enterprise SaaS platforms and autonomous 24/7 AI agents. 100% custom code, zero bloat, built to scale your revenue.
+          From <strong className="text-slate-900 font-semibold">sub-second business websites</strong> to enterprise SaaS and 24/7 AI chatbots. <span className="text-slate-900 font-semibold">100% custom-coded</span> with <span className="text-rose-600 font-semibold">zero WordPress bloat</span> — engineered to turn visitors into <span className="text-emerald-700 font-bold">paying clients</span>.
         </motion.p>
 
         {/* Action Buttons */}
@@ -112,65 +114,65 @@ export default function HomeHero() {
                 {/* Metric 1: Web Performance */}
                 <div className="p-4 sm:p-5 rounded-xl sm:rounded-2xl bg-slate-50/80 border border-slate-200/70 relative overflow-hidden group hover:border-indigo-300 transition-colors">
                   <div className="flex items-center justify-between mb-2 sm:mb-3">
-                    <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-slate-500">Speed Score</span>
+                    <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-700">Speed Score</span>
                     <Zap size={15} className="text-amber-500" />
                   </div>
                   <div className="flex items-baseline gap-2 mb-1">
                     <span className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-display">100/100</span>
-                    <span className="text-xs text-emerald-600 font-semibold">Sub-50ms TTFB</span>
+                    <span className="text-xs text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200">Sub-50ms TTFB</span>
                   </div>
                   <div className="w-full bg-slate-200 h-1.5 sm:h-2 rounded-full overflow-hidden mt-2.5">
                     <div className="h-full bg-gradient-to-r from-emerald-500 to-cyan-500 w-[98%]" />
                   </div>
-                  <span className="text-[10px] sm:text-[11px] text-slate-400 mt-2 block font-medium">Google Core Web Vitals Optimized</span>
+                  <span className="text-[10px] sm:text-[11px] text-slate-500 mt-2 block font-medium">Google Core Web Vitals <span className="text-emerald-700 font-semibold">100% Passed</span></span>
                 </div>
 
                 {/* Metric 2: Architecture & Uptime */}
                 <div className="p-4 sm:p-5 rounded-xl sm:rounded-2xl bg-slate-50/80 border border-slate-200/70 relative overflow-hidden group hover:border-indigo-300 transition-colors">
                   <div className="flex items-center justify-between mb-2 sm:mb-3">
-                    <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-slate-500">Custom SaaS SLA</span>
+                    <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-700">Custom SaaS SLA</span>
                     <Activity size={15} className="text-indigo-600" />
                   </div>
                   <div className="flex items-baseline gap-2 mb-1">
                     <span className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-display">99.99%</span>
-                    <span className="text-xs text-indigo-600 font-semibold">Zero Failure</span>
+                    <span className="text-xs text-indigo-700 font-bold bg-indigo-50 px-2 py-0.5 rounded-md border border-indigo-200">Zero Downtime</span>
                   </div>
                   <div className="w-full bg-slate-200 h-1.5 sm:h-2 rounded-full overflow-hidden mt-2.5">
                     <div className="h-full bg-indigo-600 w-[99.9%]" />
                   </div>
-                  <span className="text-[10px] sm:text-[11px] text-slate-400 mt-2 block font-medium">Enterprise PostgreSQL &amp; Next.js</span>
+                  <span className="text-[10px] sm:text-[11px] text-slate-500 mt-2 block font-medium">Enterprise PostgreSQL &amp; <span className="text-slate-900 font-semibold">Zero Tech Debt</span></span>
                 </div>
 
                 {/* Metric 3: Autonomous AI Agents */}
                 <div className="p-4 sm:p-5 rounded-xl sm:rounded-2xl bg-slate-50/80 border border-slate-200/70 relative overflow-hidden group hover:border-indigo-300 transition-colors">
                   <div className="flex items-center justify-between mb-2 sm:mb-3">
-                    <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-slate-500">Autonomous AI</span>
+                    <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-700">Autonomous AI</span>
                     <Cpu size={15} className="text-cyan-600" />
                   </div>
                   <div className="flex items-baseline gap-2 mb-1">
                     <span className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-display">24/7</span>
-                    <span className="text-xs text-cyan-600 font-semibold">Live Autopilot</span>
+                    <span className="text-xs text-cyan-700 font-bold bg-cyan-50 px-2 py-0.5 rounded-md border border-cyan-200">Live Autopilot</span>
                   </div>
                   <div className="w-full bg-slate-200 h-1.5 sm:h-2 rounded-full overflow-hidden mt-2.5">
                     <div className="h-full bg-gradient-to-r from-indigo-500 via-cyan-500 to-emerald-400 w-full" />
                   </div>
-                  <span className="text-[10px] sm:text-[11px] text-slate-400 mt-2 block font-medium">Autonomous Lead &amp; Support Pipelines</span>
+                  <span className="text-[10px] sm:text-[11px] text-slate-500 mt-2 block font-medium">Automated <span className="text-emerald-700 font-semibold">Lead Qualification</span></span>
                 </div>
               </div>
 
               {/* Bottom Trust Indicators */}
-              <div className="mt-6 pt-5 border-t border-slate-100 flex flex-wrap justify-between items-center gap-3 text-[11px] sm:text-xs font-semibold text-slate-500">
+              <div className="mt-6 pt-5 border-t border-slate-100 flex flex-wrap justify-between items-center gap-3 text-[11px] sm:text-xs font-bold text-slate-600">
                 <div className="flex items-center gap-1.5">
-                  <CheckCircle size={14} className="text-emerald-500 shrink-0" />
-                  <span>100% In-House Code (Zero Templates)</span>
+                  <CheckCircle size={14} className="text-emerald-600 shrink-0" />
+                  <span><strong className="text-emerald-700">100% In-House Code</strong> (Zero Templates)</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <Shield size={14} className="text-indigo-600 shrink-0" />
-                  <span>Complete IP Ownership</span>
+                  <span><strong className="text-indigo-700">Full IP Ownership</strong></span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <Zap size={14} className="text-amber-500 shrink-0" />
-                  <span>Direct Lead Architect Access</span>
+                  <span><strong className="text-slate-900">Direct Architect Access</strong></span>
                 </div>
               </div>
             </div>
