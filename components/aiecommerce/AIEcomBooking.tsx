@@ -64,11 +64,11 @@ export default function AIEcomBooking({
           )}
 
           <a 
-            href="https://wa.me/919432053261?text=Hello%20Stova%20Media,%20I%20want%20to%20book%20a%20free%20consultation%20for%20AI%20E-commerce"
+            href="https://wa.me/919432053261?text=Hello%20Stova%20Media,%20I%20want%20to%20claim%20a%20Free%20AI%20E-commerce%20Consultation%20Slot"
             target="_blank"
             rel="noopener noreferrer"
             onClick={(e) => {
-              const url = "https://wa.me/919432053261?text=Hello%20Stova%20Media,%20I%20want%20to%20book%20a%20free%20consultation%20for%20AI%20E-commerce";
+              const url = "https://wa.me/919432053261?text=Hello%20Stova%20Media,%20I%20want%20to%20claim%20a%20Free%20AI%20E-commerce%20Consultation%20Slot";
               if (onWhatsAppClick) {
                 e.preventDefault();
                 onWhatsAppClick(url);

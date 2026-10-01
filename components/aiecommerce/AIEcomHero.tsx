@@ -126,11 +126,11 @@ export default function AIEcomHero({ onBookClick, onWhatsAppClick }: AIEcomHeroP
 
             <MagneticElement className="w-full sm:w-auto">
               <a 
-                href="https://wa.me/919432053261?text=Hello%20Stova%20Media,%20I%20want%20to%20know%20more%20about%20your%20AI%20E-commerce%20Platform"
+                href="https://wa.me/919432053261?text=Hello%20Stova%20Media,%20I%20want%20to%20claim%20a%20Free%20AI%20E-commerce%20Consultation%20Slot"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={(e) => {
-                  const url = "https://wa.me/919432053261?text=Hello%20Stova%20Media,%20I%20want%20to%20know%20more%20about%20your%20AI%20E-commerce%20Platform";
+                  const url = "https://wa.me/919432053261?text=Hello%20Stova%20Media,%20I%20want%20to%20claim%20a%20Free%20AI%20E-commerce%20Consultation%20Slot";
                   if (onWhatsAppClick) {
                     e.preventDefault();
                     onWhatsAppClick(url);
