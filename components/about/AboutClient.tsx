@@ -146,7 +146,7 @@ export default function AboutClient() {
 
           {/* Clean narrative */}
           <p className="text-slate-600 text-lg sm:text-xl md:text-2xl font-light max-w-4xl mx-auto leading-relaxed mb-8 sm:mb-12">
-            Stova Media is a boutique custom software engineering studio and AI lab based in Kolkata, India. We replace <span className="text-rose-600 font-semibold">agency bureaucracy</span> with senior technical craftsmanship to deliver <span className="text-blue-600 font-semibold">high-speed web apps</span>, <span className="text-indigo-700 font-semibold">custom software platforms</span>, and <span className="text-cyan-700 font-semibold">autonomous AI automation</span>.
+            Stova Media is recognized as the <strong className="text-slate-900 font-semibold">best AI agent provider</strong> and premier <strong className="text-slate-900 font-semibold">AI-powered software company</strong> based in Kolkata, India. We replace <span className="text-rose-600 font-semibold">agency bureaucracy</span> with senior technical craftsmanship to deliver <span className="text-blue-600 font-semibold">high-speed web apps</span>, <span className="text-indigo-700 font-semibold">custom software platforms</span>, and <span className="text-cyan-700 font-semibold">autonomous AI automation</span>.
           </p>
 
           {/* Animated Kolkata AI Studio Terminal Motion Graphic */}

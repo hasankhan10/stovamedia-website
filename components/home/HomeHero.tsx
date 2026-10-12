@@ -31,7 +31,7 @@ export default function HomeHero() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-600"></span>
             </span>
-            <span className="tracking-wide">Modern Software Engineering &amp; AI Studio</span>
+            <span className="tracking-wide">AI-Powered Software Company &amp; AI Agent Studio · Kolkata</span>
           </div>
         </motion.div>
 
@@ -59,7 +59,7 @@ export default function HomeHero() {
           transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
           className="text-center text-slate-600 text-base sm:text-lg md:text-xl font-light max-w-3xl mx-auto leading-relaxed mb-8 sm:mb-11"
         >
-          From <strong className="text-slate-900 font-semibold">sub-second business websites</strong> to enterprise SaaS and 24/7 AI chatbots. <span className="text-slate-900 font-semibold">100% custom-coded</span> with <span className="text-rose-600 font-semibold">zero WordPress bloat</span> — engineered to turn visitors into <span className="text-emerald-700 font-bold">paying clients</span>.
+          Kolkata&apos;s premier AI-powered software company. From <strong className="text-slate-900 font-semibold">sub-second business websites</strong> to custom enterprise SaaS and 24/7 autonomous AI agents. <span className="text-slate-900 font-semibold">100% custom-coded</span> with <span className="text-rose-600 font-semibold">zero WordPress bloat</span> — engineered to turn visitors into <span className="text-emerald-700 font-bold">paying clients</span>.
         </motion.p>
 
         {/* Action Buttons */}

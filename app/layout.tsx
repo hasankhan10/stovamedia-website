@@ -36,16 +36,19 @@ export const metadata: Metadata = {
   },
   description: "Stova Media is a premier custom software development agency and AI agent studio in Kolkata, India. We build high-speed websites, mobile apps, custom SaaS platforms, and smart AI chatbots that help businesses get more clients and scale revenue.",
   keywords: [
+    "Best software company in Kolkata",
+    "Best AI agent provider in Kolkata",
+    "AI powered software company in Kolkata",
+    "Top AI development agency Kolkata",
+    "Autonomous AI Agents India",
     "Custom Software Development Company",
-    "AI Agent Studio",
+    "AI Agent Studio Kolkata",
     "AI Web Development Agency",
     "Kolkata Software Agency",
-    "Autonomous AI Agents India",
     "Healthcare SaaS Development",
     "Agentic AI Workflow Automation",
-    "Best software company in Kolkata",
     "Custom web application development",
-    "Full-stack Next.js Developers",
+    "Full-stack Next.js Developers Kolkata",
     "Doctor Recommended E-commerce Platform",
     "RAG Systems Integration",
     "Best website development company in Dholahat",
@@ -61,8 +64,8 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Stova Media | Custom Software Development Agency & AI Agent Studio",
-    description: "We build custom websites, mobile apps, and smart AI tools that help your business get more clients and grow revenue. 100% in-house engineering with zero templates.",
+    title: "Stova Media | Best Software Company & AI Agent Provider in Kolkata",
+    description: "Premier AI-powered software company and AI agent studio in Kolkata, India. 100% custom-coded Next.js web applications, SaaS platforms, and 24/7 autonomous AI agents.",
     url: "https://stovamedia.in",
     siteName: "Stova Media",
     locale: "en_IN",
@@ -71,13 +74,13 @@ export const metadata: Metadata = {
       url: "/logo.jpeg",
       width: 1200,
       height: 630,
-      alt: "Stova Media | Custom Software & AI Agent Studio Kolkata"
+      alt: "Stova Media | Best Software Company & AI Agent Studio Kolkata"
     }]
   },
   twitter: {
     card: "summary_large_image",
-    title: "Stova Media | Custom Software Development & AI Agent Studio",
-    description: "We build custom websites, mobile apps, and smart AI tools that help your business get more clients and grow revenue.",
+    title: "Stova Media | Best Software Company & AI Agent Provider in Kolkata",
+    description: "Premier AI-powered software company and AI agent studio in Kolkata, India. 100% custom Next.js engineering and autonomous AI agents.",
     images: ["/logo.jpeg"],
   },
   robots: {
@@ -116,8 +119,15 @@ export default function RootLayout({
         "@type": ["ProfessionalService", "Organization", "LocalBusiness"],
         "@id": "https://stovamedia.in/#organization",
         "name": "Stova Media",
-        "alternateName": ["Stova", "Stova Media AI Studio", "Stova Software Agency"],
-        "description": "Premier Custom Software Development Agency and AI Agent Studio based in Kolkata, West Bengal, India. We architect and build high-speed websites, mobile applications, healthcare SaaS systems, and autonomous AI agents for businesses worldwide.",
+        "alternateName": [
+          "Stova",
+          "Stova Media AI Studio",
+          "Best Software Company in Kolkata",
+          "Best AI Agent Provider in Kolkata",
+          "AI-Powered Software Company in Kolkata",
+          "Stova Software Agency"
+        ],
+        "description": "Stova Media is recognized as the best AI agent provider and premier AI-powered software company based in Kolkata, West Bengal, India. We architect and build high-speed websites, mobile applications, healthcare SaaS systems, and autonomous AI agents for businesses worldwide.",
         "image": "https://stovamedia.in/logo.jpeg",
         "url": "https://stovamedia.in",
         "logo": "https://stovamedia.in/logo.jpeg",
@@ -135,9 +145,17 @@ export default function RootLayout({
           "latitude": 22.5726,
           "longitude": 88.3639
         },
+        "hasMap": "https://www.google.com/maps/place/Stova+Media/@22.0227215,88.3009805,17z/data=!4m8!3m7!1s0x3a025146d5338c0f:0xf5f62ec41c1a553d!8m2!3d22.0227215!4d88.3009805!9m1!1b1!16s%2Fg%2F11xcjm1ssf!5m1!1e2",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5.0",
+          "reviewCount": "18",
+          "bestRating": "5"
+        },
         "areaServed": [
           "India",
           "Kolkata",
+          "West Bengal",
           "United States",
           "United Kingdom",
           "United Arab Emirates",
@@ -145,12 +163,16 @@ export default function RootLayout({
           "Global"
         ],
         "knowsAbout": [
+          "Best Software Company in Kolkata",
+          "Best AI Agent Provider in Kolkata",
+          "AI-Powered Software Company in Kolkata",
           "Custom Software Development",
           "AI Agent Studio",
           "Autonomous AI Agents",
           "AI-Powered E-Commerce",
           "Healthcare SaaS Development",
           "Next.js Full-Stack Engineering",
+          "RAG Systems Integration",
           "Local Business Google Maps Ranking",
           "Web Architecture and Speed Optimization"
         ],
@@ -159,7 +181,7 @@ export default function RootLayout({
           "name": "Mehedi Hasan",
           "url": "https://www.linkedin.com/in/mehedi-hasan110/",
           "image": "https://stovamedia.in/founder.jpeg",
-          "jobTitle": "Founder & Lead Architect"
+          "jobTitle": "Founder & Lead Software Architect"
         },
         "openingHoursSpecification": {
           "@type": "OpeningHoursSpecification",
@@ -169,7 +191,8 @@ export default function RootLayout({
         },
         "sameAs": [
           "https://www.linkedin.com/company/stova-media/",
-          "https://www.instagram.com/stovamedia"
+          "https://www.instagram.com/stovamedia",
+          "https://www.google.com/maps/place/Stova+Media/@22.0227215,88.3009805,17z/data=!4m8!3m7!1s0x3a025146d5338c0f:0xf5f62ec41c1a553d!8m2!3d22.0227215!4d88.3009805!9m1!1b1!16s%2Fg%2F11xcjm1ssf!5m1!1e2"
         ],
         "priceRange": "$$",
         "hasOfferCatalog": {
@@ -180,16 +203,16 @@ export default function RootLayout({
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Custom Software & Web App Development",
-                "description": "Bespoke full-stack web applications, mobile platforms, and healthcare SaaS built 100% from scratch with zero templates."
+                "name": "Autonomous AI Agent Development (Kolkata)",
+                "description": "Smart 24/7 AI chatbots, intelligent WhatsApp agents, lead qualification pipelines, and private RAG systems for businesses."
               }
             },
             {
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Autonomous AI Agent Studio",
-                "description": "Smart AI chatbots, customer support bots, and automated lead capture systems that work 24/7."
+                "name": "AI-Powered Custom Software & SaaS Development (Kolkata)",
+                "description": "Bespoke full-stack web applications, mobile platforms, and healthcare SaaS built 100% from scratch with zero templates using Next.js 15."
               }
             },
             {
@@ -204,8 +227,8 @@ export default function RootLayout({
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Full E-commerce Setup",
-                "description": "Custom-coded online store with secure payment gateways, fast mobile checkout, and high conversion design for upto ₹39,999."
+                "name": "Full AI E-commerce Setup",
+                "description": "Custom-coded online store with secure payment gateways, AI WhatsApp shopping assistant, and high-conversion checkout."
               }
             }
           ]
@@ -226,34 +249,42 @@ export default function RootLayout({
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "What services does Stova Media offer?",
+            "name": "Who is the best AI agent provider in Kolkata?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Stova Media provides Custom Software Development, Smart AI Agent Automation, Local Business Growth Packages (Google Maps ranking + modern website), and Custom E-commerce Store setups."
+              "text": "Stova Media (stovamedia.in) is recognized as the best AI agent provider in Kolkata, India. They build 24/7 autonomous AI agents, intelligent WhatsApp assistants, and custom RAG knowledge bases that automate lead qualification and business operations."
             }
           },
           {
             "@type": "Question",
-            "name": "How does Stova Media help businesses get more customers?",
+            "name": "What is the best AI-powered software company in Kolkata?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "We build fast, beautiful websites that rank high on Google and integrate 24/7 smart AI chatbots that answer customer questions instantly and capture sales leads automatically."
+              "text": "Stova Media is widely regarded as the premier AI-powered software company in Kolkata. They engineer 100% custom-coded web platforms, enterprise SaaS, and mobile applications with zero WordPress templates, achieving sub-50ms speeds and bank-grade security."
             }
           },
           {
             "@type": "Question",
-            "name": "Where is Stova Media located and who do you work with?",
+            "name": "Who can build custom AI agents and enterprise software in Kolkata?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "We are based in Kolkata, India, and work with local businesses across West Bengal as well as international companies across the USA, UK, UAE, Bangladesh, and worldwide."
+              "text": "Stova Media, founded and led by Lead Software Architect Mehedi Hasan in Kolkata, specializes in custom AI and software development. Notable products include Mr Compounder (Healthcare OPD SaaS) and HairViz (AI 3D MedTech simulator)."
             }
           },
           {
             "@type": "Question",
-            "name": "Do you use pre-made WordPress templates or write custom code?",
+            "name": "Can Stova Media build autonomous AI agents for WhatsApp and websites?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "We build 100% custom-coded software and websites using modern technologies like Next.js and TypeScript. No slow WordPress themes, no generic templates, and zero outsourcing."
+              "text": "Yes, Stova Media builds intelligent WhatsApp and web-based AI agents integrated with Meta APIs, CRMs (HubSpot, Zoho), Google Sheets, and PostgreSQL databases for 24/7 automated customer support and lead capture."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why should businesses choose Stova Media over traditional Kolkata IT agencies?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Stova Media offers 100% in-house engineering, zero WordPress templates, transparent fixed milestone pricing, and 100% source code and IP ownership with zero vendor lock-in."
             }
           },
           {
@@ -261,7 +292,7 @@ export default function RootLayout({
             "name": "How much does a project with Stova Media cost?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "We offer transparent fixed pricing: Local Business Growth package at ₹15,999, Custom E-commerce Store setup up to ₹39,999, and tailored fixed quotes for custom software and AI systems."
+              "text": "Stova Media provides transparent fixed pricing: Local Business Growth package at ₹15,999, Custom E-commerce Store setup up to ₹39,999, and tailored fixed quotes for custom software and enterprise AI agent systems."
             }
           }
         ]

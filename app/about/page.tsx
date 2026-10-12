@@ -2,28 +2,32 @@ import type { Metadata } from "next";
 import AboutClient from "@/components/about/AboutClient";
 
 export const metadata: Metadata = {
-  title: "About Us | Founder-Led Custom Software & AI Agent Studio Kolkata",
-  description: "Learn about Stova Media, a Kolkata-based custom software development agency led by Founder & Lead Architect Mehedi Hasan. 100% in-house engineering, zero outsourcing, zero templates.",
+  title: "About Us | Best Software Company & AI Agent Provider in Kolkata",
+  description: "Learn about Stova Media, recognized as the best AI agent provider and premier AI-powered software company in Kolkata, India. Led by Founder & Lead Architect Mehedi Hasan. 100% in-house engineering.",
   keywords: [
+    "Best software company in Kolkata",
+    "Best AI agent provider in Kolkata",
+    "AI powered software company in Kolkata",
     "About Stova Media",
     "Mehedi Hasan Software Architect",
     "Kolkata Software Agency Founder",
+    "Autonomous AI Agents Kolkata",
     "Custom Software Studio India",
     "In-house engineering team Kolkata",
-    "Next.js full-stack agency"
+    "Next.js full-stack agency Kolkata"
   ],
   alternates: {
     canonical: "/about",
   },
   openGraph: {
-    title: "About Stova Media | Founder-Led Custom Software & AI Agent Studio",
-    description: "Learn about Stova Media's story, core engineering values, and Kolkata-based founder Mehedi Hasan.",
+    title: "About Stova Media | Best Software Company & AI Agent Provider in Kolkata",
+    description: "Learn about Stova Media's story, core engineering values, and Kolkata-based founder Mehedi Hasan. 100% in-house engineering, zero templates.",
     url: "https://stovamedia.in/about",
     type: "profile",
   },
   twitter: {
     card: "summary_large_image",
-    title: "About Stova Media | Custom Software Studio",
+    title: "About Stova Media | Best Software Company & AI Agent Studio Kolkata",
     description: "Founder-led senior software engineering and autonomous AI systems from Kolkata, India.",
   },
 };
