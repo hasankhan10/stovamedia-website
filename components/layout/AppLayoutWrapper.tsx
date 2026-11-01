@@ -11,12 +11,13 @@ export default function AppLayoutWrapper({ children }: { children: React.ReactNo
   const pathname = usePathname();
   const isAdminRoute = pathname?.startsWith("/admin");
   const isAIEcomRoute = pathname?.startsWith("/aiecommerce");
+  const isAILandingRoute = pathname?.startsWith("/ailandingpage");
 
   if (isAdminRoute) {
     return <div className="admin-theme min-h-screen bg-[#F8FAFC] text-slate-900">{children}</div>;
   }
 
-  if (isAIEcomRoute) {
+  if (isAIEcomRoute || isAILandingRoute) {
     return <>{children}</>;
   }
 

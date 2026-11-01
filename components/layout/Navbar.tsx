@@ -15,6 +15,7 @@ const navLinks = [
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
   { name: "AI E-Commerce", href: "/aiecommerce", badge: "AI" },
+  { name: "AI Landing Page", href: "/ailandingpage", badge: "AI" },
 ];
 
 export default function Navbar() {
