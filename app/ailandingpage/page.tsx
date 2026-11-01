@@ -10,8 +10,7 @@ import {
   AILandingUrgency,
   AILandingFAQ,
   AILandingBooking,
-  AILandingBookingModal,
-  AILandingStickyMobileBar
+  AILandingBookingModal
 } from "@/components/ailandingpage";
 
 const AILandingFloatingChatbot = dynamic(
@@ -63,7 +62,7 @@ export default function AILandingPage() {
   }, []);
 
   return (
-    <main className="font-['Hind_Siliguri',sans-serif] text-slate-900 bg-[#FDFBF7] overflow-x-hidden selection:bg-orange-500 selection:text-white pb-20 sm:pb-24">
+    <main className="font-['Hind_Siliguri',sans-serif] text-slate-900 bg-[#FDFBF7] overflow-x-hidden selection:bg-orange-500 selection:text-white">
       {/* 1️⃣ Hero Section with Motion, Real Picture & Engine Features */}
       <AILandingHero 
         onBookClick={handleOpenBookingModal} 
@@ -91,16 +90,10 @@ export default function AILandingPage() {
         onWhatsAppClick={handleWhatsAppClick}
       />
 
-      {/* 8️⃣ Sticky Conversion Bar matching document */}
-      <AILandingStickyMobileBar 
-        onBookClick={handleOpenBookingModal} 
-        onWhatsAppClick={handleWhatsAppClick}
-      />
-
-      {/* 9️⃣ Floating Bottom-Right Travel AI Assistant Chatbot */}
+      {/* 8️⃣ Floating Bottom-Right Travel AI Assistant Chatbot */}
       <AILandingFloatingChatbot />
 
-      {/* 🔟 Consultation Booking Popup Modal */}
+      {/* 9️⃣ Consultation Booking Popup Modal */}
       <AILandingBookingModal 
         isOpen={isBookingModalOpen}
         onClose={handleCloseBookingModal}
@@ -108,7 +101,7 @@ export default function AILandingPage() {
         onRequestConfirm={handleRequestConfirm}
       />
 
-      {/* 1️⃣1️⃣ Decision Confirmation Modal */}
+      {/* 🔟 Decision Confirmation Modal */}
       <AILandingConfirmModal 
         isOpen={confirmModal.isOpen}
         onClose={handleCloseConfirmModal}

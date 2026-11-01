@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useSyncExternalStore } from "react";
 import { Flame, Clock } from "lucide-react";
 
 interface AILandingTimerProps {
@@ -9,15 +9,12 @@ interface AILandingTimerProps {
   onExpire?: () => void;
 }
 
+const emptySubscribe = () => () => {};
+
 export default function AILandingTimer({ className = "", size = "lg", onExpire }: AILandingTimerProps) {
   const TOTAL = 600; // 10 minutes session window
-  const [timeLeft, setTimeLeft] = useState<number>(() => {
-    if (typeof window === "undefined") return TOTAL;
-    const startTime = sessionStorage.getItem("stova_ailanding_timer_10m");
-    if (!startTime) return TOTAL;
-    const elapsed = Math.floor((Date.now() - parseInt(startTime, 10)) / 1000);
-    return Math.max(0, TOTAL - elapsed);
-  });
+  const isClient = useSyncExternalStore(emptySubscribe, () => true, () => false);
+  const [timeLeft, setTimeLeft] = useState<number>(TOTAL);
   const [isBooked, setIsBooked] = useState(false);
   const onExpireRef = useRef(onExpire);
 
@@ -35,14 +32,6 @@ export default function AILandingTimer({ className = "", size = "lg", onExpire }
     if (!startTime) {
       sessionStorage.setItem(storageKey, String(now));
       startTime = String(now);
-    }
-
-    const elapsed = Math.floor((now - parseInt(startTime, 10)) / 1000);
-    const initial = Math.max(0, TOTAL - elapsed);
-
-    if (initial <= 0) {
-      onExpireRef.current?.();
-      return () => window.removeEventListener("stova_ailanding_booked_event", handleBooked);
     }
 
     const timer = setInterval(() => {
@@ -92,7 +81,7 @@ export default function AILandingTimer({ className = "", size = "lg", onExpire }
       </div>
 
       {/* Countdown Digits */}
-      <div className="flex items-center justify-center gap-2 sm:gap-3 py-1.5 z-10">
+      <div className="flex items-center justify-center gap-2 sm:gap-3 py-1.5 z-10" suppressHydrationWarning>
         {[
           { label: "Minutes", val: minutes },
           { label: "Seconds", val: seconds },
@@ -108,8 +97,8 @@ export default function AILandingTimer({ className = "", size = "lg", onExpire }
               <div className="relative group">
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-xl blur opacity-20 group-hover:opacity-40 transition" />
                 <div className={`relative flex items-center justify-center ${isLg ? "min-w-[68px] sm:min-w-[85px] py-2.5 sm:py-3.5 px-3 sm:px-4 text-2xl sm:text-4xl md:text-5xl" : "min-w-[56px] py-2 px-2.5 text-xl sm:text-2xl"} font-mono font-extrabold text-slate-900 bg-slate-50 border border-slate-200 rounded-xl shadow-xs tracking-wider`}>
-                  <span className="text-slate-900">
-                    {item.val}
+                  <span className="text-slate-900" suppressHydrationWarning>
+                    {isClient ? item.val : "10"}
                   </span>
                 </div>
               </div>

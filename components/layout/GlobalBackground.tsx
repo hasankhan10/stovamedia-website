@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 
 export default function GlobalBackground() {
   const pathname = usePathname();
-  const isExcluded = pathname?.startsWith("/aiecommerce") || pathname?.startsWith("/admin");
+  const isExcluded = pathname?.startsWith("/aiecommerce") || pathname?.startsWith("/ailandingpage") || pathname?.startsWith("/admin");
 
   if (isExcluded) {
     return null;

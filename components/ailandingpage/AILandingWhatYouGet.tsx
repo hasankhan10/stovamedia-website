@@ -36,26 +36,42 @@ export default function AILandingWhatYouGet() {
   const items = [
     {
       icon: Clapperboard,
-      title: "Motion Experience",
-      desc: "Scroll-Triggered Interactive Presentation",
+      title: "প্রতিটি package cinematic animation-এ ফুটে উঠবে",
+      renderDesc: () => (
+        <span>
+          আপনার tour আর শুধু ছবি আর লেখা নয় — customer scroll করলেই package-টা চোখের সামনে <span className="text-emerald-700 font-bold">জীবন্ত হয়ে উঠবে</span>।
+        </span>
+      ),
       iconColor: "text-blue-600 bg-blue-50 border-blue-200"
     },
     {
       icon: Bot,
-      title: "24/7 Booking Engine / AI Assistant",
-      desc: "with Zero Late Replies",
+      title: "AI Assistant — ২৪ ঘণ্টা আপনার হয়ে কাজ করবে",
+      renderDesc: () => (
+        <span>
+          Customer-এর প্রশ্নের <span className="text-emerald-700 font-bold">সঠিক তথ্য দেবে</span>, package বুঝিয়ে দেবে, booking-এ সাহায্য করবে। আপনি ঘুমালেও আপনার <span className="text-orange-600 font-bold">business জেগে থাকবে</span>।
+        </span>
+      ),
       iconColor: "text-orange-600 bg-orange-50 border-orange-200"
     },
     {
       icon: CalendarDays,
-      title: "Transparent Details",
-      desc: "Hotel, car, itinerary, price / Day-by-Day Breakdown",
+      title: "Hotel, car, itinerary, price — সবকিছু এক জায়গায়",
+      renderDesc: () => (
+        <span>
+          এমনভাবে সাজানো যে customer scroll করতে করতেই <span className="text-emerald-700 font-bold">সিদ্ধান্ত নিয়ে ফেলবে</span>। খুঁজতে হবে না, জিজ্ঞেস করতে হবে না, আটকে যেতে হবে না।
+        </span>
+      ),
       iconColor: "text-rose-600 bg-rose-50 border-rose-200"
     },
     {
       icon: Zap,
-      title: "Frictionless Conversion",
-      desc: "One-click booking / Instant WhatsApp & Phone Lead Alerts",
+      title: "এক ক্লিকেই booking",
+      renderDesc: () => (
+        <span>
+          পছন্দের package <span className="text-emerald-700 font-bold">এক ক্লিকেই book</span> করে নিতে পারবে আপনার customer। যত সহজ booking, তত কম <span className="text-[#DC2626] font-bold">হাতছাড়া lead</span>।
+        </span>
+      ),
       iconColor: "text-emerald-600 bg-emerald-50 border-emerald-200"
     }
   ];
@@ -68,6 +84,9 @@ export default function AILandingWhatYouGet() {
       <div className="max-w-[1240px] mx-auto">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+          <span className="inline-block px-3 py-1 bg-amber-50 border border-amber-200 text-amber-800 text-xs font-bold uppercase tracking-wider font-ui rounded-full mb-3">
+            What You Get
+          </span>
           <h2 className="font-['Anek_Bangla',sans-serif] text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight">
             যা যা থাকবে আপনার website-এ
           </h2>
@@ -80,18 +99,18 @@ export default function AILandingWhatYouGet() {
             return (
               <div 
                 key={idx}
-                className="whatyouget-card-node p-6 sm:p-7 bg-white border border-[#EAE4D9] rounded-2xl shadow-xs hover:border-orange-300 hover:shadow-md transition-all flex flex-col items-center text-center justify-between"
+                className="whatyouget-card-node p-6 sm:p-7 bg-white border border-[#EAE4D9] rounded-2xl shadow-xs hover:border-orange-300 hover:shadow-md transition-all flex flex-col items-start text-left justify-between"
               >
-                <div className="flex flex-col items-center">
-                  <div className={`w-14 h-14 rounded-2xl border flex items-center justify-center mb-4 ${item.iconColor}`}>
-                    <Icon size={26} />
+                <div>
+                  <div className={`w-12 h-12 rounded-xl border flex items-center justify-center mb-4 ${item.iconColor}`}>
+                    <Icon size={22} />
                   </div>
-                  <h3 className="font-bold text-base sm:text-lg text-slate-900 mb-2 leading-snug">
+                  <h3 className="font-['Anek_Bangla',sans-serif] font-bold text-lg sm:text-xl text-slate-900 mb-2.5 leading-snug">
                     {item.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                    {item.desc}
-                  </p>
+                  <div className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                    {item.renderDesc()}
+                  </div>
                 </div>
               </div>
             );

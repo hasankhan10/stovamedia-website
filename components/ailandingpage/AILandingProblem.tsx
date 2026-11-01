@@ -40,46 +40,64 @@ export default function AILandingProblem({ onBookClick }: { onBookClick?: () => 
   return (
     <section 
       ref={sectionRef}
-      className="py-14 sm:py-20 md:py-24 px-5 sm:px-8 md:px-12 lg:px-20 bg-[#FDFBF7] relative z-10 border-b border-[#EAE4D9]/80"
+      className="py-14 sm:py-20 md:py-24 px-5 sm:px-8 md:px-12 lg:px-20 bg-[#FDFBF7] relative z-10 border-b border-[#EAE4D9]/80 font-['Hind_Siliguri',sans-serif]"
     >
       <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
-        {/* Left Side: Destination & Journey Photo */}
+        {/* Left Side: Destination & Journey Photo (Taped Polaroid Mountain Train & Airplane Trail) */}
         <div className="problem-image-node lg:col-span-5 w-full flex justify-center">
-          <div className="relative w-full max-w-[460px] aspect-[4/3] sm:aspect-[4/3.5] rounded-3xl overflow-hidden shadow-xl border-4 border-white group">
-            <Image 
-              src="/travel/problem-journey.jpg" 
-              alt="Traveler reviewing tour itinerary" 
-              fill 
-              className="object-cover group-hover:scale-105 transition-transform duration-700" 
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-            <div className="absolute bottom-4 left-4 right-4 px-3 py-2 bg-white/90 backdrop-blur-md rounded-xl text-xs font-semibold text-slate-800 flex items-center justify-between border border-white/60 shadow-sm">
-              <span>Customer Decision Point</span>
+          <div className="relative w-full max-w-[480px] rounded-3xl overflow-hidden shadow-2xl border-4 border-white group bg-white p-1.5">
+            <div className="relative rounded-2xl overflow-hidden bg-slate-50">
+              <Image 
+                src="/travel/problem-journey.jpg" 
+                alt="Scenic mountain train journey with flight trail" 
+                width={696}
+                height={390}
+                className="w-full h-auto object-contain block group-hover:scale-105 transition-transform duration-700" 
+                priority
+                unoptimized
+              />
+            </div>
+            <div className="mt-2 px-3.5 py-2 bg-[#FDFBF7] rounded-xl text-xs font-semibold text-slate-800 flex items-center justify-between border border-[#EAE4D9]">
+              <span className="font-ui">Customer Decision Point</span>
               <span className="text-orange-600 font-bold font-ui">High Stakes Trust</span>
             </div>
           </div>
         </div>
 
-        {/* Right Side: Copy from Document */}
-        <div className="problem-content-node lg:col-span-7 flex flex-col items-start text-left">
+        {/* Right Side: Copy with Color-Coded Important Words — Responsive Alignment */}
+        <div className="problem-content-node lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left">
+          {/* Badge */}
+          <span className="inline-block px-3 py-1 bg-red-50 border border-red-200 text-red-700 text-xs font-bold uppercase tracking-wider font-ui rounded-full mb-3">
+            The Trust Gap
+          </span>
+
           <h2 className="font-['Anek_Bangla',sans-serif] text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight text-slate-900 mb-5">
             গল্পটা কি এইরকম<span className="text-orange-600">?</span>
           </h2>
 
-          <div className="space-y-4 text-slate-700 text-sm sm:text-base md:text-lg leading-relaxed font-normal">
+          <div className="space-y-4 text-slate-700 text-base sm:text-lg leading-relaxed font-normal">
             <p>
-              Customer আপনার tour পছন্দ করলেও <strong className="text-slate-900 font-bold">booking করে না</strong>। কারণ Facebook-only presence, সামান্য ছবি এবং অসম্পূর্ণ তথ্য <strong className="text-rose-600 font-semibold">trust deficit</strong> তৈরি করে এবং booking হারায়। Google-এ প্রথম impression-ই <strong className="text-blue-700 font-bold">decide করে</strong>।
+              <span className="text-emerald-700 font-bold">Customer</span> আপনার <span className="text-orange-600 font-bold">tour</span> দেখে পছন্দ করেছিল। তারপর আপনার page খুলল... <span className="text-[#DC2626] font-extrabold bg-red-50 px-2 py-0.5 rounded-md border border-red-200">আর বুক করল না 😕</span>
             </p>
-            <p className="p-4 rounded-2xl bg-[#F8F5EE] border border-[#EAE4D9] text-slate-800 font-medium text-sm sm:text-base">
-              <strong className="text-orange-600 font-bold">Cinematic motion</strong>, 24-hour AI এবং এক ক্লিকে seat confirmation আপনার ব্যবসায় ভরসা বাড়ায়।
+
+            <p>
+              কেন? কারণ <span className="text-[#1D4ED8] font-bold">হাজার হাজার টাকার tour-এর জন্য</span> এইটুকু দেখে <span className="text-[#DC2626] font-semibold">ভরসা করাটাই হয়ে ওঠে কঠিন</span>।
             </p>
+
+            <p>
+              আর সেই booking চলে যায় আপনার <span className="text-[#DC2626] font-bold">competitor-এর কাছে</span> — যার service আপনার চেয়ে ভালো না হলেও, <span className="text-indigo-700 font-bold">website অনেক বেশি professional</span>।
+            </p>
+
+            <div className="p-4 sm:p-5 rounded-2xl bg-[#F8F5EE] border border-[#EAE4D9] text-slate-900 font-medium text-sm sm:text-base leading-relaxed mt-2 text-left">
+              <strong className="text-slate-900 font-bold">সত্যিটা সোজা:</strong> Google-এ আপনাকে যেভাবে দেখা যায়, সেটাই আপনার <span className="text-[#1D4ED8] font-bold">প্রথম impression</span>। আর <span className="text-[#DC2626] font-bold">প্রথম impression-ই সিদ্ধান্ত নেয়</span>।
+            </div>
           </div>
 
           {onBookClick && (
-            <div className="mt-6">
+            <div className="mt-7">
               <button
                 onClick={onBookClick}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white border border-slate-300 hover:border-orange-500 hover:text-orange-600 text-slate-800 font-bold text-xs sm:text-sm tracking-wide shadow-2xs hover:shadow-sm transition cursor-pointer font-['Hind_Siliguri',sans-serif]"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white border border-slate-300 hover:border-orange-500 hover:text-orange-600 text-slate-800 font-bold text-sm tracking-wide shadow-xs hover:shadow-md transition cursor-pointer font-['Hind_Siliguri',sans-serif]"
               >
                 <span>আপনার এজেন্সির জন্য সঠিক সমাধান দেখুন →</span>
               </button>

@@ -1,9 +1,10 @@
 "use client";
 
 import React, { useRef, useEffect } from "react";
+import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { MessageSquare, ShieldCheck, Award } from "lucide-react";
+import { ShieldCheck, Award } from "lucide-react";
 import AILandingTimer from "./AILandingTimer";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -52,61 +53,76 @@ export default function AILandingUrgency() {
       <div className="max-w-[1200px] mx-auto space-y-12 sm:space-y-16">
         {/* 1️⃣ Top Row: Left WhatsApp Notification Card, Right Urgency Message */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
-          {/* Left: WhatsApp Incoming Message Mockup */}
+          {/* Left: WhatsApp Incoming Message Mockup (Exact Reference Image) */}
           <div className="lead-card-anim lg:col-span-5 w-full flex justify-center">
-            <div className="relative w-full max-w-[420px]">
-              {/* Decorative Vibration / Sound Wave SVGs in Orange */}
-              <div className="absolute -left-6 top-1/2 -translate-y-1/2 flex flex-col gap-1.5 text-orange-400 select-none hidden sm:flex">
-                <span className="w-1.5 h-6 rounded-full bg-orange-400/80 animate-pulse" />
-                <span className="w-1.5 h-10 rounded-full bg-orange-500 animate-pulse" />
-                <span className="w-1.5 h-6 rounded-full bg-orange-400/80 animate-pulse" />
-              </div>
+            <div className="relative w-full max-w-[480px]">
+              {/* Decorative Glow */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500/20 via-orange-500/20 to-amber-500/20 rounded-[32px] blur-xl opacity-75" />
 
-              {/* The WhatsApp Card */}
-              <div className="p-6 sm:p-7 bg-white border border-[#EAE4D9] rounded-3xl shadow-xl hover:shadow-2xl transition-all relative overflow-hidden group">
-                <div className="flex items-center justify-between pb-4 border-b border-slate-100 mb-4">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-8 h-8 rounded-full bg-[#25D366] flex items-center justify-center text-white shadow-xs">
-                      <MessageSquare size={16} className="fill-white" />
-                    </div>
-                    <span className="font-bold text-sm text-slate-900 font-ui">WhatsApp</span>
+              {/* The Phone Notification Frame with Reference Image */}
+              <div className="relative rounded-[28px] overflow-hidden shadow-2xl border-4 border-white bg-white group">
+                <Image 
+                  src="/travel/whatsapp-notification.jpg"
+                  alt="WhatsApp Notification: দাদা, ২টো seat confirm করুন।"
+                  width={1024}
+                  height={481}
+                  className="w-full h-auto object-contain block group-hover:scale-[1.02] transition-transform duration-500"
+                  priority
+                  unoptimized
+                />
+                <div className="p-4 bg-white border-t border-slate-100 flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping" />
+                    <span className="text-xs font-bold text-slate-800 font-ui">Live WhatsApp Lead Alert</span>
                   </div>
-                  <span className="text-xs text-slate-400 font-ui font-medium">now</span>
-                </div>
-
-                <div className="space-y-1.5">
-                  <h3 className="font-['Anek_Bangla',sans-serif] text-xl sm:text-2xl font-extrabold text-slate-900 leading-tight">
-                    &ldquo;দাদা, ২টো seat confirm করুন।&rdquo;
-                  </h3>
-                  <p className="text-xs sm:text-sm text-slate-500 font-ui font-semibold flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block" />
-                    Verified Customer Booking Request
-                  </p>
+                  <span className="text-xs font-bold text-orange-600 font-['Anek_Bangla',sans-serif]">সরাসরি কনফার্মেশন</span>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right: Booking Season Urgency Copy */}
-          <div className="urgency-text-anim lg:col-span-7 flex flex-col items-start text-left">
-            <div className="flex items-start gap-3 mb-4">
-              <span className="text-rose-500 text-2xl font-bold mt-0.5 select-none shrink-0">✕</span>
-              <h2 className="font-['Anek_Bangla',sans-serif] text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-extrabold leading-[1.22] text-[#DC2626]">
-                সারা বছরের সবচেয়ে বড় booking season এখনই শুরু !!!
-              </h2>
+          {/* Right: Outcome & Urgency Copy — Responsive Alignment */}
+          <div className="urgency-text-anim lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left">
+            {/* Outcome Badge */}
+            <span className="inline-block px-3 py-1 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold uppercase tracking-wider font-ui rounded-full mb-3">
+              The Outcome — এরপর যা হবে
+            </span>
+
+            <h2 className="font-['Anek_Bangla',sans-serif] text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-extrabold leading-[1.24] text-slate-900 mb-3">
+              এরপর আপনার ফোনে এই কথাটাই আসবে:
+            </h2>
+
+            <div className="text-2xl sm:text-3xl font-extrabold text-emerald-700 font-['Anek_Bangla',sans-serif] mb-3 flex items-center justify-center lg:justify-start gap-2">
+              <span>&ldquo;দাদা, ২টো seat confirm করুন।&rdquo;</span>
+              <span className="text-2xl">📞</span>
             </div>
 
-            <div className="space-y-3 text-slate-700 text-sm sm:text-base md:text-[17px] leading-relaxed font-normal">
-              <p>
-                <strong className="text-slate-900 font-bold">ভাইফোঁটা, winter এবং Christmas-New Year</strong> booking season! Customerরা এখনই Google-এ search করছে।
+            <p className="text-[#DC2626] font-bold text-base sm:text-lg mb-6">
+              নিজের lead আর <span className="underline decoration-red-400 underline-offset-4">হাতছাড়া হতে দেবেন না</span>।
+            </p>
+
+            <div className="w-full h-px bg-[#EAE4D9] my-2" />
+
+            {/* Urgency Section */}
+            <div className="mt-3 space-y-3.5 text-slate-700 text-sm sm:text-base md:text-[17px] leading-relaxed font-normal text-left">
+              <div className="flex items-start gap-2.5">
+                <span className="text-rose-600 font-bold text-lg mt-0.5 select-none shrink-0">✕</span>
+                <p>
+                  পুজো তো চলে গেছে। কিন্তু সারা বছরের <span className="text-[#DC2626] font-bold">সবচেয়ে বড় booking season</span> এখনই শুরু — <span className="text-[#1D4ED8] font-bold">ভাইফোঁটা</span>, তারপর <span className="text-[#1D4ED8] font-bold">শীত</span> আর <span className="text-[#1D4ED8] font-bold">Christmas-New Year</span>।
+                </p>
+              </div>
+
+              <p className="pl-6">
+                এই সময় customer সবচেয়ে বেশি <span className="text-[#1D4ED8] font-bold">Google করে</span>। এখন যদি আপনার <span className="text-[#DC2626] font-bold">online presence</span> ঠিক না থাকে, এই season-এর booking-ও চলে যাবে <span className="text-[#DC2626] font-bold">competitor-এর কাছে</span>।
               </p>
-              <p className="text-rose-700 font-medium">
-                Puja offer মাত্র এক সপ্তাহের জন্য, তাই দেরি করবেন না! Limited projects only.
-              </p>
+
+              <div className="pl-6 p-3.5 rounded-xl bg-amber-50/80 border border-amber-200 text-amber-950 text-xs sm:text-sm font-medium">
+                আর এই পুজো অফার <strong className="text-rose-700 font-bold">শুধুমাত্র এক সপ্তাহের জন্য</strong>। কাজের মান ধরে রাখতে আমরা মাত্র কিছু <strong className="text-slate-900 font-bold">সীমিত প্রজেক্ট</strong> নিয়েই কাজ করি — তাই স্লট শেষ হলে অফারও শেষ।
+              </div>
             </div>
 
             {/* Countdown timer */}
-            <div className="mt-5 w-full max-w-md">
+            <div className="mt-6 w-full max-w-md mx-auto lg:mx-0">
               <AILandingTimer size="md" />
             </div>
           </div>

@@ -2,25 +2,53 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FAQItem } from "./types";
 import { Plus, Minus } from "lucide-react";
 
-const faqs: FAQItem[] = [
+interface FAQItemData {
+  q: string;
+  renderAnswer: () => React.ReactNode;
+}
+
+const faqs: FAQItemData[] = [
   {
     q: "আমার তো Facebook page আছে, website কেন লাগবে?",
-    a: "Facebook page দেখে customer tour পছন্দ করতে পারে, কিন্তু হাজার হাজার টাকার booking-এর ভরসাটা website-ই বানায়। Page হলো পরিচয়, website হলো বিশ্বাস।"
+    renderAnswer: () => (
+      <span>
+        Facebook page দেখে customer tour পছন্দ করতে পারে, কিন্তু হাজার হাজার টাকার booking-এর ভরসাটা website-ই বানায়।{" "}
+        <span className="text-[#1D4ED8] font-bold">Page হলো পরিচয়</span>,{" "}
+        <span className="text-emerald-700 font-bold">website হলো বিশ্বাস</span>।
+      </span>
+    )
   },
   {
     q: "Website চালাতে কি আমাকে technical জানতে হবে?",
-    a: "না। Website বানানো থেকে চালানো পর্যন্ত সবকিছু Stova Media সামলাবে — আপনি শুধু আপনার tour আর customer-এর দিকে মন দিন।"
+    renderAnswer: () => (
+      <span>
+        না। Website বানানো থেকে চালানো পর্যন্ত সবকিছু{" "}
+        <span className="text-orange-600 font-bold">Stova Media সামলাবে</span> — আপনি শুধু আপনার{" "}
+        <span className="text-emerald-700 font-bold">tour আর customer-এর দিকে মন দিন</span>।
+      </span>
+    )
   },
   {
     q: "AI Assistant কি সত্যিই customer সামলাতে পারবে?",
-    a: "AI Assistant customer-কে সঠিক তথ্য দেবে, package বুঝিয়ে দেবে আর booking-এ সাহায্য করবে — ২৪ ঘণ্টা, ছুটির দিনেও।"
+    renderAnswer: () => (
+      <span>
+        <span className="text-cyan-700 font-bold">AI Assistant</span> customer-কে{" "}
+        <span className="text-emerald-700 font-bold">সঠিক তথ্য দেবে</span>, package বুঝিয়ে দেবে আর booking-এ সাহায্য করবে —{" "}
+        <span className="text-[#1D4ED8] font-bold">২৪ ঘণ্টা, ছুটির দিনেও</span>।
+      </span>
+    )
   },
   {
     q: "স্লট বুক করলে তারপর কী হবে?",
-    a: "আপনি যোগাযোগ করলেই আমরা আপনার business বুঝে পরের ধাপ জানিয়ে দেবো — কী হবে, কিভাবে হবে, সব পরিষ্কার করে।"
+    renderAnswer: () => (
+      <span>
+        আপনি যোগাযোগ করলেই আমরা আপনার business বুঝে{" "}
+        <span className="text-emerald-700 font-bold">পরের ধাপ জানিয়ে দেবো</span> — কী হবে, কিভাবে হবে,{" "}
+        <span className="text-orange-600 font-bold">সব পরিষ্কার করে</span>।
+      </span>
+    )
   }
 ];
 
@@ -74,8 +102,8 @@ export default function AILandingFAQ() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.25, ease: "easeInOut" }}
                     >
-                      <div className="px-5 sm:px-6 pb-6 text-slate-600 font-['Hind_Siliguri',sans-serif] text-sm sm:text-base leading-relaxed border-t border-slate-100 pt-3.5 font-normal">
-                        {faq.a}
+                      <div className="px-5 sm:px-6 pb-6 text-slate-700 font-['Hind_Siliguri',sans-serif] text-sm sm:text-base leading-relaxed border-t border-slate-100 pt-3.5 font-normal">
+                        {faq.renderAnswer()}
                       </div>
                     </motion.div>
                   )}

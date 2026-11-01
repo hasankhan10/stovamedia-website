@@ -6,14 +6,14 @@ import { motion, useScroll, useSpring } from "framer-motion";
 
 export default function ScrollProgress() {
   const pathname = usePathname();
-  if (pathname?.startsWith("/admin") || pathname?.startsWith("/aiecommerce")) return null;
-
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 300,
     damping: 30,
     restDelta: 0.001,
   });
+
+  if (pathname?.startsWith("/admin") || pathname?.startsWith("/aiecommerce") || pathname?.startsWith("/ailandingpage")) return null;
 
   return (
     <motion.div

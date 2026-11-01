@@ -52,11 +52,14 @@ export default function AILandingSolution({ onBookClick }: { onBookClick?: () =>
       <div className="max-w-[1240px] mx-auto">
         {/* Section Header */}
         <div className="solution-header-node text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-          <h2 className="font-['Anek_Bangla',sans-serif] text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight mb-3">
-            Stova Media এই gap-টাই পূরণ করে
+          <span className="inline-block px-3 py-1 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold uppercase tracking-wider font-ui rounded-full mb-3">
+            The Solution
+          </span>
+          <h2 className="font-['Anek_Bangla',sans-serif] text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight mb-4">
+            <span className="text-[#EA580C]">Stova Media</span> এই gap-টাই পূরণ করে।
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base font-ui font-medium">
-            West Bengal&apos;s first premium travel-business website with scrolling animation and AI assistant.
+          <p className="text-slate-700 text-base sm:text-lg md:text-xl font-medium leading-relaxed max-w-2xl mx-auto">
+            আমরা নিয়ে এসেছি West Bengal-এর first-time <span className="text-[#1D4ED8] font-bold">Scrolling Animation</span> ও <span className="text-cyan-700 font-bold">AI Assistant</span> যুক্ত <span className="text-orange-600 font-bold">premium website</span> — শুধু আপনার <span className="text-emerald-700 font-bold">travel business</span>-এর জন্য।
           </p>
         </div>
 
