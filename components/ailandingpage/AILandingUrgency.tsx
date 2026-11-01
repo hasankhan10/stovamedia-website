@@ -1,32 +1,15 @@
 "use client";
 
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { MagneticElement, SpotlightCard } from "@/components/ui";
-import { CheckCircle2, ShieldCheck, Award, Clock, Flame } from "lucide-react";
+import { MessageSquare, ShieldCheck, Award } from "lucide-react";
 import AILandingTimer from "./AILandingTimer";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const travelDeliverables = [
-  { title: "Cinematic Motion Website", desc: "কাস্টমার স্ক্রোল করলেই প্রতিটি পাহাড়, সমুদ্র বা জঙ্গল প্যাকেজ জীবন্ত হয়ে ফুটে ওঠে।" },
-  { title: "24/7 Travel AI Booking Assistant", desc: "রাত ৩টাতেও কাস্টমারকে সঠিক প্যাকেজ, বাজেট ও গাড়ির তথ্য দিয়ে বুকিং সাহায্য করে।" },
-  { title: "Integrated Hotel, Car & Itinerary", desc: "দিনভিত্তিক ট্রিপ শিডিউল, হোটেল ও গাড়ির সম্পূর্ণ বিবরণ কাস্টমারের চোখের সামনে।" },
-  { title: "1-Click Direct WhatsApp Lead Engine", desc: "পছন্দের প্যাকেজ সিলেক্ট করলেই আপনার ফোনে সাথে সাথে সিট কনফার্মেশন অ্যালার্ট।" },
-  { title: "Travel Google SEO Optimization", desc: "আপনার জেলার ট্যুরিস্টরা গুগলে সার্চ করলেই যাতে আপনার এজেন্সি সবার আগে আসে।" },
-  { title: "৩ মাসের Priority Technical Support", desc: "ওয়েবসাইট লঞ্চের পর ৩ মাস সার্বক্ষণিক টেকনিক্যাল সাপোর্ট, মেনটেনেন্স ও টিউনিং।" },
-];
-
-export default function AILandingUrgency({ onBookClick }: { onBookClick: () => void }) {
+export default function AILandingUrgency() {
   const sectionRef = useRef<HTMLElement>(null);
-  const [isBooked, setIsBooked] = useState(false);
-
-  useEffect(() => {
-    const handleBooked = () => setIsBooked(true);
-    window.addEventListener("stova_ailanding_booked_event", handleBooked);
-    return () => window.removeEventListener("stova_ailanding_booked_event", handleBooked);
-  }, []);
 
   useEffect(() => {
     if (!sectionRef.current) return;
@@ -34,17 +17,27 @@ export default function AILandingUrgency({ onBookClick }: { onBookClick: () => v
 
     mm.add("(min-width: 769px)", () => {
       gsap.fromTo(
-        ".urgency-card-wrap",
-        { scale: 0.95, opacity: 0, y: 30 },
-        { scale: 1, opacity: 1, y: 0, duration: 1, ease: "power3.out", scrollTrigger: { trigger: sectionRef.current, start: "top 75%" } }
+        ".lead-card-anim",
+        { x: -30, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.8, ease: "power3.out", scrollTrigger: { trigger: sectionRef.current, start: "top 75%" } }
+      );
+      gsap.fromTo(
+        ".urgency-text-anim",
+        { x: 30, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.8, ease: "power3.out", scrollTrigger: { trigger: sectionRef.current, start: "top 75%" } }
+      );
+      gsap.fromTo(
+        ".guarantee-cards-anim",
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.8, ease: "power3.out", scrollTrigger: { trigger: sectionRef.current, start: "top 70%" } }
       );
     });
 
     mm.add("(max-width: 768px)", () => {
       gsap.fromTo(
-        ".urgency-card-wrap",
-        { opacity: 0, y: 15 },
-        { opacity: 1, y: 0, duration: 0.6, ease: "power2.out", scrollTrigger: { trigger: sectionRef.current, start: "top 85%" } }
+        [".lead-card-anim", ".urgency-text-anim", ".guarantee-cards-anim"],
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: "power2.out", scrollTrigger: { trigger: sectionRef.current, start: "top 85%" } }
       );
     });
 
@@ -54,109 +47,102 @@ export default function AILandingUrgency({ onBookClick }: { onBookClick: () => v
   return (
     <section 
       ref={sectionRef}
-      style={{ contentVisibility: "auto", containIntrinsicSize: "1px 750px" }}
-      className="py-16 sm:py-24 md:py-32 px-5 sm:px-8 md:px-12 lg:px-20 bg-slate-50/90 relative z-10 border-b border-slate-200/80"
+      className="py-14 sm:py-20 md:py-24 px-5 sm:px-8 md:px-12 lg:px-20 bg-[#FDFBF7] relative z-10 border-b border-[#EAE4D9]/80 font-['Hind_Siliguri',sans-serif]"
     >
-      <div className="max-w-[1300px] mx-auto">
-        <div className="urgency-card-wrap">
-          <SpotlightCard 
-            spotlightColor="rgba(99, 102, 241, 0.08)"
-            className="p-6 sm:p-10 md:p-14 lg:p-20 border-slate-200/90 bg-white shadow-[0_20px_60px_rgba(0,0,0,0.06)] relative rounded-3xl"
-          >
-            {/* Header */}
-            <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-gradient-to-r from-rose-600 via-rose-500 to-amber-600 text-white text-xs sm:text-sm font-bold uppercase tracking-widest font-ui mb-5 shadow-xs rounded-full">
-                <Flame size={14} className="animate-bounce" />
-                <span>Urgency • কেন এখনই</span>
+      <div className="max-w-[1200px] mx-auto space-y-12 sm:space-y-16">
+        {/* 1️⃣ Top Row: Left WhatsApp Notification Card, Right Urgency Message */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
+          {/* Left: WhatsApp Incoming Message Mockup */}
+          <div className="lead-card-anim lg:col-span-5 w-full flex justify-center">
+            <div className="relative w-full max-w-[420px]">
+              {/* Decorative Vibration / Sound Wave SVGs in Orange */}
+              <div className="absolute -left-6 top-1/2 -translate-y-1/2 flex flex-col gap-1.5 text-orange-400 select-none hidden sm:flex">
+                <span className="w-1.5 h-6 rounded-full bg-orange-400/80 animate-pulse" />
+                <span className="w-1.5 h-10 rounded-full bg-orange-500 animate-pulse" />
+                <span className="w-1.5 h-6 rounded-full bg-orange-400/80 animate-pulse" />
               </div>
 
-              <h2 className="font-['Anek_Bangla','Amar_Bangla',sans-serif] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-slate-900">
-                সারা বছরের সবচেয়ে বড়{" "}
-                <span className="text-green-700">booking season</span>{" "}
-                <span className="text-rose-600">এখনই শুরু</span>{" "}
-                <span className="text-red-500">!!!</span>
-              </h2>
-
-              <div className="font-['Noto_Sans_Bengali','Noto_Sans',sans-serif] text-slate-600 text-base sm:text-xl md:text-2xl mt-5 font-medium leading-relaxed space-y-3">
-                <p>
-                  পুজো তো চলে গেছে। কিন্তু সারা বছরের সবচেয়ে বড় বুকিং মরশুম এখনই শুরু —{" "}
-                  <strong className="text-indigo-700 font-bold">ভাইফোঁটা</strong>, তারপর{" "}
-                  <strong className="text-cyan-700 font-bold">শীত</strong> আর{" "}
-                  <strong className="text-emerald-700 font-bold">Christmas-New Year</strong>।
-                </p>
-                <p className="text-sm sm:text-lg md:text-xl text-slate-700">
-                  এই সময় customer সবচেয়ে বেশি <strong className="text-blue-600 font-bold">Google</strong> করে। এখন যদি আপনার <strong className="text-rose-600 font-bold underline decoration-rose-300 underline-offset-4">online presence</strong> ঠিক না থাকে, এই season-এর booking-ও চলে যাবে <span className="text-red-500 font-bold">competitor-এর কাছে</span>।
-                </p>
-                <p className="text-xs sm:text-base md:text-lg text-slate-500 font-normal">
-                  আর এই <span className="text-green-700 font-semibold">পুজো অফার শুধুমাত্র এক সপ্তাহের জন্য</span>। কাজের মান ধরে রাখতে আমরা মাত্র কিছু <span className="text-indigo-600 font-semibold">সীমিত প্রজেক্ট</span> নিয়েই কাজ করি — তাই <span className="text-red-600 font-bold">স্লট শেষ হলে অফারও শেষ</span>।
-                </p>
-              </div>
-            </div>
-
-            {/* Deliverables Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 mb-12 sm:mb-14">
-              {travelDeliverables.map((item, i) => (
-                <div key={i} className="p-6 sm:p-7 bg-slate-50/80 border border-slate-200 flex items-start gap-4 hover:border-indigo-300 hover:bg-white transition-all rounded-2xl shadow-2xs">
-                  <CheckCircle2 size={22} className="text-cyan-700 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <h3 className="font-bold text-slate-900 text-base sm:text-lg md:text-xl mb-1.5">{item.title}</h3>
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">{item.desc}</p>
+              {/* The WhatsApp Card */}
+              <div className="p-6 sm:p-7 bg-white border border-[#EAE4D9] rounded-3xl shadow-xl hover:shadow-2xl transition-all relative overflow-hidden group">
+                <div className="flex items-center justify-between pb-4 border-b border-slate-100 mb-4">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-8 h-8 rounded-full bg-[#25D366] flex items-center justify-center text-white shadow-xs">
+                      <MessageSquare size={16} className="fill-white" />
+                    </div>
+                    <span className="font-bold text-sm text-slate-900 font-ui">WhatsApp</span>
                   </div>
+                  <span className="text-xs text-slate-400 font-ui font-medium">now</span>
                 </div>
-              ))}
-            </div>
 
-            {/* Guarantees Banner */}
-            <div className="p-6 sm:p-9 bg-gradient-to-r from-indigo-50/70 via-slate-50/50 to-cyan-50/70 border border-indigo-200 mb-10 sm:mb-12 grid grid-cols-1 md:grid-cols-2 gap-7 sm:gap-9 items-center rounded-2xl shadow-xs">
-              <div className="flex items-start gap-4">
-                <ShieldCheck size={36} className="text-emerald-600 flex-shrink-0" />
-                <div>
-                  <h4 className="text-lg sm:text-xl font-bold text-slate-900 mb-1.5">১০০% নো-রিস্ক ডেভেলপমেন্ট গ্যারান্টি</h4>
-                  <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-medium">
-                    Website সম্পূর্ণ তৈরি হয়ে আপনার <span className="font-semibold text-emerald-700">Approval</span> না পাওয়া পর্যন্ত Final Payment করতে হবে না।
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4 border-t md:border-t-0 md:border-l border-indigo-200/80 pt-6 md:pt-0 md:pl-8">
-                <Award size={36} className="text-cyan-700 flex-shrink-0" />
-                <div>
-                  <h4 className="text-lg sm:text-xl font-bold text-slate-900 mb-1.5">প্রমাণিত ইন্ডাস্ট্রিয়াল অভিজ্ঞতা</h4>
-                  <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-medium">
-                    আমাদের টিমের Experience-এর মধ্যে রয়েছে খ্যাতনামা <strong className="text-rose-600 font-bold">Dr. Paul&apos;s</strong>-এর প্রফেশনাল Software Development ও লং-টার্ম Maintenance।
+                <div className="space-y-1.5">
+                  <h3 className="font-['Anek_Bangla',sans-serif] text-xl sm:text-2xl font-extrabold text-slate-900 leading-tight">
+                    &ldquo;দাদা, ২টো seat confirm করুন।&rdquo;
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-500 font-ui font-semibold flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block" />
+                    Verified Customer Booking Request
                   </p>
                 </div>
               </div>
             </div>
+          </div>
 
-            {/* Action Area with Countdown Timer */}
-            <div className="text-center flex flex-col items-center">
-              {!isBooked && (
-                <div className="mb-6 w-full max-w-md sm:max-w-lg mx-auto">
-                  <AILandingTimer size="lg" />
-                </div>
-              )}
-
-              {/* Scarcity Line */}
-              <div className="my-6 px-6 py-4 rounded-2xl bg-indigo-50 border border-indigo-200 shadow-xs max-w-3xl mx-auto flex items-center justify-center gap-3 text-center">
-                <Clock size={22} className="text-indigo-600 flex-shrink-0 animate-pulse" />
-                <span className="text-base sm:text-lg md:text-xl font-medium text-indigo-950 leading-relaxed">
-                  {isBooked
-                    ? "✓ আপনার কনসাল্টেশন স্লট নিশ্চিত করা হয়েছে। ধন্যবাদ!"
-                    : "পুজো অফার মাত্র এক সপ্তাহের জন্য। কাজের মান ধরে রাখতে মাত্র কিছু সীমিত প্রজেক্ট নেওয়া হবে।"}
-                </span>
-              </div>
-
-              <MagneticElement className="w-full sm:w-auto">
-                <button 
-                  onClick={onBookClick} 
-                  className="w-full sm:w-auto px-9 sm:px-12 py-5 text-sm sm:text-base md:text-lg font-bold tracking-wider bg-gradient-to-r from-indigo-600 via-indigo-700 to-cyan-600 hover:from-indigo-700 hover:to-cyan-700 text-white shadow-[0_4px_25px_rgba(99,102,241,0.35)] hover:shadow-[0_8px_35px_rgba(6,182,212,0.45)] transition-all duration-300 cursor-pointer min-h-[52px] rounded-2xl active:scale-[0.98]"
-                >
-                  {isBooked ? "বুকিং স্ট্যাটাস দেখুন" : "আপনার Travel Business-এর জন্য স্লট বুক করুন →"}
-                </button>
-              </MagneticElement>
+          {/* Right: Booking Season Urgency Copy */}
+          <div className="urgency-text-anim lg:col-span-7 flex flex-col items-start text-left">
+            <div className="flex items-start gap-3 mb-4">
+              <span className="text-rose-500 text-2xl font-bold mt-0.5 select-none shrink-0">✕</span>
+              <h2 className="font-['Anek_Bangla',sans-serif] text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-extrabold leading-[1.22] text-[#DC2626]">
+                সারা বছরের সবচেয়ে বড় booking season এখনই শুরু !!!
+              </h2>
             </div>
-          </SpotlightCard>
+
+            <div className="space-y-3 text-slate-700 text-sm sm:text-base md:text-[17px] leading-relaxed font-normal">
+              <p>
+                <strong className="text-slate-900 font-bold">ভাইফোঁটা, winter এবং Christmas-New Year</strong> booking season! Customerরা এখনই Google-এ search করছে।
+              </p>
+              <p className="text-rose-700 font-medium">
+                Puja offer মাত্র এক সপ্তাহের জন্য, তাই দেরি করবেন না! Limited projects only.
+              </p>
+            </div>
+
+            {/* Countdown timer */}
+            <div className="mt-5 w-full max-w-md">
+              <AILandingTimer size="md" />
+            </div>
+          </div>
+        </div>
+
+        {/* 2️⃣ Bottom Row: Two Side-by-Side Guarantee Cards (from Document) */}
+        <div className="guarantee-cards-anim grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 pt-4">
+          {/* Guarantee Card 1 */}
+          <div className="p-6 sm:p-7 bg-[#F8F5EE] border border-[#EAE4D9] rounded-2xl flex items-start gap-4 shadow-xs">
+            <div className="w-12 h-12 rounded-xl bg-orange-100 border border-orange-200 flex items-center justify-center text-orange-600 shrink-0 mt-0.5">
+              <ShieldCheck size={26} />
+            </div>
+            <div>
+              <h3 className="font-['Anek_Bangla',sans-serif] font-bold text-base sm:text-lg text-slate-900 mb-1.5 leading-snug">
+                ১০০% নো-রিস্ক ডেভেলপমেন্ট গ্যারান্টি
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                Website সম্পূর্ণ এবং approved না হওয়া পর্যন্ত কোনো final payment নেই।
+              </p>
+            </div>
+          </div>
+
+          {/* Guarantee Card 2 */}
+          <div className="p-6 sm:p-7 bg-[#F8F5EE] border border-[#EAE4D9] rounded-2xl flex items-start gap-4 shadow-xs">
+            <div className="w-12 h-12 rounded-xl bg-amber-100 border border-amber-200 flex items-center justify-center text-amber-600 shrink-0 mt-0.5">
+              <Award size={26} />
+            </div>
+            <div>
+              <h3 className="font-['Anek_Bangla',sans-serif] font-bold text-base sm:text-lg text-slate-900 mb-1.5 leading-snug">
+                প্রমাণিত ইন্ডাস্ট্রিয়াল অভিজ্ঞতা
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                Dr. Paul&apos;s-এর জন্য আমাদের টিমের অভিজ্ঞতা include করে professional software development এবং long-term maintenance।
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

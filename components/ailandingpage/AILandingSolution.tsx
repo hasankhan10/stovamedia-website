@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useRef, useEffect } from "react";
+import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { SpotlightCard } from "@/components/ui";
-import { Sparkles, Bot, Layers, ArrowRight, Check } from "lucide-react";
+import { Clapperboard, Bot, Zap } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,17 +17,27 @@ export default function AILandingSolution({ onBookClick }: { onBookClick?: () =>
 
     mm.add("(min-width: 769px)", () => {
       gsap.fromTo(
-        ".solution-card-node",
-        { y: 35, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.9, ease: "power3.out", scrollTrigger: { trigger: sectionRef.current, start: "top 75%" } }
+        ".solution-header-node",
+        { y: 25, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.8, ease: "power3.out", scrollTrigger: { trigger: sectionRef.current, start: "top 75%" } }
+      );
+      gsap.fromTo(
+        ".solution-cards-node",
+        { x: -30, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.9, ease: "power3.out", scrollTrigger: { trigger: sectionRef.current, start: "top 70%" } }
+      );
+      gsap.fromTo(
+        ".solution-mockup-node",
+        { x: 30, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.9, ease: "power3.out", scrollTrigger: { trigger: sectionRef.current, start: "top 70%" } }
       );
     });
 
     mm.add("(max-width: 768px)", () => {
       gsap.fromTo(
-        ".solution-card-node",
-        { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.7, ease: "power2.out", scrollTrigger: { trigger: sectionRef.current, start: "top 85%" } }
+        [".solution-header-node", ".solution-cards-node", ".solution-mockup-node"],
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.7, stagger: 0.1, ease: "power2.out", scrollTrigger: { trigger: sectionRef.current, start: "top 85%" } }
       );
     });
 
@@ -37,96 +47,105 @@ export default function AILandingSolution({ onBookClick }: { onBookClick?: () =>
   return (
     <section 
       ref={sectionRef}
-      style={{ contentVisibility: "auto", containIntrinsicSize: "1px 650px" }}
-      className="py-16 sm:py-24 md:py-32 px-5 sm:px-8 md:px-12 lg:px-20 bg-white relative z-10 border-b border-slate-200/80"
+      className="py-14 sm:py-20 md:py-24 px-5 sm:px-8 md:px-12 lg:px-20 bg-[#FDFBF7] relative z-10 border-b border-[#EAE4D9]/80 font-['Hind_Siliguri',sans-serif]"
     >
-      <div className="max-w-[1200px] mx-auto">
-        <div className="solution-card-node">
-          <SpotlightCard 
-            spotlightColor="rgba(99, 102, 241, 0.08)"
-            className="p-8 sm:p-12 md:p-16 border-indigo-200/90 bg-gradient-to-b from-indigo-50/40 via-white to-cyan-50/30 shadow-[0_20px_60px_rgba(99,102,241,0.06)] relative rounded-3xl overflow-hidden"
-          >
-            {/* Ambient background blur */}
-            <div 
-              className="pointer-events-none absolute -top-24 right-0 w-80 h-80 rounded-full opacity-30 z-0"
-              style={{ background: "radial-gradient(circle, rgba(99, 102, 241, 0.25) 0%, transparent 70%)" }}
-            />
+      <div className="max-w-[1240px] mx-auto">
+        {/* Section Header */}
+        <div className="solution-header-node text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+          <h2 className="font-['Anek_Bangla',sans-serif] text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight mb-3">
+            Stova Media এই gap-টাই পূরণ করে
+          </h2>
+          <p className="text-slate-600 text-sm sm:text-base font-ui font-medium">
+            West Bengal&apos;s first premium travel-business website with scrolling animation and AI assistant.
+          </p>
+        </div>
 
-            <div className="relative z-10 text-center max-w-4xl mx-auto space-y-6">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-gradient-to-r from-indigo-600 to-cyan-600 text-white text-xs sm:text-sm font-bold uppercase tracking-widest font-ui rounded-full shadow-xs">
-                <Sparkles size={14} />
-                <span>The Stova Solution</span>
+        {/* 2-Column Grid: 3 Feature Cards on Left, Travel Resort & UI Mockup on Right */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          {/* Left: 3 Core Solution Highlights */}
+          <div className="solution-cards-node lg:col-span-6 space-y-4">
+            {/* Card 1: Cinematic Scrolling */}
+            <div className="p-5 sm:p-6 bg-[#F8F5EE] border border-[#EAE4D9] rounded-2xl flex items-start gap-4 hover:border-orange-300 transition-all shadow-xs">
+              <div className="w-12 h-12 rounded-xl bg-orange-100/80 border border-orange-200 flex items-center justify-center text-orange-600 shrink-0 mt-0.5">
+                <Clapperboard size={22} />
               </div>
-
-              <h2 className="font-['Anek_Bangla','Amar_Bangla',sans-serif] text-3xl sm:text-5xl md:text-6xl font-bold leading-[1.25] text-slate-900">
-                <strong className="text-indigo-600 font-extrabold">Stova Media</strong> এই{" "}
-                <span className="text-green-700 font-extrabold">
-                  gap-টাই পূরণ করে
-                </span>
-                ।
-              </h2>
-
-              <p className="font-['Noto_Sans_Bengali','Noto_Sans',sans-serif] text-slate-700 text-lg sm:text-2xl md:text-3xl font-light leading-relaxed max-w-3xl mx-auto">
-                আমরা নিয়ে এসেছি{" "}
-                <span className="bg-gradient-to-r from-indigo-600 via-indigo-700 to-cyan-600 bg-clip-text text-transparent font-bold">
-                  West Bengal-এর first-time Scrolling Animation
-                </span>{" "}
-                ও{" "}
-                <strong className="text-cyan-700 font-bold">AI Assistant</strong> যুক্ত{" "}
-                <span className="text-emerald-700 font-bold">premium website</span> — শুধু আপনার{" "}
-                <span className="text-slate-900 font-bold underline decoration-indigo-400 underline-offset-4">
-                  travel business-এর জন্য
-                </span>
-                ।
-              </p>
-
-              {/* 3 Pillar Features preview */}
-              <div className="pt-6 grid grid-cols-1 md:grid-cols-3 gap-4 text-left">
-                <div className="p-4 sm:p-5 bg-white border border-slate-200/90 rounded-2xl shadow-2xs space-y-1.5">
-                  <div className="w-10 h-10 rounded-xl bg-indigo-50 border border-indigo-200 flex items-center justify-center text-indigo-600 mb-3">
-                    <Layers size={20} />
-                  </div>
-                  <h4 className="font-bold text-base sm:text-lg text-slate-900">Cinematic Scrolling</h4>
-                  <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
-                    প্রতিটি পাহাড়, সমুদ্র বা জঙ্গল প্যাকেজ স্ক্রোল করার সাথে সাথে মোশন আর্টে ভেসে উঠবে।
-                  </p>
-                </div>
-
-                <div className="p-4 sm:p-5 bg-white border border-slate-200/90 rounded-2xl shadow-2xs space-y-1.5">
-                  <div className="w-10 h-10 rounded-xl bg-cyan-50 border border-cyan-200 flex items-center justify-center text-cyan-600 mb-3">
-                    <Bot size={20} />
-                  </div>
-                  <h4 className="font-bold text-base sm:text-lg text-slate-900">24/7 AI Smart Assistant</h4>
-                  <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
-                    রাত ৩টাতেও যদি কোনো কাস্টমার প্যাকেজ সম্পর্কে জানতে চায়, AI সাথে সাথে সঠিক তথ্য দিয়ে লিড লক করবে।
-                  </p>
-                </div>
-
-                <div className="p-4 sm:p-5 bg-white border border-slate-200/90 rounded-2xl shadow-2xs space-y-1.5">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 mb-3">
-                    <Check size={20} />
-                  </div>
-                  <h4 className="font-bold text-base sm:text-lg text-slate-900">1-Click Booking Funnel</h4>
-                  <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
-                    হোটেল, গাড়ি, ইটেরারি ও প্রাইস এক জায়গায় — পছন্দের প্যাকেজ ১ ক্লিকে সরাসরি আপনার ফোনে বুকিং নোটিফিকেশন পাঠাবে।
-                  </p>
-                </div>
+              <div>
+                <h3 className="font-bold text-base sm:text-lg text-slate-900 mb-1">Cinematic Scrolling</h3>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                  প্রতিটি পাহাড়, সমুদ্র বা ঐতিহ্যবাহী ট্যুর প্যাকেজ স্ক্রোল করার সাথে সাথে মোশন আর্টে ভেসে উঠবে।
+                </p>
               </div>
-
-              {/* Action Button */}
-              {onBookClick && (
-                <div className="pt-6">
-                  <button
-                    onClick={onBookClick}
-                    className="px-9 py-4.5 bg-gradient-to-r from-indigo-600 via-indigo-700 to-cyan-600 hover:from-indigo-700 hover:to-cyan-700 text-white font-bold text-sm sm:text-base tracking-wider rounded-2xl shadow-[0_4px_25px_rgba(99,102,241,0.35)] hover:shadow-[0_8px_35px_rgba(6,182,212,0.45)] transition active:scale-98 inline-flex items-center gap-2.5 cursor-pointer font-['Hind_Siliguri',sans-serif]"
-                  >
-                    <span>আপনার এজেন্সির জন্য এই সিস্টেমটি বুক করুন</span>
-                    <ArrowRight size={18} />
-                  </button>
-                </div>
-              )}
             </div>
-          </SpotlightCard>
+
+            {/* Card 2: 24/7 AI Smart Assistant */}
+            <div className="p-5 sm:p-6 bg-[#F8F5EE] border border-[#EAE4D9] rounded-2xl flex items-start gap-4 hover:border-orange-300 transition-all shadow-xs">
+              <div className="w-12 h-12 rounded-xl bg-cyan-100/80 border border-cyan-200 flex items-center justify-center text-cyan-700 shrink-0 mt-0.5">
+                <Bot size={22} />
+              </div>
+              <div>
+                <h3 className="font-bold text-base sm:text-lg text-slate-900 mb-1">
+                  24/7 AI Smart Assistant <span className="text-xs font-semibold text-slate-500 font-ui">(even at 3 AM)</span>
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                  কাস্টমারের প্রশ্নের সঠিক তথ্য দেবে, প্যাকেজ বুঝিয়ে দেবে এবং সাথে সাথে বুকিংয়ে সাহায্য করবে।
+                </p>
+              </div>
+            </div>
+
+            {/* Card 3: 1-Click Booking Funnel */}
+            <div className="p-5 sm:p-6 bg-[#F8F5EE] border border-[#EAE4D9] rounded-2xl flex items-start gap-4 hover:border-orange-300 transition-all shadow-xs">
+              <div className="w-12 h-12 rounded-xl bg-amber-100/80 border border-amber-200 flex items-center justify-center text-amber-700 shrink-0 mt-0.5">
+                <Zap size={22} />
+              </div>
+              <div>
+                <h3 className="font-bold text-base sm:text-lg text-slate-900 mb-1">
+                  1-Click Booking Funnel
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                  with hotel, car, itinerary and price + instant phone notification.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Right: Scenic Travel Preview Mockup Card */}
+          <div className="solution-mockup-node lg:col-span-6 w-full flex justify-center">
+            <div className="relative w-full max-w-[500px] aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border-4 border-white group">
+              <Image 
+                src="/travel/solution-resort.jpg" 
+                alt="Luxury resort and mountain tour package preview" 
+                fill 
+                className="object-cover group-hover:scale-105 transition-transform duration-700" 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+              
+              {/* Overlay Interactive Mockup Details */}
+              <div className="absolute top-4 left-4 px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-xs font-bold text-slate-900 flex items-center gap-1.5 shadow-sm font-ui">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span>Motion Package Live</span>
+              </div>
+
+              <div className="absolute bottom-5 left-5 right-5 p-4 bg-white/95 backdrop-blur-md rounded-2xl border border-white/70 shadow-xl text-slate-900">
+                <div className="flex items-center justify-between mb-1.5">
+                  <h4 className="font-bold text-sm sm:text-base text-slate-900 font-['Anek_Bangla',sans-serif]">
+                    পাহাড় ও চা-বাগান স্পেশাল প্যাকেজ
+                  </h4>
+                  <span className="text-xs font-bold text-emerald-600 font-ui bg-emerald-50 px-2 py-0.5 rounded-md">
+                    Instant Confirm
+                  </span>
+                </div>
+                <p className="text-xs text-slate-600 font-ui mb-2.5">
+                  Hotel, Dedicated Car, Sightseeing & Itinerary Included
+                </p>
+                <button
+                  onClick={onBookClick}
+                  className="w-full py-2 bg-gradient-to-r from-orange-500 to-amber-600 hover:from-orange-600 hover:to-amber-700 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-1.5 transition cursor-pointer shadow-sm active:scale-98"
+                >
+                  <span>লাইভ ট্রাভেল ওয়েবসাইট ডেমো দেখুন →</span>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

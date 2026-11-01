@@ -7,7 +7,6 @@ import {
   AILandingProblem,
   AILandingSolution,
   AILandingWhatYouGet,
-  AILandingOutcome,
   AILandingUrgency,
   AILandingFAQ,
   AILandingBooking,
@@ -64,8 +63,8 @@ export default function AILandingPage() {
   }, []);
 
   return (
-    <main className="font-['Hind_Siliguri',sans-serif] text-slate-900 bg-white overflow-x-hidden selection:bg-indigo-500 selection:text-white pb-16 md:pb-0">
-      {/* 1️⃣ Hero Section with Motion & Urgency Tag */}
+    <main className="font-['Hind_Siliguri',sans-serif] text-slate-900 bg-[#FDFBF7] overflow-x-hidden selection:bg-orange-500 selection:text-white pb-20 sm:pb-24">
+      {/* 1️⃣ Hero Section with Motion, Real Picture & Engine Features */}
       <AILandingHero 
         onBookClick={handleOpenBookingModal} 
         onWhatsAppClick={handleWhatsAppClick} 
@@ -74,37 +73,34 @@ export default function AILandingPage() {
       {/* 2️⃣ Problem vs Solution Comparison (গল্পটা কি এইরকম?) */}
       <AILandingProblem onBookClick={handleOpenBookingModal} />
 
-      {/* 3️⃣ Stova Media Solution Gap Filling */}
+      {/* 3️⃣ Stova Media Solution Gap Filling with Resort Preview */}
       <AILandingSolution onBookClick={handleOpenBookingModal} />
 
       {/* 4️⃣ What You Get — যা যা থাকবে আপনার website-এ */}
-      <AILandingWhatYouGet onBookClick={handleOpenBookingModal} />
+      <AILandingWhatYouGet />
 
-      {/* 5️⃣ Outcome Section ("দাদা, ২টো seat confirm করুন।" 📞) */}
-      <AILandingOutcome onBookClick={handleOpenBookingModal} />
+      {/* 5️⃣ Urgency & WhatsApp Notification Card & Guarantees */}
+      <AILandingUrgency />
 
-      {/* 6️⃣ Urgency Section (সারা বছরের সবচেয়ে বড় booking season) */}
-      <AILandingUrgency onBookClick={handleOpenBookingModal} />
+      {/* 6️⃣ Interactive FAQ Accordion */}
+      <AILandingFAQ />
 
-      {/* 7️⃣ Interactive FAQ Accordion */}
-      <AILandingFAQ onBookClick={handleOpenBookingModal} />
-
-      {/* 8️⃣ Final CTA & Value Proposition Section */}
+      {/* 7️⃣ Final CTA with Scenic Panoramic Photography */}
       <AILandingBooking 
         onBookClick={handleOpenBookingModal}
         onWhatsAppClick={handleWhatsAppClick}
       />
 
-      {/* 9️⃣ Mobile Sticky Conversion & Scarcity Bar */}
+      {/* 8️⃣ Sticky Conversion Bar matching document */}
       <AILandingStickyMobileBar 
         onBookClick={handleOpenBookingModal} 
         onWhatsAppClick={handleWhatsAppClick}
       />
 
-      {/* 🔟 Floating Bottom-Right Travel AI Assistant Chatbot */}
+      {/* 9️⃣ Floating Bottom-Right Travel AI Assistant Chatbot */}
       <AILandingFloatingChatbot />
 
-      {/* 1️⃣1️⃣ Consultation Booking Popup Modal */}
+      {/* 🔟 Consultation Booking Popup Modal */}
       <AILandingBookingModal 
         isOpen={isBookingModalOpen}
         onClose={handleCloseBookingModal}
@@ -112,7 +108,7 @@ export default function AILandingPage() {
         onRequestConfirm={handleRequestConfirm}
       />
 
-      {/* 1️⃣2️⃣ Decision Confirmation Modal */}
+      {/* 1️⃣1️⃣ Decision Confirmation Modal */}
       <AILandingConfirmModal 
         isOpen={confirmModal.isOpen}
         onClose={handleCloseConfirmModal}

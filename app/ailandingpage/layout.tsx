@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Hind_Siliguri, Anek_Bangla, Noto_Sans_Bengali } from "next/font/google";
+import { Hind_Siliguri, Anek_Bangla, Noto_Sans_Bengali, Caveat } from "next/font/google";
 import { MetaPixel } from "@/components/analytics";
 
 const hindSiliguri = Hind_Siliguri({
@@ -20,6 +20,13 @@ const notoSansBengali = Noto_Sans_Bengali({
   subsets: ["bengali", "latin"],
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-noto-bengali",
+  display: "swap",
+});
+
+const caveat = Caveat({
+  subsets: ["latin"],
+  weight: ["600", "700"],
+  variable: "--font-caveat",
   display: "swap",
 });
 
@@ -83,7 +90,7 @@ export default function AILandingLayout({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <div
-        className={`${hindSiliguri.variable} ${anekBangla.variable} ${notoSansBengali.variable} font-['Hind_Siliguri',sans-serif] min-h-screen bg-white text-slate-900 selection:bg-indigo-500 selection:text-white`}
+        className={`${hindSiliguri.variable} ${anekBangla.variable} ${notoSansBengali.variable} ${caveat.variable} font-['Hind_Siliguri',sans-serif] min-h-screen bg-[#FDFBF7] text-slate-900 selection:bg-orange-500 selection:text-white`}
       >
         <MetaPixel />
         {children}

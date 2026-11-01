@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { MessageSquare, ArrowRight, Flame } from "lucide-react";
+import { MessageSquare, ArrowRight } from "lucide-react";
 
 interface AILandingStickyMobileBarProps {
   onBookClick: () => void;
@@ -10,21 +10,14 @@ interface AILandingStickyMobileBarProps {
 
 export default function AILandingStickyMobileBar({ onBookClick, onWhatsAppClick }: AILandingStickyMobileBarProps) {
   const [visible, setVisible] = useState(false);
-  const [timeLeft, setTimeLeft] = useState<number>(() => {
-    if (typeof window === "undefined") return 600;
-    const startTime = sessionStorage.getItem("stova_ailanding_timer_10m");
-    if (!startTime) return 600;
-    const start = parseInt(startTime, 10);
-    return Math.max(0, 600 - Math.floor((Date.now() - start) / 1000));
-  });
-  const [isBooked, setIsBooked] = useState(false);
+  const whatsAppUrl = "https://wa.me/919432053261?text=Hello%20Stova%20Media,%20I%20want%20to%20claim%20a%20Free%20Consultation%20Slot%20for%20Travel%20Business";
 
   useEffect(() => {
     let ticking = false;
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          const isOver = window.scrollY > 280;
+          const isOver = window.scrollY > 250;
           setVisible((prev) => (prev !== isOver ? isOver : prev));
           ticking = false;
         });
@@ -34,68 +27,20 @@ export default function AILandingStickyMobileBar({ onBookClick, onWhatsAppClick 
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
 
-    const handleBooked = () => setIsBooked(true);
-    window.addEventListener("stova_ailanding_booked_event", handleBooked);
-
-    const startTime = sessionStorage.getItem("stova_ailanding_timer_10m") || String(Date.now());
-    const start = parseInt(startTime, 10);
-
-    const timer = setInterval(() => {
-      const rem = Math.max(0, 600 - Math.floor((Date.now() - start) / 1000));
-      setTimeLeft(rem);
-      if (rem <= 0) clearInterval(timer);
-    }, 1000);
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("stova_ailanding_booked_event", handleBooked);
-      clearInterval(timer);
     };
   }, []);
 
-  const min = String(Math.floor(timeLeft / 60)).padStart(2, "0");
-  const sec = String(timeLeft % 60).padStart(2, "0");
-  const whatsAppUrl = "https://wa.me/919432053261?text=Hello%20Stova%20Media,%20I%20want%20to%20claim%20a%20Free%20Consultation%20Slot%20for%20Travel%20Business";
-
   return (
     <div
-      className={`md:hidden fixed bottom-0 left-0 right-0 z-50 p-2.5 sm:p-3 bg-white/95 border-t border-slate-200 backdrop-blur-xl shadow-[0_-8px_30px_rgba(0,0,0,0.08)] transition-all duration-300 ${
+      className={`fixed bottom-0 left-0 right-0 z-50 transition-all duration-300 ${
         visible ? "translate-y-0 opacity-100" : "translate-y-full opacity-0 pointer-events-none"
       }`}
-      style={{ paddingBottom: "max(12px, env(safe-area-inset-bottom))" }}
     >
-      <div className="max-w-md mx-auto flex flex-col gap-1.5">
-        {/* Banner Tag */}
-        <div className="flex items-center justify-between px-1 text-[10px] text-slate-600 font-['Hind_Siliguri',sans-serif]">
-          {isBooked ? (
-            <span className="flex items-center gap-1 text-emerald-700 font-bold uppercase tracking-wider font-ui">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-600" />
-              ✓ Consultation Slot Confirmed
-            </span>
-          ) : (
-            <>
-              <span className="flex items-center gap-1 text-rose-600 font-bold uppercase tracking-wider font-ui">
-                <span className={`w-1.5 h-1.5 rounded-full ${timeLeft === 0 ? "bg-rose-600" : "bg-rose-600 animate-ping"}`} />
-                <Flame size={11} className="text-rose-600" />
-                {timeLeft === 0 ? "Slots Expired" : "পুজো অফার • সীমিত স্লট"}
-              </span>
-              <span className={timeLeft === 0 ? "text-rose-600 font-bold" : "text-indigo-600 font-mono font-bold"}>
-                {timeLeft === 0 ? "সময় সমাপ্ত" : `${min}:${sec} বাকি`}
-              </span>
-            </>
-          )}
-        </div>
-
-        {/* Action Buttons */}
-        <div className="grid grid-cols-12 gap-2 items-center">
-          <button
-            onClick={onBookClick}
-            className="col-span-7 py-3 px-3 bg-gradient-to-r from-indigo-600 via-indigo-700 to-cyan-600 text-white font-bold text-xs uppercase tracking-wider shadow-sm active:scale-[0.98] transition-transform flex items-center justify-center gap-1.5 font-['Hind_Siliguri',sans-serif] rounded-xl cursor-pointer"
-          >
-            <span>স্লট বুক করুন</span>
-            <ArrowRight size={14} className="flex-shrink-0" />
-          </button>
-
+      <div className="w-full bg-[#EA580C] text-white shadow-[0_-8px_30px_rgba(234,88,12,0.35)] py-3 px-4 sm:px-6">
+        <div className="max-w-[1200px] mx-auto flex items-center justify-between">
+          {/* Left + Text */}
           <a
             href={whatsAppUrl}
             target="_blank"
@@ -106,11 +51,31 @@ export default function AILandingStickyMobileBar({ onBookClick, onWhatsAppClick 
                 onWhatsAppClick(whatsAppUrl);
               }
             }}
-            className="col-span-5 py-3 px-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-xs uppercase tracking-wider transition-transform active:scale-[0.98] flex items-center justify-center gap-1 shadow-sm font-ui rounded-xl"
+            className="flex items-center gap-3 hover:opacity-95 transition cursor-pointer"
           >
-            <MessageSquare size={14} className="flex-shrink-0" />
-            <span>WhatsApp</span>
+            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#25D366] flex items-center justify-center text-white shrink-0 shadow-sm">
+              <MessageSquare size={20} className="fill-white" />
+            </div>
+
+            <div className="flex flex-col sm:flex-row sm:items-center sm:gap-3 text-left font-ui">
+              <span className="font-extrabold text-sm sm:text-base tracking-wide">
+                Book Now on WhatsApp
+              </span>
+              <span className="hidden sm:inline opacity-70">|</span>
+              <span className="text-xs sm:text-base font-semibold text-white/95">
+                +91 94320 53261
+              </span>
+            </div>
           </a>
+
+          {/* Right Circular Arrow Button */}
+          <button
+            onClick={onBookClick}
+            aria-label="Book Consultation Slot"
+            className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white text-[#EA580C] hover:bg-orange-50 transition flex items-center justify-center shadow-md active:scale-95 cursor-pointer shrink-0"
+          >
+            <ArrowRight size={20} />
+          </button>
         </div>
       </div>
     </div>
