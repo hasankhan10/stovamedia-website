@@ -1,12 +1,12 @@
 export { default as AILandingHero } from "./AILandingHero";
 export { default as AILandingProblem } from "./AILandingProblem";
 export { default as AILandingSolution } from "./AILandingSolution";
-export { default as AILandingWhatYouGet } from "./AILandingWhatYouGet";
 export { default as AILandingUrgency } from "./AILandingUrgency";
 export { default as AILandingFAQ } from "./AILandingFAQ";
 export { default as AILandingBooking } from "./AILandingBooking";
 export { default as AILandingBookingModal } from "./AILandingBookingModal";
 export { default as AILandingConfirmModal } from "./AILandingConfirmModal";
+export { default as AILandingMobileStickyBar } from "./AILandingMobileStickyBar";
 export { default as AILandingFloatingChatbot } from "./AILandingFloatingChatbot";
 export { default as AILandingChatbotDemo } from "./AILandingChatbotDemo";
 export { default as AILandingTimer } from "./AILandingTimer";

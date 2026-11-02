@@ -85,11 +85,11 @@ export default function AILandingUrgency() {
           <div className="urgency-text-anim lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left">
             {/* Outcome Badge */}
             <span className="inline-block px-3 py-1 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold uppercase tracking-wider font-ui rounded-full mb-3">
-              The Outcome — এরপর যা হবে
+              The Outcome — ফলাফল
             </span>
 
-            <h2 className="font-['Anek_Bangla',sans-serif] text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-extrabold leading-[1.24] text-slate-900 mb-3">
-              এরপর আপনার ফোনে এই কথাটাই আসবে:
+            <h2 className="font-['Anek_Bangla',sans-serif] text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight text-slate-900 mb-3">
+              এরপর আপনার ফোনে আসবে কনফার্মড মেসেজ:
             </h2>
 
             <div className="text-2xl sm:text-3xl font-extrabold text-emerald-700 font-['Anek_Bangla',sans-serif] mb-3 flex items-center justify-center lg:justify-start gap-2">
@@ -97,65 +97,49 @@ export default function AILandingUrgency() {
               <span className="text-2xl">📞</span>
             </div>
 
-            <p className="text-[#DC2626] font-bold text-base sm:text-lg mb-6">
-              নিজের lead আর <span className="underline decoration-red-400 underline-offset-4">হাতছাড়া হতে দেবেন না</span>।
+            <p className="text-slate-700 text-sm sm:text-base leading-relaxed mb-5 max-w-xl">
+              সামনেই শীত, পাহাড়ে বেড়ানো আর ক্রিসমাসের <span className="text-[#1D4ED8] font-bold">পিক বুকিং সিজন</span>। traveler-রা যখন গুগল করবে, তখন প্রফেশনাল ওয়েবসাইট দিয়ে <span className="text-emerald-700 font-bold">সরাসরি বুকিং নিশ্চিত করুন</span>।
             </p>
 
-            <div className="w-full h-px bg-[#EAE4D9] my-2" />
-
-            {/* Urgency Section */}
-            <div className="mt-3 space-y-3.5 text-slate-700 text-sm sm:text-base md:text-[17px] leading-relaxed font-normal text-left">
-              <div className="flex items-start gap-2.5">
-                <span className="text-rose-600 font-bold text-lg mt-0.5 select-none shrink-0">✕</span>
-                <p>
-                  পুজো তো চলে গেছে। কিন্তু সারা বছরের <span className="text-[#DC2626] font-bold">সবচেয়ে বড় booking season</span> এখনই শুরু — <span className="text-[#1D4ED8] font-bold">ভাইফোঁটা</span>, তারপর <span className="text-[#1D4ED8] font-bold">শীত</span> আর <span className="text-[#1D4ED8] font-bold">Christmas-New Year</span>।
-                </p>
-              </div>
-
-              <p className="pl-6">
-                এই সময় customer সবচেয়ে বেশি <span className="text-[#1D4ED8] font-bold">Google করে</span>। এখন যদি আপনার <span className="text-[#DC2626] font-bold">online presence</span> ঠিক না থাকে, এই season-এর booking-ও চলে যাবে <span className="text-[#DC2626] font-bold">competitor-এর কাছে</span>।
-              </p>
-
-              <div className="pl-6 p-3.5 rounded-xl bg-amber-50/80 border border-amber-200 text-amber-950 text-xs sm:text-sm font-medium">
-                আর এই পুজো অফার <strong className="text-rose-700 font-bold">শুধুমাত্র এক সপ্তাহের জন্য</strong>। কাজের মান ধরে রাখতে আমরা মাত্র কিছু <strong className="text-slate-900 font-bold">সীমিত প্রজেক্ট</strong> নিয়েই কাজ করি — তাই স্লট শেষ হলে অফারও শেষ।
-              </div>
+            <div className="p-3.5 rounded-xl bg-amber-50/90 border border-amber-200 text-amber-950 text-xs sm:text-sm font-medium w-full max-w-xl mb-5 text-left">
+              <strong className="text-rose-700 font-bold">সীমিত স্লট অফার:</strong> কাজের প্রিমিয়াম মান ধরে রাখতে আমরা প্রতি সিজনে মাত্র কয়েকটি নির্বাচিত এজেন্সির প্রজেক্ট গ্রহণ করি।
             </div>
 
             {/* Countdown timer */}
-            <div className="mt-6 w-full max-w-md mx-auto lg:mx-0">
+            <div className="w-full max-w-md mx-auto lg:mx-0">
               <AILandingTimer size="md" />
             </div>
           </div>
         </div>
 
-        {/* 2️⃣ Bottom Row: Two Side-by-Side Guarantee Cards (from Document) */}
-        <div className="guarantee-cards-anim grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 pt-4">
+        {/* 2️⃣ Bottom Row: Two Clean Guarantee Cards */}
+        <div className="guarantee-cards-anim grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 pt-2">
           {/* Guarantee Card 1 */}
-          <div className="p-6 sm:p-7 bg-[#F8F5EE] border border-[#EAE4D9] rounded-2xl flex items-start gap-4 shadow-xs">
-            <div className="w-12 h-12 rounded-xl bg-orange-100 border border-orange-200 flex items-center justify-center text-orange-600 shrink-0 mt-0.5">
-              <ShieldCheck size={26} />
+          <div className="p-5 sm:p-6 bg-[#F8F5EE] border border-[#EAE4D9] rounded-2xl flex items-start gap-4 shadow-xs">
+            <div className="w-11 h-11 rounded-xl bg-orange-100 border border-orange-200 flex items-center justify-center text-orange-600 shrink-0 mt-0.5">
+              <ShieldCheck size={24} />
             </div>
             <div>
-              <h3 className="font-['Anek_Bangla',sans-serif] font-bold text-base sm:text-lg text-slate-900 mb-1.5 leading-snug">
+              <h3 className="font-['Anek_Bangla',sans-serif] font-bold text-base sm:text-lg text-slate-900 mb-1 leading-snug">
                 ১০০% নো-রিস্ক ডেভেলপমেন্ট গ্যারান্টি
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                Website সম্পূর্ণ এবং approved না হওয়া পর্যন্ত কোনো final payment নেই।
+                ওয়েবসাইট সম্পূর্ণ পছন্দ ও অনুমোদন না হওয়া পর্যন্ত কোনো ফাইনাল পেমেন্ট করতে হবে না।
               </p>
             </div>
           </div>
 
           {/* Guarantee Card 2 */}
-          <div className="p-6 sm:p-7 bg-[#F8F5EE] border border-[#EAE4D9] rounded-2xl flex items-start gap-4 shadow-xs">
-            <div className="w-12 h-12 rounded-xl bg-amber-100 border border-amber-200 flex items-center justify-center text-amber-600 shrink-0 mt-0.5">
-              <Award size={26} />
+          <div className="p-5 sm:p-6 bg-[#F8F5EE] border border-[#EAE4D9] rounded-2xl flex items-start gap-4 shadow-xs">
+            <div className="w-11 h-11 rounded-xl bg-emerald-100 border border-emerald-200 flex items-center justify-center text-emerald-600 shrink-0 mt-0.5">
+              <Award size={24} />
             </div>
             <div>
-              <h3 className="font-['Anek_Bangla',sans-serif] font-bold text-base sm:text-lg text-slate-900 mb-1.5 leading-snug">
-                প্রমাণিত ইন্ডাস্ট্রিয়াল অভিজ্ঞতা
+              <h3 className="font-['Anek_Bangla',sans-serif] font-bold text-base sm:text-lg text-slate-900 mb-1 leading-snug">
+                ফুল-সার্ভিস টেকনিক্যাল সাপোর্ট
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                Dr. Paul&apos;s-এর জন্য আমাদের টিমের অভিজ্ঞতা include করে professional software development এবং long-term maintenance।
+                ডোমেইন, ফাস্ট ক্লাউড হোস্টিং, নতুন প্যাকেজ আপলোড ও মেইনটেন্যান্স—সবকিছু আমাদের টিম সামলাবে।
               </p>
             </div>
           </div>

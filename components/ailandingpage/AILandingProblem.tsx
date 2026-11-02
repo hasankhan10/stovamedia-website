@@ -64,40 +64,54 @@ export default function AILandingProblem({ onBookClick }: { onBookClick?: () => 
           </div>
         </div>
 
-        {/* Right Side: Copy with Color-Coded Important Words — Responsive Alignment */}
+        {/* Right Side: Clean Structured Content — Responsive Alignment */}
         <div className="problem-content-node lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left">
           {/* Badge */}
           <span className="inline-block px-3 py-1 bg-red-50 border border-red-200 text-red-700 text-xs font-bold uppercase tracking-wider font-ui rounded-full mb-3">
             The Trust Gap
           </span>
 
-          <h2 className="font-['Anek_Bangla',sans-serif] text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight text-slate-900 mb-5">
+          <h2 className="font-['Anek_Bangla',sans-serif] text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight text-slate-900 mb-4">
             গল্পটা কি এইরকম<span className="text-orange-600">?</span>
           </h2>
 
-          <div className="space-y-4 text-slate-700 text-base sm:text-lg leading-relaxed font-normal">
-            <p>
-              <span className="text-emerald-700 font-bold">Customer</span> আপনার <span className="text-orange-600 font-bold">tour</span> দেখে পছন্দ করেছিল। তারপর আপনার page খুলল... <span className="text-[#DC2626] font-extrabold bg-red-50 px-2 py-0.5 rounded-md border border-red-200">আর বুক করল না 😕</span>
-            </p>
+          <p className="text-slate-700 text-base sm:text-lg leading-relaxed mb-6">
+            কাস্টমার আপনার <span className="text-orange-600 font-bold">ট্যুর পছন্দ করলেও</span> পেজে স্পষ্ট তথ্য না পেয়ে বুকিং না করেই বেরিয়ে যায়—আর সেই কাস্টমার চলে যায় <span className="text-[#DC2626] font-bold">কম্পিটিটরের কাছে</span>।
+          </p>
 
-            <p>
-              কেন? কারণ <span className="text-[#1D4ED8] font-bold">হাজার হাজার টাকার tour-এর জন্য</span> এইটুকু দেখে <span className="text-[#DC2626] font-semibold">ভরসা করাটাই হয়ে ওঠে কঠিন</span>।
-            </p>
+          {/* 3 Crisp Problem Points */}
+          <div className="w-full space-y-3 mb-6 text-left">
+            <div className="flex items-start gap-3 p-3.5 rounded-xl bg-white border border-[#EAE4D9] shadow-2xs">
+              <span className="w-6 h-6 rounded-full bg-red-100 text-red-600 font-bold flex items-center justify-center shrink-0 text-xs mt-0.5">✕</span>
+              <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                <strong className="text-slate-900 font-bold">দেরিতে রিপ্লাই:</strong> রাতে traveler নক করার পর সকালে রিপ্লাই পেতে পেতে সে অন্য এজেন্সিতে বুক করে ফেলে।
+              </p>
+            </div>
 
-            <p>
-              আর সেই booking চলে যায় আপনার <span className="text-[#DC2626] font-bold">competitor-এর কাছে</span> — যার service আপনার চেয়ে ভালো না হলেও, <span className="text-indigo-700 font-bold">website অনেক বেশি professional</span>।
-            </p>
+            <div className="flex items-start gap-3 p-3.5 rounded-xl bg-white border border-[#EAE4D9] shadow-2xs">
+              <span className="w-6 h-6 rounded-full bg-red-100 text-red-600 font-bold flex items-center justify-center shrink-0 text-xs mt-0.5">✕</span>
+              <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                <strong className="text-slate-900 font-bold">আস্থার অভাব:</strong> সোশ্যাল পেজে আবছা ছবি ও অসম্পূর্ণ তথ্যের কারণে হাজার টাকার ট্যুরে ভরসা পায় না।
+              </p>
+            </div>
 
-            <div className="p-4 sm:p-5 rounded-2xl bg-[#F8F5EE] border border-[#EAE4D9] text-slate-900 font-medium text-sm sm:text-base leading-relaxed mt-2 text-left">
-              <strong className="text-slate-900 font-bold">সত্যিটা সোজা:</strong> Google-এ আপনাকে যেভাবে দেখা যায়, সেটাই আপনার <span className="text-[#1D4ED8] font-bold">প্রথম impression</span>। আর <span className="text-[#DC2626] font-bold">প্রথম impression-ই সিদ্ধান্ত নেয়</span>।
+            <div className="flex items-start gap-3 p-3.5 rounded-xl bg-white border border-[#EAE4D9] shadow-2xs">
+              <span className="w-6 h-6 rounded-full bg-red-100 text-red-600 font-bold flex items-center justify-center shrink-0 text-xs mt-0.5">✕</span>
+              <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                <strong className="text-slate-900 font-bold">জটিল বুকিং:</strong> এক ক্লিকে বুকিং বা ইনস্ট্যান্ট কনফার্মেশনের কোনো আধুনিক সিস্টেম থাকে না।
+              </p>
             </div>
           </div>
 
+          <div className="p-3.5 sm:p-4 rounded-xl bg-[#F8F5EE] border border-[#EAE4D9] text-slate-900 font-medium text-xs sm:text-sm leading-relaxed text-left w-full">
+            <strong className="text-slate-900 font-bold">বাস্তবতা সোজা:</strong> অনলাইনে আপনার <span className="text-[#1D4ED8] font-bold">প্রথম ইম্প্রেশনই</span> সিদ্ধান্ত নেয় কাস্টমার আপনার কাছে বুক করবে, নাকি কম্পিটিটরের কাছে যাবে।
+          </div>
+
           {onBookClick && (
-            <div className="mt-7">
+            <div className="mt-6">
               <button
                 onClick={onBookClick}
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white border border-slate-300 hover:border-orange-500 hover:text-orange-600 text-slate-800 font-bold text-sm tracking-wide shadow-xs hover:shadow-md transition cursor-pointer font-['Hind_Siliguri',sans-serif]"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white border border-slate-300 hover:border-orange-500 hover:text-orange-600 text-slate-800 font-bold text-xs sm:text-sm tracking-wide shadow-xs hover:shadow-md transition cursor-pointer font-['Hind_Siliguri',sans-serif]"
               >
                 <span>আপনার এজেন্সির জন্য সঠিক সমাধান দেখুন →</span>
               </button>

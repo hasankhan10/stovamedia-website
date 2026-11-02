@@ -6,7 +6,6 @@ import {
   AILandingHero,
   AILandingProblem,
   AILandingSolution,
-  AILandingWhatYouGet,
   AILandingUrgency,
   AILandingFAQ,
   AILandingBooking,
@@ -20,6 +19,11 @@ const AILandingFloatingChatbot = dynamic(
 
 const AILandingConfirmModal = dynamic(
   () => import("@/components/ailandingpage/AILandingConfirmModal"),
+  { ssr: false }
+);
+
+const AILandingMobileStickyBar = dynamic(
+  () => import("@/components/ailandingpage/AILandingMobileStickyBar"),
   { ssr: false }
 );
 
@@ -72,13 +76,10 @@ export default function AILandingPage() {
       {/* 2️⃣ Problem vs Solution Comparison (গল্পটা কি এইরকম?) */}
       <AILandingProblem onBookClick={handleOpenBookingModal} />
 
-      {/* 3️⃣ Stova Media Solution Gap Filling with Resort Preview */}
+      {/* 3️⃣ Unified Engine & Solution Section (Travel AI & Motion Engine + Stova Media Solution + What You Get) */}
       <AILandingSolution onBookClick={handleOpenBookingModal} />
 
-      {/* 4️⃣ What You Get — যা যা থাকবে আপনার website-এ */}
-      <AILandingWhatYouGet />
-
-      {/* 5️⃣ Urgency & WhatsApp Notification Card & Guarantees */}
+      {/* 4️⃣ Urgency & WhatsApp Notification Card & Guarantees */}
       <AILandingUrgency />
 
       {/* 6️⃣ Interactive FAQ Accordion */}
@@ -106,6 +107,12 @@ export default function AILandingPage() {
         isOpen={confirmModal.isOpen}
         onClose={handleCloseConfirmModal}
         onConfirm={confirmModal.onConfirm}
+      />
+
+      {/* 1️⃣1️⃣ Mobile Sticky Quick Action Bar (Appears on scroll down) */}
+      <AILandingMobileStickyBar 
+        onBookClick={handleOpenBookingModal}
+        onWhatsAppClick={handleWhatsAppClick}
       />
     </main>
   );

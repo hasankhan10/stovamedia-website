@@ -20,7 +20,7 @@ export default function AILandingBooking({
       id="booking"
       className="relative py-14 sm:py-20 md:py-24 px-4 sm:px-6 md:px-10 lg:px-16 overflow-hidden font-['Hind_Siliguri',sans-serif] text-center flex flex-col justify-center items-center"
     >
-      {/* 1️⃣ Full-Bleed Background Panoramic Temple & Mountain Landscape (High Opacity & Vivid Contrast) */}
+      {/* 1️⃣ Full-Bleed Background Panoramic Temple & Mountain Landscape (100% Maximum Vivid Opacity) */}
       <div className="absolute inset-0 z-0">
         <Image 
           src="/travel/temple-panoramic.jpg" 
@@ -28,23 +28,23 @@ export default function AILandingBooking({
           fill 
           priority
           unoptimized
-          className="object-cover object-bottom opacity-95" 
+          className="object-cover object-bottom opacity-100" 
         />
-        {/* Soft Multi-Stop Film preserving maximum temple & mountain clarity */}
-        <div className="absolute inset-0 bg-white/40 sm:bg-white/30 backdrop-blur-[0.5px]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#FDFBF7]/70 via-transparent to-[#FDFBF7]/70" />
+        {/* Subtle, non-intrusive gradient preserving full brilliance of scenic mountains and temple */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#FDFBF7]/60 via-transparent to-[#FDFBF7]/80" />
       </div>
 
       {/* 2️⃣ Centered Content Panel with Frosted Glass for Maximum Readability */}
-      <div className="max-w-[850px] mx-auto relative z-10 flex flex-col items-center justify-center p-6 sm:p-8 md:p-10 rounded-3xl bg-white/85 sm:bg-white/80 backdrop-blur-md border border-white/80 shadow-[0_15px_45px_rgba(0,0,0,0.08)] space-y-4">
+      <div className="max-w-[850px] mx-auto relative z-10 flex flex-col items-center justify-center p-6 sm:p-8 md:p-10 rounded-3xl bg-white/85 sm:bg-white/80 border border-white/80 shadow-[0_15px_45px_rgba(0,0,0,0.08)] space-y-4">
         {/* Tag — Centered in Middle */}
         <span className="inline-block px-3.5 py-1 bg-orange-100 border border-orange-200 text-orange-950 text-xs font-bold uppercase tracking-wider font-ui rounded-full shadow-2xs">
           Exclusive Puja Season Offer
         </span>
 
         {/* Main Headline — Centered in Middle */}
-        <h2 className="font-['Anek_Bangla',sans-serif] text-3xl sm:text-4xl md:text-5xl lg:text-[46px] font-extrabold leading-[1.22] text-slate-900 max-w-2xl mx-auto">
-          আপনার ব্যবসাকে এই <span className="text-orange-600">season-েই</span> একটি নতুন রূপ দিন
+        <h2 className="font-['Anek_Bangla',sans-serif] text-3xl sm:text-4xl md:text-5xl lg:text-[46px] font-extrabold leading-[1.25] text-slate-900 max-w-3xl mx-auto">
+          আপনার ব্যবসাকে <span className="text-emerald-700 font-bold">এই season-এই</span> একটি{" "}
+          <span className="text-[#EA580C] font-bold">নতুন রূপ দিন</span>
         </h2>
 
         {/* Subhead */}
