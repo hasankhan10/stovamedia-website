@@ -3,21 +3,21 @@ import { Hind_Siliguri, Anek_Bangla, Noto_Sans_Bengali } from "next/font/google"
 import { MetaPixel } from "@/components/analytics";
 
 const hindSiliguri = Hind_Siliguri({
-  subsets: ["bengali", "latin"],
+  subsets: ["bengali"],
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-hind-siliguri",
   display: "swap",
 });
 
 const anekBangla = Anek_Bangla({
-  subsets: ["bengali", "latin"],
+  subsets: ["bengali"],
   weight: ["300", "400", "500", "600", "700", "800"],
   variable: "--font-anek-bangla",
   display: "swap",
 });
 
 const notoSansBengali = Noto_Sans_Bengali({
-  subsets: ["bengali", "latin"],
+  subsets: ["bengali"],
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-noto-bengali",
   display: "swap",
