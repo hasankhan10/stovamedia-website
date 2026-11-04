@@ -2,6 +2,7 @@
  * hero: Stage · nav: edge-aligned · footer: mast · imagery: real-product · signature: live architecture telemetry matrix · console: paper
  * axes: dark/grotesk-sans/chromatic-amber · posture: restrained · contrast: pass · fold: pass · v2.0.0 */
 /* Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V5 · weakest: H, tightened hero sentence to 11 words */
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 @import "./tokens.css";
 @import "./base.css" layer(base);

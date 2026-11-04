@@ -1,34 +1,5 @@
 import type { Metadata } from "next";
-import { Hind_Siliguri, Anek_Bangla, Noto_Sans_Bengali, Caveat } from "next/font/google";
 import { MetaPixel } from "@/components/analytics";
-
-const hindSiliguri = Hind_Siliguri({
-  subsets: ["bengali", "latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-hind-siliguri",
-  display: "swap",
-});
-
-const anekBangla = Anek_Bangla({
-  subsets: ["bengali", "latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
-  variable: "--font-anek-bangla",
-  display: "swap",
-});
-
-const notoSansBengali = Noto_Sans_Bengali({
-  subsets: ["bengali", "latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-noto-bengali",
-  display: "swap",
-});
-
-const caveat = Caveat({
-  subsets: ["latin"],
-  weight: ["600", "700"],
-  variable: "--font-caveat",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "Travel Agency AI Website & Scrolling Animation | Stova Media",
@@ -90,7 +61,7 @@ export default function AILandingLayout({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <div
-        className={`${hindSiliguri.variable} ${anekBangla.variable} ${notoSansBengali.variable} ${caveat.variable} font-['Hind_Siliguri',sans-serif] min-h-screen bg-[#FDFBF7] text-slate-900 selection:bg-orange-500 selection:text-white`}
+        className="font-['Hind_Siliguri',sans-serif] min-h-screen bg-[#FDFBF7] text-slate-900 selection:bg-orange-500 selection:text-white"
       >
         <MetaPixel />
         {children}
