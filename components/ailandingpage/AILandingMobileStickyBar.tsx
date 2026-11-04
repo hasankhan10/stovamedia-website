@@ -48,7 +48,7 @@ export default function AILandingMobileStickyBar({
         {/* Booking Consultation CTA */}
         <button
           onClick={onBookClick}
-          className="w-full py-3.5 px-4 bg-gradient-to-r from-orange-500 to-amber-600 hover:from-orange-600 hover:to-amber-700 text-white font-bold text-sm rounded-xl flex items-center justify-center gap-2 shadow-sm active:scale-95 transition cursor-pointer"
+          className="w-full py-3.5 px-4 bg-gradient-to-r from-[#EA580C] to-[#F97316] hover:from-[#D94E07] hover:to-[#EA580C] text-white font-bold text-sm rounded-xl flex items-center justify-center gap-2 shadow-md active:scale-[0.98] transition cursor-pointer"
         >
           <CalendarCheck2 size={18} className="shrink-0" />
           <span>ফ্রি কনসালটেশন স্লট বুক করুন →</span>

@@ -1,5 +1,27 @@
 import type { Metadata } from "next";
+import { Hind_Siliguri, Anek_Bangla, Noto_Sans_Bengali } from "next/font/google";
 import { MetaPixel } from "@/components/analytics";
+
+const hindSiliguri = Hind_Siliguri({
+  subsets: ["bengali", "latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-hind-siliguri",
+  display: "swap",
+});
+
+const anekBangla = Anek_Bangla({
+  subsets: ["bengali", "latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-anek-bangla",
+  display: "swap",
+});
+
+const notoSansBengali = Noto_Sans_Bengali({
+  subsets: ["bengali", "latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-noto-bengali",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "AI-Powered E-Commerce Development | Stova Media",
@@ -37,12 +59,7 @@ export default function AIEcommerceLayout({
         rel="stylesheet"
       />
       <div
-        style={{
-          ["--font-hind-siliguri" as any]: "'Hind Siliguri', sans-serif",
-          ["--font-anek-bangla" as any]: "'Anek Bangla', sans-serif",
-          ["--font-noto-bengali" as any]: "'Noto Sans Bengali', sans-serif",
-        }}
-        className="font-['Hind_Siliguri',sans-serif] min-h-screen bg-white text-slate-900 selection:bg-indigo-500 selection:text-white"
+        className={`${hindSiliguri.variable} ${anekBangla.variable} ${notoSansBengali.variable} font-['Hind_Siliguri',sans-serif] min-h-screen bg-white text-slate-900 selection:bg-indigo-500 selection:text-white`}
       >
         <MetaPixel />
         {children}

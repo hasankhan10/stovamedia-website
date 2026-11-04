@@ -45,6 +45,15 @@ export default function AILandingPage() {
     setIsBookingModalOpen(false);
   }, []);
 
+  const handleWhatsAppClick = useCallback((url: string) => {
+    setConfirmModal({
+      isOpen: true,
+      onConfirm: () => {
+        window.open(url, "_blank", "noopener,noreferrer");
+      }
+    });
+  }, []);
+
   const handleRequestConfirm = useCallback((action: () => void) => {
     setConfirmModal({
       isOpen: true,
@@ -69,35 +78,36 @@ export default function AILandingPage() {
       {/* 3️⃣ Unified Engine & Solution Section (Travel AI & Motion Engine + Stova Media Solution + What You Get) */}
       <AILandingSolution onBookClick={handleOpenBookingModal} />
 
-      {/* 4️⃣ Urgency & Outcome Notification Card & Guarantees */}
+      {/* 4️⃣ Urgency & WhatsApp Notification Card & Guarantees */}
       <AILandingUrgency />
 
-      {/* 5️⃣ Interactive FAQ Accordion */}
+      {/* 6️⃣ Interactive FAQ Accordion */}
       <AILandingFAQ />
 
-      {/* 6️⃣ Final CTA with Scenic Panoramic Photography */}
+      {/* 7️⃣ Final CTA with Scenic Panoramic Photography */}
       <AILandingBooking 
         onBookClick={handleOpenBookingModal}
       />
 
-      {/* 7️⃣ Floating Bottom-Right Travel AI Assistant Chatbot */}
+      {/* 8️⃣ Floating Bottom-Right Travel AI Assistant Chatbot */}
       <AILandingFloatingChatbot />
 
-      {/* 8️⃣ Consultation Booking Popup Modal */}
+      {/* 9️⃣ Consultation Booking Popup Modal */}
       <AILandingBookingModal 
         isOpen={isBookingModalOpen}
         onClose={handleCloseBookingModal}
+        onWhatsAppClick={handleWhatsAppClick}
         onRequestConfirm={handleRequestConfirm}
       />
 
-      {/* 9️⃣ Decision Confirmation Modal */}
+      {/* 🔟 Decision Confirmation Modal */}
       <AILandingConfirmModal 
         isOpen={confirmModal.isOpen}
         onClose={handleCloseConfirmModal}
         onConfirm={confirmModal.onConfirm}
       />
 
-      {/* 🔟 Mobile Sticky Quick Action Bar (Appears on scroll down) */}
+      {/* 1️⃣1️⃣ Mobile Sticky Quick Action Bar (Appears on scroll down) */}
       <AILandingMobileStickyBar 
         onBookClick={handleOpenBookingModal}
       />

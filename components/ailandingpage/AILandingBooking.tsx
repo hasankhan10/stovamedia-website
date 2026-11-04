@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { Clock } from "lucide-react";
+import { Clock, CalendarCheck } from "lucide-react";
 
 interface AILandingBookingProps {
   onBookClick?: () => void;
@@ -55,12 +55,12 @@ export default function AILandingBooking({
 
         {/* CTA Button — Centered in Middle */}
         <div className="pt-2 w-full max-w-md mx-auto">
-          {/* Primary Action Button */}
           {onBookClick && (
             <button 
               onClick={onBookClick}
-              className="w-full py-4 px-6 bg-gradient-to-r from-[#EA580C] to-[#F97316] hover:from-[#D94E07] hover:to-[#EA580C] text-white font-bold text-sm sm:text-base rounded-2xl shadow-md hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2.5 cursor-pointer active:scale-[0.98] font-['Hind_Siliguri',sans-serif]"
+              className="w-full py-4 px-8 bg-gradient-to-r from-[#EA580C] to-[#F97316] hover:from-[#D94E07] hover:to-[#EA580C] text-white font-bold text-base sm:text-lg rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center gap-2.5 cursor-pointer active:scale-[0.98] font-['Hind_Siliguri',sans-serif]"
             >
+              <CalendarCheck size={20} />
               <span>এখনই আপনার স্লট বুক করুন →</span>
             </button>
           )}

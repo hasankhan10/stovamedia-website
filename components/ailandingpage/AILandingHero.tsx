@@ -93,14 +93,13 @@ export default function AILandingHero({ onBookClick }: AILandingHeroProps) {
           </p>
 
           {/* CTA Button — Centered */}
-          <div className="hero-cta-node flex items-center justify-center w-full sm:w-auto mb-3">
-            {/* Primary Orange Button */}
+          <div className="hero-cta-node flex items-center justify-center w-full mb-3.5">
             <button
               onClick={onBookClick}
               className="w-full sm:w-auto px-8 py-3.5 sm:py-4 rounded-xl bg-gradient-to-r from-[#EA580C] to-[#F97316] hover:from-[#D94E07] hover:to-[#EA580C] text-white font-bold text-sm sm:text-base tracking-wide flex items-center justify-center gap-2.5 shadow-md shadow-orange-500/25 hover:shadow-lg hover:shadow-orange-500/35 active:scale-[0.98] transition cursor-pointer font-['Hind_Siliguri',sans-serif]"
             >
               <Calendar size={18} />
-              <span>আপনার ফ্রি স্লট বুক করুন →</span>
+              <span>ফ্রি কনসালটেশন স্লট বুক করুন →</span>
             </button>
           </div>
 
