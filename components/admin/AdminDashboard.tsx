@@ -27,11 +27,8 @@ import {
   Layers,
   Clock,
   Sparkles,
-  CheckCircle2,
-  TrendingUp,
   Globe,
-  Bot,
-  Server
+  Bot
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -89,8 +86,8 @@ export default function AdminDashboard() {
       } else {
         setLoginError(res.error || "Invalid admin credentials");
       }
-    } catch (err: any) {
-      setLoginError(err.message || "Failed to log in");
+    } catch (err: unknown) {
+      setLoginError(err instanceof Error ? err.message : "Failed to log in");
     } finally {
       setLoginSubmitting(false);
     }

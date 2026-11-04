@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import HomeHero from "@/components/home/HomeHero";
+import TechMarquee from "@/components/home/TechMarquee";
 import WhatWeDo from "@/components/home/WhatWeDo";
+import FeaturedWork from "@/components/home/FeaturedWork";
 import GoogleReviews from "@/components/home/GoogleReviews";
 import HomeFAQ from "@/components/home/HomeFAQ";
 import HomeCTA from "@/components/home/HomeCTA";
@@ -59,16 +61,22 @@ export default function Home() {
       {/* 1. Monumental Hero Section */}
       <HomeHero />
 
-      {/* 2. What We Do - 3 Core Pillars */}
+      {/* 2. Enterprise Stack & Telemetry Marquee */}
+      <TechMarquee />
+
+      {/* 3. What We Do - 3 Core Pillars */}
       <WhatWeDo />
 
-      {/* 3. Verified Google Reviews Showcase */}
+      {/* 4. Flagship Case Studies & Production Systems */}
+      <FeaturedWork />
+
+      {/* 5. Verified Google Reviews Showcase */}
       <GoogleReviews />
 
-      {/* 4. AI SEO & Authority FAQ Section */}
+      {/* 6. AI SEO & Authority FAQ Section */}
       <HomeFAQ />
 
-      {/* 5. High-Converting CTA & Appointment Booking */}
+      {/* 7. High-Converting CTA & Appointment Booking */}
       <HomeCTA />
     </div>
   );

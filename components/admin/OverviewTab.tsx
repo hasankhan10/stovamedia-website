@@ -8,17 +8,14 @@ import {
   Sparkles,
   Layers,
   ArrowUpRight,
-  TrendingUp,
   MessageSquare,
-  Mail,
   Building,
   CheckCircle2,
   Clock,
   ChevronRight,
   Bot,
   Globe,
-  Server,
-  Zap
+  Server
 } from "lucide-react";
 
 interface OverviewTabProps {

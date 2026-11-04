@@ -1,78 +1,52 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { Globe, Server, Bot, ArrowRight, Check, Layers } from "lucide-react";
+import { Globe, Server, Bot, ArrowRight, Check } from "lucide-react";
 import { AppointmentModal, MagneticElement } from "@/components/ui";
 import TiltCard from "@/components/animations/TiltCard";
-import SpeedDialGraphic from "@/components/animations/SpeedDialGraphic";
-import NodeNetworkGraphic from "@/components/animations/NodeNetworkGraphic";
-import AICoreGraphic from "@/components/animations/AICoreGraphic";
 
 const pillars = [
   {
     id: "websites",
-    title: "Small Business & Local Growth Websites",
-    tagline: (
-      <>
-        <span className="text-blue-600 font-semibold">Sub-second load times</span> engineered to rank{" "}
-        <span className="text-emerald-700 font-bold">#1 on Google</span> and eliminate{" "}
-        <span className="text-rose-600 font-semibold">lost bounce traffic</span>.
-      </>
-    ),
-    badge: "High Performance",
-    badgeColor: "bg-emerald-50 text-emerald-800 border-emerald-200",
+    title: "Small business and local growth websites",
+    tagline: "Sub-second load times engineered to rank higher on Google search and eliminate bounce rate drop-off.",
+    badge: "Sub-second speed",
+    badgeColor: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
     icon: Globe,
-    accent: "from-emerald-500 to-teal-600",
     features: [
-      <>Custom Next.js architecture (<span className="text-rose-600 font-semibold">zero slow WordPress bloat</span>)</>,
-      <><span className="text-emerald-700 font-bold">Google Maps &amp; Local SEO</span> dominance setup</>,
-      <>Mobile-first checkout &amp; instant <span className="text-emerald-700 font-semibold">WhatsApp click-to-chat</span></>,
-      <><span className="text-emerald-700 font-bold">100/100 Google Core Web Vitals</span> guarantee</>,
+      "Custom Next.js architecture with zero WordPress bloat",
+      "Google Maps and localized search authority engineering",
+      "Mobile-first checkout and streamlined consultation flows",
+      "100/100 Google Core Web Vitals guarantee",
     ],
-    graphic: <SpeedDialGraphic />,
   },
   {
     id: "software",
-    title: "Custom Web Apps & Enterprise Software",
-    tagline: (
-      <>
-        Tailored <span className="text-indigo-700 font-semibold">full-stack platforms</span>, operational tools, and SaaS products built with{" "}
-        <span className="text-rose-600 font-semibold">zero technical debt</span>.
-      </>
-    ),
-    badge: "Enterprise Scale",
-    badgeColor: "bg-indigo-50 text-indigo-800 border-indigo-200",
+    title: "Custom web applications and enterprise software",
+    tagline: "Tailored full-stack platforms, operational dashboards, and SaaS products built with zero technical debt.",
+    badge: "Enterprise scale",
+    badgeColor: "bg-violet-500/10 text-violet-400 border-violet-500/20",
     icon: Server,
-    accent: "from-indigo-600 to-cyan-600",
     features: [
-      <>Bespoke SaaS platforms, patient portals &amp; <span className="text-slate-900 font-semibold">CRM tools</span></>,
-      <>Enterprise PostgreSQL, Supabase &amp; <span className="text-indigo-600 font-medium">REST/GraphQL APIs</span></>,
-      <>Bank-grade role-based authentication &amp; <span className="text-blue-600 font-medium">AES-256 data security</span></>,
-      <><span className="text-emerald-700 font-bold">100% source code ownership</span> with zero lock-in</>,
+      "Bespoke SaaS platforms, patient portals, and internal CRM tools",
+      "Enterprise PostgreSQL, edge caching, and REST/GraphQL APIs",
+      "Bank-grade authentication and AES-256 data protection",
+      "100% source code Git repository ownership with zero lock-in",
     ],
-    graphic: <NodeNetworkGraphic />,
   },
   {
     id: "ai-workflows",
-    title: "Autonomous AI & Automation Workflows",
-    tagline: (
-      <>
-        Custom AI agents that <span className="text-emerald-700 font-bold">qualify leads</span>, resolve customer tickets, and automate operations{" "}
-        <span className="text-cyan-700 font-semibold">24/7 on autopilot</span>.
-      </>
-    ),
-    badge: "24/7 Autopilot",
-    badgeColor: "bg-cyan-50 text-cyan-800 border-cyan-200",
+    title: "Autonomous AI and automation workflows",
+    tagline: "Custom AI agents that qualify incoming leads, answer customer questions, and automate operations 24/7.",
+    badge: "24/7 autopilot",
+    badgeColor: "bg-cyan-500/10 text-cyan-400 border-cyan-500/20",
     icon: Bot,
-    accent: "from-cyan-500 to-indigo-600",
     features: [
-      <><span className="text-cyan-700 font-semibold">24/7 Intelligent AI chatbots</span> for WhatsApp &amp; Web</>,
-      <>Automated <span className="text-emerald-700 font-bold">lead capture</span> &amp; instant CRM syncing</>,
-      <>Custom RAG systems trained on your <span className="text-slate-900 font-semibold">private business data</span></>,
-      <><span className="text-indigo-600 font-medium">Autonomous scheduling</span> &amp; multi-step email actions</>,
+      "24/7 intelligent AI booking assistants for web and WhatsApp",
+      "Automated lead capture, qualification, and instant CRM sync",
+      "Custom RAG systems trained on private business knowledge bases",
+      "Autonomous scheduling and automated multi-step notification pipelines",
     ],
-    graphic: <AICoreGraphic />,
   },
 ];
 
@@ -80,90 +54,61 @@ export default function WhatWeDo() {
   const [selectedService, setSelectedService] = useState<string | null>(null);
 
   return (
-    <section id="what-we-do" className="py-24 sm:py-32 md:py-40 px-5 sm:px-8 md:px-12 lg:px-20 bg-slate-50 relative overflow-hidden">
-      {/* Background Soft Ambient Mesh */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[600px] bg-indigo-100/40 rounded-full blur-[140px] pointer-events-none -z-10" />
+    <section id="what-we-do" className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 bg-[#07080C] text-white relative overflow-hidden border-b border-white/[0.08]">
+      {/* Premium Background Blur Color Effect (Luminous Ambient Indigo & Violet Orbs) */}
+      <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] bg-gradient-to-tr from-violet-600/15 via-indigo-600/10 to-transparent rounded-full blur-[140px] pointer-events-none -z-10" />
+      <div className="absolute top-1/2 right-1/4 translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-gradient-to-bl from-blue-600/15 via-violet-600/10 to-transparent rounded-full blur-[140px] pointer-events-none -z-10" />
 
-      <div className="max-w-[1400px] mx-auto relative z-10">
+      <div className="max-w-6xl mx-auto relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-24">
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200 text-slate-700 text-xs font-semibold uppercase tracking-wider mb-4 shadow-xs"
-          >
-            <Layers size={14} className="text-indigo-600" />
-            <span>Our Core Capabilities</span>
-          </motion.div>
+        <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.04] border border-white/10 text-violet-300 text-xs font-medium mb-4 backdrop-blur-md">
+            <span className="w-1.5 h-1.5 rounded-full bg-violet-400" />
+            <span>Core engineering disciplines</span>
+          </div>
 
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-3xl sm:text-5xl md:text-6xl font-display font-bold text-slate-900 tracking-tight leading-tight mb-6"
-          >
-            What We Do
-          </motion.h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-[-0.03em] text-slate-100 leading-[1.05] mb-4">
+            Architected for Speed, Conversion, and Scale
+          </h2>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-slate-600 text-base sm:text-lg md:text-xl leading-relaxed"
-          >
-            We eliminate agency bloat and deliver precision engineering across three core disciplines. No middlemen, no outdated templates.
-          </motion.p>
+          <p className="text-slate-400 text-base sm:text-lg leading-relaxed">
+            We eliminate agency bloat and deliver precision software across three core disciplines. Direct technical access with zero middlemen.
+          </p>
         </div>
 
-        {/* 3 Pillars Grid with 3D Tilt & Motion Graphics */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-10">
-          {pillars.map((pillar, index) => {
+        {/* 3 Pillars Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
+          {pillars.map((pillar) => {
             const IconComponent = pillar.icon;
             return (
-              <motion.div
-                key={pillar.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.15 }}
-                className="h-full"
-              >
-                <TiltCard maxTilt={6} className="h-full">
-                  <div className="group h-full bg-white rounded-3xl p-8 sm:p-10 border border-slate-200/90 shadow-[0_4px_25px_rgba(0,0,0,0.03)] hover:shadow-[0_15px_40px_rgba(79,70,229,0.08)] hover:border-indigo-300 transition-all duration-300 flex flex-col justify-between">
-                    {/* Top Content */}
+              <div key={pillar.id} className="h-full">
+                <TiltCard maxTilt={4} className="h-full">
+                  <div className="group h-full bg-gradient-to-b from-white/[0.04] to-white/[0.01] rounded-2xl p-6 sm:p-8 border border-white/[0.08] hover:border-violet-500/40 backdrop-blur-xl transition-all duration-300 flex flex-col justify-between shadow-[0_8px_32px_rgba(0,0,0,0.36)] hover:shadow-[0_12px_44px_rgba(139,92,246,0.15)]">
                     <div>
                       {/* Top Pill & Icon */}
                       <div className="flex items-center justify-between mb-6">
-                        <div className={`p-3.5 rounded-2xl bg-gradient-to-tr ${pillar.accent} text-white shadow-md`}>
-                          <IconComponent size={24} />
+                        <div className="p-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-violet-300">
+                          <IconComponent size={20} />
                         </div>
-                        <span className={`px-3 py-1 rounded-full text-xs font-semibold border ${pillar.badgeColor}`}>
+                        <span className={`px-2.5 py-0.5 rounded-lg text-xs font-mono border ${pillar.badgeColor}`}>
                           {pillar.badge}
                         </span>
                       </div>
 
                       {/* Title & Tagline */}
-                      <h3 className="text-2xl sm:text-3xl font-display font-bold text-slate-900 mb-3 tracking-tight group-hover:text-indigo-600 transition-colors">
+                      <h3 className="text-xl sm:text-2xl font-medium text-slate-100 mb-3 tracking-tight group-hover:text-violet-200 transition-colors">
                         {pillar.title}
                       </h3>
-                      <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">
+                      <p className="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
                         {pillar.tagline}
                       </p>
 
-                      {/* Dynamic SVG Motion Graphic Widget */}
-                      <div className="mb-6">
-                        {pillar.graphic}
-                      </div>
-
                       {/* Feature Checkpoints */}
-                      <ul className="space-y-3 mb-8">
+                      <ul className="space-y-2.5 mb-8">
                         {pillar.features.map((feature, fIndex) => (
-                          <li key={fIndex} className="flex items-start gap-3 text-xs sm:text-sm text-slate-600 leading-normal">
-                            <span className="mt-0.5 rounded-full p-0.5 bg-emerald-100 text-emerald-700 shrink-0">
-                              <Check size={12} strokeWidth={3} />
+                          <li key={fIndex} className="flex items-start gap-2.5 text-xs text-slate-300 leading-normal">
+                            <span className="mt-0.5 rounded-md p-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shrink-0">
+                              <Check size={11} strokeWidth={3} />
                             </span>
                             <span>{feature}</span>
                           </li>
@@ -172,18 +117,18 @@ export default function WhatWeDo() {
                     </div>
 
                     {/* Card CTA Trigger */}
-                    <MagneticElement strength={0.25} className="w-full">
+                    <MagneticElement strength={0.2} className="w-full">
                       <button
                         onClick={() => setSelectedService(pillar.title)}
-                        className="w-full py-3.5 px-4 rounded-xl bg-slate-50 hover:bg-indigo-600 text-slate-700 hover:text-white font-semibold text-xs sm:text-sm transition-all duration-200 flex items-center justify-center gap-2 group/btn cursor-pointer shadow-2xs"
+                        className="w-full py-3 px-4 rounded-xl bg-white/[0.04] hover:bg-gradient-to-r hover:from-violet-600 hover:to-indigo-600 text-slate-200 hover:text-white border border-white/10 hover:border-violet-500/50 font-medium text-xs sm:text-sm transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer focus-visible:outline-2 focus-visible:outline-violet-400"
                       >
-                        <span>Inquire for {pillar.id === "websites" ? "Websites" : pillar.id === "software" ? "Software" : "AI"}</span>
-                        <ArrowRight size={15} className="transition-transform group-hover/btn:translate-x-1" />
+                        <span>Inquire about this architecture</span>
+                        <ArrowRight size={14} />
                       </button>
                     </MagneticElement>
                   </div>
                 </TiltCard>
-              </motion.div>
+              </div>
             );
           })}
         </div>

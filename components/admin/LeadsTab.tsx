@@ -18,13 +18,10 @@ import {
   Download,
   LayoutGrid,
   ListFilter,
-  CheckCircle2,
-  Clock,
   Sparkles,
   Copy,
   Check,
   Send,
-  ExternalLink,
   PlusCircle
 } from "lucide-react";
 import { StatusBadge, CopyButton } from "./AdminUIElements";

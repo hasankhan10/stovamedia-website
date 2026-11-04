@@ -8,203 +8,91 @@ import {
   Clock, 
   Zap, 
   Calendar, 
-  MessageSquare, 
   ArrowRight, 
-  Layers,
-  HelpCircle,
-  ChevronDown,
+  ChevronDown, 
+  Layers, 
+  Globe, 
+  Bot, 
   Server,
-  Globe,
-  Bot
+  HelpCircle,
+  MessageSquare
 } from "lucide-react";
 import { AppointmentModal, MagneticElement } from "@/components/ui";
 import TiltCard from "@/components/animations/TiltCard";
-import { 
-  GrowthWebsiteMotionGraphic, 
-  EcommerceAIMotionGraphic, 
-  CustomSaaSMotionGraphic 
-} from "@/components/animations/PricingTierGraphics";
 
 interface PricingTier {
   id: string;
   title: string;
-  tagline: React.ReactNode;
+  tagline: string;
   price: string;
   period: string;
   popular: boolean;
   badge: string;
   badgeColor: string;
   icon: React.ComponentType<{ size?: number; className?: string }>;
-  accent: string;
   delivery: string;
-  graphic: React.ReactNode;
-  features: React.ReactNode[];
+  features: string[];
 }
 
 const pricingTiers: PricingTier[] = [
   {
     id: "growth-website",
-    title: "Growth Website Package",
-    tagline: (
-      <>
-        For small businesses, doctors, and local brands wanting{" "}
-        <span className="text-emerald-700 font-bold underline decoration-emerald-500/40">high Google Maps rankings</span> and{" "}
-        <span className="text-blue-600 font-semibold">sub-second speed</span>.
-      </>
-    ),
-    price: "Fixed-Scope Quote",
-    period: "Milestone Deliverable",
+    title: "Growth Website Architecture",
+    tagline: "For ambitious businesses seeking high Google search dominance, sub-second TTFB, and maximum conversion rates.",
+    price: "Fixed Milestone",
+    period: "Single Delivery Scope",
     popular: false,
-    badge: "Fast Launch",
-    badgeColor: "bg-slate-100 text-slate-700 border-slate-200",
+    badge: "10-14 Days Launch",
+    badgeColor: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
     icon: Globe,
-    accent: "from-slate-800 to-slate-900",
     delivery: "10–14 Days Delivery",
-    graphic: <GrowthWebsiteMotionGraphic />,
     features: [
-      (
-        <>
-          <span className="text-slate-900 font-semibold">100% Custom Next.js 15 & React</span> code (
-          <span className="text-rose-600 font-semibold">zero slow WordPress bloat</span>)
-        </>
-      ),
-      (
-        <>
-          <span className="text-emerald-700 font-bold">Google Maps (GMB) #1 ranking</span> & Local SEO dominance
-        </>
-      ),
-      (
-        <>
-          <span className="text-blue-600 font-semibold">Sub-50ms TTFB</span> &{" "}
-          <span className="text-emerald-700 font-bold">100/100 Core Web Vitals</span> speed guarantee
-        </>
-      ),
-      (
-        <>
-          Direct <span className="text-emerald-700 font-semibold">1-Click WhatsApp click-to-chat</span> conversion integration
-        </>
-      ),
-      (
-        <>
-          <span className="text-slate-900 font-medium">Mobile-first responsive design</span> tailored to your branding
-        </>
-      ),
-      (
-        <>
-          <span className="text-indigo-600 font-semibold">Free SSL setup</span> &{" "}
-          <span className="text-emerald-700 font-bold">30-day post-launch warranty</span>
-        </>
-      ),
+      "100% custom Next.js 15 & React 19 architecture (zero WordPress bloat)",
+      "Google Maps (GMB) #1 ranking optimization & local SEO authority",
+      "Sub-50ms TTFB edge caching with 100/100 Core Web Vitals guarantee",
+      "Streamlined high-converting consultation and lead capture flows",
+      "Full responsive mobile-first UI with custom design token system",
+      "Free SSL, Cloudflare edge DNS, and 30-day post-launch warranty",
     ],
   },
   {
     id: "ecommerce-ai",
-    title: "E-Commerce & AI Agent",
-    tagline: (
-      <>
-        For brands and online sellers needing a{" "}
-        <span className="text-emerald-700 font-bold">high-converting storefront</span> with a{" "}
-        <span className="text-cyan-700 font-semibold">24/7 automated sales AI bot</span>.
-      </>
-    ),
-    price: "Custom Storefront",
+    title: "E-Commerce & AI Automation",
+    tagline: "For modern retailers and brands requiring a blazing fast storefront powered by a 24/7 intelligent sales assistant.",
+    price: "Tailored Scope",
     period: "Milestone Deliverable",
     popular: true,
-    badge: "Most Popular",
-    badgeColor: "bg-indigo-50 text-indigo-700 border-indigo-200",
+    badge: "Most Recommended",
+    badgeColor: "bg-violet-500/10 text-violet-400 border-violet-500/20",
     icon: Bot,
-    accent: "from-indigo-600 to-cyan-600",
     delivery: "2–3 Weeks Delivery",
-    graphic: <EcommerceAIMotionGraphic />,
     features: [
-      (
-        <>
-          <span className="text-slate-900 font-semibold">Custom fast checkout store</span> with{" "}
-          <span className="text-emerald-700 font-bold">secure UPI / Card / COD</span>
-        </>
-      ),
-      (
-        <>
-          <span className="text-cyan-700 font-semibold">24/7 Intelligent AI WhatsApp Bot</span> (answers queries &{" "}
-          <span className="text-emerald-700 font-bold">takes orders automatically</span>)
-        </>
-      ),
-      (
-        <>
-          Admin inventory, customer order management &{" "}
-          <span className="text-slate-900 font-medium">automated invoice generation</span>
-        </>
-      ),
-      (
-        <>
-          <span className="text-blue-600 font-semibold">Sub-second load times</span> designed for{" "}
-          <span className="text-emerald-700 font-bold">3X higher mobile checkout rates</span>
-        </>
-      ),
-      (
-        <>
-          <span className="text-emerald-700 font-semibold">Automated WhatsApp order confirmation</span> & live tracking alerts
-        </>
-      ),
-      (
-        <>
-          <span className="text-slate-900 font-bold">100% source code ownership</span> &{" "}
-          <span className="text-emerald-700 font-bold">30-day dedicated warranty</span>
-        </>
-      ),
+      "Custom checkout storefront engineered for 3X mobile conversion",
+      "24/7 intelligent AI booking & sales assistant for Web & WhatsApp",
+      "Real-time inventory management, automated invoices, and CRM sync",
+      "Instant UPI, credit card, and global multi-currency payment gates",
+      "Automated order confirmation and dispatch notification pipelines",
+      "100% source code repository ownership with zero platform royalties",
     ],
   },
   {
     id: "custom-saas",
-    title: "Custom SaaS & Enterprise",
-    tagline: (
-      <>
-        For startups, clinics, and businesses building{" "}
-        <span className="text-indigo-700 font-semibold">custom full-stack software</span>, portals, or internal tools.
-      </>
-    ),
-    price: "Bespoke Architecture",
-    period: "Sprint Milestone",
+    title: "Enterprise SaaS & Web Apps",
+    tagline: "For startups and scaling enterprises needing bespoke software, secure multi-tenant backends, and custom AI pipelines.",
+    price: "Sprint-Based",
+    period: "Milestone Sprints",
     popular: false,
     badge: "Bespoke Scale",
-    badgeColor: "bg-cyan-50 text-cyan-700 border-cyan-200",
+    badgeColor: "bg-cyan-500/10 text-cyan-400 border-cyan-500/20",
     icon: Server,
-    accent: "from-cyan-600 to-indigo-700",
     delivery: "3–6 Weeks Sprints",
-    graphic: <CustomSaaSMotionGraphic />,
     features: [
-      (
-        <>
-          End-to-end custom <span className="text-indigo-700 font-semibold">Next.js 15, TypeScript & PostgreSQL</span> architecture
-        </>
-      ),
-      (
-        <>
-          <span className="text-slate-900 font-semibold">Bank-grade Role-Based Access Control (RBAC)</span> & encrypted auth
-        </>
-      ),
-      (
-        <>
-          <span className="text-cyan-700 font-semibold">Autonomous AI pipelines</span>, private RAG knowledge base & CRM sync
-        </>
-      ),
-      (
-        <>
-          <span className="text-blue-600 font-semibold">Scalable REST/GraphQL APIs</span> with{" "}
-          <span className="text-emerald-700 font-bold">sub-50ms query optimization</span>
-        </>
-      ),
-      (
-        <>
-          Direct daily collaboration with <span className="text-slate-900 font-bold">Lead Software Architect</span>
-        </>
-      ),
-      (
-        <>
-          <span className="text-emerald-700 font-bold">100% intellectual property</span> &{" "}
-          <span className="text-slate-900 font-semibold">complete git repository transfer</span>
-        </>
-      ),
+      "End-to-end Next.js 15, TypeScript, PostgreSQL, and Supabase architecture",
+      "Bank-grade Role-Based Access Control (RBAC) and encrypted auth",
+      "Autonomous AI pipelines, vector database embeddings & private RAG",
+      "High-throughput REST/GraphQL APIs with sub-50ms query execution",
+      "Direct daily collaboration with Lead Software Architect",
+      "100% intellectual property rights and full git repository transfer",
     ],
   },
 ];
@@ -213,70 +101,42 @@ const guarantees = [
   {
     icon: ShieldCheck,
     title: "100% IP & Code Ownership",
-    description: (
-      <>
-        You own <span className="text-slate-900 font-bold">every single line of code</span>, database schema, and git repository upon completion with <span className="text-emerald-700 font-semibold">zero lock-in</span>.
-      </>
-    ),
+    description: "You own every line of code, database schema, and deployment configuration upon completion. Zero proprietary agency lock-in.",
   },
   {
     icon: Clock,
     title: "4-Hour Feasibility Response",
-    description: (
-      <>
-        Submit your requirements and get a <span className="text-blue-600 font-semibold">detailed engineering review</span> and <span className="text-emerald-700 font-bold">fixed timeline within 4 hours</span>.
-      </>
-    ),
+    description: "Submit your technical requirements and receive a comprehensive engineering review and fixed timeline proposal within 4 business hours.",
   },
   {
     icon: Zap,
     title: "Zero Hidden Fees",
-    description: (
-      <>
-        Fixed milestone pricing with <span className="text-rose-600 font-semibold">zero surprise hourly overages</span> or <span className="text-rose-600 font-semibold">recurring agency maintenance traps</span>.
-      </>
-    ),
+    description: "Fixed milestone pricing with zero surprise hourly overages, no hidden maintenance fees, and no recurring agency markups.",
   },
 ];
 
 const pricingFaqs = [
   {
-    question: "How does your milestone-based payment work?",
-    answer: (
-      <>
-        We break projects into clear, verifiable milestones. Typically, projects start with a <span className="text-slate-900 font-semibold">50% upfront deposit</span> to begin development, and the remaining 50% is <span className="text-emerald-700 font-bold">only payable after you test and approve</span> the finished staging build.
-      </>
-    ),
+    question: "How does milestone-based pricing work?",
+    answer: "We structure projects into clear, verifiable engineering milestones. Projects commence with a 50% upfront deposit to begin architecture, and the final 50% is only payable after you test, verify, and approve the staging build.",
   },
   {
     question: "What is included in the 30-day post-launch warranty?",
-    answer: (
-      <>
-        Every custom build includes <span className="text-emerald-700 font-bold">30 days of complimentary technical support</span>, server monitoring, bug fixes, and performance tuning to ensure your software runs with <span className="text-blue-600 font-semibold">100% stability</span>.
-      </>
-    ),
+    answer: "Every custom build includes 30 days of comprehensive technical support, cloud monitoring, edge performance tuning, and immediate bug fixes to ensure complete operational stability.",
   },
   {
-    question: "Can I upgrade features or add custom AI workflows later?",
-    answer: (
-      <>
-        Yes! Because our architecture is <span className="text-slate-900 font-semibold">100% modular and clean</span>, adding new AI agent pipelines, custom database models, or checkout integrations in the future is <span className="text-emerald-700 font-bold">seamless without rebuilding</span>.
-      </>
-    ),
+    question: "Can we expand features or integrate new AI workflows later?",
+    answer: "Yes. Because our architecture is strictly modular and free from technical debt, integrating additional AI pipelines, database schemas, or payment gateways in the future is completely frictionless.",
   },
   {
-    question: "How do you calculate custom quotes for SaaS and internal tools?",
-    answer: (
-      <>
-        We evaluate your exact user workflows, database complexity, third-party integrations, and target launch date. We then provide a fixed milestone proposal with <span className="text-emerald-700 font-bold">guaranteed delivery dates</span>.
-      </>
-    ),
+    question: "How are custom quotes calculated for SaaS and enterprise platforms?",
+    answer: "We evaluate your exact data model, user concurrency requirements, third-party integrations, and timeline targets to deliver a transparent, fixed milestone scope with guaranteed delivery dates.",
   },
 ];
 
 export default function PricingClient() {
   const [modalOpen, setModalOpen] = useState(false);
-  const [selectedService, setSelectedService] = useState("Growth Website Package");
+  const [selectedService, setSelectedService] = useState("Growth Website Architecture");
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   const openBookingFor = (serviceTitle: string) => {
@@ -285,29 +145,43 @@ export default function PricingClient() {
   };
 
   return (
-    <div className="w-full bg-white relative">
+    <div className="w-full bg-[#07080C] text-white relative">
       {/* 1. Pricing Header & Cards */}
-      <section className="relative pt-28 sm:pt-36 pb-12 sm:pb-16 px-4 sm:px-6 md:px-10 lg:px-16 overflow-hidden bg-white">
-        {/* Soft Ambient Glow */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] max-w-[800px] h-[350px] sm:h-[450px] bg-gradient-to-tr from-indigo-100/70 via-cyan-100/40 to-blue-50/30 rounded-full blur-[100px] sm:blur-[130px] pointer-events-none -z-10" />
+      <section className="relative pt-28 sm:pt-36 md:pt-44 pb-16 sm:pb-24 px-4 sm:px-6 md:px-10 lg:px-16 overflow-hidden border-b border-white/[0.08]">
+        {/* 🌌 Celestial Radiant Dome Glow Effect */}
+        <div 
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-[90vw] max-w-[1200px] h-[480px] pointer-events-none z-0"
+          style={{
+            background: 'radial-gradient(ellipse 70% 50% at 50% 0%, rgba(139, 92, 246, 0.35) 0%, rgba(79, 70, 229, 0.2) 45%, transparent 75%)',
+            filter: 'blur(50px)'
+          }}
+        />
 
-        <div className="max-w-[1300px] mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700 text-xs sm:text-sm font-semibold mb-4 sm:mb-5 shadow-xs">
-            <Layers size={14} className="text-indigo-600" />
-            <span>
-              <span className="text-indigo-700 font-bold">Transparent Investment</span> · <span className="text-emerald-700 font-bold">Fixed Scope Delivery</span>
-            </span>
+        {/* 🔮 Bottom Ambient Glow Blur Effect */}
+        <div 
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[90vw] max-w-[850px] h-[280px] pointer-events-none z-0"
+          style={{
+            background: 'radial-gradient(ellipse 70% 60% at 50% 100%, rgba(139, 92, 246, 0.4) 0%, rgba(99, 102, 241, 0.2) 45%, transparent 75%)',
+            filter: 'blur(60px)'
+          }}
+        />
+
+        {/* Precision Grid */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
+
+        <div className="max-w-[1300px] mx-auto text-center relative z-10">
+          {/* Eyebrow Pill */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-violet-500/25 text-violet-300 text-xs font-medium backdrop-blur-xl mb-6 shadow-[0_0_20px_rgba(139,92,246,0.15)]">
+            <Layers size={14} className="text-violet-400" />
+            <span>Transparent Investment · Fixed Scope Delivery</span>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-extrabold text-slate-900 tracking-tight leading-[1.06] max-w-5xl mx-auto mb-6 sm:mb-8">
-            Predictable Pricing.{" "}
-            <span className="bg-gradient-to-r from-indigo-600 via-indigo-700 to-cyan-600 bg-clip-text text-transparent underline decoration-indigo-300/40">
-              Guaranteed Results.
-            </span>
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium tracking-[-0.03em] text-slate-100 leading-[1.04] max-w-4xl mx-auto mb-6">
+            Predictable Pricing. Guaranteed Results.
           </h1>
 
-          <p className="text-slate-600 text-lg sm:text-xl md:text-2xl font-light max-w-3xl mx-auto leading-relaxed mb-12 sm:mb-16">
-            <span className="text-rose-600 font-semibold">No endless hourly billing</span>, <span className="text-rose-600 font-semibold">no surprise invoices</span>. Choose a <span className="text-emerald-700 font-bold">fixed-scope engineering package</span> or request a <span className="text-indigo-600 font-semibold">tailored milestone quote</span>.
+          <p className="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed mb-14 sm:mb-16">
+            Zero hourly billing bloat, zero surprise invoices. Choose a fixed-scope engineering tier or request a custom milestone scope reviewed directly by our Lead Architect.
           </p>
 
           {/* 3 Core Pricing Cards Grid */}
@@ -316,62 +190,57 @@ export default function PricingClient() {
               const IconComponent = tier.icon;
               return (
                 <div key={tier.id} className="h-full">
-                  <TiltCard maxTilt={4} className="h-full">
+                  <TiltCard maxTilt={3} className="h-full">
                     <div
-                      className={`h-full rounded-3xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 relative ${
+                      className={`h-full rounded-2xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 relative backdrop-blur-xl ${
                         tier.popular
-                          ? "bg-white border-2 border-indigo-500 shadow-[0_15px_40px_rgba(79,70,229,0.12)]"
-                          : "bg-white border border-slate-200/90 shadow-2xs hover:border-indigo-300 hover:shadow-xs"
+                          ? "bg-gradient-to-b from-white/[0.07] to-white/[0.02] border-2 border-violet-500/60 shadow-[0_12px_44px_rgba(139,92,246,0.22)]"
+                          : "bg-gradient-to-b from-white/[0.04] to-white/[0.01] border border-white/[0.08] hover:border-violet-500/40 shadow-[0_8px_32px_rgba(0,0,0,0.36)]"
                       }`}
                     >
                       {/* Popular Top Badge */}
                       {tier.popular && (
-                        <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3.5 py-0.5 rounded-full bg-indigo-600 text-white text-[11px] font-bold uppercase tracking-wider shadow-sm">
+                        <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3.5 py-0.5 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 text-white text-[11px] font-mono uppercase tracking-wider shadow-sm">
                           Most Recommended
                         </div>
                       )}
 
                       <div>
                         {/* Header & Icon */}
-                        <div className="flex items-center justify-between mb-4">
-                          <div className={`w-11 h-11 rounded-2xl bg-gradient-to-tr ${tier.accent} text-white flex items-center justify-center shadow-xs`}>
+                        <div className="flex items-center justify-between mb-5">
+                          <div className="w-11 h-11 rounded-xl bg-white/[0.04] border border-white/10 text-violet-300 flex items-center justify-center">
                             <IconComponent size={20} />
                           </div>
-                          <span className={`px-2.5 py-0.5 rounded-full text-xs font-semibold border ${tier.badgeColor}`}>
+                          <span className={`px-2.5 py-0.5 rounded-lg text-xs font-mono border ${tier.badgeColor}`}>
                             {tier.badge}
                           </span>
                         </div>
 
                         {/* Title & Tagline */}
-                        <h3 className="text-xl sm:text-2xl font-display font-bold text-slate-900 mb-2 tracking-tight">
+                        <h2 className="text-xl sm:text-2xl font-medium text-slate-100 mb-2 tracking-tight">
                           {tier.title}
-                        </h3>
-                        <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
+                        </h2>
+                        <p className="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
                           {tier.tagline}
                         </p>
 
                         {/* Price Display */}
-                        <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 mb-4">
-                          <div className="text-2xl sm:text-3xl font-extrabold font-display text-slate-900">
+                        <div className="p-4 rounded-xl bg-white/[0.03] border border-white/[0.08] mb-6">
+                          <div className="text-2xl sm:text-3xl font-medium text-slate-100 font-display">
                             {tier.price}
                           </div>
-                          <div className="text-[11px] font-mono text-slate-500 mt-0.5 flex justify-between items-center">
+                          <div className="text-xs font-mono text-slate-400 mt-1 flex justify-between items-center">
                             <span>{tier.period}</span>
-                            <span className="text-indigo-700 font-bold">{tier.delivery}</span>
+                            <span className="text-violet-400 font-semibold">{tier.delivery}</span>
                           </div>
-                        </div>
-
-                        {/* Animated Motion Graphic Widget */}
-                        <div className="mb-5">
-                          {tier.graphic}
                         </div>
 
                         {/* Feature List */}
                         <ul className="space-y-3 mb-8">
                           {tier.features.map((feature, fIndex) => (
-                            <li key={fIndex} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 leading-normal">
-                              <span className="mt-0.5 rounded-full p-0.5 bg-emerald-100 text-emerald-700 shrink-0">
-                                <Check size={12} strokeWidth={3} />
+                            <li key={fIndex} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-300 leading-normal">
+                              <span className="mt-0.5 rounded-md p-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shrink-0">
+                                <Check size={11} strokeWidth={3} />
                               </span>
                               <span>{feature}</span>
                             </li>
@@ -379,17 +248,17 @@ export default function PricingClient() {
                         </ul>
                       </div>
 
-                      {/* Action Button */}
-                      <MagneticElement strength={0.25} className="w-full">
+                      {/* Action Button: Medium Corner Radius */}
+                      <MagneticElement strength={0.2} className="w-full">
                         <button
                           onClick={() => openBookingFor(tier.title)}
-                          className={`w-full py-3.5 px-5 rounded-xl font-bold text-xs sm:text-sm transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer ${
+                          className={`w-full py-3.5 px-5 rounded-xl font-medium text-xs sm:text-sm transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer ${
                             tier.popular
-                              ? "bg-indigo-600 hover:bg-indigo-700 text-white shadow-md shadow-indigo-600/25"
-                              : "bg-slate-50 hover:bg-indigo-600 text-slate-800 hover:text-white border border-slate-200"
+                              ? "bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white shadow-[0_0_24px_rgba(139,92,246,0.35)]"
+                              : "bg-white/[0.04] hover:bg-gradient-to-r hover:from-violet-600 hover:to-indigo-600 text-slate-200 hover:text-white border border-white/10 hover:border-violet-500/50"
                           }`}
                         >
-                          <span>Get {tier.title.split(" ")[0]} Quote</span>
+                          <span>Get {tier.title.split(" ")[0]} Proposal</span>
                           <ArrowRight size={15} />
                         </button>
                       </MagneticElement>
@@ -403,14 +272,23 @@ export default function PricingClient() {
       </section>
 
       {/* 2. Trust Guarantees Section */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 md:px-10 lg:px-16 bg-slate-50 border-t border-slate-200/80">
-        <div className="max-w-[1200px] mx-auto">
-          <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-14">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-slate-900 tracking-tight mb-3">
+      <section className="py-16 sm:py-24 px-4 sm:px-6 md:px-10 lg:px-16 border-b border-white/[0.08] relative overflow-hidden">
+        {/* Subtle Ambient Glow */}
+        <div 
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] max-w-[800px] h-[300px] pointer-events-none z-0"
+          style={{
+            background: 'radial-gradient(ellipse 60% 50% at 50% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 70%)',
+            filter: 'blur(50px)'
+          }}
+        />
+
+        <div className="max-w-[1200px] mx-auto relative z-10">
+          <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-[-0.03em] text-slate-100 leading-[1.05] mb-3">
               Our Investment Standards
             </h2>
-            <p className="text-slate-600 text-sm sm:text-base md:text-lg">
-              We eliminate financial risk and guarantee enterprise code quality on every engagement.
+            <p className="text-slate-400 text-base sm:text-lg">
+              We eliminate financial risk and guarantee enterprise code standards across every milestone.
             </p>
           </div>
 
@@ -418,14 +296,17 @@ export default function PricingClient() {
             {guarantees.map((item) => {
               const Icon = item.icon;
               return (
-                <div key={item.title} className="p-6 sm:p-7 rounded-2xl bg-white border border-slate-200/90 shadow-2xs">
-                  <div className="w-11 h-11 rounded-xl bg-indigo-50 border border-indigo-100 text-indigo-600 flex items-center justify-center mb-4 shadow-2xs">
+                <div 
+                  key={item.title} 
+                  className="p-6 sm:p-7 rounded-2xl bg-gradient-to-b from-white/[0.04] to-white/[0.01] border border-white/[0.08] backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.36)] hover:border-violet-500/40 transition-colors"
+                >
+                  <div className="w-11 h-11 rounded-xl bg-white/[0.04] border border-white/10 text-violet-300 flex items-center justify-center mb-4">
                     <Icon size={22} />
                   </div>
-                  <h3 className="font-display font-bold text-lg sm:text-xl text-slate-900 mb-2">
+                  <h3 className="font-medium text-lg sm:text-xl text-slate-100 mb-2 tracking-tight">
                     {item.title}
                   </h3>
-                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                  <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
                     {item.description}
                   </p>
                 </div>
@@ -436,14 +317,14 @@ export default function PricingClient() {
       </section>
 
       {/* 3. Pricing FAQs Section */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 md:px-10 lg:px-16 bg-white border-t border-slate-200/80">
-        <div className="max-w-[950px] mx-auto">
+      <section className="py-16 sm:py-24 px-4 sm:px-6 md:px-10 lg:px-16 border-b border-white/[0.08] relative">
+        <div className="max-w-[950px] mx-auto relative z-10">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700 text-xs sm:text-sm font-semibold uppercase tracking-wider mb-3 shadow-xs">
-              <HelpCircle size={14} className="text-indigo-600" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-violet-500/25 text-violet-300 text-xs font-medium backdrop-blur-xl mb-4">
+              <HelpCircle size={14} className="text-violet-400" />
               <span>Payment &amp; Scope Questions</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-slate-900 tracking-tight mb-3">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-[-0.03em] text-slate-100 leading-[1.05] mb-3">
               Frequently Asked Pricing Questions
             </h2>
           </div>
@@ -454,19 +335,19 @@ export default function PricingClient() {
               return (
                 <div
                   key={index}
-                  className="rounded-2xl border border-slate-200/90 overflow-hidden bg-slate-50/50 shadow-2xs transition-colors"
+                  className="rounded-xl border border-white/[0.08] overflow-hidden bg-white/[0.02] backdrop-blur-xl transition-colors hover:border-white/15"
                 >
                   <button
                     onClick={() => setOpenFaq(isOpen ? null : index)}
                     className="w-full p-4 sm:p-5 text-left flex justify-between items-center gap-3 cursor-pointer"
                   >
-                    <span className="font-bold text-sm sm:text-base text-slate-900 font-display">
+                    <span className="font-medium text-sm sm:text-base text-slate-200">
                       {faq.question}
                     </span>
                     <ChevronDown
                       size={18}
                       className={`text-slate-400 transition-transform duration-200 shrink-0 ${
-                        isOpen ? "rotate-180 text-indigo-600" : ""
+                        isOpen ? "rotate-180 text-violet-400" : ""
                       }`}
                     />
                   </button>
@@ -479,7 +360,7 @@ export default function PricingClient() {
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.2 }}
                       >
-                        <div className="px-4 sm:px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 bg-white">
+                        <div className="px-4 sm:px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-400 leading-relaxed border-t border-white/[0.06] bg-white/[0.01]">
                           {faq.answer}
                         </div>
                       </motion.div>
@@ -493,21 +374,30 @@ export default function PricingClient() {
       </section>
 
       {/* 4. Bottom Consultation Trigger Strip */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 md:px-10 lg:px-16 bg-slate-50 border-t border-slate-200/80">
-        <div className="max-w-[1000px] mx-auto text-center">
-          <div className="bg-white rounded-3xl p-8 sm:p-14 border border-slate-200/90 shadow-[0_15px_40px_rgba(15,23,42,0.05)] flex flex-col items-center">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-slate-900 tracking-tight mb-4">
-              Need a <span className="text-indigo-600 font-bold">Custom Milestone</span> or <span className="text-cyan-600 font-bold">Technical Review</span>?
+      <section className="py-16 sm:py-24 px-4 sm:px-6 md:px-10 lg:px-16 relative overflow-hidden">
+        {/* Glow */}
+        <div 
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[90vw] max-w-[850px] h-[300px] pointer-events-none z-0"
+          style={{
+            background: 'radial-gradient(ellipse 70% 60% at 50% 100%, rgba(139, 92, 246, 0.35) 0%, rgba(99, 102, 241, 0.15) 50%, transparent 75%)',
+            filter: 'blur(60px)'
+          }}
+        />
+
+        <div className="max-w-[1000px] mx-auto text-center relative z-10">
+          <div className="bg-gradient-to-b from-white/[0.05] to-white/[0.02] rounded-2xl sm:rounded-3xl p-8 sm:p-14 border border-white/[0.08] backdrop-blur-xl shadow-[0_15px_40px_rgba(0,0,0,0.45)] flex flex-col items-center">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-[-0.03em] text-slate-100 leading-[1.05] mb-4">
+              Need a Custom Milestone or Technical Review?
             </h2>
-            <p className="text-slate-600 text-sm sm:text-base md:text-lg max-w-xl mb-8 leading-relaxed">
-              Book a direct consultation with our <span className="text-slate-900 font-semibold">Lead Software Architect</span> to discuss feasibility, project scope, and <span className="text-emerald-700 font-bold">fixed milestone pricing</span>.
+            <p className="text-slate-400 text-sm sm:text-base md:text-lg max-w-xl mb-8 leading-relaxed">
+              Book a direct strategy consultation with our Lead Software Architect to review feasibility, technical architecture, and guaranteed milestone scopes.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-              <MagneticElement strength={0.3}>
+              <MagneticElement strength={0.2}>
                 <button
                   onClick={() => setModalOpen(true)}
-                  className="px-7 sm:px-8 py-3.5 rounded-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs sm:text-sm tracking-wide shadow-sm shadow-indigo-600/30 hover:shadow-indigo-600/40 transition-all flex items-center justify-center gap-2 active:scale-[0.98] cursor-pointer"
+                  className="w-full sm:w-auto px-7 sm:px-8 py-3.5 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white font-medium text-xs sm:text-sm shadow-[0_0_24px_rgba(139,92,246,0.35)] transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-[0.98]"
                 >
                   <Calendar size={15} />
                   <span>Book Free Consultation</span>
@@ -515,15 +405,15 @@ export default function PricingClient() {
                 </button>
               </MagneticElement>
 
-              <MagneticElement strength={0.3}>
+              <MagneticElement strength={0.2}>
                 <a
                   href="https://wa.me/919432053261?text=Hello%20Stova%20Media,%20I%20am%20interested%20in%20pricing%20options"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-6 sm:px-7 py-3.5 rounded-full bg-emerald-50 hover:bg-emerald-100/80 border border-emerald-200 text-emerald-700 font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto px-6 sm:px-7 py-3.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 text-slate-200 hover:text-white font-medium text-xs sm:text-sm transition-all flex items-center justify-center gap-2"
                 >
                   <MessageSquare size={15} />
-                  <span>Chat on WhatsApp</span>
+                  <span>Direct Inquiry</span>
                 </a>
               </MagneticElement>
             </div>

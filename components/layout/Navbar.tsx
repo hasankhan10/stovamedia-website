@@ -6,11 +6,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { Menu, X, ArrowUpRight, MessageSquare, Sparkles } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 import { AppointmentModal, MagneticElement } from "@/components/ui";
 
 const navLinks = [
   { name: "Home", href: "/" },
+  { name: "Work", href: "/#work" },
   { name: "Pricing", href: "/pricing" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
@@ -26,13 +27,13 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 30);
+      setScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Body scroll lock on mobile drawer
+  // Lock body scroll on mobile drawer open
   useEffect(() => {
     if (mobileMenuOpen) {
       document.body.style.overflow = "hidden";
@@ -48,187 +49,147 @@ export default function Navbar() {
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 w-full z-[500] transition-all duration-300 px-4 sm:px-8 md:px-12 lg:px-20",
-          scrolled ? "py-3 md:py-3.5" : "py-5 md:py-6"
+          "fixed top-0 left-0 w-full z-[500] transition-all duration-300 px-4 sm:px-6 lg:px-8",
+          scrolled ? "py-2.5 sm:py-3" : "py-4 sm:py-5"
         )}
       >
         <div
           className={cn(
-            "max-w-[1300px] mx-auto flex items-center justify-between transition-all duration-300 rounded-full px-5 sm:px-7 py-2.5",
+            "max-w-6xl mx-auto relative flex items-center justify-between transition-all duration-300 rounded-2xl px-4 sm:px-6 py-2.5",
             scrolled
-              ? "bg-white/85 backdrop-blur-2xl border border-slate-200/90 shadow-[0_8px_30px_rgba(15,23,42,0.06)]"
-              : "bg-white/60 backdrop-blur-md border border-slate-200/50"
+              ? "bg-[#0B0D16]/85 backdrop-blur-2xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
+              : "bg-[#0B0D16]/70 backdrop-blur-xl border border-white/[0.08]"
           )}
         >
           {/* Left: Brand Logo */}
-          <Link href="/" className="group flex items-center gap-2">
-            <div className="relative">
-              <Image 
-                src="/logo.jpeg" 
-                alt="Stova Media" 
-                width={140} 
-                height={36} 
-                className="h-7 sm:h-8 w-auto object-contain rounded-full border border-slate-200 group-hover:scale-105 transition-transform" 
-                priority
-              />
-            </div>
+          <Link href="/" className="group flex items-center gap-2.5 shrink-0 z-10">
+            <Image 
+              src="/logo.jpeg" 
+              alt="Stova Media" 
+              width={130} 
+              height={32} 
+              className="h-7 w-auto object-contain rounded-lg border border-white/10 shadow-xs" 
+              priority
+            />
           </Link>
 
-          {/* Center: Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-6 lg:gap-8">
+          {/* Center: Desktop Navigation Links (Positioned Exactly in the Middle) */}
+          <nav className="hidden md:flex items-center gap-6 lg:gap-7 md:absolute md:left-1/2 md:-translate-x-1/2 z-10">
             {navLinks.map((link) => {
-              const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
+              const isActive = pathname === link.href || (link.href !== "/" && !link.href.includes("#") && pathname.startsWith(link.href));
               return (
                 <Link
                   key={link.name}
                   href={link.href}
                   className={cn(
-                    "relative py-1 text-sm font-ui transition-all duration-200 flex items-center gap-1.5 group",
+                    "text-xs font-normal transition-colors flex items-center gap-1.5 focus-visible:outline-2 focus-visible:outline-violet-400",
                     isActive
-                      ? "text-indigo-600 font-bold"
-                      : "text-slate-600 hover:text-slate-900 font-medium"
+                      ? "text-white font-medium"
+                      : "text-slate-400 hover:text-white"
                   )}
                 >
                   <span>{link.name}</span>
                   {link.badge && (
-                    <span className="px-1.5 py-0.5 text-[10px] font-mono font-bold bg-indigo-600 text-white rounded-full leading-none">
+                    <span className="px-1.5 py-0.2 rounded-md text-[10px] font-mono bg-violet-500/20 text-violet-300 border border-violet-500/30">
                       {link.badge}
                     </span>
-                  )}
-                  {isActive && (
-                    <motion.div
-                      layoutId="active-underline"
-                      className="absolute -bottom-1 left-0 right-0 h-[2px] bg-indigo-600 rounded-full"
-                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                    />
                   )}
                 </Link>
               );
             })}
           </nav>
 
-          {/* Right: Actions */}
-          <div className="flex items-center gap-2.5">
-            {/* WhatsApp Direct Link */}
-            <MagneticElement strength={0.25} className="hidden sm:inline-block">
-              <a
-                href="https://wa.me/919432053261?text=Hello%20Stova%20Media,%20I%20am%20interested%20in%20discussing%20a%20project"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full border border-emerald-200 bg-emerald-50 text-emerald-700 hover:bg-emerald-100 transition-colors text-xs font-semibold"
-              >
-                <MessageSquare size={13} />
-                <span>WhatsApp</span>
-              </a>
-            </MagneticElement>
-
-            {/* Primary CTA Button */}
-            <MagneticElement strength={0.25} className="hidden sm:inline-block">
+          {/* Right Action: Medium Corner Radius Button (rounded-xl) */}
+          <div className="flex items-center gap-3 z-10">
+            <MagneticElement strength={0.2} className="hidden sm:inline-block">
               <button
                 onClick={() => setModalOpen(true)}
-                className="inline-flex items-center gap-1.5 px-5 py-2 rounded-full bg-indigo-600 hover:bg-indigo-700 text-white text-xs uppercase tracking-wider font-bold shadow-sm shadow-indigo-600/30 hover:shadow-indigo-600/50 transition-all duration-200 active:scale-[0.98] cursor-pointer"
+                className="inline-flex items-center gap-1.5 px-4.5 py-2 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white text-xs font-medium transition-all shadow-[0_0_20px_rgba(139,92,246,0.35)] active:scale-[0.98] cursor-pointer focus-visible:outline-2 focus-visible:outline-violet-400"
               >
-                <Sparkles size={13} />
-                <span>Start Project</span>
+                <span>Book consultation</span>
               </button>
             </MagneticElement>
 
-            {/* Mobile Menu Toggle */}
+            {/* Mobile Menu Toggle Button */}
             <button
-              className="md:hidden text-slate-700 p-2 hover:text-indigo-600 transition-colors"
+              className="md:hidden text-slate-300 p-1.5 hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-violet-400"
               onClick={() => setMobileMenuOpen(true)}
-              aria-label="Toggle menu"
+              aria-label="Toggle navigation menu"
             >
-              <Menu size={22} />
+              <Menu size={20} />
             </button>
           </div>
         </div>
       </header>
 
-      {/* Mobile Drawer */}
+      {/* Modern Dark Glass Mobile Drawer */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, x: "100%" }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
-            transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-0 bg-white/95 backdrop-blur-2xl z-[1000] flex flex-col p-6 sm:p-10 overflow-y-auto"
+            transition={{ type: "spring", damping: 25, stiffness: 220 }}
+            className="fixed inset-0 bg-[#090A10]/95 backdrop-blur-2xl z-[1000] flex flex-col p-6 sm:p-8 overflow-y-auto text-white border-l border-white/10"
             data-lenis-prevent
           >
             {/* Drawer Header */}
-            <div className="flex justify-between items-center pb-6 border-b border-slate-100">
+            <div className="flex justify-between items-center pb-5 border-b border-white/10">
               <Image 
                 src="/logo.jpeg" 
                 alt="Stova Media" 
-                width={140} 
-                height={36} 
-                className="h-8 w-auto object-contain rounded-full border border-slate-200" 
+                width={130} 
+                height={32} 
+                className="h-7 w-auto object-contain rounded-lg border border-white/10" 
               />
               <button
                 onClick={() => setMobileMenuOpen(false)}
-                className="p-2 text-slate-500 hover:text-slate-900 rounded-full border border-slate-200 bg-slate-50"
+                className="p-1.5 text-slate-400 hover:text-white rounded-lg border border-white/10 bg-white/[0.04] focus-visible:outline-2 focus-visible:outline-violet-400"
                 aria-label="Close menu"
               >
-                <X size={20} />
+                <X size={18} />
               </button>
             </div>
 
             {/* Navigation Links */}
-            <nav className="flex flex-col gap-6 my-auto py-8">
-              {navLinks.map((link, i) => {
-                const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
+            <nav className="flex flex-col gap-4 my-auto py-8">
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href;
                 return (
-                  <motion.div
+                  <Link
                     key={link.name}
-                    initial={{ opacity: 0, y: 15 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.05 + i * 0.05 }}
+                    href={link.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={cn(
+                      "text-xl transition-colors flex items-center justify-between font-normal py-2 border-b border-white/[0.04]",
+                      isActive ? "text-violet-300 font-medium" : "text-slate-300 hover:text-white"
+                    )}
                   >
-                    <Link
-                      href={link.href}
-                      onClick={() => setMobileMenuOpen(false)}
-                      className={cn(
-                        "font-display text-3xl sm:text-4xl transition-colors flex items-center justify-between font-bold",
-                        isActive ? "text-indigo-600" : "text-slate-900 hover:text-indigo-600"
+                    <span className="flex items-center gap-2.5">
+                      <span>{link.name}</span>
+                      {link.badge && (
+                        <span className="text-[10px] font-mono px-1.5 py-0.5 bg-violet-500/20 text-violet-300 border border-violet-500/30 rounded-md">
+                          {link.badge}
+                        </span>
                       )}
-                    >
-                      <span className="flex items-center gap-3">
-                        <span>{link.name}</span>
-                        {link.badge && (
-                          <span className="text-[11px] font-mono px-2 py-0.5 bg-indigo-50 border border-indigo-200 text-indigo-600 font-bold rounded-full">
-                            {link.badge}
-                          </span>
-                        )}
-                      </span>
-                      <ArrowUpRight size={22} className={isActive ? "text-indigo-600" : "text-slate-300"} />
-                    </Link>
-                  </motion.div>
+                    </span>
+                    <ArrowUpRight size={18} className="text-slate-500" />
+                  </Link>
                 );
               })}
             </nav>
 
-            {/* Drawer Bottom Actions */}
-            <div className="pt-6 border-t border-slate-100 flex flex-col gap-3 mt-auto">
+            {/* Drawer Bottom Actions: Medium Corner Radius (rounded-xl) */}
+            <div className="pt-5 border-t border-white/10 flex flex-col gap-2.5 mt-auto">
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
                   setModalOpen(true);
                 }}
-                className="w-full text-center py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm uppercase tracking-wider rounded-xl shadow-md shadow-indigo-600/25"
+                className="w-full text-center py-3.5 bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white font-medium text-xs rounded-xl transition-all shadow-md shadow-violet-600/30"
               >
-                Start A Project
+                Book strategy consultation
               </button>
-
-              <a
-                href="https://wa.me/919432053261?text=Hello%20Stova%20Media,%20I%20want%20to%20discuss%20a%20project"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full text-center py-3.5 border border-emerald-200 bg-emerald-50 text-emerald-700 font-bold text-xs uppercase tracking-wider rounded-xl flex items-center justify-center gap-2"
-              >
-                <MessageSquare size={16} />
-                <span>Chat on WhatsApp</span>
-              </a>
             </div>
           </motion.div>
         )}

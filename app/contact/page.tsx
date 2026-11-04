@@ -61,7 +61,7 @@ export default function ContactPage() {
           "@type": "ContactPoint",
           "telephone": "+91-9432053261",
           "contactType": "sales",
-          "email": "contact@stovamedia.in",
+          "email": "stovamedia@gmail.com",
           "areaServed": ["IN", "US", "GB", "AE", "BD"],
           "availableLanguage": ["English", "Bengali", "Hindi"]
         }

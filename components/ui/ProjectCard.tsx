@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -41,10 +42,12 @@ export const ProjectCard = ({
       {/* Background Image Reveal */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         {image ? (
-          <img
+          <Image
             src={image}
             alt={title}
-            className="w-full h-full object-cover scale-[1.08] opacity-[0.15] blur-sm transition-all duration-700 ease-out group-hover:scale-100 group-hover:opacity-[0.4] group-hover:blur-0"
+            fill
+            unoptimized
+            className="object-cover scale-[1.08] opacity-[0.15] blur-sm transition-all duration-700 ease-out group-hover:scale-100 group-hover:opacity-[0.4] group-hover:blur-0"
           />
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-indigo-500/10 to-cyan-500/5 opacity-[0.2] transition-opacity duration-700 group-hover:opacity-100" />

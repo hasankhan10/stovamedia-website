@@ -56,8 +56,8 @@ export async function POST(req: Request) {
       storage: "local",
       message: storageError ? `Local fallback used (${storageError.message})` : "Uploaded successfully",
     });
-  } catch (err: any) {
+  } catch (err: unknown) {
     console.error("Upload API error:", err);
-    return NextResponse.json({ error: err.message || "Failed to upload image" }, { status: 500 });
+    return NextResponse.json({ error: err instanceof Error ? err.message : "Failed to upload image" }, { status: 500 });
   }
 }

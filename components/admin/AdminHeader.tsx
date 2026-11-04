@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { RefreshCw, LogOut, ExternalLink, ShieldCheck, Sparkles } from "lucide-react";
+import { RefreshCw, LogOut, ExternalLink, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface AdminHeaderProps {

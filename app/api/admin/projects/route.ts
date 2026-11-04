@@ -23,8 +23,8 @@ export async function POST(req: Request) {
     }
 
     return NextResponse.json({ message: "Project saved successfully", data: result.data });
-  } catch (err: any) {
-    return NextResponse.json({ error: err.message || "Failed to save project" }, { status: 500 });
+  } catch (err: unknown) {
+    return NextResponse.json({ error: err instanceof Error ? err.message : "Failed to save project" }, { status: 500 });
   }
 }
 
@@ -43,7 +43,7 @@ export async function DELETE(req: Request) {
     }
 
     return NextResponse.json({ message: "Project deleted successfully" });
-  } catch (err: any) {
-    return NextResponse.json({ error: err.message || "Failed to delete project" }, { status: 500 });
+  } catch (err: unknown) {
+    return NextResponse.json({ error: err instanceof Error ? err.message : "Failed to delete project" }, { status: 500 });
   }
 }

@@ -26,8 +26,8 @@ export async function PUT(req: Request) {
     }
 
     return NextResponse.json({ message: "Status updated successfully" });
-  } catch (err: any) {
-    return NextResponse.json({ error: err.message || "Failed to update inquiry status" }, { status: 500 });
+  } catch (err: unknown) {
+    return NextResponse.json({ error: err instanceof Error ? err.message : "Failed to update inquiry status" }, { status: 500 });
   }
 }
 
@@ -46,7 +46,7 @@ export async function DELETE(req: Request) {
     }
 
     return NextResponse.json({ message: "Inquiry deleted successfully" });
-  } catch (err: any) {
-    return NextResponse.json({ error: err.message || "Failed to delete inquiry" }, { status: 500 });
+  } catch (err: unknown) {
+    return NextResponse.json({ error: err instanceof Error ? err.message : "Failed to delete inquiry" }, { status: 500 });
   }
 }

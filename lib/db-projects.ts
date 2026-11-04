@@ -126,8 +126,8 @@ export async function saveProjectToSupabase(project: Partial<Project>): Promise<
       if (error) return { success: false, error: error.message };
       return { success: true, data: formatDbProjectToProject(data) };
     }
-  } catch (err: any) {
-    return { success: false, error: err.message || "Failed to save project to Supabase" };
+  } catch (err: unknown) {
+    return { success: false, error: err instanceof Error ? err.message : "Failed to save project to Supabase" };
   }
 }
 
@@ -140,7 +140,7 @@ export async function deleteProjectFromSupabase(slug: string): Promise<{ success
 
     if (error) return { success: false, error: error.message };
     return { success: true };
-  } catch (err: any) {
-    return { success: false, error: err.message || "Failed to delete project" };
+  } catch (err: unknown) {
+    return { success: false, error: err instanceof Error ? err.message : "Failed to delete project" };
   }
 }

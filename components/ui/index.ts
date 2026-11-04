@@ -9,3 +9,4 @@ export * from "./MarqueeTrack";
 export * from "./ChatBot";
 export * from "./SpotlightCard";
 export { default as AppointmentModal } from "./AppointmentModal";
+export { default as Crosshair } from "./Crosshair";

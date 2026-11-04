@@ -6,7 +6,7 @@ import Link from "next/link";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MagneticElement, SpotlightCard } from "@/components/ui";
-import { Sparkles, Bot, ArrowRight, MessageSquare, ShieldCheck, Award, Search, TrendingUp, Cpu, Zap } from "lucide-react";
+import { Bot, ArrowRight, MessageSquare, ShieldCheck, Award, Search, TrendingUp, Cpu, Zap } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -149,7 +149,7 @@ export default function AIEcomHero({ onBookClick, onWhatsAppClick }: AIEcomHeroP
               <ShieldCheck size={18} className="text-emerald-600 flex-shrink-0" /> <span className="text-green-600">১০০% Approval</span> না পাওয়া পর্যন্ত Final Payment নেই
             </span>
             <span className="flex items-center gap-2 text-slate-700 font-semibold">
-              <Award size={18} className="text-cyan-600 flex-shrink-0" /> <span className="text-red-500">Dr. Paul's</span> Website Partner
+              <Award size={18} className="text-cyan-600 flex-shrink-0" /> <span className="text-red-500">Dr. Paul&apos;s</span> Website Partner
             </span>
           </div>
         </div>

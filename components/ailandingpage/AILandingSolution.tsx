@@ -193,7 +193,7 @@ export default function AILandingSolution({ onBookClick }: { onBookClick?: () =>
             <div className="lg:col-span-6 w-full flex justify-center">
               <div className="relative w-full max-w-[480px] aspect-[4/3] rounded-2xl overflow-hidden shadow-xl border-4 border-white group bg-slate-100">
                 <Image 
-                  src="/travel/tea-garden-resort.jpg" 
+                  src="/travel/tea-garden-resort.jpg?v=2" 
                   alt="Luxury resort and mountain tour package preview" 
                   fill 
                   priority

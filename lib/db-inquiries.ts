@@ -24,8 +24,8 @@ export async function fetchInquiriesFromSupabase(): Promise<{ data: Inquiry[]; s
     }
 
     return { data: data || [], success: true };
-  } catch (err: any) {
-    return { data: [], success: false, error: err.message || "Failed to fetch inquiries" };
+  } catch (err: unknown) {
+    return { data: [], success: false, error: err instanceof Error ? err.message : "Failed to fetch inquiries" };
   }
 }
 
@@ -53,8 +53,8 @@ export async function insertInquiryToSupabase(inquiry: Omit<Inquiry, "id" | "sta
     }
 
     return { success: true, data };
-  } catch (err: any) {
-    return { success: false, error: err.message || "Failed to log inquiry into Supabase" };
+  } catch (err: unknown) {
+    return { success: false, error: err instanceof Error ? err.message : "Failed to log inquiry into Supabase" };
   }
 }
 
@@ -70,8 +70,8 @@ export async function updateInquiryStatusInSupabase(id: string, status: Inquiry[
     }
 
     return { success: true };
-  } catch (err: any) {
-    return { success: false, error: err.message || "Failed to update status" };
+  } catch (err: unknown) {
+    return { success: false, error: err instanceof Error ? err.message : "Failed to update status" };
   }
 }
 
@@ -87,7 +87,7 @@ export async function deleteInquiryFromSupabase(id: string): Promise<{ success: 
     }
 
     return { success: true };
-  } catch (err: any) {
-    return { success: false, error: err.message || "Failed to delete inquiry" };
+  } catch (err: unknown) {
+    return { success: false, error: err instanceof Error ? err.message : "Failed to delete inquiry" };
   }
 }

@@ -31,15 +31,6 @@ export default function AIEcomTimer({ className = "", size = "lg", onExpire }: A
       startTime = String(now);
     }
 
-    const elapsed = Math.floor((now - parseInt(startTime, 10)) / 1000);
-    const initial = Math.max(0, TOTAL - elapsed);
-    setTimeLeft(initial);
-
-    if (initial <= 0) {
-      onExpireRef.current?.();
-      return () => window.removeEventListener("stova_aiecom_booked_event", handleBooked);
-    }
-
     const timer = setInterval(() => {
       const curElapsed = Math.floor((Date.now() - parseInt(startTime!, 10)) / 1000);
       const remaining = Math.max(0, TOTAL - curElapsed);

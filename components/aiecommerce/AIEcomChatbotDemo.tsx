@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import {
   Bot,
   Sparkles,
@@ -8,7 +8,8 @@ import {
   Check,
   Zap,
   Star,
-  ShoppingBag
+  ShoppingBag,
+  X
 } from "lucide-react";
 
 interface Product {
@@ -125,6 +126,7 @@ export default function AIEcomChatbotDemo({ onClose }: AIEcomChatbotDemoProps = 
     }
   ]);
 
+  const msgIdCounter = useRef(3);
   const [inputVal, setInputVal] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [addedIds, setAddedIds] = useState<Record<string, boolean>>({});
@@ -185,7 +187,7 @@ export default function AIEcomChatbotDemo({ onClose }: AIEcomChatbotDemoProps = 
     }, 3000);
   };
 
-  const processAIResponse = (userText: string) => {
+  const processAIResponse = useCallback((userText: string) => {
     setIsTyping(true);
 
     setTimeout(() => {
@@ -215,7 +217,7 @@ export default function AIEcomChatbotDemo({ onClose }: AIEcomChatbotDemoProps = 
       setMessages((prev) => [
         ...prev,
         {
-          id: `ai-${Date.now()}`,
+          id: `ai-${++msgIdCounter.current}`,
           sender: "ai",
           text: replyText,
           timestamp: "Just now",
@@ -224,14 +226,14 @@ export default function AIEcomChatbotDemo({ onClose }: AIEcomChatbotDemoProps = 
       ]);
       setIsTyping(false);
     }, 850);
-  };
+  }, []);
 
-  const handleSend = (textToSend?: string) => {
+  const handleSend = useCallback((textToSend?: string) => {
     const text = textToSend || inputVal;
     if (!text.trim() || isTyping) return;
 
     const userMsg: Message = {
-      id: `user-${Date.now()}`,
+      id: `user-${++msgIdCounter.current}`,
       sender: "user",
       text: text.trim(),
       timestamp: "Just now"
@@ -240,7 +242,7 @@ export default function AIEcomChatbotDemo({ onClose }: AIEcomChatbotDemoProps = 
     setMessages((prev) => [...prev, userMsg]);
     if (!textToSend) setInputVal("");
     processAIResponse(text.trim());
-  };
+  }, [inputVal, isTyping, processAIResponse]);
 
   return (
     <div className="w-full rounded-t-3xl sm:rounded-3xl border-0 sm:border border-slate-200 bg-white shadow-[0_25px_70px_rgba(0,0,0,0.15)] overflow-hidden flex flex-col h-[78svh] sm:h-[560px] max-h-[85svh] sm:max-h-[82vh]">
@@ -257,10 +259,19 @@ export default function AIEcomChatbotDemo({ onClose }: AIEcomChatbotDemoProps = 
             </h3>
             <p className="text-[11px] sm:text-xs text-emerald-600 font-ui flex items-center gap-1.5 font-semibold">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
-              Active & Live 24/7
+              Active &amp; Live 24/7
             </p>
           </div>
         </div>
+        {onClose && (
+          <button
+            onClick={onClose}
+            className="p-1.5 rounded-lg text-slate-500 hover:text-slate-800 hover:bg-slate-200/60 transition cursor-pointer"
+            aria-label="Close"
+          >
+            <X size={18} />
+          </button>
+        )}
       </div>
 
       {/* 2️⃣ Chat Message Area - Isolated Scrollable Container */}

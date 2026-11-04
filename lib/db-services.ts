@@ -233,8 +233,8 @@ export async function saveServiceToSupabase(service: ServiceItem): Promise<{ suc
         },
       };
     }
-  } catch (err: any) {
-    return { success: false, error: err.message || "Failed to save service" };
+  } catch (err: unknown) {
+    return { success: false, error: err instanceof Error ? err.message : "Failed to save service" };
   }
 }
 
@@ -247,7 +247,7 @@ export async function deleteServiceFromSupabase(serviceId: string): Promise<{ su
 
     if (error) return { success: false, error: error.message };
     return { success: true };
-  } catch (err: any) {
-    return { success: false, error: err.message || "Failed to delete service" };
+  } catch (err: unknown) {
+    return { success: false, error: err instanceof Error ? err.message : "Failed to delete service" };
   }
 }

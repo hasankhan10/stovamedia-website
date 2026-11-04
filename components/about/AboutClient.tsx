@@ -2,13 +2,11 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { 
   ShieldCheck, 
   Zap, 
   CheckCircle2, 
   Calendar, 
-  MessageSquare, 
   ArrowRight, 
   Code2, 
   Users, 
@@ -16,7 +14,8 @@ import {
   Linkedin,
   Terminal,
   Server,
-  Layers
+  Layers,
+  MessageSquare
 } from "lucide-react";
 import { AppointmentModal, MagneticElement } from "@/components/ui";
 import TiltCard from "@/components/animations/TiltCard";
@@ -26,38 +25,22 @@ const stats = [
   { 
     value: "100%", 
     label: "In-House Code", 
-    description: (
-      <>
-        <span className="text-rose-600 font-semibold">Zero outsourcing</span> or white labeling
-      </>
-    ) 
+    description: "Zero outsourcing or third-party white labeling" 
   },
   { 
     value: "0%", 
     label: "Template Usage", 
-    description: (
-      <>
-        <span className="text-emerald-700 font-bold">100% bespoke</span> architecture
-      </>
-    ) 
+    description: "100% bespoke Next.js and backend engineering" 
   },
   { 
     value: "< 50ms", 
     label: "Server TTFB", 
-    description: (
-      <>
-        <span className="text-blue-600 font-semibold">Sub-second</span> edge CDN delivery
-      </>
-    ) 
+    description: "Sub-second edge CDN and database query execution" 
   },
   { 
     value: "24/7", 
     label: "AI Autopilot", 
-    description: (
-      <>
-        <span className="text-cyan-700 font-semibold">Autonomous lead</span> & workflow sync
-      </>
-    ) 
+    description: "Autonomous lead qualification and CRM operations" 
   },
 ];
 
@@ -65,46 +48,30 @@ const values = [
   {
     icon: Code2,
     title: "100% Custom Engineering",
-    description: (
-      <>
-        We don&apos;t use <span className="text-rose-600 font-semibold">slow WordPress themes</span>, generic page builders, or <span className="text-rose-600 font-semibold">cookie-cutter templates</span>. Every line of code is purpose-built for <span className="text-blue-600 font-semibold">extreme speed</span>, <span className="text-slate-900 font-semibold">bank-grade security</span>, and <span className="text-emerald-700 font-bold">effortless scalability</span>.
-      </>
-    ),
+    description: "We don't use slow WordPress themes, generic page builders, or cookie-cutter templates. Every line of code is purpose-built for extreme speed, bank-grade security, and effortless scalability.",
     badge: "Engineering Standard",
-    badgeColor: "bg-emerald-50 text-emerald-700 border-emerald-200",
+    badgeColor: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
   },
   {
     icon: Users,
     title: "Direct Architect Access",
-    description: (
-      <>
-        <span className="text-rose-600 font-semibold">No middlemen</span>, no non-technical project managers. You work directly with the <span className="text-slate-900 font-bold">Lead Engineers</span> building your software, guaranteeing <span className="text-emerald-700 font-semibold">zero miscommunication</span>.
-      </>
-    ),
-    badge: "Frictionless Collaboration",
-    badgeColor: "bg-indigo-50 text-indigo-700 border-indigo-200",
+    description: "No middlemen and no non-technical account managers. You collaborate directly with the Senior Software Architects building your platform, guaranteeing clear technical execution.",
+    badge: "Zero Friction",
+    badgeColor: "bg-violet-500/10 text-violet-400 border-violet-500/20",
   },
   {
     icon: ShieldCheck,
     title: "Total IP & Code Ownership",
-    description: (
-      <>
-        You own <span className="text-emerald-700 font-bold">100% of the intellectual property</span>, git repository, and cloud infrastructure from day one. <span className="text-rose-600 font-semibold">Zero vendor lock-in</span> or proprietary traps.
-      </>
-    ),
-    badge: "Complete Control",
-    badgeColor: "bg-cyan-50 text-cyan-700 border-cyan-200",
+    description: "You own 100% of the intellectual property, git repository, database schemas, and cloud deployment pipelines upon completion. Zero proprietary vendor lock-in.",
+    badge: "Complete Ownership",
+    badgeColor: "bg-cyan-500/10 text-cyan-400 border-cyan-500/20",
   },
   {
     icon: Zap,
     title: "Performance & Conversion First",
-    description: (
-      <>
-        Every interaction, animation, and database query is engineered to <span className="text-emerald-700 font-bold">maximize conversion rates</span> and earn <span className="text-emerald-700 font-bold">top-tier Google search rankings</span>.
-      </>
-    ),
+    description: "Every page interaction, server query, and user workflow is rigorously optimized to maximize conversion rates, user retention, and organic search ranking authority.",
     badge: "Revenue Driven",
-    badgeColor: "bg-amber-50 text-amber-700 border-amber-200",
+    badgeColor: "bg-amber-500/10 text-amber-400 border-amber-500/20",
   },
 ];
 
@@ -123,49 +90,62 @@ export default function AboutClient() {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
-    <div className="w-full bg-white relative">
+    <div className="w-full bg-[#07080C] text-white relative">
       {/* 1. Hero Header */}
-      <section className="relative pt-28 sm:pt-36 pb-10 sm:pb-14 px-4 sm:px-6 md:px-10 lg:px-16 overflow-hidden bg-white">
-        {/* Ambient background glow */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] max-w-[700px] h-[300px] sm:h-[400px] bg-gradient-to-tr from-indigo-100/70 via-cyan-100/40 to-blue-50/30 rounded-full blur-[90px] sm:blur-[120px] pointer-events-none -z-10" />
+      <section className="relative pt-28 sm:pt-36 md:pt-44 pb-14 sm:pb-20 px-4 sm:px-6 md:px-10 lg:px-16 overflow-hidden border-b border-white/[0.08]">
+        {/* 🌌 Celestial Radiant Dome Glow Effect */}
+        <div 
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-[90vw] max-w-[1200px] h-[480px] pointer-events-none z-0"
+          style={{
+            background: 'radial-gradient(ellipse 70% 50% at 50% 0%, rgba(139, 92, 246, 0.35) 0%, rgba(79, 70, 229, 0.2) 45%, transparent 75%)',
+            filter: 'blur(50px)'
+          }}
+        />
 
-        <div className="max-w-[1200px] mx-auto text-center">
+        {/* 🔮 Bottom Ambient Glow Blur Effect */}
+        <div 
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[90vw] max-w-[850px] h-[280px] pointer-events-none z-0"
+          style={{
+            background: 'radial-gradient(ellipse 70% 60% at 50% 100%, rgba(139, 92, 246, 0.4) 0%, rgba(99, 102, 241, 0.2) 45%, transparent 75%)',
+            filter: 'blur(60px)'
+          }}
+        />
+
+        {/* Precision Grid */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
+
+        <div className="max-w-[1200px] mx-auto text-center relative z-10">
           {/* Eyebrow Pill */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700 text-xs sm:text-sm font-semibold mb-4 sm:mb-5 shadow-xs">
-            <Layers size={14} className="text-indigo-600" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-violet-500/25 text-violet-300 text-xs font-medium backdrop-blur-xl mb-6 shadow-[0_0_20px_rgba(139,92,246,0.15)]">
+            <Layers size={14} className="text-violet-400" />
             <span>About Stova Media Studio</span>
           </div>
 
-          {/* Monumental Headline */}
-          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-extrabold text-slate-900 tracking-tight leading-[1.06] max-w-5xl mx-auto mb-6 sm:mb-8">
-            Engineered by Architects.{" "}
-            <span className="bg-gradient-to-r from-indigo-600 via-indigo-700 to-cyan-600 bg-clip-text text-transparent underline decoration-indigo-300/40">
-              Built for Revenue.
-            </span>
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium tracking-[-0.03em] text-slate-100 leading-[1.04] max-w-4xl mx-auto mb-6">
+            Engineered by Architects. Built for Revenue.
           </h1>
 
-          {/* Clean narrative */}
-          <p className="text-slate-600 text-lg sm:text-xl md:text-2xl font-light max-w-4xl mx-auto leading-relaxed mb-8 sm:mb-12">
-            Stova Media is recognized as the <strong className="text-slate-900 font-semibold">best AI agent provider</strong> and premier <strong className="text-slate-900 font-semibold">AI-powered software company</strong> based in Kolkata, India. We replace <span className="text-rose-600 font-semibold">agency bureaucracy</span> with senior technical craftsmanship to deliver <span className="text-blue-600 font-semibold">high-speed web apps</span>, <span className="text-indigo-700 font-semibold">custom software platforms</span>, and <span className="text-cyan-700 font-semibold">autonomous AI automation</span>.
+          <p className="text-slate-400 text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mb-6 font-normal">
+            Stova Media is recognized as an advanced AI agent provider and software engineering studio based in Kolkata. We replace agency bureaucracy with senior technical craftsmanship to deliver sub-second web platforms, enterprise SaaS, and 24/7 autonomous AI systems.
           </p>
 
-          {/* Animated Kolkata AI Studio Terminal Motion Graphic */}
+          {/* Animated Kolkata AI Studio Terminal Graphic */}
           <TerminalMotionGraphic />
 
-          {/* Key Stat Badges */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 max-w-5xl mx-auto">
+          {/* Key Stat Cards */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 max-w-5xl mx-auto mt-10">
             {stats.map((stat) => (
               <div
                 key={stat.label}
-                className="p-4 sm:p-5 rounded-2xl bg-slate-50 border border-slate-200/80 text-left hover:border-indigo-300 transition-colors shadow-2xs"
+                className="p-4 sm:p-5 rounded-xl bg-white/[0.03] border border-white/[0.08] text-left hover:border-violet-500/40 backdrop-blur-xl transition-colors shadow-[0_4px_20px_rgba(0,0,0,0.3)]"
               >
-                <div className="text-2xl sm:text-3xl font-extrabold font-display text-slate-900 mb-0.5">
+                <div className="text-2xl sm:text-3xl font-medium text-slate-100 mb-0.5 font-display">
                   {stat.value}
                 </div>
-                <div className="text-xs sm:text-sm font-bold text-indigo-700 mb-0.5 font-ui">
+                <div className="text-xs sm:text-sm font-semibold text-violet-300 mb-1">
                   {stat.label}
                 </div>
-                <div className="text-[11px] sm:text-xs text-slate-500 leading-normal">
+                <div className="text-[11px] sm:text-xs text-slate-400 leading-normal">
                   {stat.description}
                 </div>
               </div>
@@ -175,18 +155,18 @@ export default function AboutClient() {
       </section>
 
       {/* 2. Core Engineering Standards (Manifesto) */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 md:px-10 lg:px-16 bg-slate-50 border-y border-slate-200/80">
-        <div className="max-w-[1200px] mx-auto">
-          <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-14">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200 text-slate-700 text-xs sm:text-sm font-semibold uppercase tracking-wider mb-3 shadow-xs">
-              <Award size={13} className="text-indigo-600" />
+      <section className="py-16 sm:py-24 px-4 sm:px-6 md:px-10 lg:px-16 border-b border-white/[0.08] relative">
+        <div className="max-w-[1200px] mx-auto relative z-10">
+          <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-violet-500/25 text-violet-300 text-xs font-medium backdrop-blur-xl mb-3">
+              <Award size={13} className="text-violet-400" />
               <span>Our Code of Engineering</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-slate-900 tracking-tight mb-3">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-[-0.03em] text-slate-100 leading-[1.05] mb-3">
               How We Build Differently
             </h2>
-            <p className="text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed">
-              We operate under four foundational principles that <span className="text-emerald-700 font-bold">protect your investment</span> and <span className="text-indigo-600 font-semibold">guarantee enterprise software</span>.
+            <p className="text-slate-400 text-base sm:text-lg leading-relaxed">
+              We operate under four foundational principles that eliminate technical debt, protect your investment, and ensure enduring software value.
             </p>
           </div>
 
@@ -195,21 +175,21 @@ export default function AboutClient() {
             {values.map((item) => {
               const Icon = item.icon;
               return (
-                <TiltCard key={item.title} maxTilt={4} className="h-full">
-                  <div className="h-full bg-white rounded-2xl p-6 sm:p-7 border border-slate-200/90 shadow-2xs hover:border-indigo-300 hover:shadow-xs transition-all flex flex-col justify-between">
+                <TiltCard key={item.title} maxTilt={3} className="h-full">
+                  <div className="h-full bg-gradient-to-b from-white/[0.04] to-white/[0.01] rounded-2xl p-6 sm:p-7 border border-white/[0.08] hover:border-violet-500/40 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.36)] transition-all flex flex-col justify-between">
                     <div>
                       <div className="flex items-center justify-between mb-4">
-                        <div className="w-10 h-10 rounded-xl bg-indigo-50 border border-indigo-100 text-indigo-600 flex items-center justify-center shadow-2xs">
+                        <div className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 text-violet-300 flex items-center justify-center">
                           <Icon size={19} />
                         </div>
-                        <span className={`px-2.5 py-0.5 rounded-full text-xs font-semibold border ${item.badgeColor}`}>
+                        <span className={`px-2.5 py-0.5 rounded-lg text-xs font-mono border ${item.badgeColor}`}>
                           {item.badge}
                         </span>
                       </div>
-                      <h3 className="text-lg sm:text-xl font-display font-bold text-slate-900 mb-2 tracking-tight">
+                      <h3 className="text-lg sm:text-xl font-medium text-slate-100 mb-2 tracking-tight">
                         {item.title}
                       </h3>
-                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                      <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
                         {item.description}
                       </p>
                     </div>
@@ -222,13 +202,13 @@ export default function AboutClient() {
       </section>
 
       {/* 3. Founder & Leadership Section */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 md:px-10 lg:px-16 bg-white">
-        <div className="max-w-[1100px] mx-auto">
-          <TiltCard maxTilt={3}>
-            <div className="bg-gradient-to-b from-white to-slate-50 rounded-2xl sm:rounded-3xl p-6 sm:p-10 border border-slate-200/90 shadow-[0_10px_35px_rgba(15,23,42,0.04)] grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 items-center">
+      <section className="py-16 sm:py-24 px-4 sm:px-6 md:px-10 lg:px-16 border-b border-white/[0.08] relative">
+        <div className="max-w-[1100px] mx-auto relative z-10">
+          <TiltCard maxTilt={2}>
+            <div className="bg-gradient-to-b from-white/[0.05] to-white/[0.02] rounded-2xl sm:rounded-3xl p-6 sm:p-10 border border-white/[0.08] backdrop-blur-xl shadow-[0_12px_44px_rgba(0,0,0,0.4)] grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 items-center">
               {/* Founder Image */}
               <div className="lg:col-span-4 flex flex-col items-center text-center">
-                <div className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-2xl overflow-hidden border-2 border-indigo-200/80 shadow-xs mb-3 bg-slate-100">
+                <div className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-2xl overflow-hidden border border-violet-500/30 shadow-[0_0_25px_rgba(139,92,246,0.2)] mb-3 bg-white/[0.04]">
                   <Image
                     src="/founder.jpeg"
                     alt="Mehedi Hasan"
@@ -236,46 +216,46 @@ export default function AboutClient() {
                     className="object-cover"
                   />
                 </div>
-                <h3 className="text-lg sm:text-xl font-display font-bold text-slate-900">Mehedi Hasan</h3>
-                <span className="text-[11px] sm:text-xs font-semibold text-indigo-600 uppercase tracking-wider font-ui mt-0.5">
+                <h3 className="text-lg sm:text-xl font-medium text-slate-100">Mehedi Hasan</h3>
+                <span className="text-xs font-mono text-violet-400 mt-0.5">
                   Founder &amp; Lead Software Architect
                 </span>
                 <a
                   href="https://www.linkedin.com/in/mehedi-hasan110/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-2.5 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 hover:bg-indigo-50 border border-slate-200 text-slate-700 hover:text-indigo-700 text-xs font-semibold transition-colors"
+                  className="mt-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 text-slate-300 hover:text-white text-xs font-medium transition-colors"
                 >
-                  <Linkedin size={12} className="text-indigo-600" />
+                  <Linkedin size={13} className="text-violet-400" />
                   <span>Connect on LinkedIn</span>
                 </a>
               </div>
 
               {/* Founder Manifesto */}
               <div className="lg:col-span-8 flex flex-col justify-center">
-                <div className="inline-flex items-center gap-1.5 text-indigo-600 text-[11px] sm:text-xs font-bold uppercase tracking-widest mb-2">
+                <div className="inline-flex items-center gap-1.5 text-violet-400 text-xs font-mono uppercase tracking-widest mb-3">
                   <Terminal size={14} />
-                  <span>Founder Note</span>
+                  <span>Founder Engineering Note</span>
                 </div>
-                <blockquote className="text-lg sm:text-xl md:text-2xl font-display text-slate-800 leading-snug italic mb-4">
-                  &ldquo;Software shouldn&apos;t be an unpredictable black box. When you build with Stova Media, you get <span className="text-slate-900 font-semibold not-italic">clean, maintainable architecture</span> built by engineers who genuinely care about your <span className="text-emerald-700 font-bold not-italic">business revenue growth</span>.&rdquo;
+                <blockquote className="text-lg sm:text-xl md:text-2xl text-slate-200 leading-snug italic mb-4">
+                  &ldquo;Software shouldn&apos;t be an unpredictable black box. When you build with Stova Media, you get clean, maintainable architecture built by engineers who genuinely care about your business growth and operational velocity.&rdquo;
                 </blockquote>
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-4">
-                  Based in Kolkata, Mehedi Hasan leads technical architecture across <span className="text-indigo-700 font-semibold">custom Next.js applications</span>, <span className="text-blue-600 font-semibold">healthcare SaaS systems</span>, and <span className="text-cyan-700 font-semibold">autonomous AI agents</span> for clients locally and internationally across the <span className="text-slate-900 font-semibold">USA, UK, and UAE</span>.
+                <p className="text-slate-400 text-sm sm:text-base leading-relaxed mb-5">
+                  Based in Kolkata, Mehedi Hasan leads technical architecture across custom Next.js applications, healthcare SaaS platforms, and autonomous AI agents for clients locally and globally across the USA, UK, and UAE.
                 </p>
 
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 text-xs font-mono text-slate-600 pt-3 border-t border-slate-200">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs font-mono text-slate-300 pt-4 border-t border-white/[0.08]">
                   <div className="flex items-center gap-1.5">
-                    <CheckCircle2 size={13} className="text-emerald-500 shrink-0" />
-                    <span>Next.js Expert</span>
+                    <CheckCircle2 size={13} className="text-emerald-400 shrink-0" />
+                    <span>Next.js Architecture</span>
                   </div>
                   <div className="flex items-center gap-1.5">
-                    <CheckCircle2 size={13} className="text-emerald-500 shrink-0" />
-                    <span>Database Architect</span>
+                    <CheckCircle2 size={13} className="text-emerald-400 shrink-0" />
+                    <span>PostgreSQL &amp; Cloud</span>
                   </div>
                   <div className="flex items-center gap-1.5">
-                    <CheckCircle2 size={13} className="text-emerald-500 shrink-0" />
-                    <span>AI Workflow Engineer</span>
+                    <CheckCircle2 size={13} className="text-emerald-400 shrink-0" />
+                    <span>Autonomous AI Workflows</span>
                   </div>
                 </div>
               </div>
@@ -285,24 +265,24 @@ export default function AboutClient() {
       </section>
 
       {/* 4. Technology Stack */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 md:px-10 lg:px-16 bg-slate-50 border-t border-slate-200/80">
-        <div className="max-w-[1100px] mx-auto text-center">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white border border-slate-200 text-slate-700 text-xs sm:text-sm font-semibold uppercase tracking-wider mb-3 shadow-xs">
-            <Server size={13} className="text-indigo-600" />
-            <span>Modern Stack</span>
+      <section className="py-16 sm:py-24 px-4 sm:px-6 md:px-10 lg:px-16 border-b border-white/[0.08] relative">
+        <div className="max-w-[1100px] mx-auto text-center relative z-10 flex flex-col items-center justify-center">
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-violet-500/25 text-violet-300 text-xs font-medium backdrop-blur-xl mb-3">
+            <Server size={13} className="text-violet-400" />
+            <span>Modern Production Stack</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-slate-900 tracking-tight mb-8">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-[-0.03em] text-slate-100 leading-[1.05] mb-8 text-center max-w-3xl mx-auto">
             The Battle-Tested Technologies We Build With
           </h2>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3.5">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 w-full">
             {techStack.map((tech) => (
               <div
                 key={tech.name}
-                className="p-3.5 rounded-xl bg-white border border-slate-200/80 text-left hover:border-indigo-300 transition-colors shadow-2xs"
+                className="p-4 rounded-xl bg-white/[0.03] border border-white/[0.08] text-left hover:border-violet-500/40 backdrop-blur-xl transition-colors shadow-[0_4px_16px_rgba(0,0,0,0.3)]"
               >
-                <div className="font-bold text-xs sm:text-sm text-slate-900">{tech.name}</div>
-                <div className="text-[10px] sm:text-[11px] text-slate-500 font-mono mt-0.5">{tech.category}</div>
+                <div className="font-medium text-sm text-slate-100">{tech.name}</div>
+                <div className="text-[11px] text-slate-400 font-mono mt-0.5">{tech.category}</div>
               </div>
             ))}
           </div>
@@ -310,21 +290,30 @@ export default function AboutClient() {
       </section>
 
       {/* 5. Bottom Call to Action */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 md:px-10 lg:px-16 bg-white relative overflow-hidden">
-        <div className="max-w-[1000px] mx-auto text-center">
-          <div className="bg-gradient-to-b from-white to-slate-50 rounded-2xl sm:rounded-3xl p-8 sm:p-14 border border-slate-200/90 shadow-[0_15px_40px_rgba(15,23,42,0.05)] flex flex-col items-center">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-slate-900 tracking-tight mb-4">
-              Have an Idea or <span className="text-indigo-600 font-bold">Existing System to Upgrade</span>?
+      <section className="py-16 sm:py-24 px-4 sm:px-6 md:px-10 lg:px-16 relative overflow-hidden">
+        {/* Ambient Glow */}
+        <div 
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[90vw] max-w-[850px] h-[300px] pointer-events-none z-0"
+          style={{
+            background: 'radial-gradient(ellipse 70% 60% at 50% 100%, rgba(139, 92, 246, 0.35) 0%, rgba(99, 102, 241, 0.15) 50%, transparent 75%)',
+            filter: 'blur(60px)'
+          }}
+        />
+
+        <div className="max-w-[1000px] mx-auto text-center relative z-10">
+          <div className="bg-gradient-to-b from-white/[0.05] to-white/[0.02] rounded-2xl sm:rounded-3xl p-8 sm:p-14 border border-white/[0.08] backdrop-blur-xl shadow-[0_15px_40px_rgba(0,0,0,0.45)] flex flex-col items-center">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-[-0.03em] text-slate-100 leading-[1.05] mb-4">
+              Have an Idea or Existing System to Upgrade?
             </h2>
-            <p className="text-slate-600 text-sm sm:text-base md:text-lg max-w-xl mb-8 leading-relaxed">
-              Book a direct consultation with our <span className="text-slate-900 font-semibold">Lead Architect</span> and get an honest, actionable technical proposal within <span className="text-emerald-700 font-bold">4 hours</span>.
+            <p className="text-slate-400 text-sm sm:text-base md:text-lg max-w-xl mb-8 leading-relaxed">
+              Book a direct strategy consultation with our Lead Architect to get an actionable technical roadmap and fixed milestone proposal within 4 hours.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-              <MagneticElement strength={0.3}>
+              <MagneticElement strength={0.2}>
                 <button
                   onClick={() => setModalOpen(true)}
-                  className="px-7 sm:px-8 py-3.5 rounded-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs sm:text-sm tracking-wide shadow-sm shadow-indigo-600/30 hover:shadow-indigo-600/40 transition-all flex items-center justify-center gap-2 active:scale-[0.98] cursor-pointer"
+                  className="w-full sm:w-auto px-7 sm:px-8 py-3.5 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white font-medium text-xs sm:text-sm shadow-[0_0_24px_rgba(139,92,246,0.35)] transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-[0.98]"
                 >
                   <Calendar size={15} />
                   <span>Book Free Consultation</span>
@@ -332,15 +321,15 @@ export default function AboutClient() {
                 </button>
               </MagneticElement>
 
-              <MagneticElement strength={0.3}>
+              <MagneticElement strength={0.2}>
                 <a
                   href="https://wa.me/919432053261?text=Hello%20Stova%20Media,%20I%20would%20like%20to%20discuss%20a%20project"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-6 sm:px-7 py-3.5 rounded-full bg-emerald-50 hover:bg-emerald-100/80 border border-emerald-200 text-emerald-700 font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto px-6 sm:px-7 py-3.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 text-slate-200 hover:text-white font-medium text-xs sm:text-sm transition-all flex items-center justify-center gap-2"
                 >
                   <MessageSquare size={15} />
-                  <span>WhatsApp Direct</span>
+                  <span>Direct Inquiry</span>
                 </a>
               </MagneticElement>
             </div>

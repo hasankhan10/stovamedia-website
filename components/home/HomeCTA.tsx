@@ -1,89 +1,81 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { Calendar, MessageSquare, ShieldCheck, Sparkles, Clock, ArrowRight } from "lucide-react";
+import { ArrowRight, Clock, ShieldCheck, Cpu } from "lucide-react";
 import { AppointmentModal, MagneticElement } from "@/components/ui";
 
 export default function HomeCTA() {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
-    <section id="contact" className="py-20 sm:py-28 md:py-36 px-4 sm:px-6 md:px-10 lg:px-16 bg-white relative overflow-hidden">
-      {/* Background Soft Ambient Light Halo */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] max-w-[900px] h-[350px] sm:h-[500px] bg-gradient-to-tr from-indigo-100/70 via-cyan-100/50 to-blue-50/30 rounded-full blur-[100px] sm:blur-[140px] pointer-events-none -z-10" />
+    <section id="contact" className="py-24 sm:py-36 px-4 sm:px-6 lg:px-8 bg-[#07080C] text-white relative overflow-hidden border-t border-white/[0.08]">
+      {/* 🌌 Radiant Ambient Dome Glow Effect (Matching the reference screenshot) */}
+      <div 
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] max-w-[900px] h-[450px] pointer-events-none -z-10"
+        style={{
+          background: 'radial-gradient(circle at center, rgba(139, 92, 246, 0.25) 0%, rgba(79, 70, 229, 0.15) 45%, transparent 75%)',
+          filter: 'blur(100px)'
+        }}
+      />
 
-      <div className="max-w-[1200px] mx-auto">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.98, y: 20 }}
-          whileInView={{ opacity: 1, scale: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="relative bg-gradient-to-b from-white to-slate-50/90 rounded-2xl sm:rounded-[36px] p-6 sm:p-12 md:p-16 border border-slate-200/90 shadow-[0_20px_50px_rgba(15,23,42,0.06)] text-center flex flex-col items-center overflow-hidden"
-        >
+      <div className="max-w-4xl mx-auto text-center relative z-10">
+        <div className="rounded-3xl border border-white/10 hover:border-violet-500/30 bg-gradient-to-b from-white/[0.06] to-white/[0.01] backdrop-blur-2xl p-8 sm:p-16 shadow-[0_20px_60px_rgba(0,0,0,0.6)] transition-all duration-300">
           {/* Top Pill */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs sm:text-sm font-semibold mb-6 sm:mb-8 shadow-xs">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span>Limited Monthly Intake · Accepting Q2/Q3 Projects</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-violet-500/25 text-violet-300 text-xs font-medium mb-6 backdrop-blur-xl">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            <span>Accepting select client builds</span>
           </div>
 
           {/* Main Headline */}
-          <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-extrabold text-slate-900 tracking-tight leading-[1.1] max-w-3xl mb-5 sm:mb-6">
-            Ready to Build Software That{" "}
-            <span className="text-emerald-600 font-bold underline decoration-emerald-500/40 decoration-wavy decoration-1 underline-offset-8">
-              Scales Your Revenue?
-            </span>
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-medium tracking-[-0.03em] text-slate-100 leading-[1.05] mb-4">
+            Ready to Scale Your Software?
           </h2>
 
-          <p className="text-slate-600 text-sm sm:text-base md:text-lg font-light max-w-2xl leading-relaxed mb-8 sm:mb-10">
-            <span className="text-rose-600 font-semibold">No endless sales pitches</span>, <span className="text-rose-600 font-semibold">no junior handoffs</span>. Talk directly with our <span className="text-blue-600 font-semibold">lead technical architect</span> and get a crystal-clear execution roadmap within <span className="text-emerald-700 font-bold">4 hours</span>.
+          <p className="text-slate-400 text-base sm:text-lg font-normal max-w-xl mx-auto leading-relaxed mb-9">
+            Consult directly with our lead technical architect and receive a full feasibility roadmap within 4 hours.
           </p>
 
-          {/* Dual Action Buttons */}
-          <div className="flex flex-col sm:flex-row items-center gap-3.5 sm:gap-4 w-full sm:w-auto mb-10 sm:mb-12">
-            <MagneticElement strength={0.3}>
+          {/* Action Buttons: Medium Corner Radius (rounded-xl) */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+            <MagneticElement strength={0.2}>
               <button
                 onClick={() => setModalOpen(true)}
-                className="w-full sm:w-auto px-8 sm:px-9 py-4 rounded-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm sm:text-base tracking-wide shadow-[0_8px_25px_rgba(79,70,229,0.3)] hover:shadow-[0_12px_30px_rgba(79,70,229,0.4)] transition-all duration-200 flex items-center justify-center gap-2.5 active:scale-[0.98] cursor-pointer"
+                className="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white font-medium text-sm transition-all duration-200 flex items-center justify-center gap-2.5 cursor-pointer shadow-[0_0_28px_rgba(139,92,246,0.4)] active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-violet-400"
               >
-                <Calendar size={18} />
-                <span>Book Strategy Consultation</span>
-                <ArrowRight size={18} />
+                <span>Book strategy consultation</span>
+                <ArrowRight size={16} />
               </button>
             </MagneticElement>
 
-            <MagneticElement strength={0.3}>
+            <MagneticElement strength={0.2}>
               <a
-                href="https://wa.me/919432053261?text=Hello%20Stova%20Media,%20I%20want%20to%20discuss%20a%20project"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto px-7 sm:px-8 py-4 rounded-full bg-emerald-50 hover:bg-emerald-100/80 border border-emerald-200 text-emerald-700 font-bold text-sm sm:text-base transition-all duration-200 flex items-center justify-center gap-2"
+                href="#work"
+                className="w-full sm:w-auto px-7 py-4 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 text-slate-200 font-medium text-sm transition-colors duration-150 flex items-center justify-center gap-2 backdrop-blur-md focus-visible:outline-2 focus-visible:outline-white/40"
               >
-                <MessageSquare size={18} />
-                <span>Chat on WhatsApp</span>
+                <span>Explore client case studies</span>
               </a>
             </MagneticElement>
           </div>
 
-          {/* Trust Guarantees */}
-          <div className="pt-6 sm:pt-8 border-t border-slate-200/80 w-full flex flex-wrap justify-center items-center gap-4 sm:gap-8 text-xs sm:text-sm font-semibold text-slate-500">
-            <div className="flex items-center gap-2">
-              <Clock size={15} className="text-indigo-600" />
-              <span>4-Hour Feasibility Response</span>
+          {/* Trust Telemetry Points */}
+          <div className="pt-8 border-t border-white/[0.08] flex flex-wrap justify-center items-center gap-6 sm:gap-10 text-xs font-mono text-slate-400">
+            <div className="flex items-center gap-1.5">
+              <Clock size={14} className="text-violet-400" />
+              <span>4-hour feasibility response</span>
             </div>
-            <div className="flex items-center gap-2">
-              <ShieldCheck size={15} className="text-emerald-600" />
-              <span>100% IP Ownership</span>
+            <div className="flex items-center gap-1.5">
+              <ShieldCheck size={14} className="text-emerald-400" />
+              <span>100% Git code ownership</span>
             </div>
-            <div className="flex items-center gap-2">
-              <Sparkles size={15} className="text-amber-500" />
-              <span>100% Custom Architecture</span>
+            <div className="flex items-center gap-1.5">
+              <Cpu size={14} className="text-indigo-400" />
+              <span>Zero third-party templates</span>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
 
-      {/* Appointment / Booking Modal */}
+      {/* Appointment Modal */}
       <AppointmentModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </section>
   );

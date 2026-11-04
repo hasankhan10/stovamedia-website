@@ -52,12 +52,6 @@ export default function AIEcommerceLayout({
 }) {
   return (
     <>
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@300;400;500;600;700;800&family=Hind+Siliguri:wght@300;400;500;600;700&family=Noto+Sans+Bengali:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet"
-      />
       <div
         className={`${hindSiliguri.variable} ${anekBangla.variable} ${notoSansBengali.variable} font-['Hind_Siliguri',sans-serif] min-h-screen bg-white text-slate-900 selection:bg-indigo-500 selection:text-white`}
       >

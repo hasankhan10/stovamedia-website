@@ -48,7 +48,7 @@ export async function loginAdminWithSupabase(
     }
 
     return { success: false, error: error?.message || "Invalid admin credentials" };
-  } catch (err: any) {
+  } catch (err: unknown) {
     if (cleanEmail === DEFAULT_ADMIN_EMAIL && cleanPass === DEFAULT_ADMIN_PASS) {
       if (typeof window !== "undefined") {
         localStorage.setItem(
@@ -62,7 +62,7 @@ export async function loginAdminWithSupabase(
       }
       return { success: true };
     }
-    return { success: false, error: err?.message || "Authentication failed" };
+    return { success: false, error: err instanceof Error ? err.message : "Authentication failed" };
   }
 }
 

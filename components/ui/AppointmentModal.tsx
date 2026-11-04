@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, CheckCircle2, MessageSquare, Calendar, Sparkles } from "lucide-react";
+import { X, CheckCircle2, MessageSquare, Calendar, Layers } from "lucide-react";
 import { MagneticElement } from "./MagneticElement";
 
 interface AppointmentModalProps {
@@ -169,7 +169,7 @@ export default function AppointmentModal({
               /* Form State */
               <div className="p-6 sm:p-8 md:p-10">
                 <div className="flex items-center gap-2 text-indigo-600 font-semibold text-xs uppercase tracking-wider mb-2">
-                  <Sparkles size={15} />
+                  <Layers size={15} />
                   <span>Free Architecture &amp; Feasibility Strategy</span>
                 </div>
                 <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 font-display tracking-tight mb-2">

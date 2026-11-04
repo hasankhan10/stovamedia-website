@@ -23,8 +23,8 @@ export async function POST(req: Request) {
     }
 
     return NextResponse.json({ message: "Service saved successfully", data: result.data });
-  } catch (err: any) {
-    return NextResponse.json({ error: err.message || "Failed to save service" }, { status: 500 });
+  } catch (err: unknown) {
+    return NextResponse.json({ error: err instanceof Error ? err.message : "Failed to save service" }, { status: 500 });
   }
 }
 
@@ -43,7 +43,7 @@ export async function DELETE(req: Request) {
     }
 
     return NextResponse.json({ message: "Service deleted successfully" });
-  } catch (err: any) {
-    return NextResponse.json({ error: err.message || "Failed to delete service" }, { status: 500 });
+  } catch (err: unknown) {
+    return NextResponse.json({ error: err instanceof Error ? err.message : "Failed to delete service" }, { status: 500 });
   }
 }

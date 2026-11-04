@@ -33,8 +33,6 @@ export default function AIEcomStickyMobileBar({ onBookClick, onWhatsAppClick }: 
 
     const startTime = sessionStorage.getItem("stova_aiecom_timer_10m") || String(Date.now());
     const start = parseInt(startTime, 10);
-    const initial = Math.max(0, 600 - Math.floor((Date.now() - start) / 1000));
-    setTimeLeft(initial);
 
     const timer = setInterval(() => {
       const rem = Math.max(0, 600 - Math.floor((Date.now() - start) / 1000));
