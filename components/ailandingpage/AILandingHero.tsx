@@ -6,7 +6,6 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
   Calendar,
-  MessageSquare,
   ShieldCheck,
   Award,
   Clock
@@ -16,12 +15,10 @@ gsap.registerPlugin(ScrollTrigger);
 
 interface AILandingHeroProps {
   onBookClick: () => void;
-  onWhatsAppClick?: (url: string) => void;
 }
 
-export default function AILandingHero({ onBookClick, onWhatsAppClick }: AILandingHeroProps) {
+export default function AILandingHero({ onBookClick }: AILandingHeroProps) {
   const sectionRef = useRef<HTMLElement>(null);
-  const whatsAppUrl = "https://wa.me/919432053261?text=Hello%20Stova%20Media,%20I%20want%20to%20claim%20a%20Free%20Consultation%20Slot%20for%20Travel%20Business";
 
   useEffect(() => {
     if (!sectionRef.current) return;
@@ -95,35 +92,16 @@ export default function AILandingHero({ onBookClick, onWhatsAppClick }: AILandin
             <span className="text-emerald-700 font-bold">24/7 AI Assistant</span> দিয়ে আপনার এজেন্সির বুকিং বাড়ান বহুগুণ।
           </p>
 
-          {/* CTA Buttons Row — Centered */}
-          <div className="hero-cta-node flex flex-col sm:flex-row items-center justify-center gap-3 w-full sm:w-auto mb-3">
+          {/* CTA Button — Centered */}
+          <div className="hero-cta-node flex items-center justify-center w-full sm:w-auto mb-3">
             {/* Primary Orange Button */}
             <button
               onClick={onBookClick}
-              className="w-full sm:w-auto px-7 py-3.5 sm:py-4 rounded-xl bg-gradient-to-r from-[#EA580C] to-[#F97316] hover:from-[#D94E07] hover:to-[#EA580C] text-white font-bold text-sm sm:text-base tracking-wide flex items-center justify-center gap-2.5 shadow-md shadow-orange-500/25 hover:shadow-lg hover:shadow-orange-500/35 active:scale-[0.98] transition cursor-pointer font-['Hind_Siliguri',sans-serif]"
+              className="w-full sm:w-auto px-8 py-3.5 sm:py-4 rounded-xl bg-gradient-to-r from-[#EA580C] to-[#F97316] hover:from-[#D94E07] hover:to-[#EA580C] text-white font-bold text-sm sm:text-base tracking-wide flex items-center justify-center gap-2.5 shadow-md shadow-orange-500/25 hover:shadow-lg hover:shadow-orange-500/35 active:scale-[0.98] transition cursor-pointer font-['Hind_Siliguri',sans-serif]"
             >
               <Calendar size={18} />
-              <span>আপনার স্লট বুক করুন →</span>
+              <span>আপনার ফ্রি স্লট বুক করুন →</span>
             </button>
-
-            {/* WhatsApp Button (NO phone number) */}
-            <a
-              href={whatsAppUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={(e) => {
-                if (onWhatsAppClick) {
-                  e.preventDefault();
-                  onWhatsAppClick(whatsAppUrl);
-                }
-              }}
-              className="w-full sm:w-auto px-6 py-3.5 sm:py-4 rounded-xl bg-white hover:bg-slate-50 border border-slate-200 text-slate-900 font-bold text-sm sm:text-base flex items-center justify-center gap-2.5 shadow-2xs hover:shadow-sm active:scale-[0.98] transition cursor-pointer font-['Hind_Siliguri',sans-serif]"
-            >
-              <div className="w-5 h-5 rounded-full bg-[#25D366] flex items-center justify-center text-white">
-                <MessageSquare size={12} className="fill-white" />
-              </div>
-              <span>WhatsApp-এ কথা বলুন</span>
-            </a>
           </div>
 
           {/* Urgency Badge — Centered */}

@@ -2,19 +2,15 @@
 
 import React from "react";
 import Image from "next/image";
-import { MessageSquare, Clock } from "lucide-react";
+import { Clock } from "lucide-react";
 
 interface AILandingBookingProps {
   onBookClick?: () => void;
-  onWhatsAppClick?: (url: string) => void;
 }
 
 export default function AILandingBooking({ 
-  onBookClick,
-  onWhatsAppClick 
+  onBookClick
 }: AILandingBookingProps) {
-  const whatsAppUrl = "https://wa.me/919432053261?text=Hello%20Stova%20Media,%20I%20want%20to%20claim%20a%20Free%20Consultation%20Slot%20for%20Travel%20Business";
-
   return (
     <section 
       id="booking"
@@ -57,36 +53,17 @@ export default function AILandingBooking({
           Competitor-কে আর একটাও <span className="underline decoration-red-400 underline-offset-4">lead দেবেন না !</span>
         </div>
 
-        {/* CTA Buttons Row — Centered in Middle */}
-        <div className="pt-2 w-full max-w-md mx-auto flex flex-col gap-3">
+        {/* CTA Button — Centered in Middle */}
+        <div className="pt-2 w-full max-w-md mx-auto">
           {/* Primary Action Button */}
           {onBookClick && (
             <button 
               onClick={onBookClick}
-              className="w-full py-3.5 sm:py-4 px-6 bg-gradient-to-r from-[#EA580C] to-[#F97316] hover:from-[#D94E07] hover:to-[#EA580C] text-white font-bold text-sm sm:text-base rounded-2xl shadow-md hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2.5 cursor-pointer active:scale-[0.98] font-['Hind_Siliguri',sans-serif]"
+              className="w-full py-4 px-6 bg-gradient-to-r from-[#EA580C] to-[#F97316] hover:from-[#D94E07] hover:to-[#EA580C] text-white font-bold text-sm sm:text-base rounded-2xl shadow-md hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2.5 cursor-pointer active:scale-[0.98] font-['Hind_Siliguri',sans-serif]"
             >
               <span>এখনই আপনার স্লট বুক করুন →</span>
             </button>
           )}
-
-          {/* Big Green WhatsApp CTA Button (NO phone number text) */}
-          <a 
-            href={whatsAppUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={(e) => {
-              if (onWhatsAppClick) {
-                e.preventDefault();
-                onWhatsAppClick(whatsAppUrl);
-              }
-            }}
-            className="w-full py-3.5 px-6 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-sm sm:text-base rounded-2xl shadow-md hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2.5 cursor-pointer active:scale-[0.98] font-['Hind_Siliguri',sans-serif]"
-          >
-            <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center">
-              <MessageSquare size={14} className="fill-white" />
-            </div>
-            <span>WhatsApp-এ সরাসরি কথা বলুন →</span>
-          </a>
         </div>
 
         {/* Brand Note & Urgency Pill (NO phone number) — Centered in Middle */}

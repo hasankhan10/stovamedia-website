@@ -6,9 +6,9 @@ import {
   CheckCircle2,
   ArrowRight,
   ShieldCheck,
-  MessageSquare,
   AlertCircle,
-  Plane
+  Plane,
+  MessageSquare
 } from "lucide-react";
 import AILandingTimer from "./AILandingTimer";
 import { trackEvent } from "@/lib/meta-pixel";
@@ -30,14 +30,12 @@ interface FormErrors {
 interface AILandingBookingModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onWhatsAppClick?: (url: string) => void;
   onRequestConfirm?: (action: () => void) => void;
 }
 
 export default function AILandingBookingModal({
   isOpen,
   onClose,
-  onWhatsAppClick,
   onRequestConfirm
 }: AILandingBookingModalProps) {
   const [formData, setFormData] = useState<FormData>({
@@ -65,7 +63,7 @@ export default function AILandingBookingModal({
         return undefined;
       case "phone": {
         const cleaned = val.replace(/[\s\-\+\(\)]/g, "");
-        if (!cleaned) return "আপনার WhatsApp মোবাইল নম্বর প্রদান করুন।";
+        if (!cleaned) return "আপনার মোবাইল নম্বর প্রদান করুন।";
         if (cleaned.length < 10) return "সঠিক ১০ ডিজিটের মোবাইল নম্বর দিন।";
         return undefined;
       }
@@ -279,36 +277,40 @@ export default function AILandingBookingModal({
             </div>
           )}
 
-          {/* State 2: Success Confirmation */}
+          {/* State 2: Success Confirmation (Post-Submission Verified Contact) */}
           {isBooked ? (
             <div className="p-6 rounded-2xl bg-emerald-50 border border-emerald-200 text-center space-y-4">
               <div className="w-14 h-14 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-600 flex items-center justify-center mx-auto">
                 <CheckCircle2 size={32} />
               </div>
               <h4 className="text-xl sm:text-2xl font-bold text-emerald-950">
-                🎉 আপনার স্লট বুকিং সফল হয়েছে!
+                🎉 আপনার তথ্য সফলভাবে জমা হয়েছে!
               </h4>
               <p className="text-sm sm:text-base text-emerald-800 leading-relaxed font-medium">
-                ধন্যবাদ! Stova Media-র টিম আপনার সাথে যোগাযোগ করে আপনার ট্রাভেল বিজনেসের উপযোগী রোডম্যাপ ও পরবর্তী ধাপ জানিয়ে দেবে।
+                ধন্যবাদ! আপনার ফ্রি কনসালটেশন স্লটের জন্য তথ্য রেকর্ড করা হয়েছে। দ্রুত রেসপন্স বা আলোচনার জন্য নিচের বাটনে ক্লিক করে সরাসরি WhatsApp-এ যোগাযোগ করতে পারেন।
               </p>
 
-              <div className="pt-2">
+              {/* Verified WhatsApp Connect Button (Only Post-Submission) */}
+              <div className="pt-2 flex flex-col gap-2.5">
                 <a
-                  href="https://wa.me/919432053261?text=Hello%20Stova%20Media,%20I%20want%20to%20claim%20a%20Free%20Consultation%20Slot%20for%20Travel%20Business"
+                  href={`https://wa.me/919432053261?text=${encodeURIComponent(
+                    `Hello Stova Media, I just submitted the Consultation Form on your website.\n\n👤 Name: ${formData.name.trim()}\n🏢 Agency: ${formData.business.trim()}\n📞 Phone: ${formData.phone.trim()}\n🌍 Category: ${formData.category.trim()}\n\nPlease confirm my slot!`
+                  )}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={(e) => {
-                    const url = "https://wa.me/919432053261?text=Hello%20Stova%20Media,%20I%20want%20to%20claim%20a%20Free%20Consultation%20Slot%20for%20Travel%20Business";
-                    if (onWhatsAppClick) {
-                      e.preventDefault();
-                      onWhatsAppClick(url);
-                    }
-                  }}
-                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-sm sm:text-base rounded-2xl shadow-md transition"
+                  className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-4 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-sm sm:text-base rounded-2xl shadow-md hover:shadow-lg transition cursor-pointer font-['Hind_Siliguri',sans-serif]"
                 >
-                  <MessageSquare size={18} />
-                  <span>সরাসরি WhatsApp-এ কথা বলুন</span>
+                  <MessageSquare size={18} className="fill-white" />
+                  <span>WhatsApp-এ সরাসরি কথা বলুন →</span>
                 </a>
+
+                <button
+                  type="button"
+                  onClick={onClose}
+                  className="w-full py-2.5 text-xs sm:text-sm font-semibold text-slate-500 hover:text-slate-700 transition cursor-pointer"
+                >
+                  <span>উইন্ডো বন্ধ করুন</span>
+                </button>
               </div>
             </div>
           ) : (
@@ -333,10 +335,10 @@ export default function AILandingBookingModal({
                 {errors.name && <p className="text-xs text-rose-500 mt-1 font-medium">{errors.name}</p>}
               </div>
 
-              {/* WhatsApp Number */}
+              {/* Mobile Number */}
               <div>
                 <label className="block text-xs sm:text-sm font-bold text-slate-800 mb-1.5">
-                  WhatsApp মোবাইল নম্বর <span className="text-rose-500">*</span>
+                  মোবাইল নম্বর <span className="text-rose-500">*</span>
                 </label>
                 <input
                   ref={phoneInputRef}
