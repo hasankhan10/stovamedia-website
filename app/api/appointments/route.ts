@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { insertInquiryToSupabase } from "@/lib/db-inquiries";
 import { sendMetaServerEvent } from "@/lib/meta-capi";
+import { sendAppointmentNotificationEmail } from "@/lib/email-notifications";
 
 export async function POST(req: Request) {
   try {
@@ -35,6 +36,18 @@ export async function POST(req: Request) {
       budget: "Consultation Request",
       details,
     });
+
+    // Send Instant Email Notification to Admin (Non-blocking)
+    sendAppointmentNotificationEmail({
+      name,
+      phone,
+      email,
+      service,
+      preferredDate,
+      preferredTime,
+      message,
+      sourceUrl: body.sourceUrl,
+    }).catch((err) => console.error("Non-blocking Appointment Email error:", err));
 
     // Fire Meta Conversions API (CAPI) Server Event
     sendMetaServerEvent({

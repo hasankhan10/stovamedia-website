@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { insertInquiryToSupabase } from "@/lib/db-inquiries";
 import { sendMetaServerEvent } from "@/lib/meta-capi";
+import { sendLeadNotificationEmail } from "@/lib/email-notifications";
 
 export async function POST(req: Request) {
   try {
@@ -44,6 +45,18 @@ export async function POST(req: Request) {
       budget: budget || "",
       details: details || "Discovery consultation requested.",
     });
+
+    // Send Instant Email Notification to Admin (Non-blocking)
+    sendLeadNotificationEmail({
+      name,
+      phone,
+      email: body.email || "",
+      company,
+      service: projectType,
+      budget,
+      details,
+      sourceUrl: body.sourceUrl,
+    }).catch((err) => console.error("Non-blocking Lead Email error:", err));
 
     // Fire Meta Conversions API (CAPI) Server Event strictly for AI E-Commerce campaigns
     const isAIEcom = projectType === "AI E-commerce Platform" || (body.sourceUrl && body.sourceUrl.includes("aiecommerce"));
