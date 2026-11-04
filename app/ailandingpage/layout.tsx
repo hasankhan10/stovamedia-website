@@ -1,34 +1,5 @@
 import type { Metadata } from "next";
-import { Hind_Siliguri, Anek_Bangla, Noto_Sans_Bengali, Caveat } from "next/font/google";
 import { MetaPixel } from "@/components/analytics";
-
-const hindSiliguri = Hind_Siliguri({
-  subsets: ["bengali"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-hind-siliguri",
-  display: "swap",
-});
-
-const anekBangla = Anek_Bangla({
-  subsets: ["bengali"],
-  weight: ["300", "400", "500", "600", "700", "800"],
-  variable: "--font-anek-bangla",
-  display: "swap",
-});
-
-const notoSansBengali = Noto_Sans_Bengali({
-  subsets: ["bengali"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-noto-bengali",
-  display: "swap",
-});
-
-const caveat = Caveat({
-  subsets: ["latin"],
-  weight: ["600", "700"],
-  variable: "--font-caveat",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "Travel Agency AI Website & Scrolling Animation | Stova Media",
@@ -85,12 +56,24 @@ export default function AILandingLayout({
 
   return (
     <>
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@300;400;500;600;700;800&family=Caveat:wght@600;700&family=Hind+Siliguri:wght@300;400;500;600;700&family=Noto+Sans+Bengali:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <div
-        className={`${hindSiliguri.variable} ${anekBangla.variable} ${notoSansBengali.variable} ${caveat.variable} font-['Hind_Siliguri',sans-serif] min-h-screen bg-[#FDFBF7] text-slate-900 selection:bg-orange-500 selection:text-white`}
+        style={{
+          ["--font-hind-siliguri" as any]: "'Hind Siliguri', sans-serif",
+          ["--font-anek-bangla" as any]: "'Anek Bangla', sans-serif",
+          ["--font-noto-bengali" as any]: "'Noto Sans Bengali', sans-serif",
+          ["--font-caveat" as any]: "'Caveat', cursive",
+        }}
+        className="font-['Hind_Siliguri',sans-serif] min-h-screen bg-[#FDFBF7] text-slate-900 selection:bg-orange-500 selection:text-white"
       >
         <MetaPixel />
         {children}
