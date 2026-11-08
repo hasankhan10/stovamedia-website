@@ -96,11 +96,11 @@ export default function Footer() {
             </span>
             <div className="flex flex-col gap-2">
               <a
-                href="mailto:contact@stovamedia.in"
+                href="mailto:stovamedia@gmail.com"
                 className="text-xs text-slate-300 hover:text-white transition-colors flex items-center gap-1.5 font-normal"
               >
                 <Mail size={13} className="text-violet-400" />
-                <span>contact@stovamedia.in</span>
+                <span>stovamedia@gmail.com</span>
               </a>
               
               <p className="text-[11px] text-slate-400 font-mono leading-normal mt-1">

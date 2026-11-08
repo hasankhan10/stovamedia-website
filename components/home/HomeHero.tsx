@@ -55,26 +55,26 @@ export default function HomeHero() {
         </div>
 
         {/* Monumental Headline: Positioned Exactly in the Middle with React Bits TechText */}
-        <div className="w-full max-w-5xl mx-auto text-center flex flex-col items-center justify-center mb-6">
+        <div className="w-full max-w-6xl xl:max-w-7xl mx-auto text-center flex flex-col items-center justify-center mb-6 sm:mb-8">
           <h1 className="sr-only">Software and Autonomous AI Engineered to Scale</h1>
 
-          <div className="w-full flex flex-col items-center justify-center space-y-1 sm:space-y-2 select-none">
-            <div className="w-full h-20 sm:h-28 md:h-36 lg:h-44 max-w-4xl mx-auto">
+          <div className="w-full flex flex-col items-center justify-center -space-y-4 sm:-space-y-8 md:-space-y-12 lg:-space-y-16 select-none">
+            <div className="w-full h-24 sm:h-36 md:h-48 lg:h-56 xl:h-64 max-w-5xl mx-auto transform scale-y-[1.28] sm:scale-y-[1.38] md:scale-y-[1.48] origin-center">
               <TechText
                 text="SOFTWARE & AI"
-                fontSize={140}
-                fontWeight={700}
+                fontSize={200}
+                fontWeight={800}
                 color="#f8fafc"
                 accentColor="#a78bfa"
                 align="center"
-                reach={220}
+                reach={260}
                 softness={0.7}
                 dashLength={4}
                 dashGap={2}
                 strokeWidth={1.5}
                 lineStyle="dashed"
                 reveal="letter"
-                specks={16}
+                specks={18}
                 selection={true}
                 labels={true}
                 draggable={true}
@@ -84,22 +84,22 @@ export default function HomeHero() {
               />
             </div>
 
-            <div className="w-full h-20 sm:h-28 md:h-36 lg:h-44 max-w-5xl mx-auto">
+            <div className="w-full h-24 sm:h-36 md:h-48 lg:h-56 xl:h-64 max-w-6xl mx-auto transform scale-y-[1.28] sm:scale-y-[1.38] md:scale-y-[1.48] origin-center">
               <TechText
                 text="ENGINEERED TO SCALE"
-                fontSize={140}
-                fontWeight={700}
+                fontSize={200}
+                fontWeight={800}
                 color="#f8fafc"
                 accentColor="#a78bfa"
                 align="center"
-                reach={220}
+                reach={260}
                 softness={0.7}
                 dashLength={4}
                 dashGap={2}
                 strokeWidth={1.5}
                 lineStyle="dashed"
                 reveal="letter"
-                specks={16}
+                specks={18}
                 selection={true}
                 labels={true}
                 draggable={true}
