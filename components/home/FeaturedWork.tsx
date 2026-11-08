@@ -14,8 +14,6 @@ interface ProjectShowcaseItem {
   tagline: string;
   description: string;
   image: string;
-  results: { metric: string; label: string }[];
-  tags: string[];
   ctaUrl?: string;
   isInternalDemo?: boolean;
 }
@@ -30,12 +28,6 @@ const featuredProjects: ProjectShowcaseItem[] = [
     description:
       "Enterprise Next.js 15 web application with automated appointment scheduling, encrypted patient workflows, and sub-50ms edge SSR performance.",
     image: "/drpauls-care.png",
-    results: [
-      { metric: "99/100", label: "Core Web Vitals" },
-      { metric: "<38ms", label: "Edge response" },
-      { metric: "0", label: "Plugin dependencies" },
-    ],
-    tags: ["Next.js 15", "PostgreSQL", "Supabase", "TypeScript"],
     ctaUrl: "/contact",
   },
   {
@@ -47,12 +39,6 @@ const featuredProjects: ProjectShowcaseItem[] = [
     description:
       "Combines 60 FPS package animations with a 24/7 autonomous AI assistant that answers traveler queries, explains itineraries, and closes verified bookings.",
     image: "/travel/tea-garden-resort.jpg",
-    results: [
-      { metric: "3.8x", label: "Booking velocity" },
-      { metric: "24/7", label: "Autopilot lead capture" },
-      { metric: "0%", label: "Lead drop rate" },
-    ],
-    tags: ["Autonomous AI", "Next.js", "GSAP Motion", "Tailwind CSS"],
     ctaUrl: "/ailandingpage",
     isInternalDemo: true,
   },
@@ -65,12 +51,6 @@ const featuredProjects: ProjectShowcaseItem[] = [
     description:
       "Automotive marketplace platform built to dominate local Google search rankings and generate high-intent buyer inquiries straight to sales teams.",
     image: "/bondhu motor.png",
-    results: [
-      { metric: "#1 rank", label: "Local Google SEO" },
-      { metric: "99.9%", label: "Uptime SLA" },
-      { metric: "+320%", label: "Mobile conversions" },
-    ],
-    tags: ["Next.js", "Local SEO Engine", "Edge Optimization", "PostgreSQL"],
     ctaUrl: "/contact",
   },
   {
@@ -82,12 +62,6 @@ const featuredProjects: ProjectShowcaseItem[] = [
     description:
       "Silent OPD queue management system with encrypted doctor prescriptions, SMS patient notification dispatch, and zero server crashes under peak OPD load.",
     image: "/mrcompounder.png",
-    results: [
-      { metric: "2G ready", label: "Offline-first sync" },
-      { metric: "100%", label: "HIPAA-compliant" },
-      { metric: "3.2x", label: "Patient throughput" },
-    ],
-    tags: ["Full-Stack SaaS", "PostgreSQL", "React", "Edge Workers"],
     ctaUrl: "/contact",
   },
 ];
@@ -161,35 +135,9 @@ export default function FeaturedWork() {
                     {project.title}
                   </h3>
 
-                  <p className="text-slate-400 text-xs sm:text-sm leading-relaxed mb-5 font-normal line-clamp-2">
+                  <p className="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6 font-normal line-clamp-3">
                     {project.description}
                   </p>
-
-                  {/* Measured Benchmarks: 3 Column Metric Ticker */}
-                  <div className="grid grid-cols-3 gap-2 py-3 px-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05] mb-5">
-                    {project.results.map((res, rIdx) => (
-                      <div key={rIdx} className="text-left">
-                        <div className="font-mono text-base sm:text-lg font-normal text-slate-100 tracking-tight">
-                          {res.metric}
-                        </div>
-                        <div className="text-[10px] sm:text-[11px] font-mono text-slate-400 mt-0.5 truncate">
-                          {res.label}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Tech Tags */}
-                  <div className="flex flex-wrap gap-1.5 mb-6">
-                    {project.tags.map((tag, tIdx) => (
-                      <span
-                        key={tIdx}
-                        className="px-2 py-0.5 rounded bg-white/[0.03] text-[11px] font-mono text-slate-300 border border-white/[0.06]"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
                 </div>
 
                 {/* Card Action Row */}
