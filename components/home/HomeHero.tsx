@@ -2,7 +2,7 @@
 
 import React, { useState, useRef } from "react";
 import { ArrowRight, ArrowUpRight, Zap, Activity, Cpu, ShieldCheck } from "lucide-react";
-import { AppointmentModal, MagneticElement, Crosshair, TechText } from "@/components/ui";
+import { AppointmentModal, MagneticElement, Crosshair, TechText, ShapeGrid } from "@/components/ui";
 
 export default function HomeHero() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -22,6 +22,28 @@ export default function HomeHero() {
         clickPulse
       />
 
+      {/* 📐 Interactive Animated Shape Grid from React Bits (Obsidian Violet Theme) */}
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-60">
+        <ShapeGrid
+          shape="hexagon"
+          cellSize={48}
+          lineWidth={1}
+          direction="diagonal"
+          speed={0.4}
+          lineColor="rgba(255, 255, 255, 0.05)"
+          hoverColor="rgba(167, 139, 250, 0.65)"
+          hoverFillColor="rgba(139, 92, 246, 0.12)"
+          fillOpacity={0.25}
+          tiltX={12}
+          tiltY={-8}
+          radius={220}
+          glow={0.6}
+          fade={0.85}
+          clickCascade={true}
+          backgroundColor="transparent"
+        />
+      </div>
+
       {/* 🌌 Celestial Radiant Dome / Arch Glow Effect */}
       <div 
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[90vw] max-w-[1200px] h-[480px] pointer-events-none z-0"
@@ -38,11 +60,6 @@ export default function HomeHero() {
           background: 'radial-gradient(ellipse 70% 60% at 50% 100%, rgba(139, 92, 246, 0.45) 0%, rgba(99, 102, 241, 0.25) 45%, transparent 75%)',
           filter: 'blur(60px)'
         }}
-      />
-
-      {/* Subtle Precision Grid with Soft Radial Mask */}
-      <div 
-        className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" 
       />
 
       <div className="max-w-6xl mx-auto w-full relative z-10 flex flex-col items-center text-center">

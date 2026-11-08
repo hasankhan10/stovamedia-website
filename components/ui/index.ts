@@ -11,3 +11,4 @@ export * from "./SpotlightCard";
 export { default as AppointmentModal } from "./AppointmentModal";
 export { default as Crosshair } from "./Crosshair";
 export { default as TechText } from "./TechText";
+export { default as ShapeGrid } from "./ShapeGrid";
