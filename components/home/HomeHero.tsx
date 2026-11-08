@@ -2,7 +2,7 @@
 
 import React, { useState, useRef } from "react";
 import { ArrowRight, ArrowUpRight, Zap, Activity, Cpu, ShieldCheck } from "lucide-react";
-import { AppointmentModal, MagneticElement, Crosshair } from "@/components/ui";
+import { AppointmentModal, MagneticElement, Crosshair, TechText } from "@/components/ui";
 
 export default function HomeHero() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -54,11 +54,61 @@ export default function HomeHero() {
           </div>
         </div>
 
-        {/* Monumental Headline: Positioned Exactly in the Middle */}
-        <div className="w-full max-w-4xl mx-auto text-center flex flex-col items-center justify-center mb-6">
-          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium tracking-[-0.03em] text-slate-100 leading-[1.04] text-center w-full">
-            Software and Autonomous AI Engineered to Scale
-          </h1>
+        {/* Monumental Headline: Positioned Exactly in the Middle with React Bits TechText */}
+        <div className="w-full max-w-5xl mx-auto text-center flex flex-col items-center justify-center mb-6">
+          <h1 className="sr-only">Software and Autonomous AI Engineered to Scale</h1>
+
+          <div className="w-full flex flex-col items-center justify-center space-y-1 sm:space-y-2 select-none">
+            <div className="w-full h-20 sm:h-28 md:h-36 lg:h-44 max-w-4xl mx-auto">
+              <TechText
+                text="SOFTWARE & AI"
+                fontSize={140}
+                fontWeight={700}
+                color="#f8fafc"
+                accentColor="#a78bfa"
+                align="center"
+                reach={220}
+                softness={0.7}
+                dashLength={4}
+                dashGap={2}
+                strokeWidth={1.5}
+                lineStyle="dashed"
+                reveal="letter"
+                specks={16}
+                selection={true}
+                labels={true}
+                draggable={true}
+                bounce={0.4}
+                clickKick={true}
+                className="w-full h-full"
+              />
+            </div>
+
+            <div className="w-full h-20 sm:h-28 md:h-36 lg:h-44 max-w-5xl mx-auto">
+              <TechText
+                text="ENGINEERED TO SCALE"
+                fontSize={140}
+                fontWeight={700}
+                color="#f8fafc"
+                accentColor="#a78bfa"
+                align="center"
+                reach={220}
+                softness={0.7}
+                dashLength={4}
+                dashGap={2}
+                strokeWidth={1.5}
+                lineStyle="dashed"
+                reveal="letter"
+                specks={16}
+                selection={true}
+                labels={true}
+                draggable={true}
+                bounce={0.4}
+                clickKick={true}
+                className="w-full h-full"
+              />
+            </div>
+          </div>
         </div>
 
         {/* Lede sentence */}
