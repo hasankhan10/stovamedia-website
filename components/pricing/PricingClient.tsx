@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { 
   Check, 
   ShieldCheck, 
@@ -9,7 +8,6 @@ import {
   Zap, 
   Calendar, 
   ArrowRight, 
-  ChevronDown, 
   Layers, 
   Globe, 
   Bot, 
@@ -17,7 +15,7 @@ import {
   HelpCircle,
   MessageSquare
 } from "lucide-react";
-import { AppointmentModal, MagneticElement } from "@/components/ui";
+import { AppointmentModal, MagneticElement, SpotlightCard, SpecularButton } from "@/components/ui";
 import TiltCard from "@/components/animations/TiltCard";
 
 interface PricingTier {
@@ -117,19 +115,23 @@ const guarantees = [
 
 const pricingFaqs = [
   {
+    number: "01",
     question: "How does milestone-based pricing work?",
     answer: "We structure projects into clear, verifiable engineering milestones. Projects commence with a 50% upfront deposit to begin architecture, and the final 50% is only payable after you test, verify, and approve the staging build.",
   },
   {
+    number: "02",
     question: "What is included in the 30-day post-launch warranty?",
     answer: "Every custom build includes 30 days of comprehensive technical support, cloud monitoring, edge performance tuning, and immediate bug fixes to ensure complete operational stability.",
   },
   {
+    number: "03",
     question: "Can we expand features or integrate new AI workflows later?",
     answer: "Yes. Because our architecture is strictly modular and free from technical debt, integrating additional AI pipelines, database schemas, or payment gateways in the future is completely frictionless.",
   },
   {
-    question: "How are custom quotes calculated for SaaS and enterprise platforms?",
+    number: "04",
+    question: "How are custom quotes calculated for SaaS platforms?",
     answer: "We evaluate your exact data model, user concurrency requirements, third-party integrations, and timeline targets to deliver a transparent, fixed milestone scope with guaranteed delivery dates.",
   },
 ];
@@ -137,7 +139,6 @@ const pricingFaqs = [
 export default function PricingClient() {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedService, setSelectedService] = useState("Growth Website Architecture");
-  const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   const openBookingFor = (serviceTitle: string) => {
     setSelectedService(serviceTitle);
@@ -248,20 +249,28 @@ export default function PricingClient() {
                         </ul>
                       </div>
 
-                      {/* Action Button: Medium Corner Radius */}
-                      <MagneticElement strength={0.2} className="w-full">
-                        <button
-                          onClick={() => openBookingFor(tier.title)}
-                          className={`w-full py-3.5 px-5 rounded-xl font-medium text-xs sm:text-sm transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer ${
-                            tier.popular
-                              ? "bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white shadow-[0_0_24px_rgba(139,92,246,0.35)]"
-                              : "bg-white/[0.04] hover:bg-gradient-to-r hover:from-violet-600 hover:to-indigo-600 text-slate-200 hover:text-white border border-white/10 hover:border-violet-500/50"
-                          }`}
-                        >
-                          <span>Get {tier.title.split(" ")[0]} Proposal</span>
-                          <ArrowRight size={15} />
-                        </button>
-                      </MagneticElement>
+                      {/* Action SpecularButton */}
+                      <SpecularButton
+                        onClick={() => openBookingFor(tier.title)}
+                        size="sm"
+                        radius={12}
+                        tint={tier.popular ? "#6d28d9" : "#3b82f6"}
+                        tintOpacity={tier.popular ? 0.75 : 0.4}
+                        lineColor={tier.popular ? "#c4b5fd" : "#93c5fd"}
+                        baseColor={tier.popular ? "#4c1d95" : "#1e1b4b"}
+                        glow={tier.popular ? 1.2 : 0.9}
+                        thickness={1.3}
+                        intensity={1.1}
+                        idleIntensity={0.5}
+                        shineSize={14}
+                        shineFade={32}
+                        followMouse={true}
+                        proximity={240}
+                        className="w-full text-white font-medium text-xs sm:text-sm shadow-md cursor-pointer"
+                      >
+                        <span>Get {tier.title.split(" ")[0]} Proposal</span>
+                        <ArrowRight size={14} />
+                      </SpecularButton>
                     </div>
                   </TiltCard>
                 </div>
@@ -316,59 +325,89 @@ export default function PricingClient() {
         </div>
       </section>
 
-      {/* 3. Pricing FAQs Section */}
-      <section className="py-16 sm:py-24 px-4 sm:px-6 md:px-10 lg:px-16 border-b border-white/[0.08] relative">
-        <div className="max-w-[950px] mx-auto relative z-10">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-violet-500/25 text-violet-300 text-xs font-medium backdrop-blur-xl mb-4">
-              <HelpCircle size={14} className="text-violet-400" />
-              <span>Payment &amp; Scope Questions</span>
+      {/* 3. Pricing FAQs Section (Home Page Bento Grid Style) */}
+      <section className="py-16 sm:py-24 px-4 sm:px-6 md:px-10 lg:px-16 border-b border-white/[0.08] relative overflow-hidden">
+        {/* Ambient Radial Glow */}
+        <div 
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] max-w-[800px] h-[350px] pointer-events-none z-0"
+          style={{
+            background: "radial-gradient(ellipse 60% 50% at 50% 50%, rgba(139, 92, 246, 0.2) 0%, rgba(79, 70, 229, 0.1) 45%, transparent 75%)",
+            filter: "blur(70px)",
+          }}
+        />
+
+        <div className="max-w-5xl mx-auto relative z-10">
+          <div className="text-center max-w-xl mx-auto mb-12 sm:mb-16">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-violet-500/25 text-violet-300 text-xs font-medium mb-4 backdrop-blur-xl shadow-[0_0_20px_rgba(139,92,246,0.15)]">
+              <HelpCircle size={13} className="text-violet-400" />
+              <span>Payment & Scope Questions</span>
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-[-0.03em] text-slate-100 leading-[1.05] mb-3">
               Frequently Asked Pricing Questions
             </h2>
+            <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
+              Essential facts on milestone deliverables, code transfer, and post-launch warranties.
+            </p>
           </div>
 
-          <div className="space-y-3.5">
-            {pricingFaqs.map((faq, index) => {
-              const isOpen = openFaq === index;
-              return (
-                <div
-                  key={index}
-                  className="rounded-xl border border-white/[0.08] overflow-hidden bg-white/[0.02] backdrop-blur-xl transition-colors hover:border-white/15"
-                >
-                  <button
-                    onClick={() => setOpenFaq(isOpen ? null : index)}
-                    className="w-full p-4 sm:p-5 text-left flex justify-between items-center gap-3 cursor-pointer"
-                  >
-                    <span className="font-medium text-sm sm:text-base text-slate-200">
-                      {faq.question}
-                    </span>
-                    <ChevronDown
-                      size={18}
-                      className={`text-slate-400 transition-transform duration-200 shrink-0 ${
-                        isOpen ? "rotate-180 text-violet-400" : ""
-                      }`}
-                    />
-                  </button>
-
-                  <AnimatePresence>
-                    {isOpen && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        <div className="px-4 sm:px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-400 leading-relaxed border-t border-white/[0.06] bg-white/[0.01]">
-                          {faq.answer}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+          {/* 2x2 Bento Grid with React Bits SpotlightCard */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-12">
+            {pricingFaqs.map((faq) => (
+              <SpotlightCard
+                key={faq.number}
+                spotlightColor="rgba(139, 92, 246, 0.22)"
+                className="p-6 sm:p-7 rounded-2xl border border-white/[0.08] hover:border-violet-500/40 bg-gradient-to-b from-white/[0.04] to-white/[0.01] backdrop-blur-xl transition-all duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.36)]"
+              >
+                <div className="flex items-center justify-between mb-3">
+                  <span className="font-mono text-xs font-medium text-violet-400">
+                    {faq.number}
+                  </span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-violet-500/40" />
                 </div>
-              );
-            })}
+
+                <h3 className="text-base sm:text-lg font-medium text-slate-100 mb-2 leading-snug tracking-tight">
+                  {faq.question}
+                </h3>
+
+                <p className="text-slate-400 text-xs sm:text-sm leading-relaxed font-normal">
+                  {faq.answer}
+                </p>
+              </SpotlightCard>
+            ))}
+          </div>
+
+          {/* Consultation Trigger Box with SpecularButton */}
+          <div className="rounded-2xl p-6 sm:p-8 border border-white/[0.08] bg-gradient-to-r from-white/[0.04] to-white/[0.01] backdrop-blur-xl flex flex-col sm:flex-row items-center justify-between gap-5 shadow-[0_8px_32px_rgba(0,0,0,0.36)]">
+            <div className="text-left space-y-1">
+              <h4 className="text-sm sm:text-base font-medium text-slate-200">
+                Require a customized milestone sprint?
+              </h4>
+              <p className="text-xs text-slate-400">
+                Speak directly with our Lead Architect in Kolkata — get a transparent scope proposal within 4 hours.
+              </p>
+            </div>
+
+            <SpecularButton
+              onClick={() => openBookingFor("Custom Enterprise Scope")}
+              size="sm"
+              radius={12}
+              tint="#6d28d9"
+              tintOpacity={0.7}
+              lineColor="#c4b5fd"
+              baseColor="#4c1d95"
+              glow={1.1}
+              thickness={1.3}
+              intensity={1.1}
+              idleIntensity={0.5}
+              shineSize={14}
+              shineFade={32}
+              followMouse={true}
+              proximity={280}
+              className="text-white font-medium text-xs sm:text-sm shadow-md shadow-violet-600/30 shrink-0 cursor-pointer"
+            >
+              <span>Request custom review</span>
+              <ArrowRight size={14} />
+            </SpecularButton>
           </div>
         </div>
       </section>
@@ -394,16 +433,28 @@ export default function PricingClient() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-              <MagneticElement strength={0.2}>
-                <button
-                  onClick={() => setModalOpen(true)}
-                  className="w-full sm:w-auto px-7 sm:px-8 py-3.5 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white font-medium text-xs sm:text-sm shadow-[0_0_24px_rgba(139,92,246,0.35)] transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-[0.98]"
-                >
-                  <Calendar size={15} />
-                  <span>Book Free Consultation</span>
-                  <ArrowRight size={15} />
-                </button>
-              </MagneticElement>
+              <SpecularButton
+                onClick={() => setModalOpen(true)}
+                size="md"
+                radius={12}
+                tint="#6d28d9"
+                tintOpacity={0.75}
+                lineColor="#c4b5fd"
+                baseColor="#4c1d95"
+                glow={1.2}
+                thickness={1.3}
+                intensity={1.2}
+                idleIntensity={0.5}
+                shineSize={16}
+                shineFade={32}
+                followMouse={true}
+                proximity={280}
+                className="w-full sm:w-auto text-white font-medium text-xs sm:text-sm shadow-lg shadow-violet-600/30 cursor-pointer"
+              >
+                <Calendar size={15} />
+                <span>Book Free Consultation</span>
+                <ArrowRight size={15} />
+              </SpecularButton>
 
               <MagneticElement strength={0.2}>
                 <a

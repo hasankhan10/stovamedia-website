@@ -1,49 +1,44 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { 
   Mail, 
   MapPin, 
   Send, 
   CheckCircle2, 
   MessageSquare, 
-  ChevronDown, 
   Layers,
   HelpCircle
 } from "lucide-react";
 import TiltCard from "@/components/animations/TiltCard";
-import { MagneticElement } from "@/components/ui";
+import { MagneticElement, SpotlightCard, SpecularButton } from "@/components/ui";
 
 interface ContactFAQ {
+  number: string;
   question: string;
   answer: string;
 }
 
 const faqs: ContactFAQ[] = [
   {
+    number: "01",
     question: "How fast will you respond to my project inquiry?",
     answer: "Our lead software architect reviews all project briefs directly. You will receive an engineering feasibility review, proposed timeline, and transparent milestone quote within 4 business hours.",
   },
   {
+    number: "02",
     question: "Do you build with templates or 100% custom code?",
     answer: "We write 100% bespoke code using Next.js 15, React 19, TypeScript, and high-performance databases. Zero slow WordPress themes, zero page builders, and zero unnecessary bloat.",
   },
   {
+    number: "03",
     question: "Who owns the code and intellectual property?",
     answer: "You own 100% of the intellectual property, git repository, design assets, and cloud deployment pipelines immediately upon project milestone completion.",
   },
   {
+    number: "04",
     question: "Can we start with an MVP or small milestone first?",
     answer: "Yes. We specialize in modular milestone delivery. We can build an initial high-converting website or functional MVP in 2–3 weeks and systematically iterate from there.",
-  },
-  {
-    question: "How do you handle maintenance and support after launch?",
-    answer: "Every custom build includes 30 days of comprehensive post-launch warranty, error monitoring, and performance tuning. We also provide ongoing SLA maintenance retainers for continuous feature upgrades.",
-  },
-  {
-    question: "What payment structures do you accept?",
-    answer: "We work with transparent milestone-based payments (e.g. 50% upfront deposit to begin architecture and 50% only upon your final verification and staging approval), accepting Bank Transfers, UPI, and International Wire.",
   },
 ];
 
@@ -60,7 +55,6 @@ export default function ContactClient() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   const validate = () => {
     const errs: Record<string, string> = {};
@@ -400,22 +394,34 @@ export default function ContactClient() {
 
                         {/* Submit Actions */}
                         <div className="pt-2 flex flex-col sm:flex-row gap-3">
-                          <MagneticElement strength={0.2} className="flex-1">
-                            <button
-                              type="submit"
-                              disabled={isSubmitting}
-                              className="w-full py-3 px-6 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white font-medium text-sm transition-all shadow-[0_0_24px_rgba(139,92,246,0.35)] active:scale-[0.99] disabled:opacity-60 cursor-pointer flex items-center justify-center gap-2"
-                            >
-                              {isSubmitting ? (
-                                <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                              ) : (
-                                <>
-                                  <Send size={15} />
-                                  <span>Submit Project Inquiry</span>
-                                </>
-                              )}
-                            </button>
-                          </MagneticElement>
+                          <SpecularButton
+                            type="submit"
+                            disabled={isSubmitting}
+                            size="md"
+                            radius={12}
+                            tint="#6d28d9"
+                            tintOpacity={0.75}
+                            lineColor="#c4b5fd"
+                            baseColor="#4c1d95"
+                            glow={1.2}
+                            thickness={1.3}
+                            intensity={1.2}
+                            idleIntensity={0.5}
+                            shineSize={16}
+                            shineFade={32}
+                            followMouse={true}
+                            proximity={240}
+                            className="w-full flex-1 text-white font-medium text-sm shadow-md shadow-violet-600/30 cursor-pointer disabled:opacity-60"
+                          >
+                            {isSubmitting ? (
+                              <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                            ) : (
+                              <>
+                                <Send size={15} />
+                                <span>Submit Project Inquiry</span>
+                              </>
+                            )}
+                          </SpecularButton>
 
                           <MagneticElement strength={0.2}>
                             <a
@@ -440,85 +446,89 @@ export default function ContactClient() {
         </div>
       </section>
 
-      {/* 2. Frequently Asked Questions Section */}
-      <section className="py-16 sm:py-24 px-4 sm:px-6 md:px-10 lg:px-16 border-b border-white/[0.08] relative">
-        <div className="max-w-[850px] mx-auto relative z-10">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-violet-500/25 text-violet-300 text-xs font-medium backdrop-blur-xl mb-3">
+      {/* 2. Frequently Asked Questions Section (Home Page Bento Grid Style) */}
+      <section className="py-16 sm:py-24 px-4 sm:px-6 md:px-10 lg:px-16 border-b border-white/[0.08] relative overflow-hidden">
+        {/* Ambient Radial Glow */}
+        <div 
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] max-w-[800px] h-[350px] pointer-events-none z-0"
+          style={{
+            background: "radial-gradient(ellipse 60% 50% at 50% 50%, rgba(139, 92, 246, 0.2) 0%, rgba(79, 70, 229, 0.1) 45%, transparent 75%)",
+            filter: "blur(70px)",
+          }}
+        />
+
+        <div className="max-w-5xl mx-auto relative z-10">
+          <div className="text-center max-w-xl mx-auto mb-12 sm:mb-16">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-violet-500/25 text-violet-300 text-xs font-medium mb-3 backdrop-blur-xl shadow-[0_0_20px_rgba(139,92,246,0.15)]">
               <HelpCircle size={14} className="text-violet-400" />
               <span>Got Questions?</span>
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-[-0.03em] text-slate-100 leading-[1.05] mb-3">
               Frequently Asked Questions
             </h2>
-            <p className="text-slate-400 text-base sm:text-lg max-w-xl mx-auto">
-              Everything you need to know about our custom engineering process, intellectual property rights, and turnaround times.
+            <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
+              Everything you need to know about our custom engineering process, IP ownership, and SLA turnaround.
             </p>
           </div>
 
-          <div className="space-y-3.5">
-            {faqs.map((faq, index) => {
-              const isOpen = openFaq === index;
-              return (
-                <div
-                  key={index}
-                  className="rounded-xl border border-white/[0.08] overflow-hidden bg-white/[0.02] backdrop-blur-xl transition-colors hover:border-white/15"
-                >
-                  <button
-                    onClick={() => setOpenFaq(isOpen ? null : index)}
-                    className="w-full p-4 sm:p-5 text-left flex justify-between items-center gap-3 cursor-pointer"
-                  >
-                    <span className="font-medium text-sm sm:text-base text-slate-200">
-                      {faq.question}
-                    </span>
-                    <ChevronDown
-                      size={18}
-                      className={`text-slate-400 transition-transform duration-200 shrink-0 ${
-                        isOpen ? "rotate-180 text-violet-400" : ""
-                      }`}
-                    />
-                  </button>
-
-                  <AnimatePresence>
-                    {isOpen && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        <div className="px-4 sm:px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-400 leading-relaxed border-t border-white/[0.06] bg-white/[0.01]">
-                          {faq.answer}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+          {/* 2x2 Bento Grid with React Bits SpotlightCard */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-12">
+            {faqs.map((faq) => (
+              <SpotlightCard
+                key={faq.number}
+                spotlightColor="rgba(139, 92, 246, 0.22)"
+                className="p-6 sm:p-7 rounded-2xl border border-white/[0.08] hover:border-violet-500/40 bg-gradient-to-b from-white/[0.04] to-white/[0.01] backdrop-blur-xl transition-all duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.36)]"
+              >
+                <div className="flex items-center justify-between mb-3">
+                  <span className="font-mono text-xs font-medium text-violet-400">
+                    {faq.number}
+                  </span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-violet-500/40" />
                 </div>
-              );
-            })}
+
+                <h3 className="text-base sm:text-lg font-medium text-slate-100 mb-2 leading-snug tracking-tight">
+                  {faq.question}
+                </h3>
+
+                <p className="text-slate-400 text-xs sm:text-sm leading-relaxed font-normal">
+                  {faq.answer}
+                </p>
+              </SpotlightCard>
+            ))}
           </div>
 
-          {/* Quick Consultation Trigger Strip */}
-          <div className="mt-10 sm:mt-12 p-6 sm:p-8 rounded-2xl bg-gradient-to-b from-white/[0.05] to-white/[0.02] border border-white/[0.08] backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.36)] flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-            <div>
-              <h3 className="text-base sm:text-lg font-medium text-slate-100">
+          {/* Quick Consultation Trigger Strip with SpecularButton */}
+          <div className="rounded-2xl p-6 sm:p-8 border border-white/[0.08] bg-gradient-to-r from-white/[0.04] to-white/[0.01] backdrop-blur-xl flex flex-col sm:flex-row items-center justify-between gap-5 shadow-[0_8px_32px_rgba(0,0,0,0.36)]">
+            <div className="text-left space-y-1">
+              <h4 className="text-sm sm:text-base font-medium text-slate-200">
                 Have a specialized custom requirement?
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-400">
+              </h4>
+              <p className="text-xs text-slate-400">
                 Talk directly to Lead Architect Mehedi Hasan and get an instant technical evaluation.
               </p>
             </div>
-            <MagneticElement strength={0.2} className="shrink-0">
-              <a
-                href={`https://wa.me/919432053261?text=${whatsappMessage}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white font-medium text-xs sm:text-sm transition-all shadow-[0_0_20px_rgba(139,92,246,0.3)] flex items-center gap-2"
-              >
-                <MessageSquare size={14} />
-                <span>Direct Inquiry</span>
-              </a>
-            </MagneticElement>
+
+            <SpecularButton
+              onClick={() => window.open(`https://wa.me/919432053261?text=${whatsappMessage}`, "_blank")}
+              size="sm"
+              radius={12}
+              tint="#6d28d9"
+              tintOpacity={0.7}
+              lineColor="#c4b5fd"
+              baseColor="#4c1d95"
+              glow={1.1}
+              thickness={1.3}
+              intensity={1.1}
+              idleIntensity={0.5}
+              shineSize={14}
+              shineFade={32}
+              followMouse={true}
+              proximity={280}
+              className="text-white font-medium text-xs sm:text-sm shadow-md shadow-violet-600/30 shrink-0 cursor-pointer"
+            >
+              <MessageSquare size={14} />
+              <span>Direct Architect Inquiry</span>
+            </SpecularButton>
           </div>
         </div>
       </section>

@@ -11,13 +11,14 @@ import {
   Code2, 
   Users, 
   Award, 
-  Linkedin,
-  Terminal,
-  Server,
-  Layers,
-  MessageSquare
+  Linkedin, 
+  Terminal, 
+  Server, 
+  Layers, 
+  HelpCircle,
+  MessageSquare 
 } from "lucide-react";
-import { AppointmentModal, MagneticElement } from "@/components/ui";
+import { AppointmentModal, MagneticElement, SpotlightCard, SpecularButton } from "@/components/ui";
 import TiltCard from "@/components/animations/TiltCard";
 import TerminalMotionGraphic from "@/components/animations/TerminalMotionGraphic";
 
@@ -84,6 +85,29 @@ const techStack = [
   { name: "Tailwind CSS", category: "Design System Tokens" },
   { name: "Framer Motion", category: "60FPS GPU Motion" },
   { name: "Python & LangChain", category: "AI Pipelines & RAG" },
+];
+
+const aboutFaqs = [
+  {
+    number: "01",
+    question: "Why 100% custom code instead of WordPress or Webflow?",
+    answer: "Pre-made templates accumulate technical debt, suffer sluggish server response, and limit scaling. Bespoke Next.js and backend architectures ensure sub-50ms TTFB and bank-grade security.",
+  },
+  {
+    number: "02",
+    question: "Who actually builds my platform?",
+    answer: "You collaborate directly with Senior Software Architects and our founder Mehedi Hasan in Kolkata. Zero junior interns, zero non-technical account managers.",
+  },
+  {
+    number: "03",
+    question: "Where are Stova Media's clients located?",
+    answer: "We build production web platforms, healthcare SaaS, and AI agents for founders and businesses across India, the USA, the UK, and the UAE.",
+  },
+  {
+    number: "04",
+    question: "Do we get full intellectual property rights?",
+    answer: "Yes. 100% of the code, database schemas, and cloud deployment pipelines are transferred to your private repositories from day one with zero vendor lock-in.",
+  },
 ];
 
 export default function AboutClient() {
@@ -289,7 +313,94 @@ export default function AboutClient() {
         </div>
       </section>
 
-      {/* 5. Bottom Call to Action */}
+      {/* 5. Frequently Asked Questions (Home Page Bento Grid Style) */}
+      <section className="py-16 sm:py-24 px-4 sm:px-6 md:px-10 lg:px-16 border-b border-white/[0.08] relative overflow-hidden">
+        {/* Ambient Radial Glow */}
+        <div 
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] max-w-[800px] h-[350px] pointer-events-none z-0"
+          style={{
+            background: "radial-gradient(ellipse 60% 50% at 50% 50%, rgba(139, 92, 246, 0.2) 0%, rgba(79, 70, 229, 0.1) 45%, transparent 75%)",
+            filter: "blur(70px)",
+          }}
+        />
+
+        <div className="max-w-5xl mx-auto relative z-10">
+          <div className="text-center max-w-xl mx-auto mb-12 sm:mb-16">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-violet-500/25 text-violet-300 text-xs font-medium mb-4 backdrop-blur-xl shadow-[0_0_20px_rgba(139,92,246,0.15)]">
+              <HelpCircle size={13} className="text-violet-400" />
+              <span>Studio & Engineering Clarity</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-[-0.03em] text-slate-100 leading-[1.05] mb-3">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
+              Straight answers on technical architecture, architect collaboration, and intellectual property.
+            </p>
+          </div>
+
+          {/* 2x2 Bento Grid with React Bits SpotlightCard */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-12">
+            {aboutFaqs.map((faq) => (
+              <SpotlightCard
+                key={faq.number}
+                spotlightColor="rgba(139, 92, 246, 0.22)"
+                className="p-6 sm:p-7 rounded-2xl border border-white/[0.08] hover:border-violet-500/40 bg-gradient-to-b from-white/[0.04] to-white/[0.01] backdrop-blur-xl transition-all duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.36)]"
+              >
+                <div className="flex items-center justify-between mb-3">
+                  <span className="font-mono text-xs font-medium text-violet-400">
+                    {faq.number}
+                  </span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-violet-500/40" />
+                </div>
+
+                <h3 className="text-base sm:text-lg font-medium text-slate-100 mb-2 leading-snug tracking-tight">
+                  {faq.question}
+                </h3>
+
+                <p className="text-slate-400 text-xs sm:text-sm leading-relaxed font-normal">
+                  {faq.answer}
+                </p>
+              </SpotlightCard>
+            ))}
+          </div>
+
+          {/* Consultation Trigger Box with SpecularButton */}
+          <div className="rounded-2xl p-6 sm:p-8 border border-white/[0.08] bg-gradient-to-r from-white/[0.04] to-white/[0.01] backdrop-blur-xl flex flex-col sm:flex-row items-center justify-between gap-5 shadow-[0_8px_32px_rgba(0,0,0,0.36)]">
+            <div className="text-left space-y-1">
+              <h4 className="text-sm sm:text-base font-medium text-slate-200">
+                Have a specialized technical inquiry?
+              </h4>
+              <p className="text-xs text-slate-400">
+                Speak directly with Lead Architect Mehedi Hasan in Kolkata — get a response within 4 hours.
+              </p>
+            </div>
+
+            <SpecularButton
+              onClick={() => setModalOpen(true)}
+              size="sm"
+              radius={12}
+              tint="#6d28d9"
+              tintOpacity={0.7}
+              lineColor="#c4b5fd"
+              baseColor="#4c1d95"
+              glow={1.1}
+              thickness={1.3}
+              intensity={1.1}
+              idleIntensity={0.5}
+              shineSize={14}
+              shineFade={32}
+              followMouse={true}
+              proximity={280}
+              className="text-white font-medium text-xs sm:text-sm shadow-md shadow-violet-600/30 shrink-0 cursor-pointer"
+            >
+              <span>Consult with architect</span>
+              <ArrowRight size={14} />
+            </SpecularButton>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Bottom Call to Action */}
       <section className="py-16 sm:py-24 px-4 sm:px-6 md:px-10 lg:px-16 relative overflow-hidden">
         {/* Ambient Glow */}
         <div 
@@ -310,16 +421,28 @@ export default function AboutClient() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-              <MagneticElement strength={0.2}>
-                <button
-                  onClick={() => setModalOpen(true)}
-                  className="w-full sm:w-auto px-7 sm:px-8 py-3.5 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white font-medium text-xs sm:text-sm shadow-[0_0_24px_rgba(139,92,246,0.35)] transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-[0.98]"
-                >
-                  <Calendar size={15} />
-                  <span>Book Free Consultation</span>
-                  <ArrowRight size={15} />
-                </button>
-              </MagneticElement>
+              <SpecularButton
+                onClick={() => setModalOpen(true)}
+                size="md"
+                radius={12}
+                tint="#6d28d9"
+                tintOpacity={0.75}
+                lineColor="#c4b5fd"
+                baseColor="#4c1d95"
+                glow={1.2}
+                thickness={1.3}
+                intensity={1.2}
+                idleIntensity={0.5}
+                shineSize={16}
+                shineFade={32}
+                followMouse={true}
+                proximity={280}
+                className="w-full sm:w-auto text-white font-medium text-xs sm:text-sm shadow-lg shadow-violet-600/30 cursor-pointer"
+              >
+                <Calendar size={15} />
+                <span>Book Free Consultation</span>
+                <ArrowRight size={15} />
+              </SpecularButton>
 
               <MagneticElement strength={0.2}>
                 <a
