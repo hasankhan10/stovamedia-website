@@ -125,16 +125,9 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar: Copyright & Telemetry */}
+        {/* Bottom Bar: Copyright */}
         <div className="pt-6 border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400 font-mono">
           <p>© {currentYear} Stova Media. All rights reserved.</p>
-          <div className="flex items-center gap-4 text-[11px]">
-            <span>Next.js 15 App Router</span>
-            <span>·</span>
-            <span>Sub-50ms TTFB</span>
-            <span>·</span>
-            <span className="text-emerald-400 font-medium">99.99% Uptime</span>
-          </div>
         </div>
       </div>
     </footer>

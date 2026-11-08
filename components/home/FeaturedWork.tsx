@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, ShieldCheck } from "lucide-react";
-import { AppointmentModal } from "@/components/ui";
+import { AppointmentModal, BounceCards } from "@/components/ui";
 
 interface ProjectShowcaseItem {
   id: string;
@@ -96,6 +96,25 @@ export default function FeaturedWork() {
           <p className="text-slate-400 text-base sm:text-lg leading-relaxed">
             Every platform we deploy is custom-coded for high-conversion performance, rock-solid security, and measurable ROI.
           </p>
+        </div>
+
+        {/* Interactive React Bits BounceCards Showcase */}
+        <div className="flex justify-center mb-16 overflow-hidden py-4 select-none">
+          <BounceCards
+            images={featuredProjects.map((p) => ({ src: p.image, alt: p.title }))}
+            containerWidth={480}
+            containerHeight={260}
+            cardSize={180}
+            spread={90}
+            rotation={7}
+            bounciness={0.65}
+            borderWidth={2}
+            borderColor="rgba(255, 255, 255, 0.15)"
+            radius={16}
+            onCardClick={(index) => {
+              handleOpenConsultation(featuredProjects[index].title);
+            }}
+          />
         </div>
 
         {/* Medium Grid Layout (Bento Grid matching the reference layout) */}
