@@ -2,6 +2,7 @@
 
 import { useChat } from "ai/react";
 import { useState, useRef, useEffect } from "react";
+import Image from "next/image";
 import { 
   X, 
   Send, 
@@ -9,7 +10,6 @@ import {
   User, 
   Calendar, 
   RotateCcw,
-  Sparkles,
   ArrowRight
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -83,23 +83,21 @@ export function ChatBot() {
               <div className="relative z-10 px-4.5 sm:px-5 py-3.5 border-b border-white/[0.08] bg-white/[0.02] flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="relative">
-                    <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-violet-600 to-indigo-600 flex items-center justify-center text-white shadow-sm shadow-violet-500/40">
-                      <Bot size={17} />
+                    <div className="w-8 h-8 rounded-xl bg-white/[0.06] border border-white/10 overflow-hidden flex items-center justify-center p-0.5 shadow-sm shadow-violet-500/20">
+                      <Image
+                        src="/logo.jpeg"
+                        alt="Stova Media"
+                        width={32}
+                        height={32}
+                        className="w-full h-full object-contain rounded-lg"
+                      />
                     </div>
                     <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-400 border-2 border-[#07080C]" />
                   </div>
 
                   <div>
-                    <div className="flex items-center gap-1.5">
-                      <span className="font-medium text-xs sm:text-sm text-slate-100 tracking-tight">
-                        Stova Architect AI
-                      </span>
-                      <span className="px-1.5 py-0.2 rounded text-[9px] font-mono bg-violet-500/20 text-violet-300 border border-violet-500/30">
-                        NVIDIA Core
-                      </span>
-                    </div>
-                    <span className="text-[10px] text-slate-400 font-mono block">
-                      Direct 4h SLA Feasibility
+                    <span className="font-medium text-xs sm:text-sm text-slate-100 tracking-tight block">
+                      Stova Architect AI
                     </span>
                   </div>
                 </div>
@@ -141,8 +139,14 @@ export function ChatBot() {
               >
                 {messages.length === 0 && (
                   <div className="text-center my-auto py-6 px-2 flex flex-col items-center">
-                    <div className="w-12 h-12 rounded-2xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-violet-400 mb-3 shadow-[0_0_24px_rgba(139,92,246,0.2)]">
-                      <Sparkles size={22} />
+                    <div className="w-12 h-12 rounded-2xl bg-white/[0.04] border border-white/10 flex items-center justify-center p-2 mb-3 shadow-[0_0_24px_rgba(139,92,246,0.2)]">
+                      <Image
+                        src="/logo.jpeg"
+                        alt="Stova Media"
+                        width={40}
+                        height={40}
+                        className="w-full h-full object-contain rounded-lg"
+                      />
                     </div>
 
                     <h3 className="font-medium text-sm sm:text-base text-slate-100 mb-1 tracking-tight">
@@ -245,10 +249,6 @@ export function ChatBot() {
                   >
                     <Send size={12} />
                   </button>
-                </div>
-
-                <div className="mt-2 text-center text-[10px] font-mono text-slate-400">
-                  <span>Autonomous Studio AI · 4h SLA Guaranteed</span>
                 </div>
               </form>
             </motion.div>
