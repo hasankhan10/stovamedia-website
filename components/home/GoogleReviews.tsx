@@ -1,10 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Star, CheckCircle2, ArrowUpRight, Quote } from "lucide-react";
-import { MagneticElement } from "@/components/ui";
-
-const GOOGLE_MAPS_URL = "https://www.google.com/maps/place/Stova+Media/@22.0227215,88.3009805,17z/data=!4m8!3m7!1s0x3a025146d5338c0f:0xf5f62ec41c1a553d!8m2!3d22.0227215!4d88.3009805!9m1!1b1!16s%2Fg%2F11xcjm1ssf!5m1!1e2";
+import { Star, CheckCircle2, Quote } from "lucide-react";
 
 interface Review {
   id: string;
@@ -111,20 +108,6 @@ export default function GoogleReviews() {
             <p className="text-slate-400 text-sm sm:text-base font-normal mt-3 max-w-2xl leading-relaxed">
               Verified Google Business testimonials from founders and technical leaders.
             </p>
-          </div>
-
-          <div className="flex items-center gap-3 shrink-0">
-            <MagneticElement strength={0.2}>
-              <a
-                href={GOOGLE_MAPS_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-4 py-2.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 text-slate-200 text-xs font-medium transition-colors flex items-center gap-2 backdrop-blur-md focus-visible:outline-2 focus-visible:outline-white/40"
-              >
-                <span>View Google Maps profile</span>
-                <ArrowUpRight size={13} className="text-slate-400" />
-              </a>
-            </MagneticElement>
           </div>
         </div>
       </div>

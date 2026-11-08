@@ -74,7 +74,7 @@ export default function Navbar() {
           </Link>
 
           {/* Center: Desktop Navigation Links (Positioned Exactly in the Middle) */}
-          <nav className="hidden md:flex items-center gap-6 lg:gap-7 md:absolute md:left-1/2 md:-translate-x-1/2 z-10">
+          <nav className="hidden md:flex items-center gap-5 lg:gap-6 md:absolute md:left-1/2 md:-translate-x-1/2 z-10">
             {navLinks.map((link) => {
               const isActive = pathname === link.href || (link.href !== "/" && !link.href.includes("#") && pathname.startsWith(link.href));
               return (
@@ -82,15 +82,15 @@ export default function Navbar() {
                   key={link.name}
                   href={link.href}
                   className={cn(
-                    "text-xs font-normal transition-colors flex items-center gap-1.5 focus-visible:outline-2 focus-visible:outline-violet-400",
+                    "text-[13.5px] lg:text-[14.5px] font-medium transition-colors flex items-center gap-1.5 focus-visible:outline-2 focus-visible:outline-violet-400",
                     isActive
-                      ? "text-white font-medium"
-                      : "text-slate-400 hover:text-white"
+                      ? "text-white font-semibold"
+                      : "text-slate-300 hover:text-white"
                   )}
                 >
                   <span>{link.name}</span>
                   {link.badge && (
-                    <span className="px-1.5 py-0.2 rounded-md text-[10px] font-mono bg-violet-500/20 text-violet-300 border border-violet-500/30">
+                    <span className="px-1.5 py-0.5 rounded-md text-[10px] font-mono bg-violet-500/20 text-violet-300 border border-violet-500/30">
                       {link.badge}
                     </span>
                   )}
@@ -104,7 +104,7 @@ export default function Navbar() {
             <MagneticElement strength={0.2} className="hidden sm:inline-block">
               <button
                 onClick={() => setModalOpen(true)}
-                className="inline-flex items-center gap-1.5 px-4.5 py-2 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white text-xs font-medium transition-all shadow-[0_0_20px_rgba(139,92,246,0.35)] active:scale-[0.98] cursor-pointer focus-visible:outline-2 focus-visible:outline-violet-400"
+                className="inline-flex items-center gap-1.5 px-4.5 py-2.5 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white text-xs sm:text-[13px] font-medium transition-all shadow-[0_0_20px_rgba(139,92,246,0.35)] active:scale-[0.98] cursor-pointer focus-visible:outline-2 focus-visible:outline-violet-400"
               >
                 <span>Book consultation</span>
               </button>
