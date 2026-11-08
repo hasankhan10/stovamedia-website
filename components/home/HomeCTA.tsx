@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { ArrowRight, Clock, ShieldCheck, Cpu } from "lucide-react";
-import { AppointmentModal, MagneticElement } from "@/components/ui";
+import { AppointmentModal, MagneticElement, SpecularButton } from "@/components/ui";
 
 export default function HomeCTA() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -35,17 +35,29 @@ export default function HomeCTA() {
             Consult directly with our lead technical architect and receive a full feasibility roadmap within 4 hours.
           </p>
 
-          {/* Action Buttons: Medium Corner Radius (rounded-xl) */}
+          {/* Action Buttons: Specular Button */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-            <MagneticElement strength={0.2}>
-              <button
-                onClick={() => setModalOpen(true)}
-                className="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white font-medium text-sm transition-all duration-200 flex items-center justify-center gap-2.5 cursor-pointer shadow-[0_0_28px_rgba(139,92,246,0.4)] active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-violet-400"
-              >
-                <span>Book strategy consultation</span>
-                <ArrowRight size={16} />
-              </button>
-            </MagneticElement>
+            <SpecularButton
+              onClick={() => setModalOpen(true)}
+              size="md"
+              radius={12}
+              tint="#6d28d9"
+              tintOpacity={0.7}
+              lineColor="#c4b5fd"
+              baseColor="#4c1d95"
+              glow={1.2}
+              thickness={1.5}
+              intensity={1.2}
+              idleIntensity={0.5}
+              shineSize={14}
+              shineFade={32}
+              followMouse={true}
+              proximity={320}
+              className="w-full sm:w-auto text-white font-medium text-sm shadow-[0_0_28px_rgba(139,92,246,0.4)]"
+            >
+              <span>Book strategy consultation</span>
+              <ArrowRight size={16} />
+            </SpecularButton>
 
             <MagneticElement strength={0.2}>
               <a
