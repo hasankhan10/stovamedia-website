@@ -2,7 +2,7 @@
 
 import React, { useState, useRef } from "react";
 import { ArrowRight, ArrowUpRight, Zap, Activity, Cpu, ShieldCheck } from "lucide-react";
-import { AppointmentModal, MagneticElement, Crosshair, TechText, SpecularButton } from "@/components/ui";
+import { AppointmentModal, MagneticElement, Crosshair, SplitText, SpecularButton } from "@/components/ui";
 
 export default function HomeHero() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -50,70 +50,45 @@ export default function HomeHero() {
         <div className="flex justify-center mb-6">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-violet-500/25 text-violet-300 text-xs font-medium backdrop-blur-xl shadow-[0_0_20px_rgba(139,92,246,0.15)]">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            <span>Autonomous software engineering studio in Kolkata</span>
+            <span>Modern Web Design &amp; AI Studio in Kolkata</span>
           </div>
         </div>
 
-        {/* Monumental Headline: Positioned Exactly in the Middle with React Bits TechText */}
-        <div className="w-full max-w-6xl xl:max-w-7xl mx-auto text-center flex flex-col items-center justify-center mb-6 sm:mb-8">
-          <h1 className="sr-only">Software and Autonomous AI Engineered to Scale</h1>
-
-          <div className="w-full flex flex-col items-center justify-center -space-y-4 sm:-space-y-8 md:-space-y-12 lg:-space-y-16 select-none">
-            <div className="w-full h-24 sm:h-36 md:h-48 lg:h-56 xl:h-64 max-w-5xl mx-auto transform scale-y-[1.28] sm:scale-y-[1.38] md:scale-y-[1.48] origin-center">
-              <TechText
-                text="SOFTWARE & AI"
-                fontSize={200}
-                fontWeight={800}
-                color="#f8fafc"
-                accentColor="#a78bfa"
-                align="center"
-                reach={260}
-                softness={0.7}
-                dashLength={4}
-                dashGap={2}
-                strokeWidth={1.5}
-                lineStyle="dashed"
-                reveal="letter"
-                specks={18}
-                selection={true}
-                labels={true}
-                draggable={true}
-                bounce={0.4}
-                clickKick={true}
-                className="w-full h-full"
-              />
-            </div>
-
-            <div className="w-full h-24 sm:h-36 md:h-48 lg:h-56 xl:h-64 max-w-6xl mx-auto transform scale-y-[1.28] sm:scale-y-[1.38] md:scale-y-[1.48] origin-center">
-              <TechText
-                text="ENGINEERED TO SCALE"
-                fontSize={200}
-                fontWeight={800}
-                color="#f8fafc"
-                accentColor="#a78bfa"
-                align="center"
-                reach={260}
-                softness={0.7}
-                dashLength={4}
-                dashGap={2}
-                strokeWidth={1.5}
-                lineStyle="dashed"
-                reveal="letter"
-                specks={18}
-                selection={true}
-                labels={true}
-                draggable={true}
-                bounce={0.4}
-                clickKick={true}
-                className="w-full h-full"
-              />
-            </div>
-          </div>
+        {/* Monumental Headline with React Bits SplitText & Premium Syne Font */}
+        <div className="w-full max-w-5xl xl:max-w-6xl mx-auto text-center flex flex-col items-center justify-center mb-6 sm:mb-8 select-none">
+          <h1 className="w-full flex flex-col items-center justify-center space-y-1 sm:space-y-2">
+            <SplitText
+              text="Fast Websites & AI"
+              tag="span"
+              className="font-syne font-extrabold text-4xl sm:text-6xl md:text-7xl lg:text-[5rem] xl:text-[5.75rem] tracking-[-0.035em] text-slate-100 leading-[1.08] block"
+              delay={35}
+              duration={0.85}
+              effect="rise"
+              mask={true}
+              splitType="chars"
+              color="#f8fafc"
+              accentColor="#a78bfa"
+              textAlign="center"
+            />
+            <SplitText
+              text="Built to Grow Your Business"
+              tag="span"
+              className="font-syne font-extrabold text-4xl sm:text-6xl md:text-7xl lg:text-[5rem] xl:text-[5.75rem] tracking-[-0.035em] text-violet-200 leading-[1.08] block"
+              delay={45}
+              duration={0.85}
+              effect="rise"
+              mask={true}
+              splitType="chars"
+              color="#ddd6fe"
+              accentColor="#818cf8"
+              textAlign="center"
+            />
+          </h1>
         </div>
 
         {/* Lede sentence */}
         <p className="text-center text-slate-400 text-base sm:text-lg font-normal max-w-2xl mx-auto leading-relaxed mb-9">
-          Sub-second web platforms, enterprise SaaS, and 24/7 autonomous agents built in Kolkata.
+          We build lightning-fast websites, custom web apps, and 24/7 smart AI assistants that help your business win more clients.
         </p>
 
         {/* Action Pair: Specular Button & Secondary Link */}
@@ -136,7 +111,7 @@ export default function HomeHero() {
             proximity={320}
             className="w-full sm:w-auto text-white font-medium text-sm shadow-[0_0_28px_rgba(139,92,246,0.35)]"
           >
-            <span>Book strategy consultation</span>
+            <span>Book a Free Call</span>
             <ArrowRight size={16} />
           </SpecularButton>
 
@@ -145,7 +120,7 @@ export default function HomeHero() {
               href="#work"
               className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 text-slate-200 font-medium text-sm transition-colors duration-150 flex items-center justify-center gap-2 backdrop-blur-md focus-visible:outline-2 focus-visible:outline-white/40"
             >
-              <span>Explore live client systems</span>
+              <span>See Our Work</span>
               <ArrowUpRight size={15} className="text-slate-400" />
             </a>
           </MagneticElement>
@@ -157,11 +132,11 @@ export default function HomeHero() {
           <div className="flex items-center justify-between px-5 py-3 border-b border-white/[0.08] bg-white/[0.02]">
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-violet-400" />
-              <span className="font-mono text-xs text-slate-400">system/telemetry · active production node</span>
+              <span className="font-mono text-xs text-slate-400">Our Quality Standards</span>
             </div>
             <div className="flex items-center gap-1.5 text-xs text-emerald-400 font-mono">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-              <span>all clusters nominal</span>
+              <span>Guaranteed for every project</span>
             </div>
           </div>
 
@@ -169,46 +144,46 @@ export default function HomeHero() {
           <div className="grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 divide-x-0 md:divide-x divide-white/[0.08]">
             <div className="p-4 sm:p-5 flex flex-col justify-between text-left">
               <div className="flex items-center justify-between text-xs text-slate-400 mb-2">
-                <span>Core Web Vitals</span>
+                <span>Speed Score</span>
                 <Zap size={14} className="text-violet-400" />
               </div>
               <div className="font-mono text-2xl sm:text-3xl text-slate-100 font-normal tracking-tight">
                 99<span className="text-xs text-slate-400 ml-1">/100</span>
               </div>
-              <span className="text-[11px] text-emerald-400 mt-2 font-mono">Passed field test</span>
+              <span className="text-[11px] text-emerald-400 mt-2 font-mono">Google Core Web Vitals</span>
             </div>
 
             <div className="p-4 sm:p-5 flex flex-col justify-between text-left">
               <div className="flex items-center justify-between text-xs text-slate-400 mb-2">
-                <span>Edge TTFB</span>
+                <span>Load Time</span>
                 <Activity size={14} className="text-indigo-400" />
               </div>
               <div className="font-mono text-2xl sm:text-3xl text-slate-100 font-normal tracking-tight">
-                &lt;42<span className="text-xs text-slate-400 ml-1">ms</span>
+                &lt;0.5<span className="text-xs text-slate-400 ml-1">s</span>
               </div>
-              <span className="text-[11px] text-slate-400 mt-2 font-mono">Global edge cache</span>
+              <span className="text-[11px] text-slate-400 mt-2 font-mono">Instant page opening</span>
             </div>
 
             <div className="p-4 sm:p-5 flex flex-col justify-between text-left">
               <div className="flex items-center justify-between text-xs text-slate-400 mb-2">
-                <span>SLA Uptime</span>
+                <span>Reliability</span>
                 <ShieldCheck size={14} className="text-violet-400" />
               </div>
               <div className="font-mono text-2xl sm:text-3xl text-slate-100 font-normal tracking-tight">
-                99.99<span className="text-xs text-slate-400 ml-1">%</span>
+                99.9<span className="text-xs text-slate-400 ml-1">%</span>
               </div>
-              <span className="text-[11px] text-emerald-400 mt-2 font-mono">Enterprise postgres</span>
+              <span className="text-[11px] text-emerald-400 mt-2 font-mono">Always online &amp; secure</span>
             </div>
 
             <div className="p-4 sm:p-5 flex flex-col justify-between text-left">
               <div className="flex items-center justify-between text-xs text-slate-400 mb-2">
-                <span>AI Autopilot</span>
+                <span>AI Assistants</span>
                 <Cpu size={14} className="text-cyan-400" />
               </div>
               <div className="font-mono text-2xl sm:text-3xl text-slate-100 font-normal tracking-tight">
                 24<span className="text-xs text-slate-400 ml-0.5">/7</span>
               </div>
-              <span className="text-[11px] text-slate-400 mt-2 font-mono">Autonomous qualify</span>
+              <span className="text-[11px] text-slate-400 mt-2 font-mono">Instant client answers</span>
             </div>
           </div>
         </div>

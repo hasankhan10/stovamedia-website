@@ -22,23 +22,23 @@ interface ContactFAQ {
 const faqs: ContactFAQ[] = [
   {
     number: "01",
-    question: "How fast will you respond to my project inquiry?",
-    answer: "Our lead software architect reviews all project briefs directly. You will receive an engineering feasibility review, proposed timeline, and transparent milestone quote within 4 business hours.",
+    question: "How fast will you reply to my inquiry?",
+    answer: "We review all inquiries promptly. You will receive a friendly, detailed reply and initial price estimate within 24 hours.",
   },
   {
     number: "02",
-    question: "Do you build with templates or 100% custom code?",
-    answer: "We write 100% bespoke code using Next.js 15, React 19, TypeScript, and high-performance databases. Zero slow WordPress themes, zero page builders, and zero unnecessary bloat.",
+    question: "Do you build with templates or custom code?",
+    answer: "We write 100% custom code for every client. That means your website is uniquely designed for your business, loads in less than a second, and has zero slow template bloat.",
   },
   {
     number: "03",
     question: "Who owns the code and intellectual property?",
-    answer: "You own 100% of the intellectual property, git repository, design assets, and cloud deployment pipelines immediately upon project milestone completion.",
+    answer: "You own 100% of everything — the design, code, images, and domain. We never lock you into recurring agency fees.",
   },
   {
     number: "04",
-    question: "Can we start with an MVP or small milestone first?",
-    answer: "Yes. We specialize in modular milestone delivery. We can build an initial high-converting website or functional MVP in 2–3 weeks and systematically iterate from there.",
+    question: "Can we start with a simple version first?",
+    answer: "Yes, absolutely! We often build a clean, fast launch version in 10–14 days, and then add more advanced features as your business grows.",
   },
 ];
 
@@ -129,7 +129,7 @@ export default function ContactClient() {
           <div className="flex justify-center mb-6 sm:mb-8">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-violet-500/25 text-violet-300 text-xs font-medium backdrop-blur-xl shadow-[0_0_20px_rgba(139,92,246,0.15)]">
               <Layers size={14} className="text-violet-400" />
-              <span>Direct Technical Access · 4-Hour Response SLA</span>
+              <span>Direct Contact · Fast 24-Hour Response</span>
             </div>
           </div>
 
@@ -140,10 +140,10 @@ export default function ContactClient() {
             <div className="lg:col-span-5 flex flex-col space-y-6">
               <div>
                 <h1 className="text-3xl sm:text-5xl md:text-6xl font-medium tracking-[-0.03em] text-slate-100 leading-[1.04] mb-4">
-                  Let&apos;s Architect Your Next Milestone
+                  Let&apos;s Discuss Your Project
                 </h1>
                 <p className="text-slate-400 text-base sm:text-lg font-normal leading-relaxed mb-6">
-                  Have a new custom software project, need a high-converting web platform, or want to deploy autonomous AI agents? Connect directly with our Lead Architect.
+                  Have an idea for a new website, custom web application, or smart AI assistant? Tell us what you need and we&apos;ll help you bring it to life.
                 </p>
 
                 {/* Direct Contact Cards */}
@@ -159,9 +159,9 @@ export default function ContactClient() {
                       <MessageSquare size={18} />
                     </div>
                     <div>
-                      <span className="text-[10px] font-mono text-slate-400 block font-semibold uppercase tracking-wider">WHATSAPP DIRECT (INSTANT)</span>
+                      <span className="text-[10px] font-mono text-slate-400 block font-semibold uppercase tracking-wider">WHATSAPP DIRECT (QUICK CHAT)</span>
                       <span className="text-sm font-medium text-slate-200 group-hover:text-emerald-400 transition-colors">
-                        Connect with Studio Architect
+                        Chat with Our Team
                       </span>
                     </div>
                   </a>
@@ -209,10 +209,10 @@ export default function ContactClient() {
                         <CheckCircle2 size={36} />
                       </div>
                       <h3 className="text-2xl sm:text-3xl font-medium text-slate-100 font-display mb-2">
-                        Project Brief Received!
+                        Message Received!
                       </h3>
                       <p className="text-slate-400 text-sm sm:text-base max-w-md mb-8">
-                        Thank you, <span className="font-semibold text-slate-200">{formData.name}</span>. Our Lead Architect will review your technical brief and reply with a proposal within 4 hours.
+                        Thank you, <span className="font-semibold text-slate-200">{formData.name}</span>. Our team will review your project details and reply within 24 hours with recommendations.
                       </p>
 
                       <div className="flex flex-col sm:flex-row gap-3 w-full max-w-md">
@@ -239,7 +239,7 @@ export default function ContactClient() {
                           }}
                           className="py-3 px-6 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 text-slate-300 font-medium text-sm transition-colors cursor-pointer"
                         >
-                          Send Another Brief
+                          Send Another Message
                         </button>
                       </div>
                     </div>
@@ -249,15 +249,15 @@ export default function ContactClient() {
                       <div className="flex items-center justify-between mb-6 pb-4 border-b border-white/[0.08]">
                         <div>
                           <h2 className="text-lg sm:text-xl font-medium text-slate-100">
-                            Submit Project Brief
+                            Tell Us About Your Project
                           </h2>
                           <p className="text-slate-400 text-xs mt-0.5">
-                            Tell us about your requirements, timeline, and architectural targets.
+                            Fill in your details below and we&apos;ll get back to you within 24 hours with a clear plan.
                           </p>
                         </div>
                         <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-400 text-[11px] font-mono border border-emerald-500/20">
                           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                          <span>Open for Q2/Q3</span>
+                          <span>Accepting New Projects</span>
                         </div>
                       </div>
 
@@ -289,7 +289,7 @@ export default function ContactClient() {
 
                           <div>
                             <label className="block text-xs font-medium text-slate-300 mb-1.5">
-                              Work Email <span className="text-rose-400">*</span>
+                              Your Email <span className="text-rose-400">*</span>
                             </label>
                             <input
                               type="email"
@@ -338,7 +338,7 @@ export default function ContactClient() {
 
                           <div>
                             <label className="block text-xs font-medium text-slate-300 mb-1.5">
-                              Architecture Tier
+                              Service Needed
                             </label>
                             <select
                               value={formData.service}
@@ -347,11 +347,11 @@ export default function ContactClient() {
                               }
                               className="w-full px-3.5 py-2.5 rounded-xl border border-white/10 text-sm text-slate-200 bg-[#0d0f17] focus:outline-none focus:border-violet-500/80 focus:ring-1 focus:ring-violet-500/50 transition-all cursor-pointer"
                             >
-                              <option value="Growth Website Architecture">Growth Website Architecture (Sub-second)</option>
-                              <option value="Custom Web App & SaaS">Enterprise SaaS &amp; Custom Web Platform</option>
-                              <option value="AI Automation Workflow">Autonomous AI Agent &amp; Chatbot System</option>
-                              <option value="E-Commerce Platform">High-Converting E-Commerce Storefront</option>
-                              <option value="Architecture Upgrade">Architecture Codebase Optimization</option>
+                              <option value="Business Website">Business Website (Fast &amp; Modern)</option>
+                              <option value="Custom Web App & Software">Custom Web App &amp; Software</option>
+                              <option value="AI Assistant & Automation">AI Chat Assistant &amp; Automation</option>
+                              <option value="Online Store">High-Converting Online Store</option>
+                              <option value="Website Redesign">Website Redesign / Upgrade</option>
                             </select>
                           </div>
                         </div>
@@ -359,7 +359,7 @@ export default function ContactClient() {
                         {/* Estimated Budget Range */}
                         <div>
                           <label className="block text-xs font-medium text-slate-300 mb-1.5">
-                            Estimated Investment Scope
+                            Estimated Budget
                           </label>
                           <select
                             value={formData.budget}
@@ -368,18 +368,18 @@ export default function ContactClient() {
                             }
                             className="w-full px-3.5 py-2.5 rounded-xl border border-white/10 text-sm text-slate-200 bg-[#0d0f17] focus:outline-none focus:border-violet-500/80 focus:ring-1 focus:ring-violet-500/50 transition-all cursor-pointer"
                           >
-                            <option value="₹15,000 – ₹30,000">₹15,000 – ₹30,000 (Growth Website Scope)</option>
-                            <option value="₹30,000 – ₹75,000">₹30,000 – ₹75,000 (E-Commerce / AI Agent Scope)</option>
-                            <option value="₹75,000 – ₹2,00,000">₹75,000 – ₹2,00,000 (Custom SaaS / Full Stack MVP)</option>
-                            <option value="₹2,00,000+">₹2,00,000+ (Enterprise Architecture)</option>
-                            <option value="Flexible / Needs Consultation">Flexible / Direct Architecture Review</option>
+                            <option value="₹15,000 – ₹30,000">₹15,000 – ₹30,000 (Business Website)</option>
+                            <option value="₹30,000 – ₹75,000">₹30,000 – ₹75,000 (Store or AI Assistant)</option>
+                            <option value="₹75,000 – ₹2,00,000">₹75,000 – ₹2,00,000 (Custom Web App)</option>
+                            <option value="₹2,00,000+">₹2,00,000+ (Large Platform)</option>
+                            <option value="Flexible / Needs Consultation">Flexible / Let&apos;s Discuss</option>
                           </select>
                         </div>
 
                         {/* Project Description */}
                         <div>
                           <label className="block text-xs font-medium text-slate-300 mb-1.5">
-                            Project Objectives &amp; Requirements (Optional)
+                            Project Details (Optional)
                           </label>
                           <textarea
                             rows={3}
@@ -387,7 +387,7 @@ export default function ContactClient() {
                             onChange={(e) =>
                               setFormData({ ...formData, message: e.target.value })
                             }
-                            placeholder="Describe your current system, target launch date, and key features..."
+                            placeholder="Tell us about what you want to build, target launch date, and any questions..."
                             className="w-full px-3.5 py-2 rounded-xl border border-white/10 text-sm text-slate-100 bg-white/[0.03] placeholder-slate-500 focus:outline-none focus:border-violet-500/80 focus:ring-1 focus:ring-violet-500/50 transition-all resize-none"
                           />
                         </div>
@@ -418,7 +418,7 @@ export default function ContactClient() {
                             ) : (
                               <>
                                 <Send size={15} />
-                                <span>Submit Project Inquiry</span>
+                                <span>Send Inquiry</span>
                               </>
                             )}
                           </SpecularButton>
@@ -467,7 +467,7 @@ export default function ContactClient() {
               Frequently Asked Questions
             </h2>
             <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
-              Everything you need to know about our custom engineering process, IP ownership, and SLA turnaround.
+              Quick answers about working together, pricing, and project timelines.
             </p>
           </div>
 
@@ -501,10 +501,10 @@ export default function ContactClient() {
           <div className="rounded-2xl p-6 sm:p-8 border border-white/[0.08] bg-gradient-to-r from-white/[0.04] to-white/[0.01] backdrop-blur-xl flex flex-col sm:flex-row items-center justify-between gap-5 shadow-[0_8px_32px_rgba(0,0,0,0.36)]">
             <div className="text-left space-y-1">
               <h4 className="text-sm sm:text-base font-medium text-slate-200">
-                Have a specialized custom requirement?
+                Prefer to chat directly?
               </h4>
               <p className="text-xs text-slate-400">
-                Talk directly to Lead Architect Mehedi Hasan and get an instant technical evaluation.
+                Reach out on WhatsApp for a quick conversation with our founder Mehedi.
               </p>
             </div>
 
@@ -527,7 +527,7 @@ export default function ContactClient() {
               className="text-white font-medium text-xs sm:text-sm shadow-md shadow-violet-600/30 shrink-0 cursor-pointer"
             >
               <MessageSquare size={14} />
-              <span>Direct Architect Inquiry</span>
+              <span>Chat on WhatsApp</span>
             </SpecularButton>
           </div>
         </div>

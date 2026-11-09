@@ -13,16 +13,16 @@ import {
 } from "lucide-react";
 
 const marqueeItems = [
-  { label: "Next.js 15 App Router", icon: Layers, highlight: true },
-  { label: "Autonomous AI agents", icon: Cpu, highlight: true },
-  { label: "Sub-50ms edge TTFB", icon: Zap, highlight: false },
-  { label: "Enterprise PostgreSQL", icon: Database, highlight: false },
-  { label: "100/100 Core Web Vitals", icon: Flame, highlight: true },
-  { label: "Zero WordPress bloat", icon: ShieldCheck, highlight: false },
-  { label: "React 19 & TypeScript", icon: Globe, highlight: false },
-  { label: "100% in-house engineering", icon: Code2, highlight: true },
-  { label: "Full IP and Git ownership", icon: ShieldCheck, highlight: false },
-  { label: "Realtime Edge caching", icon: Database, highlight: false }
+  { label: "Lightning-Fast Websites", icon: Zap, highlight: true },
+  { label: "24/7 AI Customer Assistants", icon: Cpu, highlight: true },
+  { label: "Top Google Search Rankings", icon: Flame, highlight: true },
+  { label: "Secure & Reliable Databases", icon: Database, highlight: false },
+  { label: "100% Custom Code", icon: Code2, highlight: true },
+  { label: "Zero Monthly Template Fees", icon: ShieldCheck, highlight: false },
+  { label: "Modern Mobile-First Design", icon: Globe, highlight: false },
+  { label: "You Own 100% of Your Code", icon: ShieldCheck, highlight: true },
+  { label: "Built for Real Business Growth", icon: Layers, highlight: false },
+  { label: "Direct Founder Communication", icon: Code2, highlight: false }
 ];
 
 export default function TechMarquee() {

@@ -25,88 +25,88 @@ import TerminalMotionGraphic from "@/components/animations/TerminalMotionGraphic
 const stats = [
   { 
     value: "100%", 
-    label: "In-House Code", 
-    description: "Zero outsourcing or third-party white labeling" 
+    label: "Custom Code", 
+    description: "No outsourced or generic templates" 
   },
   { 
-    value: "0%", 
-    label: "Template Usage", 
-    description: "100% bespoke Next.js and backend engineering" 
-  },
-  { 
-    value: "< 50ms", 
-    label: "Server TTFB", 
-    description: "Sub-second edge CDN and database query execution" 
+    value: "99+", 
+    label: "Speed Score", 
+    description: "Lightning-fast page loading on Google" 
   },
   { 
     value: "24/7", 
-    label: "AI Autopilot", 
-    description: "Autonomous lead qualification and CRM operations" 
+    label: "AI Assistants", 
+    description: "Instant replies to customer inquiries" 
+  },
+  { 
+    value: "100%", 
+    label: "Your Ownership", 
+    description: "You own all files, code, and accounts" 
   },
 ];
 
 const values = [
   {
     icon: Code2,
-    title: "100% Custom Engineering",
-    description: "We don't use slow WordPress themes, generic page builders, or cookie-cutter templates. Every line of code is purpose-built for extreme speed, bank-grade security, and effortless scalability.",
-    badge: "Engineering Standard",
+    title: "100% Custom Work",
+    description: "We don't use slow WordPress themes, bloated page builders, or cookie-cutter templates. Everything is designed and coded specifically for your business.",
+    badge: "Handcrafted Code",
     badgeColor: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
   },
   {
     icon: Users,
-    title: "Direct Architect Access",
-    description: "No middlemen and no non-technical account managers. You collaborate directly with the Senior Software Architects building your platform, guaranteeing clear technical execution.",
-    badge: "Zero Friction",
+    title: "Direct Communication",
+    description: "No confusing middlemen or pushy account managers. You speak directly with the developers building your project for fast, clear answers.",
+    badge: "Zero Middlemen",
     badgeColor: "bg-violet-500/10 text-violet-400 border-violet-500/20",
   },
   {
     icon: ShieldCheck,
-    title: "Total IP & Code Ownership",
-    description: "You own 100% of the intellectual property, git repository, database schemas, and cloud deployment pipelines upon completion. Zero proprietary vendor lock-in.",
-    badge: "Complete Ownership",
+    title: "Complete Ownership",
+    description: "You own 100% of your website, code, design, and domain. No monthly licensing fees and no vendor lock-in ever.",
+    badge: "Full Control",
     badgeColor: "bg-cyan-500/10 text-cyan-400 border-cyan-500/20",
   },
   {
     icon: Zap,
-    title: "Performance & Conversion First",
-    description: "Every page interaction, server query, and user workflow is rigorously optimized to maximize conversion rates, user retention, and organic search ranking authority.",
-    badge: "Revenue Driven",
+    title: "Built for Real Results",
+    description: "Every page, button, and feature is designed to load quickly, rank higher on Google, and turn visitors into paying customers.",
+    badge: "Results Driven",
     badgeColor: "bg-amber-500/10 text-amber-400 border-amber-500/20",
   },
 ];
 
 const techStack = [
-  { name: "Next.js 15", category: "Full-Stack Framework" },
-  { name: "TypeScript", category: "Type Safety & Security" },
-  { name: "React 19", category: "Modern UI Layer" },
-  { name: "PostgreSQL", category: "Relational Database" },
+  { name: "Next.js", category: "Modern Web Framework" },
+  { name: "TypeScript", category: "Reliable & Bug-Free Code" },
+  { name: "React", category: "Interactive User Interfaces" },
+  { name: "PostgreSQL", category: "Fast & Secure Database" },
   { name: "Supabase", category: "Real-Time Cloud Backend" },
-  { name: "Tailwind CSS", category: "Design System Tokens" },
-  { name: "Framer Motion", category: "60FPS GPU Motion" },
-  { name: "Python & LangChain", category: "AI Pipelines & RAG" },
+  { name: "Tailwind CSS", category: "Clean, Responsive Design" },
+  { name: "Framer Motion", category: "Smooth 60FPS Animations" },
+  { name: "AI & LLMs", category: "Smart AI Assistants & Chat" },
 ];
 
 const aboutFaqs = [
   {
     number: "01",
-    question: "Why 100% custom code instead of WordPress or Webflow?",
-    answer: "Pre-made templates accumulate technical debt, suffer sluggish server response, and limit scaling. Bespoke Next.js and backend architectures ensure sub-50ms TTFB and bank-grade security.",
+    question: "Why custom code instead of WordPress or Wix?",
+    answer: "Pre-made templates often load slowly, break after plugin updates, and are hard to customize. Custom code loads in less than a second, stays secure, and gives your business a unique edge.",
   },
   {
     number: "02",
-    question: "Who actually builds my platform?",
-    answer: "You collaborate directly with Senior Software Architects and our founder Mehedi Hasan in Kolkata. Zero junior interns, zero non-technical account managers.",
+    question: "Who will actually work on my project?",
+    answer: "You work directly with our founder Mehedi Hasan and our experienced developers in Kolkata. No interns, no junior outsourcers, and no confusing middlemen.",
   },
   {
     number: "03",
-    question: "Where are Stova Media's clients located?",
-    answer: "We build production web platforms, healthcare SaaS, and AI agents for founders and businesses across India, the USA, the UK, and the UAE.",
+    question: "Where are your clients located?",
+    answer: "We work with business owners and startups across Kolkata and India, as well as international clients in the USA, UK, and UAE.",
   },
   {
     number: "04",
-    question: "Do we get full intellectual property rights?",
-    answer: "Yes. 100% of the code, database schemas, and cloud deployment pipelines are transferred to your private repositories from day one with zero vendor lock-in.",
+    question: "Do I own my website and code?",
+    answer: "Yes, absolutely. Once completed, 100% of the website, code, images, and accounts belong entirely to you with zero monthly platform royalties.",
   },
 ];
 
@@ -142,15 +142,15 @@ export default function AboutClient() {
           {/* Eyebrow Pill */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-violet-500/25 text-violet-300 text-xs font-medium backdrop-blur-xl mb-6 shadow-[0_0_20px_rgba(139,92,246,0.15)]">
             <Layers size={14} className="text-violet-400" />
-            <span>About Stova Media Studio</span>
+            <span>About Stova Media</span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium tracking-[-0.03em] text-slate-100 leading-[1.04] max-w-4xl mx-auto mb-6">
-            Engineered by Architects. Built for Revenue.
+            Crafted with Care. Built to Help You Grow.
           </h1>
 
           <p className="text-slate-400 text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mb-6 font-normal">
-            Stova Media is recognized as an advanced AI agent provider and software engineering studio based in Kolkata. We replace agency bureaucracy with senior technical craftsmanship to deliver sub-second web platforms, enterprise SaaS, and 24/7 autonomous AI systems.
+            Stova Media is a modern web design and AI studio in Kolkata. We cut out corporate red tape and work directly with you to build fast, beautiful websites, custom web apps, and smart AI tools that deliver real results.
           </p>
 
           {/* Animated Kolkata AI Studio Terminal Graphic */}
@@ -184,13 +184,13 @@ export default function AboutClient() {
           <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-violet-500/25 text-violet-300 text-xs font-medium backdrop-blur-xl mb-3">
               <Award size={13} className="text-violet-400" />
-              <span>Our Code of Engineering</span>
+              <span>Our Core Principles</span>
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-[-0.03em] text-slate-100 leading-[1.05] mb-3">
-              How We Build Differently
+              Why Businesses Choose Us
             </h2>
             <p className="text-slate-400 text-base sm:text-lg leading-relaxed">
-              We operate under four foundational principles that eliminate technical debt, protect your investment, and ensure enduring software value.
+              We believe great digital products should be fast, easy to manage, and clearly explained. Here is how we work with you.
             </p>
           </div>
 
@@ -259,27 +259,27 @@ export default function AboutClient() {
               <div className="lg:col-span-8 flex flex-col justify-center">
                 <div className="inline-flex items-center gap-1.5 text-violet-400 text-xs font-mono uppercase tracking-widest mb-3">
                   <Terminal size={14} />
-                  <span>Founder Engineering Note</span>
+                  <span>A Note From Our Founder</span>
                 </div>
                 <blockquote className="text-lg sm:text-xl md:text-2xl text-slate-200 leading-snug italic mb-4">
-                  &ldquo;Software shouldn&apos;t be an unpredictable black box. When you build with Stova Media, you get clean, maintainable architecture built by engineers who genuinely care about your business growth and operational velocity.&rdquo;
+                  &ldquo;Building a website or software should never feel confusing or stressful. At Stova Media, we build clean, reliable digital products and explain every step in plain English so you always feel confident.&rdquo;
                 </blockquote>
                 <p className="text-slate-400 text-sm sm:text-base leading-relaxed mb-5">
-                  Based in Kolkata, Mehedi Hasan leads technical architecture across custom Next.js applications, healthcare SaaS platforms, and autonomous AI agents for clients locally and globally across the USA, UK, and UAE.
+                  Based in Kolkata, Mehedi Hasan leads development for modern websites, custom web applications, and smart AI chat tools for businesses locally across India and internationally in the USA, UK, and UAE.
                 </p>
 
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs font-mono text-slate-300 pt-4 border-t border-white/[0.08]">
                   <div className="flex items-center gap-1.5">
                     <CheckCircle2 size={13} className="text-emerald-400 shrink-0" />
-                    <span>Next.js Architecture</span>
+                    <span>Fast Modern Websites</span>
                   </div>
                   <div className="flex items-center gap-1.5">
                     <CheckCircle2 size={13} className="text-emerald-400 shrink-0" />
-                    <span>PostgreSQL &amp; Cloud</span>
+                    <span>Secure Cloud Databases</span>
                   </div>
                   <div className="flex items-center gap-1.5">
                     <CheckCircle2 size={13} className="text-emerald-400 shrink-0" />
-                    <span>Autonomous AI Workflows</span>
+                    <span>Smart AI Automation</span>
                   </div>
                 </div>
               </div>
@@ -293,10 +293,10 @@ export default function AboutClient() {
         <div className="max-w-[1100px] mx-auto text-center relative z-10 flex flex-col items-center justify-center">
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-violet-500/25 text-violet-300 text-xs font-medium backdrop-blur-xl mb-3">
             <Server size={13} className="text-violet-400" />
-            <span>Modern Production Stack</span>
+            <span>Our Technology</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-[-0.03em] text-slate-100 leading-[1.05] mb-8 text-center max-w-3xl mx-auto">
-            The Battle-Tested Technologies We Build With
+            Modern Tools for Fast, Reliable Results
           </h2>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 w-full">
@@ -328,13 +328,13 @@ export default function AboutClient() {
           <div className="text-center max-w-xl mx-auto mb-12 sm:mb-16">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-violet-500/25 text-violet-300 text-xs font-medium mb-4 backdrop-blur-xl shadow-[0_0_20px_rgba(139,92,246,0.15)]">
               <HelpCircle size={13} className="text-violet-400" />
-              <span>Studio & Engineering Clarity</span>
+              <span>Got Questions?</span>
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-[-0.03em] text-slate-100 leading-[1.05] mb-3">
               Frequently Asked Questions
             </h2>
             <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
-              Straight answers on technical architecture, architect collaboration, and intellectual property.
+              Clear answers about our development process, working together, and ownership.
             </p>
           </div>
 
@@ -368,10 +368,10 @@ export default function AboutClient() {
           <div className="rounded-2xl p-6 sm:p-8 border border-white/[0.08] bg-gradient-to-r from-white/[0.04] to-white/[0.01] backdrop-blur-xl flex flex-col sm:flex-row items-center justify-between gap-5 shadow-[0_8px_32px_rgba(0,0,0,0.36)]">
             <div className="text-left space-y-1">
               <h4 className="text-sm sm:text-base font-medium text-slate-200">
-                Have a specialized technical inquiry?
+                Have a question about your project?
               </h4>
               <p className="text-xs text-slate-400">
-                Speak directly with Lead Architect Mehedi Hasan in Kolkata — get a response within 4 hours.
+                Speak directly with our team in Kolkata — get an honest recommendation within 24 hours.
               </p>
             </div>
 
@@ -393,7 +393,7 @@ export default function AboutClient() {
               proximity={280}
               className="text-white font-medium text-xs sm:text-sm shadow-md shadow-violet-600/30 shrink-0 cursor-pointer"
             >
-              <span>Consult with architect</span>
+              <span>Book a Free Call</span>
               <ArrowRight size={14} />
             </SpecularButton>
           </div>

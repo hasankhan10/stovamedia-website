@@ -8,44 +8,44 @@ import TiltCard from "@/components/animations/TiltCard";
 const pillars = [
   {
     id: "websites",
-    title: "Small business and local growth websites",
-    tagline: "Sub-second load times engineered to rank higher on Google search and eliminate bounce rate drop-off.",
-    badge: "Sub-second speed",
+    title: "High-Converting Websites",
+    tagline: "Fast, modern websites that rank higher on Google search and turn visitors into paying customers.",
+    badge: "Ultra-Fast Speed",
     badgeColor: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
     icon: Globe,
     features: [
-      "Custom Next.js architecture with zero WordPress bloat",
-      "Google Maps and localized search authority engineering",
-      "Mobile-first checkout and streamlined consultation flows",
-      "100/100 Google Core Web Vitals guarantee",
+      "Custom, modern code — zero slow templates or plugins",
+      "Optimized for local Google Search and Google Maps",
+      "Simple mobile navigation and clean booking flows",
+      "Guaranteed 95+ speed score on Google",
     ],
   },
   {
     id: "software",
-    title: "Custom web applications and enterprise software",
-    tagline: "Tailored full-stack platforms, operational dashboards, and SaaS products built with zero technical debt.",
-    badge: "Enterprise scale",
+    title: "Custom Web Applications",
+    tagline: "Tailored customer portals, internal dashboards, and business tools built to scale your operations.",
+    badge: "Built to Scale",
     badgeColor: "bg-violet-500/10 text-violet-400 border-violet-500/20",
     icon: Server,
     features: [
-      "Bespoke SaaS platforms, patient portals, and internal CRM tools",
-      "Enterprise PostgreSQL, edge caching, and REST/GraphQL APIs",
-      "Bank-grade authentication and AES-256 data protection",
-      "100% source code Git repository ownership with zero lock-in",
+      "Custom client portals, CRM tools, and management dashboards",
+      "Secure databases and smooth third-party software connections",
+      "High-level data security and privacy protection",
+      "You own 100% of the code and intellectual property",
     ],
   },
   {
     id: "ai-workflows",
-    title: "Autonomous AI and automation workflows",
-    tagline: "Custom AI agents that qualify incoming leads, answer customer questions, and automate operations 24/7.",
-    badge: "24/7 autopilot",
+    title: "Smart AI & Automation",
+    tagline: "Intelligent AI assistants that answer questions, capture leads, and book appointments 24/7.",
+    badge: "24/7 Autopilot",
     badgeColor: "bg-cyan-500/10 text-cyan-400 border-cyan-500/20",
     icon: Bot,
     features: [
-      "24/7 intelligent AI booking assistants for web and WhatsApp",
-      "Automated lead capture, qualification, and instant CRM sync",
-      "Custom RAG systems trained on private business knowledge bases",
-      "Autonomous scheduling and automated multi-step notification pipelines",
+      "24/7 smart AI chat for your website and WhatsApp",
+      "Captures customer details and sends instant alerts to you",
+      "Trained on your business, services, pricing, and FAQs",
+      "Automated appointment scheduling and reminders",
     ],
   },
 ];
@@ -64,15 +64,15 @@ export default function WhatWeDo() {
         <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.04] border border-white/10 text-violet-300 text-xs font-medium mb-4 backdrop-blur-md">
             <span className="w-1.5 h-1.5 rounded-full bg-violet-400" />
-            <span>Core engineering disciplines</span>
+            <span>What We Do</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-[-0.03em] text-slate-100 leading-[1.05] mb-4">
-            Architected for Speed, Conversion, and Scale
+            Everything You Need to Grow Online
           </h2>
 
           <p className="text-slate-400 text-base sm:text-lg leading-relaxed">
-            We eliminate agency bloat and deliver precision software across three core disciplines. Direct technical access with zero middlemen.
+            We build modern websites, custom software, and smart AI tools designed to get real business results. Direct collaboration with zero middlemen.
           </p>
         </div>
 
@@ -122,7 +122,7 @@ export default function WhatWeDo() {
                         onClick={() => setSelectedService(pillar.title)}
                         className="w-full py-3 px-4 rounded-xl bg-white/[0.04] hover:bg-gradient-to-r hover:from-violet-600 hover:to-indigo-600 text-slate-200 hover:text-white border border-white/10 hover:border-violet-500/50 font-medium text-xs sm:text-sm transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer focus-visible:outline-2 focus-visible:outline-violet-400"
                       >
-                        <span>Inquire about this architecture</span>
+                        <span>Get Started</span>
                         <ArrowRight size={14} />
                       </button>
                     </MagneticElement>

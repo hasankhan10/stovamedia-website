@@ -13,27 +13,27 @@ interface FAQItem {
 const faqs: FAQItem[] = [
   {
     number: "01",
-    question: "What does Stova Media engineer?",
+    question: "What services does Stova Media provide?",
     answer:
-      "We architect sub-second Next.js web applications, enterprise SaaS platforms, and 24/7 autonomous AI agents tailored for maximum conversion and business scale.",
+      "We build fast modern websites, custom web applications, and smart AI chat assistants that help businesses win more clients and automate daily tasks.",
   },
   {
     number: "02",
-    question: "How does milestone pricing work?",
+    question: "How does pricing and payment work?",
     answer:
-      "Fixed-scope deliverables with 50% upfront to commence architecture and 50% only upon your final verification and staging approval. Zero surprise hourly overages.",
+      "We work on simple, fixed project prices with zero surprise fees. Typically, it is 50% upfront to start and 50% only after you review and approve the final work.",
   },
   {
     number: "03",
-    question: "Who owns the code & intellectual property?",
+    question: "Who owns the website and code after launch?",
     answer:
-      "You own 100% of the intellectual property, Git repositories, database schemas, and cloud infrastructure from day one with zero vendor lock-in.",
+      "You own 100% of everything. Your website files, code, design, and domain belong entirely to you with zero monthly lock-in or recurring licensing fees.",
   },
   {
     number: "04",
-    question: "What is your typical turnaround timeline?",
+    question: "How long does a project take?",
     answer:
-      "Growth websites launch in 10–14 days, e-commerce storefronts & AI agents in 2–3 weeks, and custom SaaS platforms in 3–6 week sprints with direct architect access.",
+      "Most business websites are ready in 10 to 14 days. Online stores and AI tools take 2 to 3 weeks, and custom software takes 3 to 6 weeks.",
   },
 ];
 
@@ -59,15 +59,15 @@ export default function HomeFAQ() {
         <div className="text-center max-w-xl mx-auto mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-violet-500/25 text-violet-300 text-xs font-medium mb-4 backdrop-blur-xl shadow-[0_0_20px_rgba(139,92,246,0.15)]">
             <HelpCircle size={13} className="text-violet-400" />
-            <span>Frequently asked questions</span>
+            <span>Common Questions</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-[-0.03em] text-slate-100 leading-[1.05] mb-3">
-            Quick Clarity
+            Clear Answers to Common Questions
           </h2>
 
           <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
-            Essential facts on architecture, milestone deliverables, and IP ownership.
+            Everything you need to know about working with us, pricing, and project ownership.
           </p>
         </div>
 
@@ -101,10 +101,10 @@ export default function HomeFAQ() {
         <div className="rounded-2xl p-6 sm:p-8 border border-white/[0.08] bg-gradient-to-r from-white/[0.04] to-white/[0.01] backdrop-blur-xl flex flex-col sm:flex-row items-center justify-between gap-5 shadow-[0_8px_32px_rgba(0,0,0,0.36)]">
           <div className="text-left space-y-1">
             <h4 className="text-sm sm:text-base font-medium text-slate-200">
-              Have a specialized custom requirement?
+              Have a question about your project?
             </h4>
             <p className="text-xs text-slate-400">
-              Speak directly with our Lead Architect in Kolkata — get an engineering evaluation within 4 hours.
+              Book a free 15-minute call to discuss your goals and get straightforward advice.
             </p>
           </div>
 
@@ -126,7 +126,7 @@ export default function HomeFAQ() {
             proximity={280}
             className="text-white font-medium text-xs sm:text-sm shadow-md shadow-violet-600/30 shrink-0"
           >
-            <span>Book consultation</span>
+            <span>Book a Free Call</span>
             <ArrowRight size={14} />
           </SpecularButton>
         </div>

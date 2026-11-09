@@ -43,3 +43,6 @@ next-env.d.ts
 # hallmark
 .hallmark
 
+# agents scratch
+.agents/
+

@@ -35,62 +35,62 @@ interface PricingTier {
 const pricingTiers: PricingTier[] = [
   {
     id: "growth-website",
-    title: "Growth Website Architecture",
-    tagline: "For ambitious businesses seeking high Google search dominance, sub-second TTFB, and maximum conversion rates.",
-    price: "Fixed Milestone",
-    period: "Single Delivery Scope",
+    title: "Business Website",
+    tagline: "For businesses that want a fast, beautiful website that ranks high on Google and turns visitors into clients.",
+    price: "Fixed Price",
+    period: "One-Time Project",
     popular: false,
-    badge: "10-14 Days Launch",
+    badge: "10–14 Days Launch",
     badgeColor: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
     icon: Globe,
     delivery: "10–14 Days Delivery",
     features: [
-      "100% custom Next.js 15 & React 19 architecture (zero WordPress bloat)",
-      "Google Maps (GMB) #1 ranking optimization & local SEO authority",
-      "Sub-50ms TTFB edge caching with 100/100 Core Web Vitals guarantee",
-      "Streamlined high-converting consultation and lead capture flows",
-      "Full responsive mobile-first UI with custom design token system",
-      "Free SSL, Cloudflare edge DNS, and 30-day post-launch warranty",
+      "100% custom design & code (zero slow templates or WordPress)",
+      "Google Maps & local search ranking optimization",
+      "Lightning-fast page loading with 95+ Google speed score",
+      "Easy contact forms and clear calls to action",
+      "Works smoothly on mobile, tablet, and desktop",
+      "Free SSL security setup and 30-day post-launch support",
     ],
   },
   {
     id: "ecommerce-ai",
-    title: "E-Commerce & AI Automation",
-    tagline: "For modern retailers and brands requiring a blazing fast storefront powered by a 24/7 intelligent sales assistant.",
-    price: "Tailored Scope",
-    period: "Milestone Deliverable",
+    title: "Online Store & AI Assistant",
+    tagline: "For brands that want a fast online store with a 24/7 AI assistant to answer customer questions and boost sales.",
+    price: "Custom Quote",
+    period: "Fixed Milestones",
     popular: true,
-    badge: "Most Recommended",
+    badge: "Most Popular",
     badgeColor: "bg-violet-500/10 text-violet-400 border-violet-500/20",
     icon: Bot,
     delivery: "2–3 Weeks Delivery",
     features: [
-      "Custom checkout storefront engineered for 3X mobile conversion",
-      "24/7 intelligent AI booking & sales assistant for Web & WhatsApp",
-      "Real-time inventory management, automated invoices, and CRM sync",
-      "Instant UPI, credit card, and global multi-currency payment gates",
-      "Automated order confirmation and dispatch notification pipelines",
-      "100% source code repository ownership with zero platform royalties",
+      "Fast, easy mobile checkout designed to increase orders",
+      "24/7 smart AI chat assistant for your website & WhatsApp",
+      "Inventory tracking, instant customer receipts, and email alerts",
+      "Secure payments via UPI, cards, and net banking",
+      "Automated order confirmations and customer notifications",
+      "You own 100% of your store with zero monthly sales fees",
     ],
   },
   {
     id: "custom-saas",
-    title: "Enterprise SaaS & Web Apps",
-    tagline: "For startups and scaling enterprises needing bespoke software, secure multi-tenant backends, and custom AI pipelines.",
-    price: "Sprint-Based",
-    period: "Milestone Sprints",
+    title: "Custom Web Application",
+    tagline: "For startups and growing companies needing custom client portals, internal tools, or business platforms.",
+    price: "Milestone Based",
+    period: "Staged Milestones",
     popular: false,
-    badge: "Bespoke Scale",
+    badge: "Custom Built",
     badgeColor: "bg-cyan-500/10 text-cyan-400 border-cyan-500/20",
     icon: Server,
-    delivery: "3–6 Weeks Sprints",
+    delivery: "3–6 Weeks Delivery",
     features: [
-      "End-to-end Next.js 15, TypeScript, PostgreSQL, and Supabase architecture",
-      "Bank-grade Role-Based Access Control (RBAC) and encrypted auth",
-      "Autonomous AI pipelines, vector database embeddings & private RAG",
-      "High-throughput REST/GraphQL APIs with sub-50ms query execution",
-      "Direct daily collaboration with Lead Software Architect",
-      "100% intellectual property rights and full git repository transfer",
+      "Fully custom web app built for your exact business workflow",
+      "Secure user accounts, permissions, and encrypted login",
+      "Smart AI features and automated business tasks",
+      "Fast and reliable database setup that scales as you grow",
+      "Direct weekly communication with the lead developer",
+      "Full ownership of your source code and data from day one",
     ],
   },
 ];
@@ -98,41 +98,41 @@ const pricingTiers: PricingTier[] = [
 const guarantees = [
   {
     icon: ShieldCheck,
-    title: "100% IP & Code Ownership",
-    description: "You own every line of code, database schema, and deployment configuration upon completion. Zero proprietary agency lock-in.",
+    title: "100% Code Ownership",
+    description: "You own every line of code, design file, and database from day one. You are never locked into our agency.",
   },
   {
     icon: Clock,
-    title: "4-Hour Feasibility Response",
-    description: "Submit your technical requirements and receive a comprehensive engineering review and fixed timeline proposal within 4 business hours.",
+    title: "Clear Fixed Pricing",
+    description: "Every project has a clear, fixed quote. You will never receive surprise bills or hidden charges.",
   },
   {
     icon: Zap,
-    title: "Zero Hidden Fees",
-    description: "Fixed milestone pricing with zero surprise hourly overages, no hidden maintenance fees, and no recurring agency markups.",
+    title: "30 Days Free Support",
+    description: "Every project includes 30 days of free technical support and quick bug fixes after launch to make sure everything runs smoothly.",
   },
 ];
 
 const pricingFaqs = [
   {
     number: "01",
-    question: "How does milestone-based pricing work?",
-    answer: "We structure projects into clear, verifiable engineering milestones. Projects commence with a 50% upfront deposit to begin architecture, and the final 50% is only payable after you test, verify, and approve the staging build.",
+    question: "How do payments work?",
+    answer: "We split payments into clear milestones. Usually, 50% is paid upfront to begin work, and the remaining 50% is paid only after you test and approve the completed project.",
   },
   {
     number: "02",
-    question: "What is included in the 30-day post-launch warranty?",
-    answer: "Every custom build includes 30 days of comprehensive technical support, cloud monitoring, edge performance tuning, and immediate bug fixes to ensure complete operational stability.",
+    question: "What happens after my website or app launches?",
+    answer: "You get 30 days of free post-launch support. We monitor the site, ensure fast loading, and fix any issues immediately at no extra charge.",
   },
   {
     number: "03",
-    question: "Can we expand features or integrate new AI workflows later?",
-    answer: "Yes. Because our architecture is strictly modular and free from technical debt, integrating additional AI pipelines, database schemas, or payment gateways in the future is completely frictionless.",
+    question: "Can I add new features or pages later?",
+    answer: "Yes! Because our code is clean and modular, adding new pages, payment options, or AI features in the future is quick and straightforward.",
   },
   {
     number: "04",
-    question: "How are custom quotes calculated for SaaS platforms?",
-    answer: "We evaluate your exact data model, user concurrency requirements, third-party integrations, and timeline targets to deliver a transparent, fixed milestone scope with guaranteed delivery dates.",
+    question: "How do you calculate custom project quotes?",
+    answer: "We review the exact features you need, timeline, and goals. Then we provide a transparent, fixed price proposal with guaranteed delivery dates.",
   },
 ];
 
@@ -174,15 +174,15 @@ export default function PricingClient() {
           {/* Eyebrow Pill */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-violet-500/25 text-violet-300 text-xs font-medium backdrop-blur-xl mb-6 shadow-[0_0_20px_rgba(139,92,246,0.15)]">
             <Layers size={14} className="text-violet-400" />
-            <span>Transparent Investment · Fixed Scope Delivery</span>
+            <span>Clear Pricing · Fixed Estimates</span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium tracking-[-0.03em] text-slate-100 leading-[1.04] max-w-4xl mx-auto mb-6">
-            Predictable Pricing. Guaranteed Results.
+            Simple, Predictable Pricing
           </h1>
 
           <p className="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed mb-14 sm:mb-16">
-            Zero hourly billing bloat, zero surprise invoices. Choose a fixed-scope engineering tier or request a custom milestone scope reviewed directly by our Lead Architect.
+            No confusing hourly rates, no hidden fees, and no surprise bills. Pick a package or request a custom quote for your project.
           </p>
 
           {/* 3 Core Pricing Cards Grid */}
@@ -249,11 +249,11 @@ export default function PricingClient() {
                         </ul>
                       </div>
 
-                      {/* Action SpecularButton */}
+                      {/* Action SpecularButton with Increased Height */}
                       <SpecularButton
                         onClick={() => openBookingFor(tier.title)}
-                        size="sm"
-                        radius={12}
+                        size="md"
+                        radius={14}
                         tint={tier.popular ? "#6d28d9" : "#3b82f6"}
                         tintOpacity={tier.popular ? 0.75 : 0.4}
                         lineColor={tier.popular ? "#c4b5fd" : "#93c5fd"}
@@ -262,14 +262,14 @@ export default function PricingClient() {
                         thickness={1.3}
                         intensity={1.1}
                         idleIntensity={0.5}
-                        shineSize={14}
+                        shineSize={16}
                         shineFade={32}
                         followMouse={true}
                         proximity={240}
-                        className="w-full text-white font-medium text-xs sm:text-sm shadow-md cursor-pointer"
+                        className="w-full py-4 sm:py-4.5 min-h-[52px] sm:min-h-[56px] text-white font-medium text-sm sm:text-base shadow-lg cursor-pointer flex items-center justify-center gap-2"
                       >
-                        <span>Get {tier.title.split(" ")[0]} Proposal</span>
-                        <ArrowRight size={14} />
+                        <span>Get {tier.id === "ecommerce-ai" ? "Store" : tier.title.split(" ")[0]} Proposal</span>
+                        <ArrowRight size={16} />
                       </SpecularButton>
                     </div>
                   </TiltCard>
@@ -294,10 +294,10 @@ export default function PricingClient() {
         <div className="max-w-[1200px] mx-auto relative z-10">
           <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-[-0.03em] text-slate-100 leading-[1.05] mb-3">
-              Our Investment Standards
+              Our Quality Guarantees
             </h2>
             <p className="text-slate-400 text-base sm:text-lg">
-              We eliminate financial risk and guarantee enterprise code standards across every milestone.
+              We take the risk out of software development with clear communication and guaranteed delivery.
             </p>
           </div>
 
@@ -340,13 +340,13 @@ export default function PricingClient() {
           <div className="text-center max-w-xl mx-auto mb-12 sm:mb-16">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-violet-500/25 text-violet-300 text-xs font-medium mb-4 backdrop-blur-xl shadow-[0_0_20px_rgba(139,92,246,0.15)]">
               <HelpCircle size={13} className="text-violet-400" />
-              <span>Payment & Scope Questions</span>
+              <span>Pricing FAQs</span>
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-[-0.03em] text-slate-100 leading-[1.05] mb-3">
-              Frequently Asked Pricing Questions
+              Frequently Asked Questions
             </h2>
             <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
-              Essential facts on milestone deliverables, code transfer, and post-launch warranties.
+              Clear answers on payments, milestones, code ownership, and warranties.
             </p>
           </div>
 
@@ -380,10 +380,10 @@ export default function PricingClient() {
           <div className="rounded-2xl p-6 sm:p-8 border border-white/[0.08] bg-gradient-to-r from-white/[0.04] to-white/[0.01] backdrop-blur-xl flex flex-col sm:flex-row items-center justify-between gap-5 shadow-[0_8px_32px_rgba(0,0,0,0.36)]">
             <div className="text-left space-y-1">
               <h4 className="text-sm sm:text-base font-medium text-slate-200">
-                Require a customized milestone sprint?
+                Need a custom plan for your project?
               </h4>
               <p className="text-xs text-slate-400">
-                Speak directly with our Lead Architect in Kolkata — get a transparent scope proposal within 4 hours.
+                Talk directly with our team in Kolkata — get an honest scope and price within 24 hours.
               </p>
             </div>
 
@@ -405,7 +405,7 @@ export default function PricingClient() {
               proximity={280}
               className="text-white font-medium text-xs sm:text-sm shadow-md shadow-violet-600/30 shrink-0 cursor-pointer"
             >
-              <span>Request custom review</span>
+              <span>Request custom quote</span>
               <ArrowRight size={14} />
             </SpecularButton>
           </div>
@@ -426,10 +426,10 @@ export default function PricingClient() {
         <div className="max-w-[1000px] mx-auto text-center relative z-10">
           <div className="bg-gradient-to-b from-white/[0.05] to-white/[0.02] rounded-2xl sm:rounded-3xl p-8 sm:p-14 border border-white/[0.08] backdrop-blur-xl shadow-[0_15px_40px_rgba(0,0,0,0.45)] flex flex-col items-center">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-[-0.03em] text-slate-100 leading-[1.05] mb-4">
-              Need a Custom Milestone or Technical Review?
+              Have Questions About Pricing?
             </h2>
             <p className="text-slate-400 text-sm sm:text-base md:text-lg max-w-xl mb-8 leading-relaxed">
-              Book a direct strategy consultation with our Lead Software Architect to review feasibility, technical architecture, and guaranteed milestone scopes.
+              Book a free 15-minute call to discuss your ideas, get honest advice, and receive a clear fixed-price quote.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
@@ -452,7 +452,7 @@ export default function PricingClient() {
                 className="w-full sm:w-auto text-white font-medium text-xs sm:text-sm shadow-lg shadow-violet-600/30 cursor-pointer"
               >
                 <Calendar size={15} />
-                <span>Book Free Consultation</span>
+                <span>Book Free Call</span>
                 <ArrowRight size={15} />
               </SpecularButton>
 
@@ -464,7 +464,7 @@ export default function PricingClient() {
                   className="w-full sm:w-auto px-6 sm:px-7 py-3.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 text-slate-200 hover:text-white font-medium text-xs sm:text-sm transition-all flex items-center justify-center gap-2"
                 >
                   <MessageSquare size={15} />
-                  <span>Direct Inquiry</span>
+                  <span>Chat on WhatsApp</span>
                 </a>
               </MagneticElement>
             </div>

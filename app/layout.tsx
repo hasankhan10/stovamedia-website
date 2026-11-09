@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Outfit, DM_Serif_Display, Plus_Jakarta_Sans } from "next/font/google";
+import { Outfit, DM_Serif_Display, Plus_Jakarta_Sans, Syne } from "next/font/google";
 import "./globals.css";
 
 import Preloader from "@/components/layout/Preloader";
@@ -27,6 +27,13 @@ const plusJakarta = Plus_Jakarta_Sans({
   variable: "--font-admin",
   display: "swap",
   weight: ["400", "500", "600", "700", "800"],
+});
+
+const syne = Syne({
+  subsets: ["latin"],
+  variable: "--font-syne",
+  display: "swap",
+  weight: ["500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -301,7 +308,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`light ${outfit.variable} ${dmSerif.variable} ${plusJakarta.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`light ${outfit.variable} ${dmSerif.variable} ${plusJakarta.variable} ${syne.variable}`} suppressHydrationWarning>
       <head>
         <link rel="icon" href="/logo.jpeg" type="image/jpeg" />
         <link rel="shortcut icon" href="/logo.jpeg" type="image/jpeg" />

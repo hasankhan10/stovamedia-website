@@ -22,11 +22,15 @@
   --color-dim: var(--dim);
   --font-display: var(--font-display);
   --font-ui: var(--font-ui);
+  --font-syne: var(--font-syne);
+  --font-heading: var(--font-heading);
 }
 
 :root {
   --font-display: 'DM Serif Display', serif;
   --font-ui: 'Outfit', sans-serif;
+  --font-syne: var(--font-syne), 'Syne', sans-serif;
+  --font-heading: var(--font-syne), var(--font-admin), 'Plus Jakarta Sans', sans-serif;
   --ink: #0A0A0B; /* Solid Premium Dark Charcoal (80% Black / 20% Gray blend) */
   --ink-gradient: var(--ink);
   --ink-2: #0C0C0C;

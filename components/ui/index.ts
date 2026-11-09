@@ -13,3 +13,4 @@ export { default as Crosshair } from "./Crosshair";
 export { default as TechText } from "./TechText";
 export { default as SpecularButton } from "./SpecularButton";
 export { default as BounceCards } from "./BounceCards";
+export { default as SplitText } from "./SplitText";

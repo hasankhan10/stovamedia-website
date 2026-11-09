@@ -20,46 +20,46 @@ interface ProjectShowcaseItem {
 const featuredProjects: ProjectShowcaseItem[] = [
   {
     id: "dr-pauls-care",
-    title: "Patient portal and clinic scheduling platform",
+    title: "Clinic appointment and patient portal",
     client: "Dr. Paul's Healthcare",
-    category: "Custom healthcare SaaS",
-    tagline: "Sub-second clinic booking with zero slow WordPress templates.",
+    category: "Healthcare Web Platform",
+    tagline: "Fast online clinic booking with automated patient reminders.",
     description:
-      "Enterprise Next.js 15 web application with automated appointment scheduling, encrypted patient workflows, and sub-50ms edge SSR performance.",
+      "A custom web platform for patients to book clinic visits in seconds and receive instant appointment confirmations.",
     image: "/drpauls-care.png",
     ctaUrl: "/contact",
   },
   {
     id: "travel-ai-engine",
-    title: "Autonomous travel AI and motion booking engine",
+    title: "AI-powered travel booking system",
     client: "Stova Travel Engine",
-    category: "AI booking assistant & web",
-    tagline: "Cinematic motion and 24/7 autonomous travel booking platform.",
+    category: "Travel & AI Assistant",
+    tagline: "Interactive holiday packages with a 24/7 AI travel guide.",
     description:
-      "Combines 60 FPS package animations with a 24/7 autonomous AI assistant that answers traveler queries, explains itineraries, and closes verified bookings.",
+      "Showcases holiday packages with smooth visuals and an AI assistant that answers questions and confirms bookings.",
     image: "/travel/tea-garden-resort.jpg",
     ctaUrl: "/ailandingpage",
     isInternalDemo: true,
   },
   {
     id: "bondhu-motor",
-    title: "High-speed D2C digital vehicle showroom",
+    title: "Online vehicle showroom & lead system",
     client: "Bondhu Motor",
-    category: "High-performance web platform",
-    tagline: "Instant catalog discovery with direct verified lead generation.",
+    category: "Automotive Website",
+    tagline: "Fast inventory browsing that generates direct customer calls.",
     description:
-      "Automotive marketplace platform built to dominate local Google search rankings and generate high-intent buyer inquiries straight to sales teams.",
+      "An automotive website built to rank locally on Google and connect interested buyers directly to the dealership.",
     image: "/bondhu motor.png",
     ctaUrl: "/contact",
   },
   {
     id: "mr-compounder",
-    title: "Silent OPD clinic management and prescription SaaS",
+    title: "Clinic queue & prescription software",
     client: "Mr Compounder",
-    category: "Healthcare operational platform",
-    tagline: "Engineered to run seamlessly even on low-bandwidth rural connections.",
+    category: "Medical Software",
+    tagline: "Reliable clinic management that works even on slow internet.",
     description:
-      "Silent OPD queue management system with encrypted doctor prescriptions, SMS patient notification dispatch, and zero server crashes under peak OPD load.",
+      "A straightforward system for doctors to manage daily patient queues and create clear digital prescriptions.",
     image: "/mrcompounder.png",
     ctaUrl: "/contact",
   },
@@ -100,15 +100,15 @@ export default function FeaturedWork() {
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.04] border border-white/10 text-violet-300 text-xs font-medium mb-4 backdrop-blur-md">
             <span className="w-1.5 h-1.5 rounded-full bg-violet-400" />
-            <span>Proven client outcomes</span>
+            <span>Our Recent Work</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-[-0.03em] text-slate-100 leading-[1.05] mb-4">
-            Production Systems Engineered for Growth
+            Real Projects Built for Real Businesses
           </h2>
 
           <p className="text-slate-400 text-base sm:text-lg leading-relaxed">
-            Every platform we deploy is custom-coded for high-conversion performance, rock-solid security, and measurable ROI.
+            Every website and application we build is designed to be fast, easy to use, and focused on driving real revenue.
           </p>
         </div>
 
@@ -131,7 +131,7 @@ export default function FeaturedWork() {
           {/* Quick project selectors & guidance */}
           <p className="text-center text-xs font-mono text-slate-400 mt-6 flex items-center justify-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            <span>Interactive stack — click any card to inspect or test live demo</span>
+            <span>Click any card below to view details or try a live demo</span>
           </p>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-6 w-full max-w-4xl">
@@ -150,7 +150,7 @@ export default function FeaturedWork() {
                   </div>
                 </div>
                 <div className="mt-3 flex items-center justify-between text-[11px] font-mono text-violet-400 pt-2 border-t border-white/[0.06]">
-                  <span>{project.isInternalDemo ? "Live demo" : "Inspect"}</span>
+                  <span>{project.isInternalDemo ? "Live demo" : "View project"}</span>
                   <ArrowUpRight size={13} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </div>
               </button>

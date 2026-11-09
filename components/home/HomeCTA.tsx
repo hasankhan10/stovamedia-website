@@ -23,16 +23,16 @@ export default function HomeCTA() {
           {/* Top Pill */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-violet-500/25 text-violet-300 text-xs font-medium mb-6 backdrop-blur-xl">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            <span>Accepting select client builds</span>
+            <span>Now booking new projects</span>
           </div>
 
           {/* Main Headline */}
           <h2 className="text-3xl sm:text-5xl md:text-6xl font-medium tracking-[-0.03em] text-slate-100 leading-[1.05] mb-4">
-            Ready to Scale Your Software?
+            Ready to Grow Your Business Online?
           </h2>
 
           <p className="text-slate-400 text-base sm:text-lg font-normal max-w-xl mx-auto leading-relaxed mb-9">
-            Consult directly with our lead technical architect and receive a full feasibility roadmap within 4 hours.
+            Book a free 15-minute call to discuss your project. We&apos;ll give you a clear plan and a fixed-price estimate within 24 hours.
           </p>
 
           {/* Action Buttons: Specular Button */}
@@ -55,7 +55,7 @@ export default function HomeCTA() {
               proximity={320}
               className="w-full sm:w-auto text-white font-medium text-sm shadow-[0_0_28px_rgba(139,92,246,0.4)]"
             >
-              <span>Book strategy consultation</span>
+              <span>Book a Free Call</span>
               <ArrowRight size={16} />
             </SpecularButton>
 
@@ -64,7 +64,7 @@ export default function HomeCTA() {
                 href="#work"
                 className="w-full sm:w-auto px-7 py-4 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 text-slate-200 font-medium text-sm transition-colors duration-150 flex items-center justify-center gap-2 backdrop-blur-md focus-visible:outline-2 focus-visible:outline-white/40"
               >
-                <span>Explore client case studies</span>
+                <span>See Our Work</span>
               </a>
             </MagneticElement>
           </div>
@@ -73,15 +73,15 @@ export default function HomeCTA() {
           <div className="pt-8 border-t border-white/[0.08] flex flex-wrap justify-center items-center gap-6 sm:gap-10 text-xs font-mono text-slate-400">
             <div className="flex items-center gap-1.5">
               <Clock size={14} className="text-violet-400" />
-              <span>4-hour feasibility response</span>
+              <span>Fast 24-hour reply</span>
             </div>
             <div className="flex items-center gap-1.5">
               <ShieldCheck size={14} className="text-emerald-400" />
-              <span>100% Git code ownership</span>
+              <span>You own 100% of your code</span>
             </div>
             <div className="flex items-center gap-1.5">
               <Cpu size={14} className="text-indigo-400" />
-              <span>Zero third-party templates</span>
+              <span>100% custom, zero bloat</span>
             </div>
           </div>
         </div>
