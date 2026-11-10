@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Outfit, DM_Serif_Display, Plus_Jakarta_Sans, Syne } from "next/font/google";
 import "./globals.css";
 
 import Preloader from "@/components/layout/Preloader";
@@ -7,34 +6,6 @@ import GlobalBackground from "@/components/layout/GlobalBackground";
 import ScrollProgress from "@/components/layout/ScrollProgress";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import AppLayoutWrapper from "@/components/layout/AppLayoutWrapper";
-
-const outfit = Outfit({
-  subsets: ["latin"],
-  variable: "--font-ui",
-  display: "swap",
-  weight: ["300", "400", "500", "600", "700"],
-});
-
-const dmSerif = DM_Serif_Display({
-  subsets: ["latin"],
-  variable: "--font-display",
-  display: "swap",
-  weight: ["400"],
-});
-
-const plusJakarta = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  variable: "--font-admin",
-  display: "swap",
-  weight: ["400", "500", "600", "700", "800"],
-});
-
-const syne = Syne({
-  subsets: ["latin"],
-  variable: "--font-syne",
-  display: "swap",
-  weight: ["500", "600", "700", "800"],
-});
 
 export const metadata: Metadata = {
   title: {
@@ -308,8 +279,14 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`light ${outfit.variable} ${dmSerif.variable} ${plusJakarta.variable} ${syne.variable}`} suppressHydrationWarning>
+    <html lang="en" className="light" suppressHydrationWarning>
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@500;600;700;800&family=Hind+Siliguri:wght@300;400;500;600;700&display=swap"
+        />
         <link rel="icon" href="/logo.jpeg" type="image/jpeg" />
         <link rel="shortcut icon" href="/logo.jpeg" type="image/jpeg" />
         <link rel="apple-touch-icon" href="/logo.jpeg" />
