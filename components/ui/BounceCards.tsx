@@ -125,6 +125,18 @@ export default function BounceCards({
     const root = rootRef.current;
     if (!root) return undefined;
 
+    const isMobile = typeof window !== 'undefined' && (window.matchMedia?.('(pointer: coarse)').matches || window.innerWidth < 768);
+    if (isMobile) {
+      settingsRef.current.slots.forEach((slot, i) => {
+        const el = cardRefs.current[i];
+        if (el) {
+          el.style.transform = 'translate(-50%, -50%) translate3d(' + slot.x.toFixed(2) + 'px, ' + slot.y.toFixed(2) + 'px, 0) rotate(' + slot.rotate.toFixed(3) + 'deg) scale(1)';
+          el.style.zIndex = String(i + 1);
+        }
+      });
+      return undefined;
+    }
+
     const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
     const bodies: Body[] = [];
     const state = { hovered: -1, time: 0, layer: -1 };

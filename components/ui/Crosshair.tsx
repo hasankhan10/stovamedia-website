@@ -58,8 +58,20 @@ export default function Crosshair({
   className = "",
   style,
 }: CrosshairProps) {
+  const [isTouch, setIsTouch] = React.useState(true);
+
+  React.useEffect(() => {
+    const check = () => {
+      setIsTouch(window.matchMedia("(pointer: coarse)").matches || window.innerWidth < 768);
+    };
+    check();
+    window.addEventListener("resize", check, { passive: true });
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const wakeRef = useRef<(() => void) | null>(null);
+
 
   const settings = {
     color,
@@ -83,6 +95,7 @@ export default function Crosshair({
   });
 
   useEffect(() => {
+    if (isTouch) return undefined;
     const canvas = canvasRef.current;
     const ctx = canvas?.getContext("2d");
     if (!canvas || !ctx) return undefined;
@@ -437,7 +450,9 @@ export default function Crosshair({
       setCursorHidden(false);
       wakeRef.current = null;
     };
-  }, [containerRef]);
+  }, [containerRef, isTouch]);
+
+  if (isTouch) return null;
 
   return (
     <>

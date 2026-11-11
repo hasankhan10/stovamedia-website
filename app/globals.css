@@ -167,4 +167,39 @@ body {
   font-family: var(--font-admin), -apple-system, sans-serif !important;
 }
 
+/* =========================================================================
+   MOBILE PERFORMANCE OPTIMIZATIONS (Smooth 60/120 FPS on iOS & Android)
+   ========================================================================= */
+@media (max-width: 768px) {
+  div[style*="blur"] {
+    filter: blur(24px) !important;
+  }
+  .blur-\[140px\],
+  .blur-\[120px\],
+  .blur-\[100px\],
+  .blur-\[80px\],
+  .blur-\[70px\],
+  .blur-\[60px\],
+  .blur-\[50px\],
+  .blur-\[40px\] {
+    filter: blur(24px) !important;
+  }
+  .backdrop-blur-2xl,
+  .backdrop-blur-xl {
+    -webkit-backdrop-filter: blur(8px) !important;
+    backdrop-filter: blur(8px) !important;
+  }
+  .backdrop-blur-lg,
+  .backdrop-blur-md {
+    -webkit-backdrop-filter: blur(5px) !important;
+    backdrop-filter: blur(5px) !important;
+  }
+  html {
+    -webkit-overflow-scrolling: touch;
+  }
+  .will-change-transform {
+    will-change: auto !important;
+  }
+}
+
 
